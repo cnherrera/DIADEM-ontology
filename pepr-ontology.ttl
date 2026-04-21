@@ -1,0 +1,452 @@
+@prefix proj:    <https://cnherrera.github.io/Exa-AToW_onto/hpc_ontology/exaatow_hpc_ontology.ttl> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix vcard:   <http://www.w3.org/2006/vcard/ns#> .
+@prefix time:    <http://www.w3.org/2006/time#> .
+
+# ─────────────────────────────────────────────
+#  Ontology declaration
+# ─────────────────────────────────────────────
+
+<https://cnherrera.github.io/Exa-AToW_onto/hpc_ontology/exaatow_hpc_ontology.ttl>
+    a owl:Ontology ;
+    dcterms:title        "PEPR Programme Ontology"@en ,
+                         "Ontologie des Programmes PEPR"@fr ;
+    dcterms:description  "Ontology supporting structured representation of French PEPR programs, 
+    its targeted and AAP projects, platforms, competences, tools, deliverables and 
+    human participation. Designed to enhance collaboration discovery, 
+    capability mapping and interoperability with external systems."@en ;
+    dcterms:created      "2026-03-31"^^xsd:date ;
+    owl:versionInfo      "1.0.0" ;
+    rdfs:comment         "Base prefix: proj — https://cnherrera.github.io/Exa-AToW_onto/hpc_ontology/exaatow_hpc_ontology.ttl#"@en .
+
+
+# ─────────────────────────────────────────────
+#  Core Classes
+# ─────────────────────────────────────────────
+
+# -- Top-level Program --------------------------------------------------
+
+proj:Program rdf:type owl:Class ;
+    rdfs:subClassOf schema:ResearchProject ;
+    skos:prefLabel "Program"@en , "Programme"@fr ;
+    rdfs:label "Program"@en , "Programme"@fr ;
+    rdfs:comment "A structured research initiative composed of multiple targeted projects and shared platforms. It defines strategic objectives, a funding framework, governance, and a long-term vision."@en ,
+                 "Une initiative de recherche structurée, composée de plusieurs projets ciblés et de plateformes partagées. Elle définit des objectifs stratégiques, un cadre de financement, une gouvernance et une vision à long terme."@fr .
+
+
+proj:Platform rdf:type owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    skos:prefLabel "Platform"@en , "Plateforme"@fr ;
+    rdfs:label "Platform"@en , "Plateforme"@fr ;
+    rdfs:comment "A shared scientific and/or technical infrastructure that provides research teams with advanced resources such as computing capabilities, software tools, and data environments. It enables the development, execution, and sharing of methods, techniques, and/or scientific code under reproducible conditions, ensuring portability and consistency across different systems."@en ,
+                 "Une infrastructure scientifique et/ou technique mutualisée qui met à disposition des équipes de recherche des ressources avancées telles que des capacités de calcul, des outils logiciels et des environnements de données. Elle permet de développer, exécuter et partager des méthodes, des techniques et/ou des codes scientifiques dans des conditions reproductibles, afin de garantir la portabilité et la cohérence des environnements sur différents systèmes."@fr .
+
+
+proj:InfrastructurePlatform rdf:type owl:Class ;
+    rdfs:subClassOf proj:Platform ;
+    skos:prefLabel "Infrastructure Platform"@en , "Plateforme d'infrastructure"@fr ;
+    rdfs:comment "A platform primarily focused on providing shared infrastructure capabilities such as data storage, experimental facilities, computing resources, or integration frameworks."@en ,
+                 "Une plateforme principalement dédiée à la fourniture de capacités d'infrastructure mutualisées, telles que le stockage des données, les installations expérimentales, les ressources de calcul ou les cadres d'intégration."@fr .
+
+
+proj:CharacterizationPlatform rdf:type owl:Class ;
+    rdfs:subClassOf proj:Platform ;
+    skos:prefLabel "Characterization Platform"@en , "Plateforme de caractérisation"@fr ;
+    rdfs:comment "A platform dedicated to characterization activities, including chemical, structural, microscopic, optical, magnetic, electrical, and mechanical analyses. It may also support in situ or operando characterization, sensor development, and high-throughput data acquisition, especially under extreme conditions."@en ,
+                 "Une plateforme dédiée aux activités de caractérisation, incluant des analyses chimiques, structurales, microscopiques, optiques, magnétiques, électriques et mécaniques. Elle peut également soutenir la caractérisation in situ ou operando, le développement de capteurs et l’acquisition de données à haut débit, en particulier en conditions extrêmes."@fr .
+
+
+proj:SynthesisPlatform rdf:type owl:Class ;
+    rdfs:subClassOf proj:Platform ;
+    skos:prefLabel "Synthesis Platform"@en , "Plateforme de synthèse"@fr ;
+    rdfs:comment "A platform dedicated to synthesis activities, including material preparation, process development, and the production of samples or compounds for research purposes."@en ,
+                 "Une plateforme dédiée aux activités de synthèse, incluant la préparation de matériaux, le développement de procédés et la production d’échantillons ou de composés à des fins de recherche."@fr .
+                 
+#----------------------
+
+proj:PlatformType rdf:type owl:Class ;
+    rdfs:comment "A controlled category used to classify platforms."@en ,
+                 "Une catégorie contrôlée utilisée pour classer les plateformes."@fr ;
+    skos:prefLabel "Platform Type"@en , "Type de plateforme"@fr .
+
+
+proj:MaterialType rdf:type owl:Class ;
+    rdfs:comment "A controlled category describing the material domain associated with a platform."@en ,
+                 "Une catégorie contrôlée décrivant le domaine de matériaux associé à une plateforme."@fr ;
+    skos:prefLabel "Material Type"@en , "Type de matériau"@fr .
+
+
+proj:DimensionType rdf:type owl:Class ;
+    rdfs:comment "A controlled category describing the dimensionality associated with a material system or technique."@en ,
+                 "Une catégorie contrôlée décrivant la dimensionalité associée à un système de matériaux ou technique."@fr ;
+    skos:prefLabel "Dimension Type"@en , "Type de dimension"@fr .
+
+
+proj:TechniqueType rdf:type owl:Class ;
+    rdfs:comment "A controlled category describing a characterization technique."@en ,
+                 "Une catégorie contrôlée décrivant une technique de caractérisation."@fr ;
+    skos:prefLabel "Technique Type"@en , "Type de technique"@fr .
+
+
+# -- Funding --------------------------------------------------------------
+
+proj:Funding rdf:type owl:Class ;
+    rdfs:label   "Funding"@en , "Financement"@fr ;
+    rdfs:comment "A funding source or grant associated with a programme or project."@en .
+
+
+# -- Projects (abstract base) ---------------------------------------------
+
+proj:Project rdf:type owl:Class ;
+    rdfs:label   "Project"@en , "Projet"@fr ;
+    rdfs:comment "Abstract class for any project within the programme."@en .
+
+proj:TargetedProject rfd:type owl:Class ;
+    rdfs:subClassOf proj:Project ;
+    rdfs:label   "Targeted Project"@en , "Projet Ciblé"@fr ;
+    rdfs:comment "A project directly commissioned by the programme (projet ciblé)."@en .
+
+proj:AAPProject rdf:type owl:Class ;
+    rdfs:subClassOf proj:Project ;
+    rdfs:label   "AAP Project"@en , "Projet AAP"@fr ;
+    rdfs:comment "A project funded via an Appel à Projets (AAP)."@en .
+
+# -- Organizations & People -----------------------------------------------
+
+proj:Organization rdf:type owl:Class ;
+    rdfs:label   "Organization"@en , "Organisation"@fr ;
+    rdfs:comment "A legal or academic entity (laboratory, university, company, …)."@en .
+
+proj:Person rdf:type owl:Class ;
+    rdfs:label   "Person"@en , "Personne"@fr ;
+    rdfs:comment "A natural person involved in the program and/or project."@en .
+
+### no needed???
+proj:Membership rdf:type owl:Class ;
+    rdfs:label   "Membership"@en , "Affiliation"@fr ;
+    rdfs:comment "Reification of a person's affiliation to an organisation with an optional role."@en .
+
+# -- Work Packages --------------------------------------------------------
+
+proj:WorkPackage rdf owl:Class ;
+    rdfs:label   "Work Package"@en , "Lot de Travail"@fr ;
+    rdfs:comment "A subdivision of a project."@en .
+
+# -- Deliverables & Tasks -------------------------------------------------
+
+proj:Deliverable
+    a owl:Class ;
+    rdfs:label   "Deliverable"@en , "Livrable"@fr ;
+    rdfs:comment "A concrete output committed to in a work package."@en .
+
+proj:Task
+    a owl:Class ;
+    rdfs:label   "Task"@en , "Tâche"@fr ;
+    rdfs:comment "An atomic unit of work within a work package."@en .
+
+# -- Tools & Products -----------------------------------------------------
+
+proj:Tool
+    a owl:Class ;
+    rdfs:label   "Tool"@en , "Outil"@fr ;
+    rdfs:comment "A software tool, instrument or methodology used in a work package."@en .
+
+proj:Product
+    a owl:Class ;
+    rdfs:label   "Product"@en , "Produit"@fr ;
+    rdfs:comment "A dataset, software, model or other artefact produced by a work package."@en .
+
+# -- Competences ----------------------------------------------------------
+
+proj:Competence
+    a owl:Class ;
+    rdfs:label   "Competence"@en , "Compétence"@fr ;
+    rdfs:comment "A skill, domain expertise or technical ability."@en .
+
+
+
+# ─────────────────────────────────────────────
+#  Object Properties
+# ─────────────────────────────────────────────
+
+# Programme → Funding
+proj:hasFunding rdf:type owl:ObjectProperty ;
+    rdfs:domain  proj:Programme ;
+    rdfs:range   proj:Funding ;
+    rdfs:label   "has funding"@en .
+
+# Programme → Person / Organisation (lead & colead)
+proj:hasLead rdf:type owl:ObjectProperty ;
+    rdfs:domain [ owl:unionOf ( proj:Program , proj:Project , proj:WorkPackage) ] ;  
+    rdfs:range [ owl:unionOf ( proj:Person , proj:Organization ) ] ;
+    rdfs:label   "has lead"@en ;
+    rdfs:comment "Primary scientific or operational lead. Can relate a Programme, Project, Platform or WorkPackage to a Person or Organization."@en .
+
+proj:hasCoLead a owl:ObjectProperty ;
+    rdfs:domain [ owl:unionOf ( proj:Program , proj:Project , proj:WorkPackage) ] ;  
+    rdfs:range [ owl:unionOf ( proj:Person , proj:Organization ) ] ;
+    rdfs:label   "has co-lead"@en ;
+    rdfs:comment "Co-lead. Same domain range flexibility as proj:hasLead."@en .
+
+
+
+
+# Programme → Platform / Project
+proj:hasPlatform rdf:type owl:ObjectProperty ;
+    rdfs:domain  proj:Programme ;
+    rdfs:range   proj:Platform ;
+    rdfs:label   "has platform"@en .
+
+proj:hasTargetedProject rdf:typ owl:ObjectProperty ;
+    rdfs:domain  proj:Programme ;
+    rdfs:range   proj:TargetedProject ;
+    rdfs:label   "has targeted project"@en .
+
+proj:hasAAPProject
+    a owl:ObjectProperty ;
+    rdfs:domain  proj:Programme ;
+    rdfs:range   proj:AAPProject ;
+    rdfs:label   "has AAP project"@en .
+
+# Platform → Projects (lead projects on the platform)
+proj:hasPlatformProject
+    a owl:ObjectProperty ;
+    rdfs:domain  proj:Platform ;
+    rdfs:range   proj:Project ;
+    rdfs:label   "has platform project"@en ;
+    rdfs:comment "Projects associated to this platform."@en .
+
+proj:hasPlatformLeadProject
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf proj:hasPlatformProject ;
+    rdfs:label   "has platform lead project"@en ;
+    rdfs:comment "The 1 or 2 lead projects for this platform."@en .
+
+proj:hasMaterialType rdf:type owl:ObjectProperty ;
+    rdfs:domain  [ owl:unionOf ( proj:CharacterizationPlatform , proj:SynthesisPlatform ) ] ;
+    rdfs:range   proj:MaterialType ;
+    rdfs:label   "has material type"@en .    
+    
+proj:hasDimension rdf:type owl:ObjectProperty ;
+    rdfs:domain   proj:SynthesisPlatform  ;
+    rdfs:range   proj:Dimension ;
+    rdfs:label   "has material type"@en .    
+
+proj:hasTechnique rdf:type owl:ObjectProperty ;
+    rdfs:domain  proj:CharacterizationPlatform  ;
+    rdfs:range   proj:Characterization ;
+    rdfs:label   "has material type"@en .    
+
+# Project → WorkPackage / Organization
+proj:hasWorkPackage
+    a owl:ObjectProperty ;
+    rdfs:domain  proj:Project ;
+    rdfs:range   proj:WorkPackage ;
+    rdfs:label   "has work package"@en .
+
+proj:hasOrganization
+    a owl:ObjectProperty ;
+    rdfs:domain  proj:Project ;
+    rdfs:range   proj:Organization ;
+    rdfs:label   "has organization"@en .
+
+# WorkPackage → deliverables, tasks, tools, products, people
+proj:hasDeliverable
+    a owl:ObjectProperty ;
+    rdfs:domain  proj:WorkPackage ;
+    rdfs:range   proj:Deliverable ;
+    rdfs:label   "has deliverable"@en .
+
+proj:hasTask
+    a owl:ObjectProperty ;
+    rdfs:domain  proj:WorkPackage ;
+    rdfs:range   proj:Task ;
+    rdfs:label   "has task"@en .
+
+proj:usesTool
+    a owl:ObjectProperty ;
+    rdfs:domain  proj:WorkPackage ;
+    rdfs:range   proj:Tool ;
+    rdfs:label   "uses tool"@en .
+
+proj:producesProduct
+    a owl:ObjectProperty ;
+    rdfs:domain  proj:WorkPackage ;
+    rdfs:range   proj:Product ;
+    rdfs:label   "produces product"@en .
+
+proj:hasContributor
+    a owl:ObjectProperty ;
+    rdfs:domain  proj:WorkPackage ;
+    rdfs:range   proj:Person ;
+    rdfs:label   "has contributor"@en .
+
+proj:hasLeadOrganization
+    a owl:ObjectProperty ;
+    rdfs:domain  proj:WorkPackage ;
+    rdfs:range   proj:Organization ;
+    rdfs:label   "has lead organization"@en .
+
+# Person → Competence / Membership
+proj:hasCompetence
+    a owl:ObjectProperty ;
+    rdfs:domain  proj:Person ;
+    rdfs:range   proj:Competence ;
+    rdfs:label   "has competence"@en .
+
+proj:hasMembership
+    a owl:ObjectProperty ;
+    rdfs:domain  proj:Person ;
+    rdfs:range   proj:Membership ;
+    rdfs:label   "has membership"@en .
+
+proj:memberOf
+    a owl:ObjectProperty ;
+    rdfs:domain  proj:Membership ;
+    rdfs:range   proj:Organization ;
+    rdfs:label   "member of"@en .
+
+proj:memberRole
+    a owl:DatatypeProperty ;
+    rdfs:domain  proj:Membership ;
+    rdfs:range   xsd:string ;
+    rdfs:label   "member role"@en .
+
+# Project ↔ Person (generic participation)
+proj:involvesPerson
+    a owl:ObjectProperty ;
+    rdfs:domain  proj:Project ;
+    rdfs:range   proj:Person ;
+    rdfs:label   "involves person"@en .
+
+
+# ─────────────────────────────────────────────
+#  Datatype Properties
+# ─────────────────────────────────────────────
+
+proj:identifier
+    a owl:DatatypeProperty ;
+    rdfs:label   "identifier"@en ;
+    rdfs:range   xsd:string .
+
+proj:acronym
+    a owl:DatatypeProperty ;
+    rdfs:label   "acronym"@en ;
+    rdfs:range   xsd:string .
+
+proj:description
+    a owl:DatatypeProperty ;
+    rdfs:label   "description"@en ;
+    rdfs:range   xsd:string .
+
+proj:startDate
+    a owl:DatatypeProperty ;
+    rdfs:label   "start date"@en ;
+    rdfs:range   xsd:date .
+
+proj:endDate
+    a owl:DatatypeProperty ;
+    rdfs:label   "end date"@en ;
+    rdfs:range   xsd:date .
+
+proj:documentationURL
+    a owl:DatatypeProperty ;
+    rdfs:label   "documentation URL"@en ;
+    rdfs:range   xsd:anyURI .
+
+proj:fundingAmount
+    a owl:DatatypeProperty ;
+    rdfs:domain  proj:Funding ;
+    rdfs:range   xsd:decimal ;
+    rdfs:label   "funding amount"@en .
+
+proj:fundingCurrency
+    a owl:DatatypeProperty ;
+    rdfs:domain  proj:Funding ;
+    rdfs:range   xsd:string ;
+    rdfs:label   "funding currency"@en .
+
+proj:fundingSource
+    a owl:DatatypeProperty ;
+    rdfs:domain  proj:Funding ;
+    rdfs:range   xsd:string ;
+    rdfs:label   "funding source"@en .
+
+proj:orcid
+    a owl:DatatypeProperty ;
+    rdfs:domain  proj:Person ;
+    rdfs:range   xsd:anyURI ;
+    rdfs:label   "ORCID"@en .
+
+proj:email
+    a owl:DatatypeProperty ;
+    rdfs:range   xsd:string ;
+    rdfs:label   "email"@en .
+
+proj:firstName
+    a owl:DatatypeProperty ;
+    rdfs:domain  proj:Person ;
+    rdfs:range   xsd:string ;
+    rdfs:label   "first name"@en .
+
+proj:lastName
+    a owl:DatatypeProperty ;
+    rdfs:domain  proj:Person ;
+    rdfs:range   xsd:string ;
+    rdfs:label   "last name"@en .
+
+proj:rorID
+    a owl:DatatypeProperty ;
+    rdfs:domain  proj:Organization ;
+    rdfs:range   xsd:anyURI ;
+    rdfs:label   "ROR identifier"@en .
+
+proj:goalDescription
+    a owl:DatatypeProperty ;
+    rdfs:domain  proj:Platform ;
+    rdfs:range   xsd:string ;
+    rdfs:label   "goal description"@en .
+
+proj:dueDate
+    a owl:DatatypeProperty ;
+    rdfs:domain  proj:Deliverable ;
+    rdfs:range   xsd:date ;
+    rdfs:label   "due date"@en .
+
+proj:deliverableType
+    a owl:DatatypeProperty ;
+    rdfs:domain  proj:Deliverable ;
+    rdfs:range   xsd:string ;
+    rdfs:label   "deliverable type"@en .
+
+proj:competenceLevel
+    a owl:DatatypeProperty ;
+    rdfs:domain  proj:Competence ;
+    rdfs:range   xsd:string ;
+    rdfs:label   "competence level"@en ;
+    rdfs:comment "E.g. beginner / intermediate / expert."@en .
+
+proj:competenceDomain
+    a owl:DatatypeProperty ;
+    rdfs:domain  proj:Competence ;
+    rdfs:range   xsd:string ;
+    rdfs:label   "competence domain"@en .
+
+proj:wpNumber
+    a owl:DatatypeProperty ;
+    rdfs:domain  proj:WorkPackage ;
+    rdfs:range   xsd:integer ;
+    rdfs:label   "WP number"@en .
+
+
+# ─────────────────────────────────────────────
+#  SHACL Shapes  (embedded, parseable separately)
+# ─────────────────────────────────────────────
+#  Kept in a separate file (proj-shapes.ttl) for cleanliness.
+#  See infrastructure bundle.
