@@ -1,4 +1,4 @@
-@prefix proj:    <https://cnherrera.github.io/Exa-AToW_onto/hpc_ontology/exaatow_hpc_ontology.ttl> .
+@prefix proj:    <https://cnherrera.github.io/DIADEM-ontology/pepr-ontology.ttl> .
 @prefix owl:     <http://www.w3.org/2002/07/owl#> .
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
@@ -14,13 +14,13 @@
 #  Ontology declaration
 # ─────────────────────────────────────────────
 
-<https://cnherrera.github.io/Exa-AToW_onto/hpc_ontology/exaatow_hpc_ontology.ttl> a owl:Ontology ;
+<https://cnherrera.github.io/DIADEM-ontology/pepr-ontology.ttl> a owl:Ontology ;
     dcterms:title        "PEPR Programme Ontology"@en ,
                          "Ontologie des Programmes PEPR"@fr ;
     dcterms:description  "Ontology supporting structured representation of French PEPR programs, its targeted and AAP projects, platforms, competences, tools, deliverables and  human participation. Designed to enhance collaboration discovery, capability mapping and interoperability with external systems."@en ;
     dcterms:created      "2026-03-31"^^xsd:date ;
     owl:versionInfo      "1.0.0" ;
-    rdfs:comment         "Base prefix: proj — https://cnherrera.github.io/Exa-AToW_onto/hpc_ontology/exaatow_hpc_ontology.ttl#"@en .
+    rdfs:comment         "Base prefix: proj — https://cnherrera.github.io/DIADEM-ontology/pepr-ontology.ttl#"@en .
 
 
 # ─────────────────────────────────────────────
