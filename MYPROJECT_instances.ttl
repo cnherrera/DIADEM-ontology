@@ -1,0 +1,157 @@
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/pepr-ontology.ttl#> .
+              <https://cnherrera.github.io/DIADEM-ontology/pepr-ontology.ttl#>
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/proj#project/MYPROJECT> a proj:TargetedProject ;
+    rdfs:label "My Full Project Title"^^xsd:string ;
+    proj:acronym "MYPROJECT"^^xsd:string ;
+    proj:description """A concise scientific description of the project, its goals and expected outcomes.
+"""^^xsd:string ;
+    proj:documentationURL "https://myproject.example.org"^^xsd:anyURI ;
+    proj:endDate "2027-12-31"^^xsd:date ;
+    proj:hasCoLeadInstitution <https://cnherrera.github.io/DIADEM-ontology/proj#org/INRIA> ;
+    proj:hasCoLeadPerson <https://cnherrera.github.io/DIADEM-ontology/proj#person/Paul_Langevin> ;
+    proj:hasLeadInstitution <https://cnherrera.github.io/DIADEM-ontology/proj#org/CNRS> ;
+    proj:hasLeadPerson <https://cnherrera.github.io/DIADEM-ontology/proj#person/Marie_Curie> ;
+    proj:hasOrganization <https://cnherrera.github.io/DIADEM-ontology/proj#org/CNRS>,
+        <https://cnherrera.github.io/DIADEM-ontology/proj#org/INRIA>,
+        <https://cnherrera.github.io/DIADEM-ontology/proj#org/UGA> ;
+    proj:hasWorkPackage <https://cnherrera.github.io/DIADEM-ontology/proj#wp/MYPROJECT_WP1>,
+        <https://cnherrera.github.io/DIADEM-ontology/proj#wp/MYPROJECT_WP2> ;
+    proj:startDate "2024-01-01"^^xsd:date .
+
+<https://cnherrera.github.io/DIADEM-ontology/proj#competence/Lise_Meitner_Data_engineering> a proj:Competence ;
+    proj:competenceDomain "Data engineering"^^xsd:string ;
+    proj:competenceLevel "expert"^^xsd:string .
+
+<https://cnherrera.github.io/DIADEM-ontology/proj#competence/Lise_Meitner_Machine_learning> a proj:Competence ;
+    proj:competenceDomain "Machine learning"^^xsd:string ;
+    proj:competenceLevel "intermediate"^^xsd:string .
+
+<https://cnherrera.github.io/DIADEM-ontology/proj#competence/Marie_Curie_Project_management> a proj:Competence ;
+    proj:competenceDomain "Project management"^^xsd:string ;
+    proj:competenceLevel "expert"^^xsd:string .
+
+<https://cnherrera.github.io/DIADEM-ontology/proj#competence/Marie_Curie_Radiation_physics> a proj:Competence ;
+    proj:competenceDomain "Radiation physics"^^xsd:string ;
+    proj:competenceLevel "expert"^^xsd:string .
+
+<https://cnherrera.github.io/DIADEM-ontology/proj#deliverable/MYPROJECT_WP1_D1_1> a proj:Deliverable ;
+    rdfs:label "Data Management Plan"^^xsd:string ;
+    proj:deliverableType "report"^^xsd:string ;
+    proj:description "Initial DMP covering all project data."^^xsd:string ;
+    proj:dueDate "2024-06-30"^^xsd:date ;
+    proj:identifier "D1.1"^^xsd:string .
+
+<https://cnherrera.github.io/DIADEM-ontology/proj#deliverable/MYPROJECT_WP1_D1_2> a proj:Deliverable ;
+    rdfs:label "Mid-term report"^^xsd:string ;
+    proj:deliverableType "report"^^xsd:string ;
+    proj:description "18-month progress report."^^xsd:string ;
+    proj:dueDate "2025-06-30"^^xsd:date ;
+    proj:identifier "D1.2"^^xsd:string .
+
+<https://cnherrera.github.io/DIADEM-ontology/proj#deliverable/MYPROJECT_WP2_D2_1> a proj:Deliverable ;
+    rdfs:label "Curated dataset v1"^^xsd:string ;
+    proj:deliverableType "dataset"^^xsd:string ;
+    proj:description "First release of the harmonised dataset."^^xsd:string ;
+    proj:dueDate "2025-12-01"^^xsd:date ;
+    proj:identifier "D2.1"^^xsd:string .
+
+<https://cnherrera.github.io/DIADEM-ontology/proj#person/Lise_Meitner> a proj:Person ;
+    proj:email "lise.meitner@example.fr"^^xsd:string ;
+    proj:firstName "Lise"^^xsd:string ;
+    proj:hasCompetence <https://cnherrera.github.io/DIADEM-ontology/proj#competence/Lise_Meitner_Data_engineering>,
+        <https://cnherrera.github.io/DIADEM-ontology/proj#competence/Lise_Meitner_Machine_learning> ;
+    proj:lastName "Meitner"^^xsd:string .
+
+<https://cnherrera.github.io/DIADEM-ontology/proj#person/Paul_Langevin> a proj:Person ;
+    proj:email "paul.langevin@example.fr"^^xsd:string ;
+    proj:firstName "Paul"^^xsd:string ;
+    proj:lastName "Langevin"^^xsd:string .
+
+<https://cnherrera.github.io/DIADEM-ontology/proj#product/MYPKG> a proj:Product ;
+    rdfs:label "MyProject Python Package"^^xsd:string ;
+    proj:acronym "MYPKG"^^xsd:string ;
+    proj:description "Open-source Python package produced by the project."^^xsd:string ;
+    proj:documentationURL "https://pypi.org/project/mypackage"^^xsd:anyURI .
+
+<https://cnherrera.github.io/DIADEM-ontology/proj#task/MYPROJECT_WP1_T1_1> a proj:Task ;
+    rdfs:label "Kick-off meeting organisation"^^xsd:string ;
+    proj:description "Organise the project kick-off event."^^xsd:string ;
+    proj:identifier "T1.1"^^xsd:string .
+
+<https://cnherrera.github.io/DIADEM-ontology/proj#task/MYPROJECT_WP1_T1_2> a proj:Task ;
+    rdfs:label "Annual reporting"^^xsd:string ;
+    proj:description "Compile and submit annual reports to the programme."^^xsd:string ;
+    proj:identifier "T1.2"^^xsd:string .
+
+<https://cnherrera.github.io/DIADEM-ontology/proj#task/MYPROJECT_WP2_T2_1> a proj:Task ;
+    rdfs:label "Data collection protocol"^^xsd:string ;
+    proj:description "Define and document the collection protocol."^^xsd:string ;
+    proj:identifier "T2.1"^^xsd:string .
+
+<https://cnherrera.github.io/DIADEM-ontology/proj#tool/GITHUB> a proj:Tool ;
+    rdfs:label "GitHub"^^xsd:string ;
+    proj:acronym "GITHUB"^^xsd:string ;
+    proj:documentationURL "https://github.com"^^xsd:anyURI .
+
+<https://cnherrera.github.io/DIADEM-ontology/proj#tool/JUPYTER> a proj:Tool ;
+    rdfs:label "JupyterLab"^^xsd:string ;
+    proj:acronym "JUPYTER"^^xsd:string ;
+    proj:documentationURL "https://jupyter.org"^^xsd:anyURI .
+
+<https://cnherrera.github.io/DIADEM-ontology/proj#tool/ZENODO> a proj:Tool ;
+    rdfs:label "Zenodo"^^xsd:string ;
+    proj:acronym "ZENODO"^^xsd:string ;
+    proj:documentationURL "https://zenodo.org"^^xsd:anyURI .
+
+<https://cnherrera.github.io/DIADEM-ontology/proj#wp/MYPROJECT_WP1> a proj:WorkPackage ;
+    rdfs:label "Project Management"^^xsd:string ;
+    proj:description """Coordination, reporting and dissemination activities.
+"""^^xsd:string ;
+    proj:hasContributor <https://cnherrera.github.io/DIADEM-ontology/proj#person/Marie_Curie> ;
+    proj:hasDeliverable <https://cnherrera.github.io/DIADEM-ontology/proj#deliverable/MYPROJECT_WP1_D1_1>,
+        <https://cnherrera.github.io/DIADEM-ontology/proj#deliverable/MYPROJECT_WP1_D1_2> ;
+    proj:hasLeadOrganization <https://cnherrera.github.io/DIADEM-ontology/proj#org/CNRS> ;
+    proj:hasTask <https://cnherrera.github.io/DIADEM-ontology/proj#task/MYPROJECT_WP1_T1_1>,
+        <https://cnherrera.github.io/DIADEM-ontology/proj#task/MYPROJECT_WP1_T1_2> ;
+    proj:producesProduct <https://cnherrera.github.io/DIADEM-ontology/proj#product/MYPKG> ;
+    proj:usesTool <https://cnherrera.github.io/DIADEM-ontology/proj#tool/GITHUB>,
+        <https://cnherrera.github.io/DIADEM-ontology/proj#tool/ZENODO> ;
+    proj:wpNumber 1 .
+
+<https://cnherrera.github.io/DIADEM-ontology/proj#wp/MYPROJECT_WP2> a proj:WorkPackage ;
+    rdfs:label "Data acquisition and curation"^^xsd:string ;
+    proj:description """Collection, cleaning and harmonisation of observational data.
+"""^^xsd:string ;
+    proj:hasContributor <https://cnherrera.github.io/DIADEM-ontology/proj#person/Lise_Meitner> ;
+    proj:hasDeliverable <https://cnherrera.github.io/DIADEM-ontology/proj#deliverable/MYPROJECT_WP2_D2_1> ;
+    proj:hasLeadOrganization <https://cnherrera.github.io/DIADEM-ontology/proj#org/UGA> ;
+    proj:hasTask <https://cnherrera.github.io/DIADEM-ontology/proj#task/MYPROJECT_WP2_T2_1> ;
+    proj:usesTool <https://cnherrera.github.io/DIADEM-ontology/proj#tool/JUPYTER> ;
+    proj:wpNumber 2 .
+
+<https://cnherrera.github.io/DIADEM-ontology/proj#org/INRIA> a proj:Organization ;
+    rdfs:label "Institut National de Recherche en Informatique et en Automatique"^^xsd:string ;
+    proj:acronym "INRIA"^^xsd:string ;
+    proj:rorID "https://ror.org/02kvxyf28"^^xsd:anyURI .
+
+<https://cnherrera.github.io/DIADEM-ontology/proj#org/UGA> a proj:Organization ;
+    rdfs:label "Université Grenoble Alpes"^^xsd:string ;
+    proj:acronym "UGA"^^xsd:string ;
+    proj:rorID "https://ror.org/02rx3b187"^^xsd:anyURI .
+
+<https://cnherrera.github.io/DIADEM-ontology/proj#person/Marie_Curie> a proj:Person ;
+    proj:email "marie.curie@example.fr"^^xsd:string ;
+    proj:firstName "Marie"^^xsd:string ;
+    proj:hasCompetence <https://cnherrera.github.io/DIADEM-ontology/proj#competence/Marie_Curie_Project_management>,
+        <https://cnherrera.github.io/DIADEM-ontology/proj#competence/Marie_Curie_Radiation_physics> ;
+    proj:lastName "Curie"^^xsd:string ;
+    proj:orcid "https://orcid.org/0000-0000-0000-0000"^^xsd:anyURI .
+
+<https://cnherrera.github.io/DIADEM-ontology/proj#org/CNRS> a proj:Organization ;
+    rdfs:label "Centre National de la Recherche Scientifique"^^xsd:string ;
+    proj:acronym "CNRS"^^xsd:string ;
+    proj:rorID "https://ror.org/02feahw73"^^xsd:anyURI .
+

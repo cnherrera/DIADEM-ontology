@@ -1,0 +1,74 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix inst: <https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM_instances.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/pepr-ontology.ttl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst: a owl:Ontology ;
+    rdfs:label "PEPR DIADEM Instances – People, Institutions, Projects, and Platforms"@en,
+        "Instances du projet PEPR DIADEM – Personnes, institutions, projets et plateformes"@fr ;
+    dc:description "Instances for the PEPR DIADEM project, encompassing people and institutions involved in the project, as well as associated projects and platforms."@en,
+        "Instances pour le projet PEPR DIADEM, englobant les personnes et les institutions impliquées dans le projet, ainsi que les projets et plateformes associés."@fr ;
+    owl:imports proj: ;
+    owl:versionInfo "1.0" .
+
+<https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM_instances.ttl#program/PEPR-DIADEM> a proj:Program ;
+    rdfs:label "Priority research program and equipment on the development of innovative materials using artificial intelligence"^^xsd:string ;
+    proj:acronym "PEPR-DIADEM"^^xsd:string ;
+    proj:description """A French PEPR program focused on …
+"""^^xsd:string ;
+    proj:documentationURL "https://pepr-diadem.fr"^^xsd:anyURI ;
+    proj:endDate "2030-12-31"^^xsd:date ;
+    proj:hasCoLeadInstitution <https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM_instances.ttl#org/CEA> ;
+    proj:hasCoLeadPerson <https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM_instances.ttl#person/Irène_Joliot-Curie> ;
+    proj:hasFunding <https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM_instances.ttl#funding/PEPR-DIADEM> ;
+    proj:hasLeadInstitution <https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM_instances.ttl#org/CNRS> ;
+    proj:hasLeadPerson <https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM_instances.ttl#person/Henri_Becquerel> ;
+    proj:hasPlatform <https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM_instances.ttl#platform/DATAPLAT>,
+        <https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM_instances.ttl#platform/SCIENCEPLAT> ;
+    proj:startDate "2023-01-01"^^xsd:date .
+
+<https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM_instances.ttl#funding/PEPR-DIADEM> a proj:Funding ;
+    proj:fundingAmount 30000000.0 ;
+    proj:fundingCurrency "EUR"^^xsd:string ;
+    proj:fundingSource "ANR / France 2030"^^xsd:string .
+
+<https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM_instances.ttl#org/CEA> a proj:Organization ;
+    rdfs:label "Commissariat à l'énergie atomique et aux énergies alternatives"^^xsd:string ;
+    proj:acronym "CEA"^^xsd:string ;
+    proj:rorID "https://ror.org/00jjx8s55"^^xsd:anyURI .
+
+<https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM_instances.ttl#org/CNRS> a proj:Organization ;
+    rdfs:label "Centre National de la Recherche Scientifique"^^xsd:string ;
+    proj:acronym "CNRS"^^xsd:string ;
+    proj:rorID "https://ror.org/02feahw73"^^xsd:anyURI .
+
+<https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM_instances.ttl#person/Henri_Becquerel> a proj:Person ;
+    proj:email "h.becquerel@example.fr"^^xsd:string ;
+    proj:firstName "Henri"^^xsd:string ;
+    proj:lastName "Becquerel"^^xsd:string .
+
+<https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM_instances.ttl#person/Irène_Joliot-Curie> a proj:Person ;
+    proj:email "i.joliot@example.fr"^^xsd:string ;
+    proj:firstName "Irène"^^xsd:string ;
+    proj:lastName "Joliot-Curie"^^xsd:string .
+
+<https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM_instances.ttl#platform/DATAPLAT> a proj:Platform ;
+    rdfs:label "Data & AI Platform"^^xsd:string ;
+    proj:acronym "DATAPLAT"^^xsd:string ;
+    proj:description "Platform dedicated to data management, FAIR principles and AI methods."^^xsd:string ;
+    proj:goalDescription "Provide shared data infrastructure and machine learning toolkits."^^xsd:string ;
+    proj:hasGoalCategory proj:InfrastructureGoal ;
+    proj:hasPlatformLeadProject <https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM_instances.ttl#project/MYPROJECT> ;
+    proj:hasPlatformProject <https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM_instances.ttl#project/MYPROJECT> .
+
+<https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM_instances.ttl#platform/SCIENCEPLAT> a proj:Platform ;
+    rdfs:label "Core Science Platform"^^xsd:string ;
+    proj:acronym "SCIENCEPLAT"^^xsd:string ;
+    proj:description "Platform for fundamental research activities."^^xsd:string ;
+    proj:goalDescription "Advance core scientific knowledge in the program's domain."^^xsd:string ;
+    proj:hasGoalCategory proj:ScientificGoal ;
+    proj:hasPlatformLeadProject <https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM_instances.ttl#project/MYPROJECT> ;
+    proj:hasPlatformProject <https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM_instances.ttl#project/MYPROJECT> .
+

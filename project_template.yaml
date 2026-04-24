@@ -1,0 +1,147 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  PEPR Project Description File  —  proj-ontology YAML template
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Project identity ─────────────────────────────────────────────────────────
+project:
+  type: targeted          # REQUIRED  –  "targeted" or "aap"
+  acronym: MYPROJECT      # REQUIRED  –  short identifier, no spaces (used as RDF local name)
+  title: "My Full Project Title"   # REQUIRED
+  description: >          # REQUIRED  –  free text, multiline OK
+    A concise scientific description of the project,
+    its goals and expected outcomes.
+  start_date: "2024-01-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2027-12-31"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://myproject.example.org"   # optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Marie"
+      last_name:  "Curie"
+      email:      "marie.curie@example.fr"    # optional
+      orcid:      "https://orcid.org/0000-0000-0000-0000"  # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "Centre National de la Recherche Scientifique"
+      ror:       "https://ror.org/02feahw73"  # optional
+
+  colead:                  # optional block
+    person:
+      first_name: "Paul"
+      last_name:  "Langevin"
+      email:      "paul.langevin@example.fr"
+      orcid:      ~
+    institution:
+      acronym:   "INRIA"
+      full_name: "Institut National de Recherche en Informatique et en Automatique"
+      ror:       "https://ror.org/02kvxyf28"
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED  –  at least one
+    - acronym:   "CNRS"
+      full_name: "Centre National de la Recherche Scientifique"
+      ror:       "https://ror.org/02feahw73"
+    - acronym:   "INRIA"
+      full_name: "Institut National de Recherche en Informatique et en Automatique"
+      ror:       "https://ror.org/02kvxyf28"
+    - acronym:   "UGA"
+      full_name: "Université Grenoble Alpes"
+      ror:       "https://ror.org/02rx3b187"
+
+  # ── Work packages ─────────────────────────────────────────────────────────
+  work_packages:
+    - number:      1        # REQUIRED  integer
+      acronym:     "WP1"   # optional short label
+      title:       "Project Management"   # REQUIRED
+      description: >
+        Coordination, reporting and dissemination activities.
+      lead_institution: "CNRS"  # REQUIRED  –  must match an acronym in organizations
+
+      deliverables:
+        - id:          "D1.1"
+          title:       "Data Management Plan"
+          description: "Initial DMP covering all project data."
+          due_date:    "2024-06-30"    # optional
+          type:        "report"        # optional  e.g. report / software / dataset / other
+
+        - id:          "D1.2"
+          title:       "Mid-term report"
+          description: "18-month progress report."
+          due_date:    "2025-06-30"
+          type:        "report"
+
+      tasks:
+        - id:          "T1.1"
+          title:       "Kick-off meeting organisation"
+          description: "Organise the project kick-off event."
+
+        - id:          "T1.2"
+          title:       "Annual reporting"
+          description: "Compile and submit annual reports to the programme."
+
+      tools:
+        - acronym:   "GITHUB"
+          full_name: "GitHub"
+          url:       "https://github.com"
+        - acronym:   "ZENODO"
+          full_name: "Zenodo"
+          url:       "https://zenodo.org"
+
+      products:
+        - acronym:    "MYPKG"
+          full_name:  "MyProject Python Package"
+          description: "Open-source Python package produced by the project."
+          url:        "https://pypi.org/project/mypackage"
+
+      contributors:         # People working on this WP
+        - first_name: "Marie"
+          last_name:  "Curie"
+          email:      "marie.curie@example.fr"
+          orcid:      "https://orcid.org/0000-0000-0000-0000"
+          competences:
+            - domain: "Project management"
+              level:  "expert"
+            - domain: "Radiation physics"
+              level:  "expert"
+
+    - number:      2
+      acronym:     "WP2"
+      title:       "Data acquisition and curation"
+      description: >
+        Collection, cleaning and harmonisation of observational data.
+      lead_institution: "UGA"
+
+      deliverables:
+        - id:          "D2.1"
+          title:       "Curated dataset v1"
+          description: "First release of the harmonised dataset."
+          due_date:    "2025-12-01"
+          type:        "dataset"
+
+      tasks:
+        - id:          "T2.1"
+          title:       "Data collection protocol"
+          description: "Define and document the collection protocol."
+
+      tools:
+        - acronym:   "JUPYTER"
+          full_name: "JupyterLab"
+          url:       "https://jupyter.org"
+
+      products: []
+
+      contributors:
+        - first_name: "Lise"
+          last_name:  "Meitner"
+          email:      "lise.meitner@example.fr"
+          orcid:      ~
+          competences:
+            - domain: "Data engineering"
+              level:  "expert"
+            - domain: "Machine learning"
+              level:  "intermediate"

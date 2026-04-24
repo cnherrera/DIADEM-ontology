@@ -1,0 +1,413 @@
+@prefix diam: <https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/refs/heads/main/diamond_project_ontology.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix eurio:  <http://data.europa.eu/s66#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+@base <https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/refs/heads/main/diamond_project_ontology.ttl#> .
+
+<https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/refs/heads/main/diamond_project_ontology.ttl> rdf:type owl:Ontology ;
+                                           rdfs:comment "Diamond Project Ontology - Initial Version" ;
+                                           owl:versionInfo "0.1" .
+
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty .
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Main Classes
+#################################################################
+
+diam:Project rdf:type owl:Class ;
+    rdfs:label "Project";
+    rdfs:comment """The foundational top-level class encompassing all conceptual 
+    and tangible entities pertinent to the DIAMOND project, under the DIADEM PEPR."""@en ;
+    diam:hasURL"https://diamond-diadem.github.io/" .
+
+diam:Partner rdf:type owl:Class ;
+    rdfs:subClassOf diam:Contributor ;
+    rdfs:comment "Institution participating in the project" ;
+    rdfs:label "Partner" .
+
+diam:Person rdf:type owl:Class ;
+    rdfs:subClassOf diam:Contributor ;
+    rdfs:comment "A person working on the project" ;
+    rdfs:label "Person" .
+
+diam:Resource rdf:type owl:Class ;
+    rdfs:comment "Resources used or produced in the project" ;
+    rdfs:label "Resource" .
+
+diam:WorkPackage rdf:type owl:Class ;
+    rdfs:comment "A work package within the project" ;
+    rdfs:label "WorkPackage" .
+
+diam:Competence rdf:type owl:Class ;
+    rdfs:comment "A specific skill or area of expertise" ;
+    rdfs:label "Competence" .
+
+diam:Contributor rdf:type owl:Class ;
+    skos:prefLabel "Contributor" ;
+    rdfs:comment "A person or partner that contributes to a Work Package." .
+
+
+#---------------------------------------------
+#
+#--------------------------------------------
+
+#  ----> Resource <----
+diam:Software rdf:type owl:Class ;
+    rdfs:label "Software" ;
+    rdfs:comment "All Software" ;
+    rdfs:subClassOf diam:Resource .
+
+diam:Product rdf:type owl:Class ;
+    rdfs:subClassOf eurio:ExploitableResult , diam:Resource ;
+    rdfs:comment "Products produced in the project" ;
+    rdfs:label "Product" .
+
+#  ----> Competence <----
+diam:DataManagement a owl:Class ;
+    rdfs:label "Data Management" ;
+    rdfs:comment "Competences related to data management and curation" ;
+    rdfs:subClassOf diam:Competence .
+
+diam:Computational a owl:Class ;
+    rdfs:label "Computational" ;
+    rdfs:comment "Competences related to computational methods and tools" ;
+    rdfs:subClassOf diam:Competence .
+
+diam:Methodological a owl:Class ;
+    rdfs:label "Methodological" ;
+    rdfs:comment "Competences related to methodological approaches" ;
+    rdfs:subClassOf diam:Competence .
+
+
+#  ----> Software <----
+diam:OpenSource a owl:Class ;
+    rdfs:label "Open-source" ;
+    rdfs:comment "Open source software" ;
+    rdfs:subClassOf diam:Software .
+
+diam:Commercial rdf:type owl:Class ;
+    rdfs:subClassOf diam:Software ;
+    rdfs:comment "Commercial Software" ;
+    rdfs:label "Commercial" .
+
+diam:Private rdf:type owl:Class ;
+    rdfs:subClassOf diam:Software ;
+    rdfs:comment "Private Software" ;
+    rdfs:label "Private" .
+
+
+#  ----> Product <----
+diam:Database rdf:type owl:Class ;
+    rdfs:label "Database" ;
+    rdfs:comment "A database created as a product" ;
+    rdfs:subClassOf diam:Product .
+
+diam:Webpage rdf:type owl:Class ;
+    rdfs:label "Webpage" ;
+    rdfs:comment "A webpage created as a product" ;
+    rdfs:subClassOf diam:Product .
+
+diam:ContainerizedCode rdf:type owl:Class ;
+    rdfs:subClassOf diam:Product ;
+    skos:prefLabel "Containerized Codes" ;
+    rdfs:comment "A containerized code created as a product" .    
+
+diam:ScientificComputing rdf:type owl:Class ;
+    rdfs:subClassOf diam:ContainerizedCode ;
+    skos:prefLabel "Scientific Computing" ;
+    rdfs:comment "Containerized software used for scientific computing" .
+
+diam:Visualization rdf:type owl:Class ;
+    rdfs:label "Visualization" ;
+    rdfs:comment "Contenarized software used for visualization" ;
+    rdfs:subClassOf diam:ContainerizedCode .
+
+
+#-------------------
+diam:SoftwareComponent rdf:type owl:Class ;
+    rdfs:comment "A software module, service, or component forming part of a bigger infrastructure." ;
+    skos:prefLabel "Software component" .
+
+diam:UserInterface rdf:type owl:Class ;
+    rdfs:subClassOf diam:SoftwareComponent ;
+    skos:prefLabel "User interface" .
+
+diam:BackendService rdf:type owl:Class ;
+    rdfs:subClassOf diam:SoftwareComponent ;
+    skos:prefLabel "Backend service" .
+
+diam:StorageService rdf:type owl:Class ;
+    rdfs:subClassOf diam:SoftwareComponent ;
+    skos:prefLabel "Storage service" .
+
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+diam:hasContributor rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:WorkPackage ;
+    rdfs:range diam:Contributor ;
+    skos:prefLabel "has contributor" ;
+    rdfs:comment "Indicates that a Work Package involves a person or partner as a contributor." .
+
+diam:isContributorOf rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Contributor ;
+    rdfs:range diam:WorkPackage ;
+    owl:inverseOf diam:hasContributor ;
+    skos:prefLabel "is contributor of" .
+
+diam:develops rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Person ;
+    rdfs:range diam:Product ;
+    rdfs:comment "Relates a person to the products they develop" ;
+    rdfs:label "develops" .
+
+diam:hasCompetence rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Person ;
+    rdfs:range diam:Competence ;
+    rdfs:comment "Relates a person to their competences" ;
+    rdfs:label "hasCompetence" .
+
+diam:hasPartner rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Project  ;
+    rdfs:range diam:Partner ;
+    rdfs:comment "Relates a project to its partner institutions" ;
+    rdfs:label "hasPartner" .
+ 
+diam:employedBy rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Person ;
+    rdfs:range diam:Partner ;
+    skos:prefLabel "employed by" ;
+    owl:inverseOf diam:employs .
+
+diam:employs a owl:ObjectProperty ;
+    skos:prefLabel "employs" ;
+    rdfs:domain diam:Partner ;
+    rdfs:range diam:Person ;
+    owl:inverseOf diam:employedBy .
+
+diam:hasWorkPackage rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Project ;
+    rdfs:range diam:WorkPackage ;
+    rdfs:comment "Relates a project to its work packages" ;
+    rdfs:label "hasWorkPackage" .
+
+diam:produces rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:WorkPackage ;
+    rdfs:range diam:Product ;
+    rdfs:comment "Relates a work package to the products it produces" ;
+    rdfs:label "produces" .
+
+diam:gathersCompetence rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:WorkPackage ;
+    rdfs:range diam:Competence ;
+    owl:inverseOf diam:isPartOfWP ;
+    skos:prefLabel "gathers competence" ;
+    rdfs:comment "Indicates that a Work Package gatheres specific competence to be carried out." .
+
+diam:isPartOfWP rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Competence ;
+    rdfs:range diam:WorkPackage ;
+    skos:prefLabel "is part of WP" ;
+    rdfs:comment "Indicates that a competence is part of a specific Work Package." .
+
+diam:usesTool rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Person , diam:Product ;
+    rdfs:range diam:Resource ;
+    rdfs:comment "Relates a person or product to the tools they use" ;
+    rdfs:label "usesTool" .
+
+diam:worksOn rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Person ;
+    rdfs:range diam:WorkPackage ;
+    rdfs:comment "Relates a person to the work package they work on" ;
+    rdfs:label "worksOn" .
+
+diam:ledBy a owl:ObjectProperty ;
+    rdfs:domain diam:WorkPackage ;
+    rdfs:range diam:Partner .
+
+diam:coLedBy rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:WorkPackage ;
+    rdfs:range diam:Person ;
+    skos:prefLabel "co-led by" ;
+    rdfs:comment "Indicates a co-coordinator of a Work Package." .
+
+diam:isUsedForDevelopment rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Resource ;
+    rdfs:range diam:Product ;
+    rdfs:comment "Relates a resource to the products it is used to develop" ;
+    rdfs:label "isUsedForDevelopment" .
+    
+diam:hasComponent rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Product ;
+    rdfs:range diam:SoftwareComponent ;
+    rdfs:comment "Indicates that a product or infrastructure includes a software component." ;
+    skos:prefLabel "has component" .
+
+diam:isComponentOf rdf:type owl:ObjectProperty ;
+    owl:inverseOf diam:hasComponent ;
+    skos:prefLabel "is component of" .
+
+#################################################################
+#    Task Class and Properties
+#################################################################
+
+diam:Task rdf:type owl:Class ;
+    rdfs:label "Task" ;
+    rdfs:comment "A specific task within a work package. Tasks represent the most granular level of work organization and are directly responsible for producing specific products or deliverables." .
+ 
+
+# ----> Object Properties for Task <----
+
+diam:hasTask rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:WorkPackage ;
+    rdfs:range diam:Task ;
+    rdfs:comment "Relates a work package to its constituent tasks" ;
+    rdfs:label "hasTask" ;
+    owl:inverseOf diam:isTaskOf .
+
+diam:isTaskOf rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Task ;
+    rdfs:range diam:WorkPackage ;
+    rdfs:comment "Relates a task to the work package it belongs to" ;
+    rdfs:label "isTaskOf" ;
+    owl:inverseOf diam:hasTask .
+
+diam:taskLead rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Task ;
+    rdfs:range diam:Person ;
+    rdfs:comment "Relates a task to the person who leads it" ;
+    rdfs:label "taskLead" .
+
+diam:taskCoLead rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Task ;
+    rdfs:range diam:Person ;
+    rdfs:comment "Relates a task to a person who co-leads it. A task can have multiple co-leads." ;
+    rdfs:label "taskCoLead" .
+
+diam:taskProduces rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Task ;
+    rdfs:range diam:Product ;
+    rdfs:comment "Relates a task to the specific product(s) it produces. This is the most granular level of product attribution in the project." ;
+    rdfs:label "taskProduces" .
+
+
+# ----> Data Properties for Task <----
+
+diam:taskName rdf:type owl:DatatypeProperty ;
+    rdfs:domain diam:Task ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The name of the task" ;
+    rdfs:label "taskName" .
+    
+###############################
+
+### --- Personnel Type Class ---
+diam:PersonnelType a owl:Class ;
+    rdfs:label "Personnel Type" ;
+    rdfs:comment "A category describing the type of personnel in a research project (e.g., Scientifique, Engineer, Postdoc)." .
+
+
+### --- hasPersonnelType Object Property ---
+diam:hasPersonnelType a owl:ObjectProperty ;
+    rdfs:label "has personnel type" ;
+    rdfs:comment "Links a Person to one or more PersonnelType categories." ;
+    rdfs:domain diam:Person ;
+    rdfs:range diam:PersonnelType .
+
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+diam:comment rdf:type owl:DatatypeProperty ;
+         rdfs:domain diam:Resource ;
+         rdfs:range xsd:string ;
+         rdfs:label "comment" .
+
+diam:description rdf:type owl:DatatypeProperty ;
+             rdfs:domain diam:Project ;
+             rdfs:range xsd:string ;
+             rdfs:comment "A description of the entity" ;
+             rdfs:label "description" .
+
+
+diam:email rdf:type owl:DatatypeProperty ;
+       rdfs:domain diam:Person ;
+       rdfs:range xsd:string ;
+       rdfs:comment "The email address of a person" ;
+       rdfs:label "email" .
+
+diam:endDate rdf:type owl:DatatypeProperty ;
+#        rdf:subclassOf eurio:endDate ;
+         rdfs:domain diam:Project ;
+         rdfs:range xsd:date ;
+         rdfs:comment "The end date of the project" ;
+         rdfs:label "endDate" .
+
+diam:startDate rdf:type owl:DatatypeProperty ;
+           rdfs:domain diam:Project ;
+           rdfs:range xsd:date ;
+           rdfs:comment "The start date of the project" ;
+           rdfs:label "startDate" .
+
+diam:version rdf:type owl:DatatypeProperty ;
+         rdfs:domain diam:Resource ;
+         rdfs:range xsd:string ;
+         rdfs:comment "The version of a tool" ;
+         rdfs:label "version" .
+
+diam:hasURL rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:anyURI ;
+    rdfs:comment "A URL pointing to the official webpage or external resource of an entity." ;
+    skos:prefLabel "has URL" .
+
+
+diam:personnel_type rdf:type owl:DatatypeProperty ;
+    rdfs:domain diam:Person ;
+    rdfs:range xsd:string ;
+    rdfs:label "personnel type" .
+
+diam:joinDate rdf:type owl:DatatypeProperty ;
+        rdfs:domain diam:Person ;
+        rdfs:range xsd:gYearMonth ;
+        rdfs:comment "Date when the person joined the project" ;
+        rdfs:label "join date" .
+
+diam:leftDate rdf:type owl:DatatypeProperty ;
+        rdfs:domain diam:Person ;
+        rdfs:range xsd:gYearMonth ;
+        rdfs:comment "Date when the person left the project" ;
+        rdfs:label "left date" .
+
+diam:isCurrentMember rdf:type owl:DatatypeProperty ;
+    rdfs:domain diam:Person ;
+    rdfs:range xsd:boolean ;
+    skos:prefLabel "is current member" ;
+    rdfs:comment "Indicates if the person is currently active in the project." .
+

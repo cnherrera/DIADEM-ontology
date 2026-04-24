@@ -161,6 +161,7 @@ const OWL  = 'http://www.w3.org/2002/07/owl#';
 const RDF  = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#';
 const RDFS = 'http://www.w3.org/2000/01/rdf-schema#';
 const SKOS = 'http://www.w3.org/2004/02/skos/core#';
+const FOAF = 'http://xmlns.com/foaf/0.1/';
 
 // ─────────────────────────────────────────────────────────────────
 // Colour palette (one per top-level branch)
@@ -293,7 +294,8 @@ function isSystemUri(uri) {
         'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
         'http://www.w3.org/2000/01/rdf-schema#',
         'http://www.w3.org/2002/07/owl#',
-        'http://www.w3.org/2001/XMLSchema#'
+        'http://www.w3.org/2001/XMLSchema#',
+        'http://xmlns.com/foaf/0.1#'
     ];
     return systemNamespaces.some(ns => uri.startsWith(ns));
 }
@@ -487,15 +489,60 @@ function extractOntology(store) {
         // Para añadir atributos.
         const inst = instances.get(q.subject.value);
         if (inst && !inst.attributes) inst.attributes = []; // Inicializamos un array de atributos
+
+        // Dentro del bucle donde recorres las instancias
+        // const isCurrentQuad = store.getQuads(q.subject, diam + 'isCurrentMember', null, null)[0];
+
+        // if (isCurrentQuad) {
+        //     // Convertimos el string "true"/"false" del RDF a un booleano real de JS
+        //     inst.active = (isCurrentQuad.object.value === 'true');
+        // } else {
+        //     // Si no está definida, por defecto asumimos que es activo
+        //     inst.active = true;
+        // }
     }
 
     // Instance labels
-    for (const lp of [SKOS + 'prefLabel', RDFS + 'label']) {
-        for (const q of store.getQuads(null, lp, null, null)) {
-            const inst = instances.get(q.subject.value);
-            if (!inst) continue;
-            if (q.object.language === 'en') inst.label = q.object.value;
+    // --- 7.1 Instance labels con prioridad mejorada ---
+    const instLabelPriority = new Map(); // uri → priority
+
+    function trySetInstLabel(uri, val, priority) {
+        const inst = instances.get(uri);
+        if (!inst) return;
+    
+        const curPriority = instLabelPriority.get(uri) ?? 99;
+        if (priority < curPriority) {
+            inst.label = val;
+            instLabelPriority.set(uri, priority);
         }
+    }
+
+    // Procesar etiquetas en orden de relevancia:
+    // Prioridad 0: skos:prefLabel @en
+    // Prioridad 1: foaf:name (especialmente útil para Personas)
+    // Prioridad 2: rdfs:label @en
+    // Prioridad 3: Cualquier etiqueta sin idioma o en otros idiomas
+
+    // Capturar FOAF:NAME (Prioridad alta para individuos)
+    for (const q of store.getQuads(null, FOAF + 'name', null, null)) {
+        const lang = q.object.language || '';
+        // Si es inglés o no tiene idioma definido (literal simple), prioridad 1
+        const priority = (lang === 'en' || lang === '') ? 1 : 3;
+        trySetInstLabel(q.subject.value, q.object.value, priority);
+    }
+
+    // Capturar SKOS:PREFLABEL
+    for (const q of store.getQuads(null, SKOS + 'prefLabel', null, null)) {
+        const lang = q.object.language || '';
+        const priority = (lang === 'en') ? 0 : 3;
+        trySetInstLabel(q.subject.value, q.object.value, priority);
+    }
+
+    // Capturar RDFS:LABEL
+    for (const q of store.getQuads(null, RDFS + 'label', null, null)) {
+        const lang = q.object.language || '';
+        const priority = (lang === 'en') ? 2 : 4;
+        trySetInstLabel(q.subject.value, q.object.value, priority);
     }
 
     // Instance comments
@@ -510,7 +557,7 @@ function extractOntology(store) {
     }
 
     // 
-    // NUEVO: Capturar todos los Literales para el panel de detalles
+    // Capturar todos los Literales para el panel de detalles
     for (const q of store.getQuads(null, null, null, null)) {
         if (q.object.termType === 'Literal') {
             const inst = instances.get(q.subject.value);
@@ -521,7 +568,7 @@ function extractOntology(store) {
                 });
             }
         }
-        // EXTRA: Capturar valores dentro de BNodes (como MemoryCapacity hasValue "24")
+        //  Capturar valores dentro de BNodes (como MemoryCapacity hasValue "24")
         if (q.subject.termType === 'BlankNode' && q.object.termType === 'Literal') {
             // Buscamos quién apunta a este BNode
             const parents = store.getQuads(null, null, q.subject, null);
@@ -646,7 +693,6 @@ function assignColors(classes, subClassEdges) {
 // ─────────────────────────────────────────────────────────────────
 function buildElements(ontology) {
     const { classes, subClassEdges, properties, datatypeProperties, instances, instancesEdges } = ontology;
-    //,instancesEdges literalNodes, datatypeEdges } = ontology;
     const colorMap = assignColors(classes, subClassEdges);
     const elements = [];
 
@@ -666,7 +712,7 @@ function buildElements(ontology) {
 
     // Nodes - Instances
     for (const [uri, inst] of instances) {
-        const classNode = classes.get(inst.type); // Obtén el objeto de la clase
+        const classNode = classes.get(inst.type); // Obtencion del objeto de la clase
         elements.push({
             data: {
                 id:      uri,
@@ -832,8 +878,6 @@ function initCytoscape(elements) {
                 style: {
                     'background-color':    'data(nodeColor)',
                     'border-color':        'data(nodeColor)',
-                    //'background-color':    'data(classColor)', 
-                    //'border-color':        'data(classColor)',
                     'background-opacity':  0.22,
                     'border-width':        2,
                     'border-opacity':      0.95,
@@ -863,16 +907,19 @@ function initCytoscape(elements) {
                     'border-width':       3.5,
                     'border-opacity':     1,
                     'font-weight':        700,
-                    'z-index':            20
+                    'z-index':            20,
+                    'text-opacity':       1 
+//                    'color':              '#1f3550'  //
                 }
             },
             // ─ Dimmed node ──────────────────────────────────────
             {
                 selector: 'node.dim',
                 style: {
-                    'background-opacity': 0.03,
-                    'border-opacity':     0.1,
-                    'color':              '#2d3748',
+                    'background-opacity': 0.02, //0.03
+                    'border-opacity':     0.02,  //0.1
+                    'color':              'transparent', //#2d3748',
+                    'text-opacity':       0,
                     'z-index':            0
                 }
             },
@@ -915,19 +962,15 @@ function initCytoscape(elements) {
                     'line-dash-pattern':      [7, 4],
                     'label':                  'data(label)',
                     'font-size':              '10px',
-		    //'color': '#1f2937',                  // dark text (gray-800)
-		    'text-background-color': '#ffffff',  // white background
-		    'text-background-opacity': 0.9,
-		    'text-border-color': '#d1d5db',      // subtle border
-		    'text-border-width': 1,
+        		    'text-background-color': '#ffffff',  // white background
+		            'text-background-opacity': 0.9,
+		            'text-border-color': '#d1d5db',      // subtle border
+		            'text-border-width': 1,
                     'color':                  '#78350f',
                     'text-rotation':          'autorotate',
                     'text-margin-y':          -7,
-                    //'text-background-color':  '#080a10',
-                    //'text-background-opacity': 0.85,
-		    'text-background-shape': 'round-rectangle',
-		    'text-background-padding': '3px',
-                    //'text-background-padding': '2px',
+        		    'text-background-shape': 'round-rectangle',
+		            'text-background-padding': '3px',
                     'opacity':                0.75,
                     'min-zoomed-font-size':   5,
                     'transition-property':    'opacity, width',
@@ -989,25 +1032,6 @@ function initCytoscape(elements) {
                     'transition-duration': '120ms'
                 }
             },
-	    // ─ Nodes Literal ────────────────────────────────
-	    // {
-	    // 	selector: 'node[type="literal"]',
-	    // 	style: {
-	    // 	    'background-color':    '#e5e7eb',
-	    // 	    'background-opacity':  0.9,
-	    // 	    'border-color':        '#9ca3af',
-	    // 	    'border-width':        1,
-	    // 	    'label':               'data(label)',
-	    // 	    'color':               '#374151',
-	    // 	    'font-size':           '9px',
-	    // 	    'width':               'label',
-	    // 	    'height':              'label',
-	    // 	    'padding':             '4px',
-	    // 	    'shape':               'round-rectangle',
-	    // 	    'text-wrap':           'wrap',
-	    // 	    'text-max-width':      '80px'
-	    // 	}
-	    // },
             // ─ Datatype property edge ────────────────────────────────
             {
                 selector: 'edge[edgeType="datatypeProperty"]',
@@ -1023,11 +1047,10 @@ function initCytoscape(elements) {
                     'label':                  'data(label)',
                     'font-size':              '10px',
                     'color':                  '#059669',
-		    //'color': '#1f2937',
-		    'text-background-color': '#ffffff',
-		    'text-background-opacity': 0.9,
-		    'text-border-color': '#d1d5db',
-		    'text-border-width': 1,
+        		    'text-background-color':  '#ffffff',
+		            'text-background-opacity': 0.9,
+        		    'text-border-color':      '#d1d5db',
+		            'text-border-width':       1,
                     'text-rotation':          'autorotate',
                     'text-margin-y':          -6,
                     //'text-background-color':  '#080a10',
@@ -1057,17 +1080,16 @@ function initCytoscape(elements) {
                     'transition-duration':    '120ms'
                 }
             },
-
-	    // ─ Edge - relationship between instances ──────────────────────────────────
-	     {
-	     	selector: 'edge[edgeType="instanceRelation"]',
-	    	style: {
-	    	    'line-color':           '#22c55e',
-	    	    'target-arrow-color':   '#16a34a',
-	    	    'target-arrow-shape':   'triangle',
-	    	    'curve-style':          'bezier',
-	    	    'width':                2,
-	    	    'label':                'data(label)',
+    	    // ─ Edge - relationship between instances ──────────────────────────────────
+	        {
+	     	    selector: 'edge[edgeType="instanceRelation"]',
+	    	    style: {
+	    	        'line-color':           '#22c55e',
+	    	        'target-arrow-color':   '#16a34a',
+	    	        'target-arrow-shape':   'triangle',
+	    	        'curve-style':          'bezier',
+	    	        'width':                2,
+	    	        'label':                'data(label)',
 	    	    'font-size':            '10px',
 	    	    'color':                '#14532d',
 	    	    'text-rotation':        'autorotate',
@@ -1076,45 +1098,58 @@ function initCytoscape(elements) {
 	    	    'text-background-shape': 'round-rectangle',
 	    	    'text-background-padding': '3px',
 	    	    'opacity':              0.9
-	    	}
-	    },
-	    // // ─ Edge - Datatype relationship instances and literal ──────────────────────────────────
-	    // {
-	    //  	selector: 'edge[edgeType="datatypeRelation"]',
-	    // 	style: {
-	    // 	    'line-color':           '#64748b',
-	    // 	    'target-arrow-color':   '#64748b',
-	    // 	    'target-arrow-shape':   'triangle',
-	    // 	    'line-style':           'dashed',
-	    // 	    'curve-style':          'bezier',
-	    // 	    'width':                1.5,
-	    // 	    'label':                'data(label)',
-	    // 	    'font-size':            '9px',
-	    // 	    'color':                '#334155',
-	    // 	    'text-rotation':        'autorotate',
-	    // 	    'text-background-color': '#ffffff',
-	    // 	    'text-background-opacity': 0.8,
-	    // 	    'text-background-shape': 'round-rectangle',
-	    // 	    'text-background-padding': '2px',
-	    // 	    'opacity':              0.8
-	    // 	}
-	    // },
-            // ─ Edge highlighted ──────────────────────────────────
-            {
-                selector: 'edge.hl',
-                style: { opacity: 1, width: 2.5, 'z-index': 10 }
-            },
+	    	    }
+	        },
             // ─ Edge dimmed ───────────────────────────────────────
             {
                 selector: 'edge.dim',
-                style: { opacity: 0.06, 'z-index': 0 }
-            }
+                style: { 
+                    'opacity': 0,               // Esto debería ocultar todo, pero...
+                    'line-opacity': 0,          // ...forzamos la línea
+                    'target-arrow-opacity': 0,  // ...y la flecha del destino
+                    'source-arrow-opacity': 0,  // ...y la flecha del origen (por si acaso)
+                    'label': '', 
+                    'z-index': 0,
+                    'events': 'no' 
+                }
+            },
+            // ─ Edge highlighted ──────────────────────────────────
+            {
+                selector: 'edge.hl',
+                style: { 
+                    'opacity': 1, 
+                    'line-opacity': 1,
+                    'target-arrow-opacity': 1, 
+                    'width': 2.5, 
+                    'z-index': 10 
+                }
+            },
+            // ─ Forzar Dimmed (Nodos y Edges) ─────────────────────
+            {
+                // Usamos node[type].dim para que tenga más peso que node[type="class"]
+                selector: 'node[type].dim', 
+                style: {
+                    'background-opacity': 0,      // Fondo totalmente invisible
+                    'border-opacity':     0,      // Borde totalmente invisible
+                    'border-width':       0,      // Forzamos ancho 0 por si acaso
+                    'text-opacity':       0,      // Texto invisible
+                    'label':              '',     // Quitamos el texto para evitar artefactos
+                    'z-index':            0,
+                    'events':             'no'    // Opcional: hace que no puedas clickear lo "invisible"
+                }
+            }//,
+            // {
+            //     selector: 'node[active = false]', // o node[!active] según cómo pases la data
+            //     style: {
+            //         'background-color': '#d1d1d1', // Gris claro
+            //         'color': '#888',               // Texto gris
+            //         'opacity': 0.6,                // Un poco transparente
+            //         'border-style': 'dashed'       // Borde punteado para indicar "pasado"
+            //     }
+            // } 
         ],
 
-	wheelSensitivity: 0.1,   // 0.1–0.3 suele ir bien
-        //minZoom: 0.1,
-        //maxZoom: 4
-
+	wheelSensitivity: 0.1, 
         layout: { name: 'preset' }  // layout applied separately after init
     });
 
@@ -1786,11 +1821,26 @@ document.getElementById('ttlUrl').addEventListener('keydown', e => {
     if (e.key === 'Enter') document.getElementById('btnLoad').click();
 });
 
+
 document.getElementById('fileInput').addEventListener('change', e => {
     const f = e.target.files[0];
-    if (f) loadFromFile(f);
+    if (f) {
+        // 1. Buscamos el campo de texto donde se muestra la URL
+        const urlField = document.getElementById('ttlUrl'); 
+        
+        // 2. Le asignamos el nombre del archivo con un prefijo para que quede claro
+        if (urlField) {
+            urlField.value = "file:///local/" + f.name;
+        }
+
+        // 3. Cargamos la ontología
+        loadFromFile(f);
+    }
+    
+    // 4. Limpiamos el selector de archivos para permitir cargar el mismo de nuevo si se desea
     e.target.value = '';
 });
+
 
 document.getElementById('layoutSelect').addEventListener('change', e => {
     applyLayout(e.target.value);
@@ -1848,25 +1898,39 @@ document.getElementById('btnInstances').addEventListener('click', function() {
     }
 });
 
+
 document.getElementById('searchInput').addEventListener('input', function() {
     if (!cy) return;
     const q = this.value.trim().toLowerCase();
 
     if (!q) {
-        cy.elements().removeClass('hl dim');
+        // Importante: removemos ambas clases para volver al estado original
+        cy.elements().removeClass('hl dim'); 
         return;
     }
 
     cy.batch(() => {
+        // 1. Empezamos de cero: todos dimmed
         cy.elements().addClass('dim').removeClass('hl');
-        cy.nodes().filter(n => {
-            return n.data('label').toLowerCase().includes(q)
-                || n.id().toLowerCase().includes(q);
-        }).addClass('hl').removeClass('dim').connectedEdges(':visible')
-            .addClass('hl').removeClass('dim')
-            .connectedNodes().addClass('hl').removeClass('dim');
+        
+        // 2. Filtramos los que coinciden
+        const matches = cy.nodes().filter(n => {
+            const label = (n.data('label') || "").toLowerCase();
+            const id = n.id().toLowerCase();
+            return label.includes(q) || id.includes(q);
+        });
+
+        if (matches.length > 0) {
+            // 3. A los que coinciden y su vecindario les quitamos 'dim' y ponemos 'hl'
+            const neighborhood = matches.neighborhood().add(matches);
+            neighborhood.removeClass('dim').addClass('hl');
+            
+            // 4. Aseguramos que las líneas conectadas también se vean
+            matches.connectedEdges(':visible').removeClass('dim').addClass('hl');
+        }
     });
 });
+
 
 document.getElementById('btnFit').addEventListener('click', () => {
     if (cy) cy.animate({ fit: { padding: 40 } }, { duration: 300 });

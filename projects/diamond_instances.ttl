@@ -1,0 +1,863 @@
+@prefix diam: <https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/refs/heads/main/diamond_project_ontology.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix eurio:  <http://data.europa.eu/s66#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix : <http://www.ejemplo.org/mi-ontologia-datos#> .
+
+
+<http://www.ejemplo.org/mi-ontologia-datos> rdf:type owl:Ontology ;
+    owl:import
+    rdfs:comment "Instances DIAMOND project" ;
+    owl:versionInfo "0.1" .
+
+
+#################################################################
+#     Instances of the DIAMOND project
+#################################################################
+
+:Diamond rdf:type diam:Project ;
+    rdfs:label "DIAMOND Project" ;
+    diam:hasWorkPackage :WP1 , :WP2 , :WP3 ;
+    skos:prefLabel "Ontology representing all entities of the DIAMOND project" .
+
+
+# ----> Instances of WPs <----
+:WP1 rdf:type diam:WorkPackage ;
+    diam:partOf :Diamond ;
+    diam:gathersCompetence :Containerization , :WebDevelopment , :AIApproaches , :GuixPackaging , :MOF ;
+    diam:usesTool :Apptainer , :Guix ;
+    diam:produces :DIAMONDWebpage , :LAMMPS , 
+                  :QuantumESPRESSO , :Abinit ,
+                  :Zset , :FreeFEM ,
+                  :OpenCalphad , :Neper ,
+                  :PLUMED , :Gmsh ,
+                  :ZeoPlusPlus , :RASPA2 ,
+                  :OpenDiS , :Wannier90 ,
+                  :NWChem , :FEniCS ,
+                  :CP2K , :n2p2 ,
+                  :DFTBPlus , :XTB ,
+                  :GaTewAY , :Ovito ,
+                  :ParaView , :VESTA ,
+                  :VMD , :XCrySDen ;
+                  :ledBy :SIMAP ;
+    diam:coLedBy :ILM , :IMPMC ;
+    rdfs:comment "Development of the code and workflow platform for the DIAMOND project." ;
+    skos:prefLabel "WP1 - Codes and Workflows" .
+
+:WP2 rdf:type diam:WorkPackage ;
+    diam:partOf :Diamond ;
+    diam:gathersCompetence :DatabaseInfrastructure , 
+                           :LargeScaleWorkflows ,
+                           :AIApproaches ,
+                           :MetadataStandardization ,
+                           :FAIRDataHandling ,
+                           :WorkflowOrchestration ;
+    diam:usesTool :MongoDB ;
+    diam:produces :DiamondDBInfrastructure ;
+    diam:ledBy :CEA-MEM ;
+    diam:coLedBy :CEA-LIST ;
+    rdfs:comment "Design and implementation of data management infrastructure for the DIAMOND project" ;
+    skos:prefLabel "WP2 - Data Management" .
+
+
+:WP3 rdf:type diam:WorkPackage ;
+    diam:partOf :Diamond ;
+    diam:gathersCompetence :MLIP ,
+                           :AIApproaches ,
+                           :AIBasedModelling ,
+			   :AiidaWorkflows ,
+			   :AiiDAPluginDevelopment ,
+                           :MLWorkflowDesign ,
+                           :AtomicSimulation ,
+			   :NeuralNetworkPotentials ,
+			   :MLPValidation ;
+    diam:usesTool :AiiDA , :n2p2 , :LAMMPS , :CP2K ;
+    diam:produces :MLIPDB , :AiidaN2p2Plugin , :WorkflowPlatform  ;
+    diam:ledBy :IMPMC ;
+    diam:coLedBy :SIMAP ;
+    rdfs:comment "Machine-learning Interatomic-potential demonstrator. Delivers an open-access repository of MLPs, builds a platform for MLP development including automated training dataset generation, common interface for MLP packages, and containerized workflow solutions." ;
+    skos:prefLabel "WP3 - MLIP demonstrator" .
+    
+###########################################
+### --- Personnel Type Instances ---
+
+:Scientific rdf:type diam:PersonnelType ;
+    rdfs:label "Scientific"@en , "Scientifique"@fr ;
+    rdfs:comment "A scientific contributor in the project." .
+
+:ScientificResponsable rdf:type diam:PersonnelType ;
+    rdfs:label "Scientific Responsable"@en , "Responsable Scientifique"@fr ;
+    rdfs:comment "A scientific lead or responsible person within the project." .
+
+:Engineer rdf:type diam:PersonnelType ;
+    rdfs:label "Engineer"@en , "Ingénieur"@fr ;
+    rdfs:comment "An engineer contributing to the project." .
+
+:ProjectCoordinator rdf:type diam:PersonnelType ;
+    rdfs:label "Project Coordinator"@en , "Coordinateur de Projet"@fr ;
+    rdfs:comment "A coordinator overseeing project activities and organization." .
+
+################################################################
+# Tasks
+
+# Example Task instance
+:Task3_3 rdf:type diam:Task ;
+    diam:taskName "Integration of tools for descriptors" ;
+    diam:isTaskOf :WP3 ;
+    diam:taskLead :SIMAP ;
+    diam:taskCoLead :IMPMC , :CEA-SRMP ;
+#    diam:taskProduces :XXXX ;
+    rdfs:comment "info" ;
+    skos:prefLabel "Task 3.3" .
+
+
+
+# ----> Instances Competences <----
+:NeuralNetworkPotentials a diam:Computational ;
+    skos:prefLabel "Neural Network Potentials" ;
+    rdfs:comment "Expertise in Behler-Parrinello neural network architectures and other neural network-based interatomic potentials for atomistic simulations." .
+
+:MLPValidation a diam:Methodological ;
+    skos:prefLabel "MLP Validation Methods" ;
+    rdfs:comment "Expertise in validation methods for machine learning potentials, including biased molecular dynamics, phonon-based sampling, and benchmark testing." .
+    
+:WebDevelopment a diam:Methodological ;
+    skos:prefLabel "Web Application Development" ;
+    rdfs:comment "Design and implementation of user-facing web applications for presenting, accessing, or submitting scientific data and workflows." .
+
+:AIApproaches a diam:Methodological ;
+    skos:prefLabel "AI Approaches" ;
+    rdfs:comment "General methodological approaches based on artificial intelligence for analysis, prediction, or automation in scientific research." .
+
+:AIBasedModelling a diam:Methodological ;
+    skos:prefLabel "AI-based Modelling" ;
+    rdfs:comment "Application of artificial intelligence techniques to accelerate and enhance materials modelling and discovery." .
+
+:MLWorkflowDesign a diam:Methodological ;
+    skos:prefLabel "Machine Learning Workflow Design" ;
+    rdfs:comment "Designing ML workflows involving data preparation, feature engineering, training, validation, and deployment for scientific tasks." .
+
+:WorkflowDesign a diam:Methodological ;
+    skos:prefLabel "Workflow Design" ;
+    rdfs:comment "Structuring scientific and computational procedures into reproducible workflows." .
+
+:WorkflowOrchestration a diam:Methodological ;
+    skos:prefLabel "Workflow Orchestration" ;
+    rdfs:comment "Coordinating and managing computational workflows using orchestration tools such as CWL, Nextflow, or Airflow." .
+
+:DatabaseInfrastructure a diam:DataManagement ;
+    skos:prefLabel "Database Infrastructure" ;
+    rdfs:comment "Building and maintaining backend infrastructure for storing, querying, and scaling access to scientific simulation and experimental data." .
+
+:DatabaseInfrastructureDesign a diam:DataManagement ;
+    skos:prefLabel "Database Infrastructure Design" ;
+    rdfs:comment "Designing the architecture and implementation of scalable and reliable database systems for scientific workflows." .
+
+:FAIRDataHandling a diam:DataManagement ;
+    skos:prefLabel "FAIR Data Handling" ;
+    rdfs:comment "Applying FAIR principles to ensure that research data is Findable, Accessible, Interoperable, and Reusable." .
+
+:MetadataStandardization a diam:DataManagement ;
+    skos:prefLabel "Metadata Standardization" ;
+    rdfs:comment "Defining, adopting, and applying metadata schemas to improve data interoperability and reusability." .
+
+:AiidaWorkflows a diam:Computational ;
+    skos:prefLabel "AiiDA Workflows" ;
+    rdfs:comment "Design and execution of automated and reproducible scientific workflows using the AiiDA computational framework." .
+
+:AiiDAPluginDevelopment a diam:Computational ;
+    skos:prefLabel "AiiDA Plugin Development" ;
+    rdfs:comment "Development of AiiDA plugins to interface scientific simulation codes with automated workflow engines." .
+
+:AtomicSimulation a diam:Computational ;
+    skos:prefLabel "Atomistic Simulation" ;
+    rdfs:comment "Developing and applying atomistic simulation techniques for materials modelling." .
+
+:ContainerDeployment a diam:Computational ;
+    skos:prefLabel "Scientific Software Containerization" ;
+    rdfs:comment "Packaging and deploying scientific software using container technologies such as Apptainer or Docker." .
+
+:GuixPackaging a diam:Computational ;
+    skos:prefLabel "Guix Packaging" ;
+    rdfs:comment "Creating and maintaining Guix packages to ensure reproducible software environments for scientific computing." .
+
+:HighPerformanceComputing a diam:Computational ;
+    skos:prefLabel "High-performance Computing" ;
+    rdfs:comment "Using and optimizing scientific codes for execution on high-performance computing infrastructures, including GPU clusters and parallel systems." .
+
+:LargeScaleWorkflows a diam:Computational ;
+    skos:prefLabel "Large-scale Workflows" ;
+    rdfs:comment "Design and execution of large-scale computational workflows running across distributed or HPC infrastructures." .
+
+:Containerization a diam:Computational ;
+    skos:prefLabel "Containerization" ;
+    rdfs:comment "Using container technologies to encapsulate, distribute, and execute scientific software in reproducible environments." .
+
+:MLIP a diam:Computational ;
+    skos:prefLabel "Machine Learning Interatomic Potentials" ;
+    rdfs:comment "Using and developing ML-based interatomic potentials for atomistic simulations, including training, validation, and workflow integration." .
+
+
+:MOF a diam:Competence ;
+    skos:prefLabel "Metal-Organic Frameworks" ;
+    rdfs:comment "Expertise in the chemistry, structure, modelling, or application of metal-organic frameworks." .
+
+
+
+# ----> Instances database <----
+
+:MLIPDB rdf:type diam:Database ;
+    rdfs:comment "Machine Learning Interatomic Potentials database - an open-access web repository where external users can submit new MLP models and download MLP parameterizations." .
+
+:Fast2NanoDB rdf:type  diam:Database ;
+    rdfs:comment "Fast2Nano database" .
+
+:AtomisticNumericalSimulationDB rdf:type  diam:Database ;
+    skos:prefLabel  "Atomistic Numerical Simulations - BigDFT" ;
+    rdfs:comment "Database for atomistic numerical simulations - based on BigDFT code simulation" .
+
+
+#-----
+:DiamondWebpage rdf:type diam:Webpage ;
+    rdfs:comment "DIAMOND Web page giving users access to all the containers of codes and workflows." ;
+    skos:prefLabel "DIAMOND Project Webpage" ;
+    diam:hasURL <https://diamond-diadem.github.io/> .
+
+:DiamondDBInfrastructure rdf:type diam:Database ;
+    skos:prefLabel "DIAMOND database infrastructure hosted at the TGCC-Cloud" ;
+    diam:hasURL <https:tbc> .
+dam:DiamondDBInfrastructure rdf:type diam:Database ;
+    skos:prefLabel "DIAMOND database infrastructure (TGCC-Cloud)" ;
+    rdfs:comment "Core DIAMOND database and data lake infrastructure deployed at the TGCC-Cloud." ;
+    diam:hasURL <https:tbc> ;
+    diam:hasComponent :DiamondDBConsultationUI ,
+                      :DiamondDBInjectionUI ,
+                      :MongoDBService ,
+                      :MinioDatalake ,
+                      :GrapheneAPI ,
+                      :GraphQLEndpoint ,
+                      :KeycloakAuth .
+
+:DiamondDBConsultationUI rdf:type diam:UserInterface ;
+    skos:prefLabel "Consultation Interface" ;
+    rdfs:comment "User interface for querying, browsing and visualizing contents of the Diamond database." .
+
+:DiamondDBInjectionUI rdf:type diam:UserInterface ;
+    skos:prefLabel "Data Injection Interface" ;
+    rdfs:comment "Interface for uploading or inserting structured data into the DIAMOND database." .
+
+:MongoDBService rdf:type diam:BackendService ;
+    skos:prefLabel "MongoDB backend" ;
+    rdfs:comment "MongoDB instance used for DIAMOND's metadata store and backend infrastructure." .
+
+:MinioDatalake rdf:type diam:StorageService ;
+    skos:prefLabel "MinIO data lake" ;
+    rdfs:comment "Object storage solution for experimental and computational datasets, used as DIAMOND's data lake." .
+
+:GrapheneAPI rdf:type diam:BackendService ;
+    skos:prefLabel "Graphene API" ;
+    rdfs:comment "Python GraphQL API implemented using Graphene." .
+
+:GraphQLEndpoint rdf:type diam:BackendService ;
+    skos:prefLabel "GraphQL endpoint" ;
+    rdfs:comment "GraphQL endpoint providing structured access to the DIAMOND data backend." .
+
+:KeycloakAuth rdf:type diam:BackendService ;
+    skos:prefLabel "Keycloak authentication service" ;
+    rdfs:comment "Identity and access management layer using Keycloak for authentication and authorization." .
+
+#Jupyter Colab (solution for jupyte notebooks hosted in git;ab serverr. Access to AI dedicated tools. Deployed at gricad  and tcgg-cloud 
+
+# ----> Instances Software <----
+
+:AiiDA rdf:type diam:OpenSource ;
+    rdfs:comment "AiiDA (Automated Interactive Infrastructure and Database for Computational Science) is an open-source Python framework for managing, preserving, and disseminating computational scientific workflows. It provides automated provenance tracking, data management, and workflow execution capabilities for high-throughput computational materials science." ;
+    skos:prefLabel "AiiDA" ;
+    diam:isUsedForDevelopment :AiidaWorkflows , :AiiDAPluginDevelopment .
+    
+:Guix rdf:type  diam:OpenSource ;
+    rdfs:comment "GNU Guix is a functional package manager that facilitates the creation of reproducible and declarative software environments. It allows users to define complete software environments that can be shared and replicated across different systems, enhancing reproducibility in software deployment." ;
+    skos:prefLabel "Guix" .
+
+:Apptainer rdf:type  diam:OpenSource ;
+    rdfs:comment "Apptainer is an open-source container platform. It enables users to create and run containers that encapsulate applications and their dependencies, ensuring portability and reproducibility across diverse computing systems." ;
+    skos:prefLabel "Apptainer" .
+
+:BigDFTsim rdf:type diam:OpenSource ;
+    rdfs:comment "BigDFT is an open-source electronic structure code based on density functional theory (DFT) that utilizes Daubechies wavelets as a computational basis. It is designed for ab initio simulations of materials and molecular systems, offering high precision and scalability for large-scale simulations." ;
+    skos:prefLabel "BigDFT" ;
+    diam:isUsedForDevelopment :AtomisticNumericalSimulationDB .
+
+:MongoDB rdf:type  diam:OpenSource ;
+    rdfs:comment "MongoDB is a document-oriented NoSQL database that stores data in flexible, JSON-like documents. It offers scalability and flexibility for handling large volumes of unstructured or semi-structured data, making it suitable for modern application development." ;
+    skos:prefLabel "MongoDB" ;
+    diam:isUsedForDevelopment diam:Database .
+
+#----------
+
+:MLPWebRepository rdf:type diam:Webpage ;
+    rdfs:label "MLP Web Repository" ;
+    skos:prefLabel "Machine Learning Potential Repository" ;
+    rdfs:comment "An open-access web repository where external users can submit new MLP models and download MLP parameterizations." .
+
+:AiidaN2p2Plugin rdf:type diam:Product ;
+    rdfs:label "AiiDA-n2p2 Plugin" ;
+    skos:prefLabel "AiiDA-n2p2 Plugin" ;
+    rdfs:comment "An AiiDA plugin for automating the development of Behler-Parrinello neural network MLPs using n2p2, including automated weight selection, validation through LAMMPS molecular dynamics, and semi-automated input generation." .
+
+:MLPWorkflowPlatform rdf:type diam:Product ;
+    rdfs:label "MLP Workflow Platform" ;
+    skos:prefLabel "MLP Development Workflow Platform" ;
+    rdfs:comment "A containerized workflow solution for MLP development, including automated generation of training, validation and test datasets, and integration with ab initio calculation engines." .
+
+
+
+##################
+#  Institutions
+##################
+
+:SIMAP rdf:type diam:Partner ;
+    rdfs:comment "Science et Ingénierie des Matériaux et Procédés"@fr ;
+    skos:prefLabel "SIMaP" .
+
+:IMPMC rdf:type diam:Partner ;
+    rdfs:comment "Institut de Minéralogie, de Physique des Matériaux et de Cosmochimie"@fr ;
+    skos:prefLabel "IMPMC" .
+
+:GRICAD rdf:type diam:Partner ;
+    rdfs:comment "Grenoble Alpes Recherche - Infrastructure de Calcul intensif et de Données"@fr , "Grenoble Alpes Research Scientific Computing and Data Infrastructure"@en ;
+    skos:prefLabel "GRICAD" .
+
+:ILM rdf:type diam:Partner ;
+    rdfs:comment "The Institut Lumière Matière"@fr ;
+    skos:prefLabel "iLM" .
+
+:CEA-LIST rdf:type diam:Partner ;
+    rdfs:comment "CEA-LIST (Laboratoire d'Intégration de Systèmes et des Technologies)"@fr ;
+    skos:prefLabel "CEA-LIST" .
+    
+:CEA-MEM rdf:type diam:Partner ;
+    rdfs:comment "CEA-MEM (Laboratoire Modélisation et Exploration des Matériaux)"@fr ,  "CEA-MEM (Matter Exploration and Modeling)"@en ; 
+    skos:prefLabel "CEA-MEM" .
+
+:CEA-LGLS rdf:type diam:Partner ;
+    rdfs:comment "CEA-LGLS (Laboratoire de Génie Logiciel pour la Simulation)"@fr ;
+    skos:prefLabel "CEA-LGLS" .
+
+:CEA-SRMP rdf:type diam:Partner ;
+    rdfs:comment  "CEA-SRMP (Service de Recherches de Métallurgie Physique)"@fr ; 
+    skos:prefLabel "CEA-SRMP" .
+
+:GrenobleINP rdf:type diam:Partner ;
+    rdfs:comment "Grenoble INP";
+    skos:prefLabel "Grenoble INP" .
+
+:Sorbonne rdf:type diam:Partner ;
+    rdfs:comment "Sorbonne Universite" ;
+    skos:prefLabel "Sorbonne University" .
+
+:CNRS rdf:type diam:Partner .
+
+:CEASaclay rdf:type diam:Partner .
+
+# ----> Tasks < ----
+#
+# Task 1.1 - Platform infrastructure (GRICAD)
+# 
+# Task 1.2 - Deployment of containers for standalone codes (iLM)
+#
+# Task 1.3 - Deployment of workflows (IMPMC)
+#
+# Task 1.4 - MOF learning workflow use case (SIMaP)
+#
+# Task 1.5 - ESRF AI workflow use case (CEA-MEM).
+#
+# Task 2.1 - Materials Research Data Management Software Infrastructure (CEA-LIST)
+#
+# Task 2.2 - Simulation database (CEA-MEM)
+#
+# Task 2.3 - AI analysis tools (CEA-LIST)
+#
+# Task 2.4 - FastNano use case (CEA-LIST)
+#
+# Task 3.1 - MLP repository (IMPMC)
+#
+# Task 3.2 - Towards an automated generation of training, validation and test datasets (IMPMC)
+#
+# Task 3.3 - Integration of tools for descriptors (SIMaP)
+#
+# Task 3.4 -  Regression tools and MLP generation (SIMaP, IMPMC and CEA-SRMP)
+#
+# Task 3.5 - MLP development workflow (IMPMC, SIMaP)
+#
+
+
+#--------------------------------------
+# ---------- Containers ---------------
+# -------------------------------------
+
+# ----> Instances of Scientific Computing Containerized Codes <----
+
+:LAMMPS rdf:type diam:ScientificComputing ;
+    skos:prefLabel "LAMMPS" ;
+    rdfs:comment "Large-scale Atomic/Molecular Massively Parallel Simulator. A classical molecular dynamics code for simulating materials, soft matter, and biological systems at the atomic scale." ;
+    diam:hasURL <https://diamond-diadem.github.io/codes/scientific-computing/lammps/> .
+
+:QuantumESPRESSO rdf:type diam:ScientificComputing ;
+    skos:prefLabel "Quantum ESPRESSO" ;
+    rdfs:comment "An integrated suite of open-source codes for electronic-structure calculations and materials modeling at the nanoscale, based on density-functional theory, plane waves, and pseudopotentials." ;
+    diam:hasURL <https://diamond-diadem.github.io/codes/scientific-computing/quantum-espresso/> .
+
+:Abinit rdf:type diam:ScientificComputing ;
+    skos:prefLabel "ABINIT" ;
+    rdfs:comment "A software suite for electronic structure calculations based on density functional theory, using pseudopotentials and a plane wave or wavelet basis. Capable of treating metals, insulators, and molecules." .
+
+:Zset rdf:type diam:ScientificComputing ;
+    skos:prefLabel "Z-set" ;
+    rdfs:comment "A finite element-based software suite for nonlinear material and structure analysis, particularly focused on thermomechanical simulations and advanced material behavior modeling." .
+
+:FreeFEM rdf:type diam:ScientificComputing ;
+    skos:prefLabel "FreeFEM" ;
+    rdfs:comment "A partial differential equation solver using the finite element method. Widely used for multiphysics simulations in fluid dynamics, structural mechanics, and electromagnetics." .
+
+:OpenCalphad rdf:type diam:ScientificComputing ;
+    skos:prefLabel "OpenCalphad" ;
+    rdfs:comment "An open-source thermodynamic software for CALPHAD (CALculation of PHAse Diagrams) calculations, used for predicting phase equilibria and thermodynamic properties of multicomponent systems." .
+
+:Neper rdf:type diam:ScientificComputing ;
+    skos:prefLabel "Neper" ;
+    rdfs:comment "A software package for polycrystal generation and meshing, designed to create representative volume elements of polycrystalline materials for finite element simulations." .
+
+:PLUMED rdf:type diam:ScientificComputing ;
+    skos:prefLabel "PLUMED" ;
+    rdfs:comment "An open-source plugin for free energy calculations in molecular dynamics, enabling enhanced sampling methods and analysis of molecular simulations across multiple MD codes." .
+
+:Gmsh rdf:type diam:ScientificComputing ;
+    skos:prefLabel "Gmsh" ;
+    rdfs:comment "A three-dimensional finite element mesh generator with built-in pre- and post-processing facilities, widely used for computational modeling in engineering and physics." .
+
+:ZeoPlusPlus rdf:type diam:ScientificComputing ;
+    skos:prefLabel "Zeo++" ;
+    rdfs:comment "A software package for high-throughput analysis of porous materials and crystal structures, calculating geometric properties such as surface area, pore volume, and accessible channels." .
+
+:RASPA2 rdf:type diam:ScientificComputing ;
+    skos:prefLabel "RASPA2" ;
+    rdfs:comment "A molecular simulation software for adsorption and diffusion in nanoporous materials, particularly metal-organic frameworks (MOFs) and zeolites, using Monte Carlo and molecular dynamics methods." .
+
+:OpenDiS rdf:type diam:ScientificComputing ;
+    skos:prefLabel "OpenDiS" ;
+    rdfs:comment "An open-source dislocation dynamics simulation code for modeling plastic deformation in crystalline materials through the collective motion of dislocations." .
+
+:Wannier90 rdf:type diam:ScientificComputing ;
+    skos:prefLabel "Wannier90" ;
+    rdfs:comment "A code for generating maximally-localized Wannier functions from electronic structure calculations, used for analyzing chemical bonding and calculating transport properties." .
+
+:NWChem rdf:type diam:ScientificComputing ;
+    skos:prefLabel "NWChem" ;
+    rdfs:comment "A computational chemistry software designed for calculations on molecular systems of varying sizes, from small molecules to biomolecules and materials, using quantum mechanical and classical methods." .
+
+:FEniCS rdf:type diam:ScientificComputing ;
+    skos:prefLabel "FEniCS" ;
+    rdfs:comment "An open-source computing platform for solving partial differential equations using the finite element method, with automated solution of variational problems and high-level Python interfaces." .
+
+:CP2K rdf:type diam:ScientificComputing ;
+    skos:prefLabel "CP2K" ;
+    rdfs:comment "A quantum chemistry and solid-state physics software package for atomistic simulations, particularly efficient for molecular dynamics simulations using mixed Gaussian and plane wave methods." .
+
+:n2p2 rdf:type diam:ScientificComputing ;
+    skos:prefLabel "n2p2" ;
+    rdfs:comment "A software package for training and applying high-dimensional neural network potentials for atomistic simulations, enabling accurate and efficient molecular dynamics with machine learning potentials." .
+
+:DFTBPlus rdf:type diam:ScientificComputing ;
+    skos:prefLabel "DFTB+" ;
+    rdfs:comment "A density functional tight-binding code for efficient quantum mechanical calculations on large molecular and materials systems, offering a good balance between accuracy and computational cost." .
+
+:XTB rdf:type diam:ScientificComputing ;
+    skos:prefLabel "XTB" ;
+    rdfs:comment "An extended tight-binding semi-empirical quantum chemistry program for efficiently calculating structures, properties, and reaction paths of molecular systems containing thousands of atoms." .
+
+:GaTewAY rdf:type diam:ScientificComputing ;
+    skos:prefLabel "GaTewAY" ;
+    rdfs:comment "A workflow management system for computational materials science, designed to facilitate automated execution of complex simulation workflows and integration with high-performance computing resources." .
+
+# ----> Instances of Visualization Containerized Codes <----
+
+:Ovito rdf:type diam:Visualization ;
+    skos:prefLabel "OVITO" ;
+    rdfs:comment "Open Visualization Tool - A scientific visualization and analysis software for atomistic and particle simulation data, particularly suited for molecular dynamics and discrete element simulations." ;
+    diam:hasURL <https://diamond-diadem.github.io/codes/visualisation/ovito/> .
+
+:ParaView rdf:type diam:Visualization ;
+    skos:prefLabel "ParaView" ;
+    rdfs:comment "An open-source, multi-platform data analysis and visualization application for large-scale scientific datasets, supporting various data formats and offering advanced visualization capabilities for finite element and computational fluid dynamics results." ;
+    diam:hasURL <https://diamond-diadem.github.io/codes/visualisation/paraview/> .
+
+:VESTA rdf:type diam:Visualization ;
+    skos:prefLabel "VESTA" ;
+    rdfs:comment "Visualization for Electronic and STructural Analysis - A 3D visualization program for structural models, volumetric data such as electron/nuclear densities, and crystal morphologies, widely used in materials science and crystallography." .
+
+:VMD rdf:type diam:Visualization ;
+    skos:prefLabel "VMD" ;
+    rdfs:comment "Visual Molecular Dynamics - A molecular visualization program for displaying, animating, and analyzing large biomolecular systems using 3D graphics and built-in scripting for trajectory analysis." .
+
+:XCrySDen rdf:type diam:Visualization ;
+    skos:prefLabel "XCrySDen" ;
+    rdfs:comment "X-window CRYstalline Structures and DENsities - A crystalline and molecular structure visualization program for displaying isosurfaces, contours, and atomic structures, with support for various quantum chemistry and solid-state physics codes." .
+
+##################################################
+# People
+#################################################
+
+:JPADM rdf:type diam:Person ;
+    foaf:givenName "Joao Paulo" ;
+    foaf:familyName "Almeida de Mendonca" ;
+    foaf:name "Joao Paulo Almeida de Mendoca" ;
+    foaf:mbox <mailto:joao-paulo.almeida-de-mendonca@grenoble-inp.fr> ;
+    diam:employedBy :SIMAP ;
+    diam:worksOn :WP1 ;
+    diam:hasPersonnelType diam:Scientific ;
+    diam:hasCompetence :AIApproaches ;
+    diam:joinDate "January 2024" ;
+#    diam:leftDate "December 2027" ; 
+    rdfs:seeAlso <https://diamond-diadem.github.io/team/joao-paulo-almeida/> ;
+    rdfs:seeAlso <https://scholar.google.com/citations?user=KtS3vY4AAAAJ> ;
+    rdfs:seeAlso <https://www.linkedin.com/in/jo%C3%A3o-paulo-almeida-de-mendon%C3%A7a-574598b1/> ;
+    diam:isCurrentMember true .
+
+:NJ rdf:type diam:Person ;
+    foaf:givenName "Noël" ;
+    foaf:familyName "Jakse" ;
+    foaf:name "Noël Jakse" ;
+    foaf:mbox <mailto:noel.jakse@grenoble-inp.fr> ;
+    diam:employedBy :GrenobleINP ;
+    diam:worksOn :WP1 ;
+    diam:hasPersonnelType diam:ProjectCoordinator , diam:ScientificResponsable ;
+    rdfs:seeAlso <https://diamond-diadem.github.io/team/no-l-jakse/> .
+
+:FW rdf:type diam:Person ;
+    foaf:givenName "François" ;
+    foaf:familyName "Willaime" ;
+    foaf:name "François Willaime" ;
+    foaf:mbox <mailto:francois.willaime@cea.fr> ;
+    diam:employedBy :CEA-LGLS ;
+    diam:worksOn :Diamond ;
+    diam:hasPersonnelType diam:ProjectCoordinator ;
+    rdfs:seeAlso <https://diamond-diadem.github.io/team/fran-ois-willaime/> .
+
+:MS rdf:type diam:Person ;
+    foaf:givenName "Marco" ;
+    foaf:familyName "Saitta" ;
+    foaf:name "A. Marco Saitta" ;
+    foaf:mbox <mailto:marco.saitta@sorbonne-universite.fr> ;
+    diam:employedBy :Sorbonne ;
+    diam:worksOn :WP3 ;
+    diam:hasPersonnelType diam:Scientific , diam:ScientificResponsable ;
+    rdfs:seeAlso <https://diamond-diadem.github.io/team/marco-saitta/> .
+
+:VB rdf:type diam:Person ;
+    foaf:givenName "Vincent" ;
+    foaf:familyName "Bergeaud" ;
+    foaf:name "Vincent Bergeaud" ;
+    foaf:mbox <mailto:vincent.bergeaud@cea.fr> ;
+    diam:employedBy :CEASaclay ;
+    diam:worksOn :WP2 ;
+    diam:hasPersonnelType diam:Scientific ;
+    rdfs:seeAlso <https://diamond-diadem.github.io/team/vincent-bergeaud/> .
+
+:TD rdf:type diam:Person ;
+    foaf:givenName "Thierry" ;
+    foaf:familyName "Deutsch" ;
+    foaf:name "Thierry Deutsch" ; 
+    foaf:mbox <mailto:thierry.deutsch@cea.fr> ;
+    diam:employedBy :CEA-IRIG ;
+    diam:worksOn :WP2 ;
+    diam:hasPersonnelType diam:Scientific , diam:ScientificResponsable  ;
+    rdfs:seeAlso <https://diamond-diadem.github.io/team/thierry-deutsch/> .
+
+:DR rdf:type diam:Person ;
+    foaf:givenName "David" ;
+    foaf:familyName "Rodney" ;
+    foaf:name "David Rodney" ;
+    foaf:mbox <mailto:david.rodney@univ-lyon1.fr> ;
+    diam:employedBy :ILM ;
+    diam:worksOn :WP1 ;
+    diam:hasPersonnelType diam:Scientific ;
+    rdfs:seeAlso <https://diamond-diadem.github.io/team/david-rodney/> .
+
+:JPP rdf:type diam:Person ;
+    foaf:givenName "Jean-Philippe" ;
+    foaf:familyName "Poli" ;
+    foaf:name "Jean-Philippe Poli" ;
+    foaf:mbox <mailto:jean-philippe.poli@cea.fr> ;
+    diam:employedBy :CEASaclay ;
+    diam:worksOn :WP2 ;
+    diam:hasPersonnelType diam:Scientific .
+
+:PAB rdf:type diam:Person ;
+    foaf:givenName "Pierre-Antoine" ;
+    foaf:familyName "Bouttier" ;
+    foaf:name "Pierre-Antoine Bouttier" ;
+    foaf:mbox <mailto:pierre-antoine.bouttier@univ-grenoble-alpes.fr> ;
+    diam:employedBy :GRICAD , :CNRS ;
+    diam:worksOn :WP1 ;
+    diam:hasPersonnelType diam:Scientific ;
+    rdfs:seeAlso <https://www.linkedin.com/in/pierre-antoine-bouttier/> .
+
+:NICOLAS_CROUZET rdf:type diam:Person ;
+    foaf:givenName "Nicolas" ;
+    foaf:familyName "Crouzet" ;
+    foaf:name "Nicolas Crouzet" ;
+    foaf:mbox <mailto:nicolas.crouzet@cea.fr> ;
+    diam:employedBy :CEASaclay ;
+    diam:worksOn :WP1 ;
+    diam:hasPersonnelType diam:Scientific .
+    
+:JONATHAN_DAUBIN rdf:type diam:Person ;
+    foaf:givenName "Jonathan" ;
+    foaf:familyName "Daubin" ;
+    foaf:name "Jonathan Daubin" ;
+    foaf:mbox <mailto:jonathan.daubin@cea.fr> ;
+    diam:employedBy :CEASaclay ;
+    diam:worksOn :WP1 ;
+    diam:hasPersonnelType diam:Scientific .
+   
+:NILS_KASCH rdf:type diam:Person ;
+    foaf:givenName "Nils" ;
+    foaf:familyName "Kasch" ;
+    foaf:name "Nils Kasch" ;
+    diam:joinDate "Mars 2025" ;
+#    diam:leftDate "October 2026" ;     
+    foaf:mbox <mailto:nils.kasch@cea.fr> ;
+    diam:employedBy :CEASaclay ;
+    diam:worksOn :WP1 ;
+    diam:hasPersonnelType diam:Scientific ;
+    rdfs:seeAlso <www.linkedin.com/in/nils-kasch> .
+
+:LORENZO_PAULATTO rdf:type diam:Person ;
+    foaf:givenName "Lorenzo" ;
+    foaf:familyName "Paulatto" ;
+    foaf:name "Lorenzo Paulatto" ;
+    foaf:mbox <mailto:Lorenzo.paulatto@sorbonne-universite.fr> ;
+    diam:employedBy :Sorbonne ;
+    diam:worksOn :WP1 ;
+    diam:hasPersonnelType diam:Scientific .
+
+:IRINA_PIAZZA rdf:type diam:Person ;
+    foaf:givenName "Irina" ;
+    foaf:familyName "Piazza" ;
+    foaf:name "Irina Piazza" ;
+    diam:joinDate "December 2024" ;
+#    diam:leftDate "November 2028" ;
+    foaf:mbox <mailto:irina.piazza@grenoble-inp.fr> ;
+    diam:employedBy :SIMAP ;
+    diam:worksOn :WP3 ;
+    diam:hasPersonnelType diam:Scientific ;
+    rdfs:seeAlso <https://scholar.google.com/citations?user=BlPP-x4AAAAJ&hl=fr&oi=ao> ;
+    rdfs:seeAlso <https://www.linkedin.com/in/irina-piazza/> .
+
+:DORIAN_ROLLAND rdf:type diam:Person ;
+    foaf:givenName "Dorian" ;
+    foaf:familyName "Rolland" ;
+    foaf:name "Dorian Rolland" ;
+    foaf:mbox <mailto:dorian.rolland@cea.fr> ;
+    diam:employedBy :CEA-IRIG ;
+    diam:worksOn :WP1 ;
+    diam:hasPersonnelType diam:Engineer ;
+    diam:isCurrentMember true .
+   
+
+:MARTIN_UHRIN rdf:type diam:Person ;
+    foaf:givenName "Martin" ;
+    foaf:familyName "Uhrin" ;
+    foaf:name "Martin Uhrin" ;
+    foaf:mbox <mailto:martin.uhrin@grenoble-inp.fr> ;
+    diam:employedBy diam:SIMAP ;
+    diam:worksOn diam:WP1, diam:WP3 ;
+    diam:hasPersonnelType diam:Scientific ;
+    diam:isCurrentMember true .
+
+:AADHITYAN_ARIVAZHAGAN rdf:type diam:Person ;
+    foaf:givenName "Aadhityan" ;
+    foaf:familyName "Arivazhagan" ;
+    foaf:name "Aadhityan Arivazhagan" ;
+    diam:joinDate "September 2024" ;
+#    diam:leftDate "August 2026" ;
+    foaf:mbox <mailto:aadhityan.arivazhagan@sorbonne-universite.fr> ;
+    diam:employedBy :Sorbonne ;
+    diam:worksOn :WP1 ; #WP3 too??
+    diam:hasPersonnelType diam:Scientific .
+
+:OMAR_BENYAHYA rdf:type diam:Person ;
+    foaf:givenName "Omar" ;
+    foaf:familyName "Benyahya" ;
+    foaf:name "Omar Benyahya" ;
+    diam:joinDate "October 2024" ;
+#    diam:leftDate "October 2027" ;
+    foaf:mbox <mailto:omar.benyahya@cea.fr> ;
+    diam:employedBy :CEASaclay ;
+    diam:worksOn :WP2 ;
+    diam:hasPersonnelType diam:Engineer .
+
+diam:AHMED_AMRANI rdf:type diam:Person ;
+    foaf:givenName "Ahmed" ;
+    foaf:familyName "Amrani" ;
+    foaf:name "Ahmed Amrani" ;
+    foaf:mbox <mailto:ahmed.amrani@cea.fr> ;
+    diam:employedBy diam:CEASaclay ;
+    diam:worksOn diam:WP2 ;
+    diam:hasPersonnelType diam:Engineer .
+    
+diam:ARAWINTH_CAMATCHY rdf:type diam:Person ;
+    foaf:givenName "Arawinth" ;
+    foaf:familyName "Camatchy" ;
+    foaf:name "Arawinth Camatchy" ;
+    foaf:mbox <mailto:arawinth.camatchy@cea.fr> ;
+    diam:employedBy :CEA-IRIG     ;
+    diam:worksOn :WP2 ;
+    diam:hasPersonnelType diam:Scientific ;
+    diam:isCurrentMember true .
+    
+:IMANOL_SETOAIN rdf:type diam:Person ;
+    foaf:givenName "Imanol" ;
+    foaf:familyName "Setoain" ;
+    foaf:name "Imanol Setoain" ;
+    foaf:mbox <mailto:imanol.setoain@cea.fr> ;
+    diam:employedBy :CEA-LIST ;
+    diam:worksOn :WP2 ;
+    diam:hasPersonnelType diam:Engineer .
+
+:NICOLA_VIGANO rdf:type diam:Person ;
+    foaf:givenName "Nicola" ;
+    foaf:familyName "Vigano" ;
+    foaf:name "Nicola Vigano" ;
+    foaf:mbox <mailto:nicola.vigano@cea.fr> ;
+    diam:employedBy :CEA-IRIG ;
+    diam:worksOn :WP2 ;
+    diam:hasPersonnelType diam:Scientific .
+
+:CINTHYA_HERRERA rdf:type diam:Person ;
+    foaf:givenName "Cinthya" ;
+    foaf:familyName "Herrera" ;
+    foaf:name "Cinthya Herrera Contreras" ;
+    foaf:mbox <mailto:cinthya.herreracontreras@cea.fr> ;
+    diam:employedBy :CEA-IRIG ;
+    diam:hasCompetence :MetadataStandardization , :LargeScaleWorkflows ;
+    diam:worksOn :WP2 ;
+    diam:hasPersonnelType diam:Scientific ;
+    diam:joinDate "May 2024" ;
+    #diam:leftDate "May 2027" ;
+    rdfs:seeAlso <https://www.linkedin.com/in/cinthyaherrera/> ;
+    rdfs:seeAlso <https://diamond-diadem.github.io/team/cinthya-herrera/> .
+
+:MIHAI_COSMIN_MARINICA rdf:type diam:Person ;
+    foaf:givenName "Mihai-Cosmin" ;
+    foaf:familyName "Marinica" ;
+    foaf:name "Mihai-Cosmin Marinica" ;
+    foaf:mbox <mailto:cosmin.marinica@cea.fr> ;
+    diam:employedBy :CEA-LGLS ;
+    diam:worksOn :WP3 ;
+    diam:hasPersonnelType diam:Scientific .
+
+:ANRUO_ZHONG rdf:type diam:Person ;
+    foaf:givenName "Anruo" ;
+    foaf:familyName "Zhong" ;
+    foaf:mbox <mailto:Anruo.ZHONG@cea.fr> ;
+    diam:worksOn :WP3 ;
+    diam:joinDate "Mars 2025" ;
+    #diam:leftDate "Mars 2028" ;
+    diam:hasPersonnelType diam:Scientific .
+    
+:ARTHUR_FRANCE_LANORD rdf:type diam:Person ;
+    foaf:givenName "Arthur" ;
+    foaf:familyName "France-Lanord" ;
+    foaf:name "Arthur France-Lanord" ;
+    foaf:mbox <mailto:arthur.france-lanord@sorbonne-universite.fr> ;
+    diam:employedBy :Sorbonne ;
+    diam:worksOn :WP3 ;
+    diam:hasPersonnelType diam:Scientific .
+
+:AKSHAY_AMMOTHUM_KANDY rdf:type diam:Person ;
+    foaf:givenName "Akshay" ;
+    foaf:familyName "Ammothum kandy" ;
+    foaf:mbox <mailto:akshaykrishnaak9@gmail.com> ;
+    diam:employedBy :IMPMC , :Sorbonne ;
+    diam:worksOn :WP3 ;
+    diam:joinDate "November 2023" ;
+    #diam:leftDate "October 2026" ;
+    diam:hasPersonnelType diam:Scientific ;
+    rdfs:seeAlso <https://scholar.google.com/citations?user=iE9GGREAAAAJ&hl=sv> ;
+    rdfs:seeAlso <www.linkedin.com/in/aksam432> .
+
+:LEO_ORVEILLON rdf:type diam:Person ;
+    foaf:givenName "Léo" ;
+    foaf:familyName "Orveillon" ;
+    foaf:name "Leo Orveillon" ;
+    foaf:mbox <mailto:leo.orveillon@univ-grenoble-alpes.fr> ;
+    diam:employedBy :GRICAD ;
+    diam:worksOn :WP1 ;
+    diam:joinDate "April 2025" ;
+    #diam:leftDate "Mars 2027" ;    
+    diam:hasPersonnelType diam:Scientific ;
+    rdfs:seeAlso <https://www.linkedin.com/in/leo-orveillon/> .
+
+
+
+# Previous members
+
+:BA rdf:type diam:Person ;
+    foaf:givenName "Benjamin" ;
+    foaf:familyName "Arrondeau" ;
+    foaf:name "Benjamin Arrondeau" ;
+    diam:joinDate "February 2024" ;
+    diam:leftDate "January 2026" ; 
+    foaf:mbox <mailto:benjamin.arrondeau@univ-grenoble-alpes.fr> ;
+    diam:employedBy :GRICAD ;
+    diam:worksOn :WP1 ;
+    diam:hasPersonnelType diam:Scientific ;
+    diam:isCurrentMember false .
+
+:ADRIEN_BRUNETON rdf:type diam:Person ;
+    foaf:givenName "Adrien" ;
+    foaf:familyName "Bruneton" ;
+    foaf:name "Adrien Bruneton" ;
+    foaf:mbox <mailto:adrien.bruneton@cea.fr> ;
+    diam:employedBy :CEASaclay ;
+    diam:worksOn :WP1 ;
+    diam:hasPersonnelType diam:Scientific ;
+    diam:isCurrentMember false .
+
+:GEOFFREY_DANIEL rdf:type diam:Person ;
+    foaf:givenName "Geoffrey" ;
+    foaf:familyName "Daniel" ;
+    foaf:name "Geoffrey Daniel" 
+    foaf:mbox <mailto:geoffrey.daniel@cea.fr> ;
+    diam:employedBy :CEASaclay ;
+    diam:worksOn :WP1 ;
+    diam:hasPersonnelType diam:Scientific ;
+    diam:isCurrentMember false .
+
+:DAVID_MARTIN_CALLE rdf:type diam:Person ;
+    foaf:givenName "David" ;
+    foaf:familyName "Martin-Calle" ;
+    foaf:name "David Martin-Calle" ;
+    diam:joinDate "November 2023" ;
+    diam:leftDate "November 2025" ;  
+    foaf:mbox <mailto:david.martin-calle@univ-lyon1.fr> ;
+    diam:employedBy :ILM ;
+    diam:worksOn :WP1 ;
+    diam:hasPersonnelType diam:Scientific ;
+    diam:isCurrentMember false .
+
+:D_BISSUEL rdf:type diam:Person ;
+    foaf:givenName "Bissuel" ;
+    foaf:familyName "Dylan" ;
+    foaf:name "Dylan Bissuel" 
+    diam:employedBy :iLM ;
+    diam:worksOn :WP1 ;
+    diam:hasPersonnelType diam:Scientific ;
+    diam:isCurrentMember false .

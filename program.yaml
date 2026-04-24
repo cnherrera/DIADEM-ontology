@@ -1,0 +1,70 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  PEPR Program Description  —  fill once for the whole PEPR
+# ─────────────────────────────────────────────────────────────────────────────
+
+program:
+  acronym:   "PEPR-DIADEM"           
+  title:     "Priority research program and equipment on the development of innovative materials using artificial intelligence"
+  description: >                      # REQUIRED
+     A French PEPR program focused on accelerating the discovery, design, and deployment of innovative materials using artificial intelligence, advanced modeling, high-throughput synthesis and characterization, and shared research platforms. It aims to support more efficient, sustainable materials made from non-critical and non-toxic raw materials, while strengthening French industrial competitiveness and integrating environmental and societal aspects.
+  start_date: "2023-01-01"            # REQUIRED
+  end_date:   "2030-12-31"            # REQUIRED
+  documentation_url: "https://pepr-diadem.fr"  # optional
+
+  funding:
+    source:   "ANR / France 2030"
+    amount:   30000000     # in euros (or omit)
+    currency: "EUR"
+
+  lead:
+    person:
+      first_name: "Henri"
+      last_name:  "Becquerel"
+      email:      "h.becquerel@example.fr"
+      orcid:      ~
+    institution:
+      acronym:   "CNRS"
+      full_name: "Centre National de la Recherche Scientifique"
+      ror:       "https://ror.org/02feahw73"
+
+  colead:
+    person:
+      first_name: "Irène"
+      last_name:  "Joliot-Curie"
+      email:      "i.joliot@example.fr"
+      orcid:      ~
+    institution:
+      acronym:   "CEA"
+      full_name: "Commissariat à l'énergie atomique et aux énergies alternatives"
+      ror:       "https://ror.org/00jjx8s55"
+
+  # ── Platforms ────────────────────────────────────────────────────────────
+  platforms:
+    - acronym:      "DATAPLAT"
+      title:        "Data & AI Platform"
+      description:  "Platform dedicated to data management, FAIR principles and AI methods."
+      goal_description: "Provide shared data infrastructure and machine learning toolkits."
+      goal_category: "infrastructure"   # scientific | domain | infrastructure | other
+      lead_projects:                    # 1 or 2 project acronyms (must exist in projects files)
+        - "MYPROJECT"
+
+    - acronym:      "SCIENCEPLAT"
+      title:        "Core Science Platform"
+      description:  "Platform for fundamental research activities."
+      goal_description: "Advance core scientific knowledge in the program's domain."
+      goal_category: "scientific"
+      lead_projects:
+        - "MYPROJECT"
+
+
+
+
+
+
+  # ── Project list (referenced by acronym) ─────────────────────────────────
+  # The actual project details live in individual project YAML files.
+  # List them here so the assembler knows which files to load.
+  targeted_projects:
+    - "MYPROJECT"   # acronym – must match project.acronym in the individual YAML
+
+  aap_projects: []  # fill with AAP project acronyms once available
