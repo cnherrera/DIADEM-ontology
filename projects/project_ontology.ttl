@@ -271,6 +271,11 @@ diam:isComponentOf rdf:type owl:ObjectProperty ;
     owl:inverseOf diam:hasComponent ;
     skos:prefLabel "is component of" .
 
+diam:hasScientificResponsable rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:WorkPackage ;
+    rdfs:range diam:Person ;
+    skos:prefLabel "has scientific responsable" .
+
 #################################################################
 #    Task Class and Properties
 #################################################################
