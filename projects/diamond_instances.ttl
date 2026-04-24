@@ -11,7 +11,7 @@
 
 
 <https://cnherrera.github.io/DIADEM-ontology/projects/diamond_instances.ttl> rdf:type owl:Ontology ;
-    owl:import <https://cnherrera.github.io/DIADEM-ontology/projects/project_ontology.> ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/projects/project_ontology.> ;
     rdfs:comment "Instances DIAMOND project" ;
     owl:versionInfo "0.1" .
 
