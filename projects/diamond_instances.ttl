@@ -231,7 +231,8 @@
 :DiamondDBInfrastructure rdf:type diam:Database ;
     skos:prefLabel "DIAMOND database infrastructure hosted at the TGCC-Cloud" ;
     diam:hasURL <https:tbc> .
-dam:DiamondDBInfrastructure rdf:type diam:Database ;
+
+:DiamondDBInfrastructure rdf:type diam:Database ;
     skos:prefLabel "DIAMOND database infrastructure (TGCC-Cloud)" ;
     rdfs:comment "Core DIAMOND database and data lake infrastructure deployed at the TGCC-Cloud." ;
     diam:hasURL <https:tbc> ;
@@ -834,7 +835,7 @@ diam:ARAWINTH_CAMATCHY rdf:type diam:Person ;
 :GEOFFREY_DANIEL rdf:type diam:Person ;
     foaf:givenName "Geoffrey" ;
     foaf:familyName "Daniel" ;
-    foaf:name "Geoffrey Daniel" 
+    foaf:name "Geoffrey Daniel" ;
     foaf:mbox <mailto:geoffrey.daniel@cea.fr> ;
     diam:employedBy :CEASaclay ;
     diam:worksOn :WP1 ;
@@ -856,7 +857,7 @@ diam:ARAWINTH_CAMATCHY rdf:type diam:Person ;
 :D_BISSUEL rdf:type diam:Person ;
     foaf:givenName "Bissuel" ;
     foaf:familyName "Dylan" ;
-    foaf:name "Dylan Bissuel" 
+    foaf:name "Dylan Bissuel" ;
     diam:employedBy :iLM ;
     diam:worksOn :WP1 ;
     diam:hasPersonnelType diam:Scientific ;
