@@ -490,16 +490,6 @@ function extractOntology(store) {
         const inst = instances.get(q.subject.value);
         if (inst && !inst.attributes) inst.attributes = []; // Inicializamos un array de atributos
 
-        // Dentro del bucle donde recorres las instancias
-        // const isCurrentQuad = store.getQuads(q.subject, diam + 'isCurrentMember', null, null)[0];
-
-        // if (isCurrentQuad) {
-        //     // Convertimos el string "true"/"false" del RDF a un booleano real de JS
-        //     inst.active = (isCurrentQuad.object.value === 'true');
-        // } else {
-        //     // Si no está definida, por defecto asumimos que es activo
-        //     inst.active = true;
-        // }
     }
 
     // Instance labels
@@ -562,8 +552,27 @@ function extractOntology(store) {
         if (q.object.termType === 'Literal') {
             const inst = instances.get(q.subject.value);
             if (inst) {
+                const predLocal = localName(q.predicate.value);
+
+                // Capturar específicamente el estado de membresía
+                if (predLocal === 'isCurrentMember') {
+                    // Convertimos el literal "true"/"false" a booleano real
+                    inst.isCurrentMember = (q.object.value === 'true');
+                }
+
+                const pred = q.predicate.value;
+                // --- FILTRO AQUÍ ---
+                // No añadimos a 'attributes' lo que ya mostramos en secciones especiales
+                if (pred === RDFS + 'comment' || 
+//                    pred === SKOS + 'definition' || 
+//                    pred === RDFS + 'label' || 
+//                    pred === SKOS + 'prefLabel' || 
+                    pred === FOAF + 'name') {
+                    continue; 
+                }
+
                 inst.attributes.push({
-                    prop: localName(q.predicate.value),
+                    prop: predLocal,
                     value: q.object.value
                 });
             }
@@ -722,6 +731,8 @@ function buildElements(ontology) {
                 uri:     uri,
                 type:    'instance',
                 classType: inst.type,
+                // PASAMOS EL VALOR AQUÍ (por defecto true si no existe)
+                isCurrentMember: inst.isCurrentMember !== false,
                 classColor: classNode ? classNode.color : '#ec4899' // <--- Guardamos el color aquí
             }
         });
@@ -1003,6 +1014,17 @@ function initCytoscape(elements) {
                     'min-zoomed-font-size': 4,
                     'transition-property': 'background-opacity, border-width',
                     'transition-duration': '120ms'
+                }
+            },
+            // Estilo para miembros no actuales (isCurrentMember = false)
+            {
+                selector: 'node[type="instance"][!isCurrentMember]', // Selector para cuando es false
+                style: {
+                    'background-color': '#94a3b8', // Un gris azulado apagado
+                    'border-color':     '#475569',
+                    'color':            '#475569', // Texto también en gris
+                    'background-opacity': 0.2,     // Más transparente
+                    'border-style':     'dashed'   // Línea discontinua para dar efecto de "inactivo"
                 }
             },
             // ─ Datatype node ────────────────────────────────────────
@@ -1465,41 +1487,46 @@ function applyInstanceColoring() {
     cy.nodes('[type="instance"]').forEach(instNode => {
         // Get the class this instance belongs to
         const classType = instNode.data('classType'); // The class URI
-        
+        const isCurrent = instNode.data('isCurrentMember');
+
+        // Definimos colores según el estado: rosa si es miembro, gris si no
+        const activeColor = '#ec4899';
+        const inactiveColor = '#94a3b8'; // Gris azulado
+        const activeBorder = '#be185d';
+        const inactiveBorder = '#475569';
+
         if (!showTBox && classType) {
-            // TBox is hidden: apply the class color to the instance
             const classNode = cy.getElementById(classType);
             if (classNode.length > 0) {
                 const classColor = classNode.data('nodeColor');
-                // Apply TBox-like styling to the instance node
+                
+                // Si no es miembro actual, usamos gris; si lo es, usamos el color de su clase
+                const finalColor = isCurrent ? classColor : inactiveColor;
+                const finalBorder = isCurrent ? classColor : inactiveBorder;
+
                 instNode.style({
-                    'background-color': classColor,
+                    'background-color': finalColor,
                     'background-opacity': 0.22,
-                    'border-color': classColor,
+                    'border-color': finalBorder,
                     'border-opacity': 0.95,
                     'border-width': 2,
-                    'color': '#1f3550',
-                    'font-weight': 600,
+                    'border-style': isCurrent ? 'solid' : 'dashed',
+                    'color': isCurrent ? '#1f3550' : '#475569',
                     'shape': 'round-rectangle',
-                    'width': 'label',
-                    'height': 'label',
                     'font-style': 'normal'
                 });
             }
         } else if (showTBox) {
-            // TBox is visible: reset to default styling
+            // Estilo estándar (con la TBox visible)
             instNode.style({
-                'background-color': '#ec4899',
-                'background-opacity': 0.35,
-                'border-color': '#be185d',
-                'border-width': 1.5,
-                'border-opacity': 0.85,
-                'color': '#6b0551',
-                'font-weight': 500,
-                'font-style': 'italic',
+                'background-color': isCurrent ? activeColor : inactiveColor,
+                'background-opacity': isCurrent ? 0.35 : 0.2,
+                'border-color': isCurrent ? activeBorder : inactiveBorder,
+                'border-width': isCurrent ? 1.5 : 3,
+                'border-style': isCurrent ? 'solid' : 'dashed',
+                'color': isCurrent ? '#6b0551' : '#475569',
                 'shape': 'ellipse',
-                'width': 'label',
-                'height': 'label'
+                'font-style': isCurrent ? 'italic' : 'normal'
             });
         }
     });
