@@ -15,13 +15,13 @@
 #  Ontology declaration
 # ─────────────────────────────────────────────
 
-<https://w3id.org/pepr/ontology/proj> rdf:type owl:Ontology ;
+<https://raw.githubusercontent.com/cnherrera/DIADEM-ontology/refs/heads/main/proj-ontology.ttl> rdf:type owl:Ontology ;
     dcterms:title        "PEPR Programme Ontology"@en ,
                          "Ontologie des Programmes PEPR"@fr ;
     dcterms:description  "Ontology supporting structured representation of French PEPR programs, its targeted and AAP projects, platforms, competences, tools, deliverables and human participation. Designed to enhance collaboration discovery, capability mapping and interoperability with external systems."@en ;
     dcterms:created      "2026-03-31"^^xsd:date ;
     owl:versionInfo      "1.0.0" ;
-    rdfs:comment         "Base prefix: proj — https://w3id.org/pepr/ontology/proj#"@en .
+    rdfs:comment         "Base prefix: proj — -> to be changed "@en .
 
 
 # ─────────────────────────────────────────────
