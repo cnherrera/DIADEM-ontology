@@ -2,7 +2,7 @@
 
 Every team is required to retrieve their project's file, verify the auto-populated data, and complete missing technical details.
 
-## Step 1: Use `list_keywords.yaml` as Your Reference
+## Step 1: Use `list_keywords.yaml` as your reference
 
 Before filling out any field, inspect `yaml_templates_projects/list_keywords.yaml`. This file contains a preliminary approved vocabulary for keywords, competencies, domains, and tools.
 
@@ -10,7 +10,7 @@ Before filling out any field, inspect `yaml_templates_projects/list_keywords.yam
 
  - Proposing new terms: If your project requires a keyword, competency, or tool that is not in `list_keywords.yaml`, add it directly to your YAML file and mention it so the ontology team can register it.
 
-## Step 2: Information You Must Fill or Verify
+## Step 2: Information you must fill or verify
 
 Please open `yaml_templates_projects/<your_project_name>.yaml` and complete the following sections:
 
@@ -54,33 +54,33 @@ synthesis_tools:
 
 For each Work Package in your file, ensure you fill:
 
-    - `tools`: Specific tools, instruments, or software used within this WP.
+ - `tools`: Specific tools, instruments, or software used within this WP.
 
-    - `products` / `deliverables`: Any output, dataset, report, hardware, or deliverable produced by this specific WP.
+ - `products` / `deliverables`: Any output, dataset, report, hardware, or deliverable produced by this specific WP.
 
 # Step-by-Step Workflow for Teams
  
-You can either do the following, or just email us back with your modified file.
+**You can either do the following, or just email us back with your modified file.**
 
 
-Clone the repository:
+1. Clone the repository:
     
-    Bash
 ```
-git clone [https://github.com/your-org/peper-diadem-ontology.git](https://github.com/your-org/peper-diadem-ontology.git)
-cd peper-diadem-ontology
+git clone [https://github.com/cnherrera/DIADEM-ontology.git](https://github.com/cnherrera/DIADEM-ontology.git)
+cd DIADEM-ontology
+```
 
-    Locate your file:
-    Go to yaml_templates_projects/ and open your project's pre-filled YAML file (<your_project_name>.yaml).
+2. Locate your file:
+ - Go to `yaml_templates_projects/` and open your project's pre-filled YAML file (`project_<your_project_name>.yaml`).
 
-    Verify and fill the fields:
-    Follow the guide above to check pre-filled information, add competencies, methodology tools, and WP-level deliverables.
+3. Verify and fill the fields:
+   Follow the guide above to check pre-filled information, add competencies, methodology tools, and WP-level deliverables.
 
-    Submit via Pull Request:
-    Bash
-
-    git checkout -b feature/update-yaml-<your_project_name>
-    git add yaml_templates_projects/<your_project_name>.yaml
-    git commit -m "docs: complete YAML information for <your_project_name>"
-    git push origin feature/update-yaml-<your_project_name>
+4. Submit via Pull Request:
+ ```
+git checkout -b feature/update-yaml-<your_project_name>
+git add yaml_templates_projects/project_<your_project_name>.yaml
+git commit -m "docs: complete YAML information for <your_project_name>"
+git push origin feature/update-yaml-<your_project_name>
+```
 
