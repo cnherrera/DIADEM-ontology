@@ -12,21 +12,22 @@ Before filling out any field, inspect `yaml_templates_projects/list_keywords.yam
 
 ## Step 2: Information You Must Fill or Verify
 
-Please open yaml_templates_projects/<your_project_name>.yaml and complete the following sections:
+Please open `yaml_templates_projects/<your_project_name>.yaml` and complete the following sections:
 
-1. Core Metadata
+1. Core Metadata keywords
 
     - `scientific_domain`: Specify the primary scientific domains covered by your project.
 
     - `methodology`: Specify the general methodological approach.
 
-2. Competencies & Keywords
+2. Competencies 
 
     - Assign competency keywords either at the overall Project level, or fine-grained at the individual Work Package  (WP) level.
 
 3. Methodology-Specific Tools
 
-- Depending on your project's methodology, fill in the corresponding tool lists (by hand, using `list_keywords.yaml` for inspiration):
+    - Depending on your project's methodology, fill in the corresponding tool lists (using `list_keywords.yaml` for inspiration):
+
 ```
 # Fill the list that applies to your project methodology:
 
@@ -47,7 +48,7 @@ synthesis_tools:
 ```
 
 
-## 4. Work Package (WP) Granularity
+4. Work Package (WP) Granularity
 
     > **Important**: Specific tools used and products/deliverables generated MUST be assigned to their respective Work Package.
 
@@ -59,15 +60,15 @@ For each Work Package in your file, ensure you fill:
 
 # Step-by-Step Workflow for Teams
  
-    You can either do the following, or just email us back with your modified file.
+You can either do the following, or just email us back with your modified file.
 
 
-
-    Clone the repository:
+Clone the repository:
+    
     Bash
-
-    git clone [https://github.com/your-org/peper-diadem-ontology.git](https://github.com/your-org/peper-diadem-ontology.git)
-    cd peper-diadem-ontology
+```
+git clone [https://github.com/your-org/peper-diadem-ontology.git](https://github.com/your-org/peper-diadem-ontology.git)
+cd peper-diadem-ontology
 
     Locate your file:
     Go to yaml_templates_projects/ and open your project's pre-filled YAML file (<your_project_name>.yaml).
