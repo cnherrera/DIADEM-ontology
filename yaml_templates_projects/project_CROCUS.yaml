@@ -1,0 +1,155 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "CROCUS"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "miCro laboRatory fOr antiCorrosion solUtion deSign"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    L’objectif du projet CROCUS est le développement d’un micro-laboratoire d’analyse in
+    situ de la corrosion pouvant être mis en ligne avec des procédés de synthèse de
+    matériaux ou revêtements anticorrosion, également haut débit, tels que ceux mis en
+    oeuvre sur la plateforme de PECVD (plasma enhanced chemical vapor deposition)
+    atmosphérique en cours d’investissement dans le cadre du projet A-DREAM, la
+    plateforme de PVD (physical vapor deposition) combinatoire mise en oeuvre dans le
+    projet ciblé HIWAY-2-MAT ou la plateforme développée à l’INSTN (institut national
+    des sciences et techniques nucléaires) de Saclay, DIADEM-2D. A cette fin, une
+    nouvelle plateforme de bibliothèque combinatoire de systèmes de
+    conception/fabrication d’alliages couplée à une analyse électrochimique à haut débit
+    à l’échelle élémentaire sera développée dans le projet CROCUS. Une nouvelle méthode,
+    la spectroélectrochimie d’émission atomique (AESEC), sera utilisée pour accéder à
+    l’électrochimie résolue par éléments, complémentaire aux mesures électrochimiques
+    conventionnelles. Cette technique permet de tracer chaque élément d’alliage lors de
+    l’activation, de la passivation et de la dégradation du matériau. L’objectif de
+    CROCUS consiste en la mise en oeuvre d’une technique d’analyse électrochimique
+    élémentaire couplée à d’autres techniques de mesure in situ permettant l’étude du
+    comportement en corrosion de matériaux/revêtements multiéléments complexes (e.g.,
+    alliages industriels, oxydes complexes). Une évaluation électrochimique accélérée à
+    haut débit sera réalisée via une mesure par cellule microfluidique (SDC) en
+    collaboration avec le projet 2FAST. Ce projet ouvrira ainsi une réelle opportunité
+    de constituer une base de données corrosion élément par élément dans une large gamme
+    de milieux agressifs, qu’ils soient naturels ou industriels, de compositions,
+    concentrations, pH et températures, différents permettant alors le développement de
+    nouvelles générations de matériaux ou revêtements résistants à la corrosion par
+    l’utilisation d’outils de conception numérique et d’optimisation par intelligence
+    artificielle (l’IA) en collaboration avec le projet DIAMOND. La base de données
+    expérimentale, combinée à des outils d’AI, sera utilisée pour établir des relations
+    empiriques quantitatives pour diverses formes de corrosion, telles que le PREN
+    (pitting resistance equivalent number) utilisé dans l’industrie d’acier inoxydable
+    pour la corrosion par piqûres. La validation des indices ainsi déterminés sera
+    réalisée par des essais intégraux de corrosion sur des matériaux élaborés répondant
+    aux critères définis précédemment. Dans ce projet, des alliages et systèmes oxydes
+    complexes seront notamment élaborés par des procédés haut débit. Une étude
+    systématique sera réalisée en tenant compte de la composition chimique,
+  start_date: "2024-10-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2028-09-30"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/crocus/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Junsoo"
+      last_name:  "HAN"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "LISE"
+      full_name: "Laboratoire Interfaces et Systèmes Electrochimiques (UMR 8235 CNRS/Sorbonne Univ.)"
+      ror:       null  # optional
+    - acronym:   "IRCP"
+      full_name: "Institut de Recherche de Chimie Paris (UMR 8247 CNRS/ENS Chimis Paris Tech)"
+      ror:       null  # optional
+    - acronym:   "CEA/ISAS/DPC/SCCME"
+      full_name: "Service de la corrosion et du comportement des matériaux dans leur environnement"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "High-throughput alloy design; high-throughput electrochemical characterization; Ni-based complex alloys; stainless steels; artificial intelligence; AESEC; corrosion mechanism; elemental dissolution kinetics; spontaneous passivation; element-resolved corrosion database\nConception d'alliages à haut débit ; caractérisation électrochimique à haut débit ; alliages complexes à base de Ni ; aciers inoxydables ; intelligence artificielle ; AESEC ; mécanisme de corrosion ; cinétique de dissolution élémentaire ; passivation spontanée ; base de données de corrosion résolue par éléments"
+  - "alloys"
+  - "electrochemical"
+  - "alloy"
+  - "surface"
+  - "alloying"
+  - "alloy design"
+  - "alloying element"
+  - "electrochemistry"
+  - "energy"
+  - "each alloying"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

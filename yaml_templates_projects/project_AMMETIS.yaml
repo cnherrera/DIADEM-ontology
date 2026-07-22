@@ -1,0 +1,177 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "AMMETIS"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "AI-assisted Simulations of Microstructure driven Mechanical properties from high Throughput and multiscale analysIS"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Le projet AMMETIS (AI-assisted Simulations of Microstructure driven MEchanical
+    properties from high Throughput and multiscale analysIS) a pour objectif d’accélérer
+    notre capacité à prédire de façon fiable le comportement en service des nouvelles
+    innovations matériaux proposées pour répondre aux enjeux de la transition
+    énergétique. Cet objectif implique : (1) Le développement d’une plateforme
+    expérimentale de caractérisation haut débit à l’échelle mésoscopique (cartographies
+    mécaniques par nanoindentation et corrélation d’images/EBSD haute résolution in-situ
+    MEB) pour une meilleure compréhension des relations microstructures/mécanismes de
+    déformation/comportements macroscopiques en service, (2) Le développement de modèles
+    de plasticité cristalline innovants (intégrant la Mécanique de Champ de Dislocations
+    et la Plasticité à Gradient de Déformations). Ces modèles seront enrichis par
+    l'expérience pour améliorer leurs capacités prédictives et appliqués au polycristal
+    via des calculs résolus par FFT massivement parallélisés, (3) Le développement de
+    modèles réduits basés sur l’IA, capables de prédire en temps réel les propriétés
+    mécaniques en connaissant la microstructure, adaptés à une intégration dans un
+    calcul de structure. Ce projet ambitieux regroupe 4 partenaires nationaux et est
+    soutenu financièrement par deux partenaires industriels (ArcelorMittal et
+    SafranTech). De plus, il sera enrichi par des collaborations avec deux laboratoires
+    étrangers engagés dans des défis semblables. Les méthodologies seront optimisées et
+    validées sur l’INCONEL718 en tant que matériau modèle, puis mises en oeuvre pour
+    mieux comprendre et prédire le comportement : (1) des aciers de 3ème génération
+    issus des procédés décarbonés pour approfondir l'impact des éléments résiduels sur
+    le comportement mécanique en lien avec la microstructure (ARCELORMITTAL Maizières
+    Research), (2) des matériaux à gradient de composition chimique et/ou de
+    microstructure en superalliage base nickel avec des applications à la réparation des
+    pièces de structure, en particulier (SafranTech).
+  start_date: "2026-02-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2030-01-30"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/ammetis/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Nathalie"
+      last_name:  "GEY"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "LEM3"
+      full_name: "Laboratoire d'Etude des Microstructures et de Mécanique des Matériaux (UMR 7239 CNRS/Université de Lorraine/Arts et Métiers)"
+      ror:       null  # optional
+    - acronym:   "ICA"
+      full_name: "Institut Clément Ader (UMR 5312 CNRS/IMT mines Albi/INSA Toulouse/ISAE SUPAERO/Univ Toulouse 3)"
+      ror:       null  # optional
+    - acronym:   "PIMM"
+      full_name: "Procédés et Ingénierie en Mécanique et Matériaux (UMR 8006 CNRS/CNAM Paris/Arts et Métiers)"
+      ror:       null  # optional
+    - acronym:   "CEA Saclay"
+      full_name: "CEA Saclay"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Microstructure"
+  - "mechanical properties"
+  - "metal alloys"
+  - "surfaces"
+  - "interfaces"
+  - "high-throughput characterization"
+  - "in-situ testing"
+  - "microscopy"
+  - "nanoindentation"
+  - "micromechanics"
+  - "crystal plasticity models"
+  - "gradient plasticity"
+  - "homogenization"
+  - "reduced models"
+  - "artificial intelligence.\n\nMicrostructure"
+  - "propriétés mécaniques"
+  - "alliages métalliques"
+  - "surfaces"
+  - "interfaces"
+  - "caractérisation à haut débit"
+  - "essais in situ"
+  - "microscopie"
+  - "nanoindentation"
+  - "micromécanique"
+  - "modèles de plasticité cristalline"
+  - "plasticité gradient"
+  - "homogénéisation"
+  - "modèles réduits"
+  - "intelligence artificielle."
+  - "models"
+  - "microstructure"
+  - "ebsd"
+  - "crystal"
+  - "nanoindentation"
+  - "crystal plasticity"
+  - "microstructural"
+  - "simulations"
+  - "modeling"
+  - "structural"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

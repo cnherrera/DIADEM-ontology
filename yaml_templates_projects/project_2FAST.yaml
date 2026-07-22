@@ -1,0 +1,161 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "Targeted"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "2FAST"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Federation of Fluidic Autonomous labs to Speed-up material Tailoring"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    La mise en œuvre de synthèse chimique en conditions continue et miniaturisée
+    (microfluidique, chimie en flux, etc.) est la clé de l'intensification des procédés
+    et la promesse d'une maîtrise exceptionnelle des conditions opératoires. Associées
+    aux environnements maitrisés et parfaitement reproductibles offerts par les outils
+    fluidiques miniaturisés, la recherche et la découverte en chimie des matériaux
+    peuvent désormais largement bénéficier des développements numériques récents.
+    L'optimisation de la meilleure voie de synthèse peut s’appuyer sur des bases de
+    données et des mesures en ligne, ou in situ, qui à leur tour alimentent les bases de
+    données. Cependant, contrairement à la mesure de composition chimique, les méthodes
+    et instruments nécessaires à la caractérisation complète des nano/micro-matériaux
+    sont coûteux et fastidieux à mettre en œuvre, ce qui les limite à quelques
+    laboratoires de recherche. De plus, il n'existe pas de voie universelle pour
+    développer un procédé chimique continu. La R&D est souvent couteuse, les solvants et
+    matériaux pas toujours anodins pour l’environnement. L'agilité et la frugalité sont
+    donc primordiales. Dans ce projet, nous exploiterons pleinement le potentiel offert
+    par la numérisation dans des laboratoires microfluidiques dits orchestrés. Grâce à
+    la fédération d'acteurs majeurs dans le domaine de la fluidique miniaturisée, qui
+    possèdent un haut degré d'expertise dans i) la conception et la fabrication de
+    puces, ii) leur fonctionnement en conditions sévères, iii) la mise en œuvre de
+    techniques analytiques ; et grâce aux avancées récentes des méthodes d'apprentissage
+    automatique en science des matériaux, nous co-développerons et assemblerons des
+    puces microfluidiques interopérables pour la synthèse de matériaux à propriétés
+    contrôlées. La pertinence de ces plateformes automatisées sera démontrée avec la
+    synthèse de matériaux métalliques 0D (à chimie rapide), de matériaux minéraux 2D
+    (synthétisés à haute pression et température) et à terme de matériaux hybrides tels
+    que les MOFs, depuis les conditions ambiantes jusqu’aux conditions
+    solvo/hydrothermales, avec contrôle en temps réel et rétroaction intelligente. Le
+    projet fournira en outre des données de haute qualité, nécessaires pour modéliser
+    les propriétés de ces matériaux et pour fournir une compréhension du rôle joué par
+    l’environnement chimique et pour la recherche des conditions de synthèse optimales.
+  start_date: "2022-11-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2026-10-31"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/2fast/"   # optional
+  associated_platforms:  # List the associated DIADEM platforms - optional
+    - "High-throughput millifluidic synthesis in hydro-/solvothermal conditions"
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Sophie"
+      last_name:  "CHARTON"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CEA"
+      full_name: "CEA"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "ICMCB"
+      full_name: "Institut de Chimie de la Matière condensée de Bordeaux (UMR 5026 CNRS/Bordeaux INP/Univ. Bordeaux)"
+      ror:       null  # optional
+    - acronym:   "CEA/DES/ISEC"
+      full_name: "Institut des sciences et technologies pour une économie circulaire des énergies bas carbone (CEA-Marcoule)"
+      ror:       null  # optional
+    - acronym:   "LGC"
+      full_name: "Laboratoire de Génie Chimique (UMR 5503 CNRS/Toulouse INP/Univ. Toulouse 3)"
+      ror:       null  # optional
+    - acronym:   "LIONS"
+      full_name: "Laboratoire Interdisciplinaire sur l'Organisation Nanométrique et Supramoléculaire (UMR 3685 CEA/CNRS/Univ. Paris Saclay)"
+      ror:       null  # optional
+    - acronym:   "LOF"
+      full_name: "Laboratory of Future - Bordeaux (UMR 5258 CNRS/Syensqo/Univ. Bordeaux)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Microfluidics"
+  - "Solid particles shaping"
+  - "Synthesis acceleration"
+  - "In line/In situ/Real time monitoring"
+  - "Smart control"
+  - "synthesis"
+  - "chemical"
+  - "saxs"
+  - "learning"
+  - "nanoparticles"
+  - "modelling"
+  - "waxs"
+  - "optical"
+  - "spectroscopy"
+  - "models"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

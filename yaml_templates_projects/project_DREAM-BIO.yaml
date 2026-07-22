@@ -1,0 +1,178 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "DREAM-BIO"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Accelerated Discovery of new catalyst Materials for production of Bio-fuel"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Le projet DREAM-BIO vise à concevoir des catalyseurs hétérogènes qui permettent de
+    former des carburants à partir de réactifs directement et facilement obtenus à
+    partir de biomasse lignocellulosique (de bois et déchets végétaux). La formulation
+    visée de ces bio-carburants est celle correspondants aux carburants fossiles actuels
+    servant dans le domaine du transport aérien et maritime, pour lesquels une
+    substitution par de l’hydrogène ou l’énergie électrique n’est pas envisageable. Ces
+    bio-carburants seront constitués de paraffines (80%) et d’aromatiques (20%). Pour
+    cela les catalyseurs hétérogènes devront posséder une acido-basicité et une fonction
+    métallique bien adaptées aux transformations de biomasse envisagées. La
+    problématique actuelle est que peu de catalyseurs sont efficaces et stables dans les
+    conditions réactionnelles usuellement utilisées qui sont hydrothermales (eau sous
+    hautes températures et pressions). Le projet envisage d’étudier des phosphates de
+    terres rares comme nouvelle famille de catalyseurs acido-basiques. Ces matériaux
+    sont connus pour être stables dans de telles conditions, avec de plus un fort
+    potentiel de modulation de composition, mais à ce jour n’ont jamais été étudiés pour
+    une telle application. Une autre problématique concerne la synthèse et l’évaluation
+    de catalyseurs hétérogènes, souvent chronophages. Le coeur du projet vise à dépasser
+    cette limitation en mettant en oeuvre une approche combinatoire, à haut-débit, et de
+    « machine learning » pour obtenir des données massives qui soient néanmoins
+    facilement exploitables. Ces données vont concerner à la fois la synthèse, la
+    modification, la caractérisation et l’évaluation catalytique de ces matériaux. Pour
+    atteindre cet objectif, le projet sera mené par un consortium regroupant toutes les
+    compétences nécessaires. Il sera porté par IRCELYON, laboratoire dédié à la
+    catalyse, principalement hétérogène, qui assurera aussi les tâches de catalyse et de
+    caractérisations des propriétés acido-basiques en phase liquide. Les
+    expérimentations haut-débit seront réalisées par l’Institut des Matériaux de Nantes
+    (IMN) et par l’Unité de Catalyse et Chimie du Solide de Lille (UCCS) à travers la
+    plate-forme REALCAT pour la synthèse/modification des catalyseurs, et à
+    l’UCCS/REALCAT pour la caractérisation à haut-débit des propriétés acido-basiques et
+    métalliques en phase gazeuse. L’analyse des données pour déterminer les relations
+    propriétés / efficacité catalytique / conditions par « machine learning » sera
+    réalisée à l’IMN. Enfin, le Laboratoire de Physique et Chimie Théoriques (LPCT)
+    réalisera le screening par DFT des propriétés acides pour étudier à l’échelle
+    atomique les propriétés des phosphates les plus prometteurs. A travers ce projet,
+    les corrélations identifiées entre paramètres et propriétés de ces catalyseurs
+    seront utilisées pour mieux appréhender
+  start_date: "2024-05-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2028-04-30"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/dream-bio/"   # optional
+  associated_platforms:  # List the associated DIADEM platforms - optional
+    - "REALCAT"
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Nadine"
+      last_name:  "ESSAYEM"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "IRCELYON"
+      full_name: "Institut de recherches sur la catalyse et l’environnement de Lyon (UMR 5256 CNRS/Univ. Lyon 1)"
+      ror:       null  # optional
+    - acronym:   "IMN"
+      full_name: "Institut des Matériaux de Nantes Jean Rouxel (UMR 6502 CNRS/Univ. Nantes)"
+      ror:       null  # optional
+    - acronym:   "UCCS"
+      full_name: "Unité de Catalyse et Chimie du Solide (UMR 8181 Univ. Lille/CNRS/Centrale Lille Institut/Univ. Artois)"
+      ror:       null  # optional
+    - acronym:   "LPCT"
+      full_name: "Laboratoire de Physique et Chimie Théoriques (UMR 7019 CNRS/Univ. Lorraine)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Bio-fuel"
+  - "biosourced"
+  - "renewable energy"
+  - "accelerated synthesis"
+  - "high sequence catalysis"
+  - "machine learning"
+  - "inorganic phosphates"
+  - "acid-base catalysis"
+  - "DFT"
+  - "database mining\nBiocarburant"
+  - "biosourcé"
+  - "énergie renouvelable"
+  - "synthèse accélérée"
+  - "catalyse à haute séquence"
+  - "apprentissage automatique"
+  - "phosphates inorganiques"
+  - "catalyse acide-base"
+  - "DFT"
+  - "exploration de bases de données"
+  - "catalysts"
+  - "catalytic"
+  - "synthesis"
+  - "catalysis"
+  - "learning"
+  - "machine"
+  - "machine learning"
+  - "fuel"
+  - "phase"
+  - "biomass"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

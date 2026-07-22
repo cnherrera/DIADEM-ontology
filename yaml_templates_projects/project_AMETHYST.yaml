@@ -1,0 +1,154 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "Targeted"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "AMETHYST"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "AI AND HIGH THROUGHPUT METHODS GUIDING THE DESIGN OF POLYMERIC MATERIALS"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Avec une production mondiale de près de 380 millions de tonnes par an, les matériaux
+    polymères jouent un rôle central dans la société moderne. En fait, ils sont utilisés
+    dans la fabrication d'innombrables produits de la vie quotidienne ou comme composés
+    plus sophistiqués en médecine, en diagnostic et en chimie fine. Cependant, les
+    contraintes économiques et les nouvelles contraintes sociétales imposent une
+    conception plus rationnelle et des modes alternatifs de synthèse et de formulation
+    des polymères pour répondre aux besoins de plus grande durabilité, de gestion plus
+    vertueuse de la fin de vie et d'amélioration des performances. Les matériaux à base
+    de polymères du futur seront l'un des piliers de l'économie circulaire. Ainsi, la
+    découverte de nouveaux polymères entraînera un changement de paradigme et de
+    nouvelles techniques pour la conception, le traitement et l'analyse des matériaux à
+    base de polymères. Le développement récent des méthodes à haut débit (HTP) et
+    d'intelligence artificielle (IA) a ouvert d'énormes opportunités pour relever ces
+    défis. Si de telles méthodes émergent en chimie, elles ne sont pas encore mises en
+    œuvre en France en Science des Polymères. Ainsi, le projet de démonstrateur AMETHIST
+    propose, comme preuve de concept, de fusionner ces domaines par l'utilisation
+    combinée des méthodes HTP et IA pour aborder quatre études de cas différentes dans
+    le domaine des polymères. Les problématiques abordées ont été choisies pour leur
+    pertinence face à des enjeux scientifiques et sociétaux pressants : - Etude de cas 1
+    – Conception de matériaux polymères à dégradabilité programmable - Etude de cas 2 –
+    Nanocomposites et composites à base de polymères - Etude de cas 3 – Matériaux
+    organiques-inorganiques à base de polymères - Etude de cas 4 – Matériaux biosourcés
+    Dans chaque étude de cas, chaque type de matériau, méthode de synthèse et de
+    caractérisation des HTP sera mis en œuvre aux échelles moléculaire, macromoléculaire
+    et des matériaux (voir schéma récapitulatif). Les données de l'analyse HTP seront
+    utilisées pour alimenter les approches d'apprentissage automatique afin de
+    déterminer la meilleure combinaison avec plusieurs propriétés ciblées. Des matériaux
+    optimisés conçus par l'IA seront fabriqués et évalués.
+  start_date: "2022-10-15"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2026-10-14"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/amethyst/"   # optional
+  associated_platforms:  # List the associated DIADEM platforms - optional
+    - "Bioresources: Imaging, Biochemistry & Structure"
+    - "High-throughput platform for synthesis... of polymers by flow chemistry"
+    - "High-throughput platform for the implementation... polymer matrix composites"
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Jean-François"
+      last_name:  "GERARD"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "IMP"
+      full_name: "Ingénierie des Matériaux Polymères (UMR 5223 CNRS/INSA Lyon/Univ. Jean Monnet St Etienne/Univ. Lyon 1)"
+      ror:       null  # optional
+    - acronym:   "LCPO"
+      full_name: "Laboratoire de chimie des polymères organiques (UMR 5629 Univ Bordeaux/CNRS/Bordeaux INP)"
+      ror:       null  # optional
+    - acronym:   "BIA"
+      full_name: "Biopolymers, Interactions and Assemblies - Nantes (UR 1268 INRAE)"
+      ror:       null  # optional
+    - acronym:   "LIRIS"
+      full_name: "Laboratoire d’InfoRmatique en Image et Systèmes d’information (UMR 5205 CNRS/INSA Lyon/UCBL/Ecole Centrale Lyon/Univ Lumière Lyon 2)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Polymer / High throughput / Artificial Intelligence"
+  - "polymer"
+  - "polymers"
+  - "synthesis"
+  - "nanomaterials"
+  - "nanocomposites"
+  - "structure"
+  - "learning"
+  - "artificial"
+  - "polymeric"
+  - "artificial intelligence"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

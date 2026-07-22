@@ -1,0 +1,177 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "Targeted"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "PHOTONIA"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "AI-based making of micro-photonics components by 3D laser printing."   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Ce projet d’IA en matériaux pour la photonique s’inscrit dans les défis sociétaux à
+    relever notamment dans la transition énergétique, le développement de nouvelles
+    technologies pour l'émergence de villes intelligentes et d'industries 4.0 mais aussi
+    dans le domaine de la santé pour l’émergence de solutions durables dans des domaines
+    tels que la qualité de l'eau et des aliments, la sécurité, le vieillissement des
+    sociétés, la santé publique et les pandémies. Par exemple, les percées dans le
+    domaine de la biophotonique déboucheront sur de nouvelles méthodes rentables pour
+    améliorer le diagnostic et la thérapie, ainsi que sur la médecine personnalisée. La
+    photonique s’applique aussi au domaine de la climatologie avec des systèmes LIDAR
+    permettant de détecter à l’avance des épisodes extrêmes locaux (orages, micro-
+    tempêtes, grêle, etc.). Enfin, en ce qui concerne l’énergie, on peut citer par
+    exemple la surveillance en temps réel et in operando du stockage dans les batteries
+    via des réseaux de micro-capteurs optiques distribués. Or, la fabrication de
+    composants micro-optiques diélectriques ne peut hélas pas s’appuyer sur le savoir-
+    faire issu des méthodes optiques conventionnelles. Elle repose sur de nombreuses
+    étapes en amont et en aval du procédé de fabrication additive par laser, et donc,
+    sur des dizaines de facteurs pouvant influer sur les propriétés finales des
+    composants.  Le projet PHOTONIA a pour objectif de construire des modèles
+    d’intelligence artificielle capables de prédire, pour chaque fonction optique
+    spécifiquement visée, la meilleure recette de fabrication laser 3D, en optimisant
+    ces différentes étapes. Il va sans dire que la procédure de fabrication choisie doit
+    aussi garantir un ensemble de propriétés optiques de base permettant de qualifier
+    chaque composant ainsi fabriqué de « qualité optique ». Conscient de la difficulté à
+    construire directement un modèle d’IA capable de prédire des conditions de
+    fabrication correspondant à chaque fonction optique ciblée, le consortium propose de
+    traiter ce sujet dans une phase intermédiaire par une approche inverse. Celle-ci
+    consiste, dans un premier temps, à considérer les paramètres de fabrication comme
+    des données d’entrée du modèle d’IA et les propriétés/fonctions optiques d’un
+    composant imprimé en 3D multi-matériaux comme des données de sortie. En pratique,
+    nous proposons dans un premier temps de fabriquer et de caractériser des briques de
+    matériaux diélectriques de dimensions de l’ordre de 100 à 500 micromètres selon les
+    trois directions de l’espace afin de réaliser la phase d’apprentissage du modèle
+    d’IA et d’en évaluer les performances. Ensuite, nous envisageons de fabriquer – avec
+    l’aide de modèles d’IA – des composants optiques originaux à base de structures en
+    silice telles que des piliers, des tubes, des lames et des pointes, pouvant être
+    mono ou multimatériaux, et exerçant des fonctions de capteurs optiques. Enfin, nous
+    étudierons la transférabilité de notre méthodologie développée pour la silice à
+    d’autres types de verres ainsi qu’à des céramiques. Ce projet permet de connecter
+    les moyens de fabrication/caractérisation de l’Equipex Add4P au hub de plateformes
+    de DIADEM et s’appuie sur des collaborations très étroites avec la plateforme
+    LIBELUL pour la caractérisation haut-débit et la plateforme DIAMOND pour la gestion
+    des données et des modèles d’IA.
+  start_date: "2025-05-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2029-04-30"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/photonia/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Bruno"
+      last_name:  "BOUSQUET"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "ICMCB"
+      full_name: "Institut de Chimie de la Matière condensée de Bordeaux (UMR 5026 CNRS/Bordeaux INP/Univ. Bordeaux)"
+      ror:       null  # optional
+    - acronym:   "PHLAM"
+      full_name: "Physique des lasers, atomes et molécules (UMR 8523  CNRS/Univ. Lille)"
+      ror:       null  # optional
+    - acronym:   "XLIM (UMR 7252 CNRS/Univ. Limoges)"
+      full_name: "XLIM (UMR 7252 CNRS/Univ. Limoges)"
+      ror:       null  # optional
+    - acronym:   "IRCER"
+      full_name: "Institut de Recherche sur les CERamiques (UMR 7315 CNRS/Univ. Limoges)"
+      ror:       null  # optional
+    - acronym:   "CEA List"
+      full_name: "Laboratoire d'Intégration des Systèmes et des Technologies"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Matériaux optiques"
+  - "fabrication laser 3D"
+  - "matériaux composites fonctionnalisés"
+  - "base de données"
+  - "apprentissage"
+  - "micro-optique"
+  - "accélération"
+  - "procédés"
+  - "verres"
+  - "Equipex"
+  - "optical"
+  - "models"
+  - "photonics"
+  - "glass"
+  - "learning"
+  - "optical properties"
+  - "photonic"
+  - "ceramic"
+  - "artificial"
+  - "glasses"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

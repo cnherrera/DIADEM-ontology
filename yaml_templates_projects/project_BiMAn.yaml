@@ -1,0 +1,177 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "BiMAn"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Bimetallic magnetic nanoparticles with controlled anisotropy : from the chemical synthesis to the fabrication of optimized materials. Machine learning assistance"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Les matériaux magnétiques jouent un rôle majeur dans les transitions énergétiques et
+    sociétales actuelles. Cependant, le développement de matériaux durables et
+    performants, sans éléments critiques tels que les terres rares, reste un défi. Par
+    conséquent, l'objectif du projet BiMAn est de développer une approche générique
+    “bottom-up” pour la conception rationnelle de matériaux magnétiques efficaces sans
+    terre rare, par l’ajustement des propriétés intrinsèques des particules
+    individuelles, à travers leur anisotropie, et leur assemblage contrôlé résultant en
+    des propriétés collectives optimisées. Dans cette perspective, le projet BiMAn
+    combinera la caractérisation en ligne à haut débit et l'apprentissage automatique
+    (ML) pour (i) bénéficier d'un criblage ultra-efficace pour synthétiser de NP
+    anisotropes à base de Fe et (ii) contrôler l'ordre à l’échelle mésoscopique au sein
+    des assemblages pour produire des matériaux magnétiques nanostructurés performants.
+    Pour faire du projet BiMAn une réalité viable, un consortium multidisciplinaire est
+    essentiel pour regrouper l'expertise en chimie, afin de synthétiser des
+    nanoparticules bimétalliques avec une anisotropie contrôlée; en physique, pour la
+    conception de modèles (micro)structurels in silico et l'étude multi-échelle des
+    propriétés structurelles et magnétiques; en génie chimique, pour la conception de
+    plateformes microfluidiques et millifluidiques ad hoc combinant haute température,
+    atmosphère réductrice et facteurs de dilution élevés; et en intelligence
+    artificielle et science des données pour l'élaboration d'algorithmes de prédiction
+    des propriétés (micro)structurelles et l'identification des corrélations entre les
+    propriétés des NPs et celles des matériaux. Les résultats attendus du projet BIMan
+    sont en ligne avec les objectifs du PEPR DIADEM. Les différents partenaires (LPCNO,
+    LGC, LPS, LIONS, ISEC) uniront leurs expertises pour développer des outils innovants
+    pour la production de NPs magnétiques, incluant la génération de bases de données et
+    d'IA. Les développements en microfluidiques et millifluidiques couplés à des
+    caractérisations structurelles multi-échelles seront ouverts à la communauté. La
+    conception et la fabrication d'une plateforme microfluidique polyvalente à haute
+    température fonctionnant sous atmosphère réductrice et permettant une grande
+    dilution des germes ouvrira de nouvelles perspectives pour l'étude de la nucléation
+    et de la croissance des NP complexes. L’étude systématique de la nucléation
+    hétérogène par ensemencement du milieu réactionnel et du rôle de la structure des
+    germes et du
+  start_date: "2024-10-28"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2028-10-27"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/biman/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Lise-Marie"
+      last_name:  "LACROIX"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "INSA Toulouse"
+      full_name: "INSA Toulouse"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "LPCNO"
+      full_name: "Laboratoire de Physique et Chimie des Nano Objets (UMR 5215 INSA Toulouse/Univ. Toulouse 3/CNRS/INSERM)"
+      ror:       null  # optional
+    - acronym:   "LGC"
+      full_name: "Laboratoire de Génie Chimique (UMR 5503 CNRS/Toulouse INP/Univ. Toulouse 3)"
+      ror:       null  # optional
+    - acronym:   "LPS"
+      full_name: "Laboratoire de Physique des Solides (UMR 8502 CNRS/Univ. Paris Saclay)"
+      ror:       null  # optional
+    - acronym:   "CEA/IRAMIS/NIMBE/LIONS"
+      full_name: "Laboratoire Interdisciplinaire sur l'Organisation Nanométrique et Supramoléculaire (UMR 3685 CEA/CNRS/Univ. Paris Saclay)"
+      ror:       null  # optional
+    - acronym:   "CEA/ISEC"
+      full_name: "Institut des Sciences et Technologies pour une Economie circulaire des énergies bas carbone (Marcoule)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Nanostructured materials"
+  - "Rare-earth free magnets"
+  - "multiscale analysis"
+  - "on-line SAXS/WAXS"
+  - "orientational order parameter"
+  - "Seed-mediated growth"
+  - "Directed assembly"
+  - "microfluidic platforms"
+  - "(un)supervised automatic learning"
+  - "experimental and simulated datase\nMatériaux nanostructurés"
+  - "aimants libres de terres rares"
+  - "analyse multi-échelle"
+  - "SAXS/WAXS en ligne"
+  - "paramètre d'ordre orientationnel"
+  - "croissance médiée par des graines"
+  - "assemblage dirigé"
+  - "plateformes microfluidiques"
+  - "apprentissage automatique (non) supervisé"
+  - "données expérimentales et simulées."
+  - "magnetic"
+  - "saxs"
+  - "synthesis"
+  - "magnets"
+  - "structure"
+  - "waxs"
+  - "structural"
+  - "chemical"
+  - "machine"
+  - "nanoparticles"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

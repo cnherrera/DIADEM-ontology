@@ -1,0 +1,177 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "M2P2-HEA"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Multi-scale methodology for predicting the properties of high entropy alloys"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Le projet concerne le développement d'une méthodologie multi-échelle visant à guider
+    la recherche des nouveaux matériaux, avec des réseaux neuronaux, en fonction de
+    propriétés catalytiques données. Les matériaux choisis pour le développement de la
+    méthodologie sont des alliages multicomposants ou à haute entropie (HEAs, High
+    Entropy Alloys). La mise en oeuvre de la méthodologie multi-échelle contribuera non
+    seulement à optimiser les catalyseurs déjà existants, mais permettra également
+    d'accélérer la recherche de nouveaux matériaux aux propriétés spécifiques, ciblées
+    vers une application prédéfinie. Un des aspects innovants du projet réside dans le
+    fait qu'à notre connaissance, il n'y a pas encore de méthodologie prédictive,
+    utilisant des réseaux de neurones construits à partir des données expérimentales,
+    permettant de définir directement la structure et la composition d'un matériau à
+    partir d'une propriété visée. Pour atteindre l’objectif du projet, nous prendrons
+    appui sur une approche reposant sur le couplage de méthodes d'intelligence
+    artificielle (IA) basées sur des réseaux neuronaux avec des outils de simulations et
+    de modélisation multi-échelles permettant de résoudre la structure et les propriétés
+    thermodynamiques du système d’étude et de relier l’ensemble aux propriétés
+    catalytiques d’intérêt.Le projet est structuré en deux étapes. Dans la première,
+    nous développerons une procédure d’ajustement permettant d’obtenir la structure
+    atomique 3D des matériaux à partir d’images de microscopie électronique en
+    transmission (TEM) et des spectres d’absorption X (XAS). L'algorithme d'ajustement
+    sera développé en utilisant des images TEM et de spectres d’absorption X de
+    référence simulés au moyen de méthodes de la physique quantique à partir de
+    matériaux in silico générés en utilisant des méthodes classiques (champs de force,
+    Monte Carlo, Dynamique Moléculaire). Puis la procédure sera validée en confrontant
+    les données calculées sur des matériaux dont on maîtrise l'élaboration, à des
+    données expérimentales de microscopie et de spectroscopie afin d'obtenir un modèle
+    atomistique des matériaux étudiés. Dans une seconde étape, la procédure d'ajustement
+    du modèle atomistique sera utilisée pour déterminer la structure atomistique d’une
+    collection d’échantillons réels à partir de leur caractérisation expérimentale XAS
+    et TEM. Les propriétés catalytiques mesurées expérimentalement, associées à la
+    structure atomistique des échantillons, seront utilisées pour instruire un réseau de
+    neurones destiné in fine à la recherche de compositions et structures de matériaux a
+    priori idéales à partir d’une application visée. Les HEAs sont particulièrement
+  start_date: "2024-10-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2028-09-30"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/m2p2-hea/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Ovidiu"
+      last_name:  "ERSEN"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "IPCMS"
+      full_name: "Institut de physique et chimie des matériaux de Strasbourg (UMR 7504 CNRS/Univ. Strasbourg)"
+      ror:       null  # optional
+    - acronym:   "IFPEN"
+      full_name: "IFP Energies nouvelles (Lyon)"
+      ror:       null  # optional
+    - acronym:   "LEM"
+      full_name: "Laboratoire d'Electrochimie Moléculaire (UMR 7591 Univ. Paris Cité/CNRS) / ITODYS: laboratoire Interfaces Traitements Organisation et DYnamique des Systèmes (UMR7086 Univ. Paris Cité/CNRS )"
+      ror:       null  # optional
+    - acronym:   "LCMCP"
+      full_name: "Laboratoire de Chimie de la Matière Condensée de Paris (UMR 7574 Sorbonne Univ./CNRS/Collège de France/Univ. Paris sciences et lettres)"
+      ror:       null  # optional
+    - acronym:   "Synchrotron SOLEIL"
+      full_name: "Synchrotron SOLEIL"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "machine learning"
+  - "high entropy alloys"
+  - "heterogeneous catalysis"
+  - "nanomaterials"
+  - "atomistic modeling"
+  - "operando characterization"
+  - "X-ray absorption spectroscopy"
+  - "electron microscopy"
+  - "alcohol oxidation"
+  - "surface reactivity\n\napprentissage automatique"
+  - "alliages à haute entropie"
+  - "catalyse hétérogène"
+  - "nanomatériaux"
+  - "modélisation atomistique"
+  - "caractérisation operando"
+  - "spectroscopie d'absorption des rayons X"
+  - "microscopie électronique"
+  - "oxydation de l'alcool"
+  - "réactivité de surface"
+  - "tem"
+  - "structure"
+  - "synthesis"
+  - "catalytic"
+  - "model"
+  - "electrochemical"
+  - "electron"
+  - "neuronal"
+  - "neuronal network"
+  - "atomic"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

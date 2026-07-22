@@ -1,0 +1,145 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "Targeted"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "SOLEIL"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Platform for High Throughput Accelerated Materials Characterization at SOLEIL"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    SOLEIL offre une grande variété de techniques expérimentales et d’environnements
+    échantillons pour la caractérisation multimodale des matériaux. Dans le projet PEPR
+    DIADEM, cet arsenal expérimental sera porté à un nouveau degré d’efficacité
+    scientifique pour une caractérisation à haut débit. Les différentes lignes de
+    lumière où cette stratégie semble la plus adaptée sont : ANATOMIX, ANTARES,
+    CASSIOPEE, CRISTAL, DIFFABS, GALAXIES, HERMES, MARS, NANOSCOPIUM, PUMA, PX2, PSICHE,
+    ROCK, SEXTANTS, SWING and TEMPO.  Vers la caractérisation à haut débit Différentes
+    actions sont prévues à SOLEIL pour répondre aux besoins du projet DIADEM vers une
+    caractérisation à haut débit : i) Un nouveau flux de travail (workflow) combinera
+    différentes expériences sur une même classe d’échantillons aidées par une analyse de
+    données en ligne et une stratégie de modélisation guidée par l’IA. Le flux de
+    travail générera un identificateur digital unique (DOI) qui sera sauvegardé avec les
+    données. ii) Des changeurs d’échantillons rapides utilisant notamment des bras
+    robotiques seront progressivement déployés sur les stations expérimentales avec la
+    possibilité dans un plus long terme d’automatiser le transfert d’échantillons sous
+    ultra vide. iii) Une nouvelle génération de détecteur pixelisé 2D sera développée
+    dans le projet avec une grande surface sensible, un traitement de données intégré
+    rapide, et une synchronisation optimisée avec les équipements des lignes de lumière.
+    iv) La réduction automatique des données sera implémentée directement à la sortie
+    des détecteurs utilisant des logiciels embarqués sur des cartes GPU et assistés par
+    l’IA. Par ailleurs, des outils puissants de réduction et analyse des données seront
+    mis à la disposition des utilisateurs ainsi des codes avancés de simulation
+    numérique. v) Le mode rapide d’acquisition continue des données (FLYSCAN) sera
+    généralisé sur les différentes stations expérimentales. vi) De nouveau modes d’accès
+    aux lignes de lumières sont prévus comme les BAG (Block allocation Group) afin de
+    fournir du temps de faisceau fréquent et garanti à un consortium d’utilisateurs, ou
+    des hubs d’accès spécifiques.
+  start_date: "2023-04-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2031-03-31"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/soleil/"   # optional
+  associated_platforms:  # List the associated DIADEM platforms - optional
+    - "Diffraction at Synchrotron SOLEIL"
+    - "Imaging at Synchrotron SOLEIL"
+    - "Reflectivity at Synchrotron SOLEIL"
+    - "Spectroscopy at Synchrotron SOLEIL"
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Julien"
+      last_name:  "SOURICE"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CEA"
+      full_name: "CEA"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "CEA/DRF/IRAMIS"
+      full_name: "CEA/DRF/IRAMIS"
+      ror:       null  # optional
+    - acronym:   "Synchrotron SOLEIL"
+      full_name: "Synchrotron SOLEIL"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Synchrotron"
+  - "Diffraction"
+  - "Spectroscopie"
+  - "Imagerie"
+  - "Microscopie"
+  - "Réflectivité"
+  - "Robotisation"
+  - "AI"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

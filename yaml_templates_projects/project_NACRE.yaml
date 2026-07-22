@@ -1,0 +1,179 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "NACRE"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "bimetallic NAnoparticles, Chemical ordeR and machinE learning"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Les nanoparticules bimétalliques (BNPs), utilisées dans des domaines variés comme la
+    catalyse, le stockage d’hydrogène, la technologie d’information, la plasmonique et
+    autres, jouent un rôle clé dans la transition écologique de notre société. Leurs
+    propriétés peuvent être contrôlées finement en combinant deux métaux, de plus, des
+    métaux chers et polluants peuvent être remplacés par d’autres, plus abondants et
+    respectueux de l’environnement sans perdre la spécificité recherchée. L’utilisation
+    de catalyseurs bimétalliques permet, par exemple, une amélioration considérable de
+    l’activité, la sélectivité et de la stabilité par rapport aux nanoparticules
+    monométalliques. Prédire les propriétés physico-chimiques des telles BNPs reste
+    pourtant extrêmement difficile car elles dépen-dent de nombreux paramètres comme la
+    composition chimique, la taille, l’environnement, l’ordre chimique etc. De part de
+    leur complexité, leur caractérisation peut être largement améliorée par des
+    approches basées sur l’IA. Grâce à nos travaux récents sur la quantification
+    chimique résolue spatialement de BNPs d’AgAu individuelles et à l’utilisation de
+    différentes approches d’apprentissage automatique, nous pouvons aujourd’hui procéder
+    à une caractérisation complète de telles BNPs. Elle concerne non seulement la
+    taille, la forme et l’environnement, mais également l’ordre chimique, c’est-à-dire
+    la distribution élémentaire à l’intérieur de BNPs de taille inférieure à 10 nm.
+    Cette dernière propriété était jusqu’à présent extrêmement difficile à quantifier
+    malgré son importance, notamment en catalyse où les BNPs changent souvent d’ordre
+    chimique pendant un cycle catalytique. Nous proposons de développer des procédures
+    standardisées pour la caractérisation de BNPs en relation avec la catalyse
+    hétérogène et d’autres applications comme le stockage d’hydrogène. Nous travaillons
+    avec des BNPs non-oxydées et sans surfactants, fabriquées en phase gazeuse dans une
+    source d’agrégats qui permet le contrôle indépendant des paramètres les plus
+    importants : composition chimique, taille et environnement. Différentes techniques
+    de microscopie électronique à transmission (imagerie, spectroscopie avec sélectivité
+    chimique EDX et EELS, in situ ou sous atmosphère et température contrôlées, en deux
+    et trois dimensions) sont ensuite utilisées pour déterminer l’état fondamental des
+    BNPs et leurs transformations chimiques durant des cycles re-dox. Des méthodes
+    complémentaires d’apprentissage automatique sont utilisées pour (1) le traite-ment
+    avancé des données, notamment concernant des corrélations spectrales et spatiales et
+    pour (2) l’optimisation des potentiels interatomiques dans des simulations
+    atomistiques. (3) Les données de référence ainsi obtenues alimenteront des bases de
+    données combinant résultats expérimen-taux et théoriques pour le développement
+    accéléré de nouveau matériaux par intelligence artificielle au sein du réseau
+    DIADEM. Des systèmes de référence bien établis comme le
+  start_date: "2024-09-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2028-08-31"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/nacre/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Matthias"
+      last_name:  "HILLENKAMP"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "ILM"
+      full_name: "institut Lumière Matière (UMR 5306 Univ. Lyon 1/CNRS)"
+      ror:       null  # optional
+    - acronym:   "LIPHY"
+      full_name: "Laboratoire Interdisciplinaire de Physique (UMR 5588 Univ. Grenoble Alpes/CNRS)"
+      ror:       null  # optional
+    - acronym:   "MATEIS"
+      full_name: "Matériaux : Ingénierie et Science (UMR 5510 INSA Lyon/CNRS/Univ. Lyon 1)"
+      ror:       null  # optional
+    - acronym:   "CEA/DRT/LETI"
+      full_name: "Laboratoire d'Electronique et de Technologie de l'Information"
+      ror:       null  # optional
+    - acronym:   "Unicamp"
+      full_name: "Instituto de Fisica \"Gleb Wataghin\" (Université d'État de Campinas, Brésil)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Nanoparticules bimétalliques"
+  - "microscopie électronique environnementale"
+  - "spectroscopie électronique"
+  - "STEM-EDX"
+  - "STEM-EELS"
+  - "tomographie"
+  - "apprentissage automatique non supervisé"
+  - "simulations atomistiques"
+  - "potentiel d'apprentissage automatique\nBimetallic nanoparticles"
+  - "environmental electron microscopy"
+  - "electronic spectroscopy"
+  - "STEM-EDX"
+  - "STEM-EELS"
+  - "tomography"
+  - "unsupervised machine learning"
+  - "atomistic simulations"
+  - "machine learning potentials"
+  - "chemical"
+  - "learning"
+  - "machine"
+  - "machine learning"
+  - "electron"
+  - "structure"
+  - "structures"
+  - "nanoparticles"
+  - "spectroscopy"
+  - "bimetallic"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

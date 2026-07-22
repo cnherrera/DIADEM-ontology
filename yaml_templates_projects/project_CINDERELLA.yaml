@@ -1,0 +1,174 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "CINDERELLA"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "3D metal printing control using innovative laser sources, digital augmented models and artificial intelligence"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Le procédé de Fusion Laser sur Lit de Poudre (ou Laser Powder Bed Fusion, LPBF) est
+    aujourd’hui en pleine phase de développement industriel en raison de sa capacité à
+    élaborer des géométries complexes. Pourtant, plusieurs verrous limitent ses
+    capacités et entravent sa plus large dissémination industrielle : recherche
+    paramétrique longue et itérative, difficulté d’adaptation de microstructures,
+    instabilités du procédé, manque d’outils numériques fiables et performants
+    permettant d’optimiser en amont le processus de fabrication, ou encore l’absence de
+    contrôle en ligne du procédé. Le projet CINDERELLA ambitionne de contribuer à
+    l’accélération de la maitrise du procédé LPBF en adoptant une approche à la fois
+    expérimentale et numérique assistée par Intelligence Artificielle (IA), de maitrise
+    de l’interaction laser-matière au niveau du bain liquide métallique et de la
+    génération de la microstructure. Les résultats du projet contribueront : (1) à
+    l’accélération de l’optimisation paramétrique pour de nouveaux matériaux et pour des
+    matériaux réputés difficiles, (2) à l’obtention des microstructures désirées en
+    sortie du procédé, couplée à la minimisation des contraintes/déformations thermiques
+    des composants permettant de réduire le supportage des pièces, et, potentiellement,
+    à un contrôle du procédé, (3) au développement de modèles numériques plus
+    performants, intégrant la variété des différentes échelles d’études. Pour cela, le
+    projet propose une approche selon deux axes. Le premier est l’expérimentation
+    avancée du procédé : Des études précédentes ont montré l’intérêt de la mise en forme
+    spatiale et temporelle de faisceaux laser pour permettre l’élaboration de matériaux
+    difficiles, l’adaptation des microstructures locales à la demande, ou encore la
+    réduction des porosités. Des expérimentations instrumentées exploreront les effets
+    des variations de configurations de ce type de source laser. Les outils d’IA seront
+    utilisés pour l’optimisation de la recherche paramétrique (plans d’expérimentations
+    assistés) et l’établissement de modèles phénoménologiques qui pourront être utilisés
+    pour un couplage avec des modèles numériques Eléments Finis (FE), et pour affiner le
+    contrôle en ligne des procédés. Une instrumentation et des traitements de données
+    avancés permettront d’accélérer l’identification de ces modèles: caméras rapides
+    pour l’étude du bain de fusion/solidification, détermination rapide d’informations
+    microstructurales par capteurs ultra-sons. Le deuxième axe concerne la
+    modélisation/simulation multiphysique du procédé LPBF assisté par IA. Le projet vise
+    à développer, à terme, un jumeau numérique du procédé.
+  start_date: "2026-03-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2030-02-28"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/cinderella/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Pascal"
+      last_name:  "AUBRY"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CEA"
+      full_name: "CEA"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "CEA/DES/ISAS/DRMP/SRMA"
+      full_name: "Service de Recherche en Matériaux et procédés Avancés (CEA/Univ. Paris Saclay)"
+      ror:       null  # optional
+    - acronym:   "CEA/DRT/LIST"
+      full_name: "Laboratoire d'Intégration des Systèmes et des Technologies (CEA/Univ. Paris Saclay)"
+      ror:       null  # optional
+    - acronym:   "PIMM"
+      full_name: "Procédés et Ingénierie en Mécanique et Matériaux (UMR 8006 CNRS/CNAM Paris/Arts et Métiers)"
+      ror:       null  # optional
+    - acronym:   "CEMEF"
+      full_name: "Centre de Mise en Forme des Matériaux (UMR 7635 CNRS/ENS Mines Paris/Univ PSL)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Additive Manufacturing"
+  - "Powder Bed Laser Fusion"
+  - "Online Instrumentation"
+  - "Sensors"
+  - "Artificial Intelligence"
+  - "Microstructure"
+  - "Metallic Materials"
+  - "Finite Element Modeling"
+  - "Process Control"
+  - "Solidification\n\nFabrication Additive"
+  - "Fusion Laser de Lit de Poudre"
+  - "Instrumentation en ligne"
+  - "Capteurs"
+  - "Intelligence Artificielle"
+  - "Microstructure"
+  - "Matériaux Métalliques"
+  - "Modélisation par Elements Finis"
+  - "Contrôle de procédé"
+  - "Solidification"
+  - "modelling"
+  - "microstructure"
+  - "simulation"
+  - "model"
+  - "models"
+  - "learning"
+  - "alloys"
+  - "modeling"
+  - "metal"
+  - "structures"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

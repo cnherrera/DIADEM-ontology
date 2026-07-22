@@ -1,0 +1,174 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "ASTERIX"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Advanced Surface Technologies for Resilient and Innovative materials in eXtreme environment"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Le développement de l’ingénierie des couches minces revêt un caractère absolument
+    stratégique dans le manufacturing avancé des composants devant fonctionner dans les
+    milieux extrêmes (énergie nucléaire, énergies renouvelables, aéronautique en
+    particulier). Ces milieux combinent souvent des sollicitations multiples nécessitant
+    le développement de structures multi-couches, architecturées, pour répondre au mieux
+    à la multi-fonctionnalité attendue in operando (barrière de diffusion, tenues à
+    l’oxydation et l’irradiation, adhérence…). L’ingénierie des couches minces est un
+    domaine technologique qui a énormément progressé ces dernières années,
+    principalement challengée par les progrès effectifs exigés par les spécifications
+    toujours plus intransigeantes de l’industrie de la microélectronique d’une part, des
+    énergies décarbonées en plein essor (en particulier photovoltaïque, filière
+    hydrogène mais également nucléaire du futur) et de la mécanique haute performance,
+    d’autre part. Ces progrès concernent les technologies de dépôt physique en phase
+    vapeur, PVD (Physical Vapor Deposition), avec en particulier l’avènement de systèmes
+    de génération de plasmas fortement ionisés de type HiPIMS (High Power Impulse
+    Magnetron Sputtering) qui permettent en particulier un bien meilleur pilotage de la
+    construction des interfaces, ainsi qu’un meilleur contrôle des microstructures et in
+    fine des propriétés des revêtements. Ces progrès concernent également les
+    technologies de type CVD (Chemical Vapor Deposition) en particulier grâce à la
+    richesse de la chimie des composés organométalliques pouvant être mise en œuvre via
+    la grande flexibilité de la DLI-MOCVD (Direct Liquid Injection Metal Organic
+    Chemical Vapor Deposition).  L’objectif ambitieux mais réaliste du projet ASTERIX
+    (Accelerated developement of Surface TEchnologies for Resilient Innovative materials
+    in eXtrem environments) est double. Centré sur le développement d’un objet
+    technologique complexe et multi-fonctionnel, une gaine de combustible nucléaire, il
+    vise à développer deux jumeaux numériques, l’un du procédé PVD HiPIMS, l’autre du
+    procédé de DLI-MOCVD, grâce notamment à une étude instrumentée de chaque procédé, à
+    une simulation numérique, et à l’entrainement d’un outil de Machine Learning,
+    EXPRESSIF MATERIALS, développé à cet effet. Les équipes qui constituent le
+    consortium de recherche sont au meilleur état de l’art mondial chacune dans sa
+    spécialité pour développer une vision holistique qui va de la définition des
+    architectures de revêtements, leur élaboration par les deux procédés instrumentés et
+  start_date: "2024-09-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2028-08-31"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/asterix/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Jean-Philippe"
+      last_name:  "POLI"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CEA"
+      full_name: "CEA"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "CEA/LIST"
+      full_name: "Laboratoire d'Intégration des Systèmes et des Technologies (CEA/Univ. Paris Saclay)"
+      ror:       null  # optional
+    - acronym:   "CEA/ISAS"
+      full_name: "Institut des Sciences Appliquées et de la Simulation pour les énergies bas carbone (CEA)"
+      ror:       null  # optional
+    - acronym:   "IMN"
+      full_name: "Institut des Matériaux de Nantes Jean Rouxel (UMR 6502 CNRS/Univ Nantes)"
+      ror:       null  # optional
+    - acronym:   "LPGP"
+      full_name: "Laboratoire de physique des gaz et des plasmas (UMR 8578 CNRS/Univ. Paris Saclay)"
+      ror:       null  # optional
+    - acronym:   "SIMaP"
+      full_name: "Sciences et Ingénierie, Matériaux, Procédés (UMR 5266 CNRS/Grenoble INP/Univ. Grenoble Alpes)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "PVD"
+  - "CVD"
+  - "symbolic AI"
+  - "symbolic machine learning"
+  - "extreme environment"
+  - "HiPIMS"
+  - "DLI-MOCVD"
+  - "Digital twins"
+  - "Technological sovereignty\nPVD"
+  - "CVD"
+  - "IA symbolique"
+  - "apprentissage automatique symbolique"
+  - "environnement extrême"
+  - "HiPIMS"
+  - "DLI-MOCVD"
+  - "jumeaux numériques"
+  - "souveraineté technologique"
+  - "learning"
+  - "artificial"
+  - "artificial intelligence"
+  - "simulation"
+  - "machine"
+  - "machine learning"
+  - "fuel"
+  - "fuel cladding"
+  - "expressif materials"
+  - "numerical simulation"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

@@ -1,0 +1,173 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "Targeted"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "ATHERM_COAT"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Accelerated thermodynamics and high-throughput data for optimization of components coatings for energy transition"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    L’objectif prioritaire du projet ATHERM_COAT est de mettre en place un outil
+    d’acquisition de données thermodynamiques sur les précurseurs organométalliques et
+    leurs produits de décomposition afin de pouvoir accélérer le développement de
+    solutions de revêtements par CVD et ALD et d’augmenter notre souveraineté
+    scientifique et technologique dans ce domaine, en particulier pour des applications
+    concernant les transitions énergétique et numérique. Cet outil permettra de
+    renforcer une plate-forme nationale de spectrométrie de masse au meilleur état de
+    l’art et stratégique pour la génération de données thermodynamiques pour la science
+    et l’ingénierie des matériaux. L'un des objectifs importants de la thermochimie
+    expérimentale est de produire suffisamment de données thermodynamiques pour
+    permettre le calcul de la chaleur et de l'énergie libre de toute réaction chimique
+    pour le développement de matériaux, revêtements ainsi que pour la réalisation de
+    calculs ou simulations du comportement en service (par exemple pour le comportement
+    en corrosion). Dans le cas de la fabrication de revêtements par dépôts chimiques en
+    phase vapeur CVD (Chemical Vapor Deposition) et ALD (Atomic Layer Deposition), une
+    des premières étapes pour contrôler les dépôts est le choix des précurseurs
+    (molécules qui transportées à l’état gazeux à la surface du substrat à recouvrir
+    conduisent à la formation du dépôt). La pression de vapeur et la stabilité aux
+    températures de vaporisation, de transport et de dépôt sont des propriétés
+    déterminantes pour choisir le précurseur moléculaire approprié aux conditions
+    d’obtention et propriétés désirées de la couche mince. La connaissance de la phase
+    gazeuse lors du craquage thermique du précurseur est également nécessaire afin
+    d’analyser les mécanismes possibles qui conduisent à la formation du dépôt.
+    L’identification des molécules jouant un rôle dans le dépôt et la constitution d’une
+    base de leurs données thermodynamiques sont également des préalables à une
+    simulation du procédé de dépôt. Le cas d’application et de démonstration
+    méthodologique choisi dans le projet ATHERM_COAT est celui du développement de
+    revêtements résistants à l’oxydation à haute température, par des technologies de
+    type DLI MOCVD (Direct Liquid Injection Metal Organic Chemical Vapor Deposition) et
+    ALD (Atomic Layer Deposition). Les applications visées de ces revêtements sont
+    notamment les matériaux des électrolyseurs de l’eau à haute température pour la
+    production d’hydrogène et les matériaux pour les gaines des combustibles nucléaires.
+    Par ailleurs, une fois les revêtements élaborés, ceux-ci peuvent également être
+    optimisés vis-à-vis de leurs performances en service ainsi que dans une optique
+    d’écoconception en minimisant les éléments critiques et/ou toxiques qui les
+    composent. La thermodynamique (détermination de diagramme de phases stables et
+    métastables sur des systèmes nouveaux) couplée à l’intelligence artificielle peuvent
+    dans une certaine mesure permettre de guider ce type de choix et d’accélérer cette
+    optimisation des solutions. La démarche méthodologique générique développée dans le
+    cadre du projet ciblé ATHERM_COAT sera ensuite généralisable à la résolution de
+    nombreux cas de figures nécessitant le développement de revêtements innovants pour
+    les transitions énergétique et numérique.
+  start_date: "2023-10-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2028-09-30"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/atherm-coat/"   # optional
+  associated_platforms:  # List the associated DIADEM platforms - optional
+    - "Atm-PECVD equipment"
+    - "DLI-MOCVD ANTIDOTE equipment"
+    - "Gas analyzer for exhausts gazes of the combustion calorimetry"
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Ioana NUTA (INP"
+      last_name:  "Grenoble)"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "SIMaP"
+      full_name: "Sciences et Ingénierie, Matériaux, Procédés (UMR 5266 CNRS/GrenobleINP/UGA)"
+      ror:       null  # optional
+    - acronym:   "IPVF"
+      full_name: "Institut Photovoltaïque d’Ile-de-France (UMR 9006 IPVF SAS/CNRS/Ecole Polytechnique/ENS Chimie Paris)"
+      ror:       null  # optional
+    - acronym:   "IMPMC"
+      full_name: "Institut de Minéralogie, de Physique des Matériaux et de Cosmochimie (UMR 7590 Sorbonne Univ/CNRS/Museum National Histoire Naturelle/Institut de Recherche pour le développement)"
+      ror:       null  # optional
+    - acronym:   "CEA/ISAS/DRMP/S2CM"
+      full_name: "Service de recherche en corrosion et comportement des matériaux (CEA)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Spectrométrie de masse"
+  - "Détermination de Données Thermodynamiques"
+  - "Précurseurs chimiques"
+  - "Optimisation de procédés DLI-MOCVD et ALD"
+  - "Simulation"
+  - "Conception numérique sous contrainte"
+  - "thermodynamic"
+  - "phase"
+  - "spectrometer"
+  - "organometallic"
+  - "cell"
+  - "mass spectrometer"
+  - "mass spectrometry"
+  - "spectrometry"
+  - "oxides"
+  - "decomposition"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

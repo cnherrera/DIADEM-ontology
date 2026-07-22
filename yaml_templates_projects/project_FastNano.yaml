@@ -1,0 +1,171 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "Targeted"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "FastNano"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Low-dimension Materials"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Les forces françaises en matière de matériaux de basse dimensionnalité se sont
+    structurées dès 2011 autour de plusieurs Labex regroupant des centaines de
+    chercheurs. Cette communauté est capable de produire une large gamme de
+    nanomatériaux de haute qualité. La France est cependant encore absente de la
+    synthèse assistée par Intelligence Artificielle (IA), bien que le Machine-Learning
+    soit actuellement utilisé pour améliorer la caractérisation et l'analyse des
+    performances, et pourrait potentiellement guider vers des paramètres de synthèse
+    optimaux. Notre objectif est donc d'aller au-delà des méthodes actuelles en
+    améliorant nos capacités de synthèse vers une production à haut débit couplée à une
+    analyse en ligne assistée par IA, afin d'accélérer la voie vers de nouveaux
+    nanomatériaux 0D, 1D et 2D. FastNano construira donc quatre réacteurs de synthèse
+    génériques comprenant des outils de caractérisation dédiés en ligne qui alimenteront
+    le traitement des données assisté par l'IA et les boucles de rétroaction sur les
+    processus de synthèse ou d'assemblage, afin d'atteindre aussi rapidement que
+    possible les propriétés les plus appropriées des matériaux à faible dimension
+    ciblés, et les protocoles de dépôt optimaux pour les nouveaux matériaux à faible
+    dimension. Les réacteurs cibleront des nanoparticules synthétisées à partir de
+    phases liquides et gazeuses et les films nanocomposites correspondants, des films
+    ultraminces déposés couche par couche par ALD rapide combinatoire et des
+    hétérostructures bidimensionnelles préparées par assemblage robotisé de
+    nanomatériaux 2D, dans le but de couvrir le champ le plus large possible de nouveaux
+    matériaux et applications potentiels. Les réacteurs s'appuieront également sur des
+    moyens de caractérisation externes (synchrotrons, TEM...) et sur la modélisation
+    pour alimenter le traitement des données assisté par l'IA et améliorer les
+    conditions de synthèse via des boucles de rétroaction. Le développement complet
+    prendra 4 ans, avec des livrables sous forme d'outils opérationnels ouverts après 2
+    ans.  Une fois validées sur des nanomatériaux connus et quelques nouveaux, ces
+    réacteurs deviendront des plateformes de synthèse ouvertes disponibles pour la
+    communauté par le biais d'appels ouverts au sein de DIADEME, en tant que livrables
+    directs de FastNano (de T0+2 ans à T0+8 ans).
+  start_date: "2022-07-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2027-06-30"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/fastnano/"   # optional
+  associated_platforms:  # List the associated DIADEM platforms - optional
+    - "AFM microscope"
+    - "High-speed lab SWAXS"
+    - "In-line Raman spectrometer"
+    - "Nano-hybrid 1D/2D (ANAPURNA)"
+    - "Nanoparticles gas route FSP"
+    - "Nanoparticles liquid route"
+    - "Optical multi-characterization platform for two-dimensional materials"
+    - "Robotic synthesis of van der Waals heterostructures"
+    - "Spatial ALD"
+    - "Spray deposition and laser annealing"
+    - "Synthesis of 2D materials by CVD"
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Yann"
+      last_name:  "LECONTE"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CEA"
+      full_name: "CEA"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "CEA/IRAMIS/NIMBE"
+      full_name: "Nanosciences et Innovation pour les Matériaux, la Biomédecine et l'Énergie (UMR 3685 CEA/CNRS)"
+      ror:       null  # optional
+    - acronym:   "C2N"
+      full_name: "Centre de Nanosciences et de Nanotechnologies (UMR 9001 CNRS/Univ. Paris Saclay/Univ. Paris Cité)"
+      ror:       null  # optional
+    - acronym:   "LMGP"
+      full_name: "Laboratoire des Matériaux et du Génie Physique (UMR 5628 CNRS/Grenoble INP/Univ. Grenoble Alpes)"
+      ror:       null  # optional
+    - acronym:   "LPMC"
+      full_name: "Laboratoire de Physique de la Matière Condensée (UMR 7643 CNRS/Ecole Polytechnique)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Nanomaterials"
+  - "Processes"
+  - "Rapid Discovery"
+  - "High throughput"
+  - "Characterization"
+  - "Data Bases"
+  - "Artificial Intelligence"
+  - "Modeling"
+  - "synthesis"
+  - "nanomaterials"
+  - "phase"
+  - "heterostructures"
+  - "libs"
+  - "oxide"
+  - "optical"
+  - "nanoparticles"
+  - "chemical"
+  - "heterostructure"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

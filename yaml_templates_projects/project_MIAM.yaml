@@ -1,0 +1,152 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "MIAM"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Accelerating the discovery of innovative permanent magnets with reduced content of critical rare earths"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Le projet MIAM répond au besoin d’accélérer la découverte et le développement de
+    nouveaux aimants permanents de haute performance et à faible teneur en terres rares
+    en s’appuyant sur les méthodes de fabrication et caractérisation à haut débit et de
+    l’intelligence artificielle. Les aimants à base de terres rares sont nécessaires
+    pour le fonctionnement des machines électriques dont ils améliorent les rendements
+    et la compacité. Ils sont particulièrement performants pour des moteurs de traction
+    et les génératrices installées dans les éoliennes off-shore. Les aimants occupent
+    donc une position clef dans la transition vers des transports et des énergies
+    décarbonés. Dans un contexte de forte croissance de la demande de ces composants, la
+    minimisation des terres rares dans les aimants répond à un double enjeu de
+    sécurisation des approvisionnements et de réduction des impacts environnementaux.
+    Cette rupture pourrait être atteinte par la substitution des aimants actuels, de
+    type R2Fe14B, par une nouvelle famille d’aimants de type RT12-xMx, cristallisant
+    dans la structure ThMn12 et possédant une aimantation équivalente (R = terres rares;
+    T = métaux de transition, M = éléments de stabilisation). Le gain sur la teneur en
+    terres rares serait alors de 30 à 50 %. De nombreuses combinaisons d’éléments de R
+    (Nd, Sm, Ce), de T (Fe, Co,) et M (Mo, Ti, V, etc.) sont possibles dans cette
+    famille de matériaux. La diversité des compositions et des paramètres d’élaboration
+    à investiguer dans une échelle de temps courte n’est pas compatible avec une
+    approche conventionnelle mais nécessite de mettre en oeuvre des méthodes de
+    fabrication et caractérisation à haut débit et de prédictives des propriétés finales
+    des aimants. Le projet MIAM vise donc à proposer une méthodologie pertinente pour le
+    design de ces matériaux magnétiques en couvrant toutes les échelles de la
+    microstructure qui sont impliquées dans l’obtention des performances finales de
+    l’aimant. Il permet de couvrir une thématique qui n’est pas encore abordée dans le
+    PEPR DIADEM tout en étant connecté à plusieurs plateformes et projets ciblés du
+    programme. Le consortium réunit de façon complémentaire des partenaires « leaders »
+    dans leur domaine : le CEA-LITEN qui possède une ligne pilote unique en France pour
+    l’étude des procédés d’élaboration
+  start_date: "2024-10-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2028-09-30"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/miam/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Julie"
+      last_name:  "MAISONNEUVE"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CEA"
+      full_name: "CEA"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "CEA/DES/LITEN/DTNM/SA3D/LMCM"
+      full_name: "Laboratoire des Matériaux et Composants Magnétiques"
+      ror:       null  # optional
+    - acronym:   "CEA/DES/ISAS/DRMP/S2CM/LM2T"
+      full_name: "Laboratoire de Modélisation, de Thermodynamique et de Thermochimie"
+      ror:       null  # optional
+    - acronym:   "NEEL"
+      full_name: "Institut Néel (UPR 2940 CNRS/Grenoble INP/Univ. Grenoble Alpes)"
+      ror:       null  # optional
+    - acronym:   "Center for Modelling and Simulation (University for Continuing Education Krems, Autriche)"
+      full_name: "Center for Modelling and Simulation (University for Continuing Education Krems, Autriche)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Nouveaux aimants permanents à base de terres rares - Simulations thermodynamiques - Synthèse et caractérisation de couches minces à haut débit - Fabrication d'aimants massifs - Intelligence artificielle - Simulations micromagnétiques - Substitution d'éléments critiques - Énergies à faible teneur en carbone - Ligne pilote de fabrication d'aimants - Magnets by design\nNew Rare Earth Lean Permanent magnets - Thermodynamic simulations - High-throughput thin film synthesis and characterization – Bulk magnet fabrication - Artificial intelligence - Micro-magnetic simulations – substitution of critical elements – Low carbon energies – Pilot magnet fabrication line – Magnets by design"
+  - "magnets"
+  - "magnetic"
+  - "thermodynamic"
+  - "phases"
+  - "phase"
+  - "permanent magnets"
+  - "magnet"
+  - "learning"
+  - "machine"
+  - "machine learning"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

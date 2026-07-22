@@ -1,0 +1,164 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "MASKY"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Advanced MAterials for SKYrmion based Spintronics"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Les composants spintroniques, dont le fonctionnement est basé sur l'utilisation de
+    skyrmions (textures magnétiques chirales de nature particulaire), présentent des
+    caractéristiques prometteuses pour les technologies de logique et de mémoire
+    magnétique au-delà du CMOS avec des caractéristiques qui permettraient une
+    électronique plus frugale et plus agile. L'un des défis réside dans l'identification
+    de multicouches ultraminces présentant les propriétés magnétiques permettant de
+    créer et de stabiliser des skyrmions aux propriétés spécifiques et optimales en
+    termes de taille, de stabilité et réponse fréquentielle pour les applications
+    visées. Dans le projet MASKY, nous avons l'intention d'utiliser une approche basée
+    sur l'intelligence artificielle prédictive et l'exploration de données pour
+    considérablement accélérer la découverte des meilleurs candidats composés de
+    matériaux hybrides multicouches. Le besoin élevé en données de l'IA sera satisfait à
+    la fois par i) la fabrication d'échantillons à gradient multidirectionnel (par
+    exemple, épaisseur et composition variant dans trois directions du plan) et par ii)
+    leur caractérisation à haut débit. Enfin, le prototypage de composants permettra de
+    vérifier la capacité prédictive de l'IA tout en établissant une boucle de
+    rétroaction pour l'IA. Nous nous concentrerons en particulier sur les propriétés
+    magnétostrictives des empilements déposés sur des substrats piézoélectriques, afin
+    de trouver des skyrmions très sensibles aux ondes acoustiques de surface. Les
+    recherches dans ce domaine à l'interface entre la skyrmionique et la straintronique,
+    domaine très récents de la spintronique, bénéficieront ainsi des avancées permises
+    par l'IA. À travers le projet MASKY, nous allons démontrer la nature transformatrice
+    de l'approche proposée, qui est actuellement largement sous-utilisée dans le domaine
+    de la spintronique. Outre la découverte accélérée de matériaux hybrides utiles dans
+    le cadre des composants à base de skyrmions, la méthode utilisée dans MASKY pourrait
+    être transposée à d'autres domaines de la spintronique et même plus largement à
+    d'autres technologies émergentes.
+  start_date: "2026-02-02"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2030-02-01"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/masky/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Michel"
+      last_name:  "HEHN"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "Université de Lorraine"
+      full_name: "Université de Lorraine"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "IJL"
+      full_name: "Institut Jean Lamour (UMR 7198 Univ. Lorraine/CNRS)"
+      ror:       null  # optional
+    - acronym:   "SPINTEC"
+      full_name: "Spintronique et Technologie des Composants (UMR 8191 CEA/CNRS/UGA/Grenoble-INP)"
+      ror:       null  # optional
+    - acronym:   "INSP"
+      full_name: "Institut des nanosciences de Paris (UMR 7588 CNRS/Sorbonne Univ.)"
+      ror:       null  # optional
+    - acronym:   "TOM"
+      full_name: "Topological orders in Matter (University of Liège, Belgium)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Materials"
+  - "Artificial Intelligence"
+  - "Spintronics"
+  - "Skyrmions"
+  - "Surface acoustic waves"
+  - "magneto elasticity"
+  - "DFT"
+  - "Neural\nNetwork\n\nMatériaux"
+  - "intelligence artificielle"
+  - "spintronique"
+  - "skyrmions"
+  - "ondes acoustiques de surface"
+  - "magnétoélasticité"
+  - "DFT"
+  - "réseau neuronal"
+  - "magnetic"
+  - "surface"
+  - "surface acoustic"
+  - "magnetization"
+  - "alloys"
+  - "composition"
+  - "imaging"
+  - "magnetic field"
+  - "magnetism"
+  - "all-optical"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

@@ -1,0 +1,155 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "Targeted"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "ARTEMIS"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "AcceleRaTed discovery and dEvelopment of smart Materials and structures with 4D prInting technologieS"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Introduite en 2013 par le Massachusetts Institute of Technology et l'Université du
+    Colorado (USA), l'impression 4D combine la fabrication additive et les matériaux
+    actifs pour construire des objets physiques capables de changer de forme et/ou de
+    propriétés en réponse à un stimulus énergétique. En ajoutant le paramètre temps dans
+    l'espace 3D, les relations entre les besoins des applications et les moyens
+    technologiques pour les satisfaire deviennent plus compliquées, voire complexes.
+    Dans ce projet, le consortium national abordera différents axes de recherche,
+    comprenant le numérique (base de connaissances et apprentissage automatique lié aux
+    matériaux et aux structures), les matériaux et les procédés, des actions
+    prospectives (en reliant par exemple l'impression 4D et le biomimétisme comme fil
+    conducteur et/ou sur l’intelligence des matériaux). La satisfaction des besoins
+    exprimés dans ce "saut technologique" devrait [enfin] être à même de faire passer le
+    domaine de l'impression 4D d'un rôle académique à des applications industrielles.
+  start_date: "2023-10-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2028-04-30"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/artemis/"   # optional
+  associated_platforms:  # List the associated DIADEM platforms - optional
+    - "3D/4D Poudrinnov (Metal/Polymer Additive Manufacturing)"
+    - "Combinatorial low pressure micro-Cold Spray equipment"
+    - "Two-photon light polymerization"
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Frédéric"
+      last_name:  "DEMOLY"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "UTBM"
+      full_name: "Université de Technologie de Belfort-Montbéliard"
+      ror:       null  # optional
+    - acronym:   "ICB"
+      full_name: "Laboratoire Interdisciplinaire Carnot de Bourgogne (UMR 6303 CNRS/UTBM/Univ. Bourgogne)"
+      ror:       null  # optional
+    - acronym:   "ICGM"
+      full_name: "Institut Charles Gerhardt Montpellier (UMR 5253 CNRS/Univ Montpellier/ENS Chimie Montpellier)"
+      ror:       null  # optional
+    - acronym:   "LSI"
+      full_name: "Laboratoire des Solides Irradiés"
+      ror:       null  # optional
+    - acronym:   "CEA IRAMIS"
+      full_name: "CEA IRAMIS"
+      ror:       null  # optional
+    - acronym:   "CEA Liten"
+      full_name: "CEA Liten"
+      ror:       null  # optional
+    - acronym:   "CEA List"
+      full_name: "CEA List"
+      ror:       null  # optional
+    - acronym:   "CEA Tech Grand Est"
+      full_name: "CEA Tech Grand Est"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Impression 4D"
+  - "matériaux actifs"
+  - "fabrication additive"
+  - "intelligence artificielle"
+  - "stimulation énergétique"
+  - "structures"
+  - "machine"
+  - "learning"
+  - "machine learning"
+  - "smart materials"
+  - "energy"
+  - "polymer"
+  - "biomimicry"
+  - "models"
+  - "structure"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

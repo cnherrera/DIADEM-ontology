@@ -1,0 +1,172 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "REBORN"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Optimization and modeling of 2D h-BN epitaxy and its high-quality layered heterostructures using artificial intelligence."   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    H-BN est un nouveau matériau 2D qui commence à jouer un rôle important dans les
+    dispositifs optoélectroniques et électroniques de nouvelle génération. Étant produit
+    dans des réacteurs MOVPE industriels qui permettent l’épitaxie des hétérostructures
+    à base de GaN, h-BN peut être commercialisé en masse. Compte tenu de la complexité
+    de l'environnement d'épitaxie, l'amélioration de la qualité épitaxiale de h-BN n’est
+    pas une tache aisée. Ce projet vise à améliorer de manière significative la qualité
+    des matériaux optoélectroniques à base de h-BN par le biais d'une caractérisation
+    avancée et d'une optimisation des paramètres de croissance épitaxiale guidée par
+    l'IA. Les résultats attendus devraient fournir une connaissance détaillée de
+    l'épitaxie van der Waals (vdW) du h-BN et clarifier la voie pour l'adoption du h-BN
+    par l'industrie en France.  Applications du h-BN : Les fonctionnalités de h-BN sont
+    diverses. Utilisé comme couche sacrificielle, il permet le décollage aisé et le
+    transfert de dispositifs optoélectroniques III-N (LED, capteurs, transistors, etc.)
+    sur des supports arbitraires, ce qui permet une utilisation plus flexible et
+    améliore les performances thermiques. Deuxièmement, utilisé comme couche active,
+    h-BN peut servir de matériau dopé p et de couche de blocage des électrons pour les
+    LED UV. Troisièmement, il peut permettre l'intégration hétérogène de différents
+    matériaux semi-conducteurs, conduisant à la réalisation d'écrans LED multicolores de
+    résolution record. Enfin, il peut être utilisé dans les supercondensateurs et des
+    unités de séparation des ions hydrogène. Obstacles existants et approche pour les
+    surmonter : (1) Lorsque h-BN est utilisé comme couche de séparation, les structures
+    épitaxiée au-dessus présentent une densité de défauts plus élevée que celle obtenue
+    avec les procédés actuels de GaN sur saphir. Vu le nombre important de paramètres de
+    croissance (température, pression, rapport V/III, vitesse de croissance), de
+    nouvelles techniques sont nécessaires pour trouver les conditions de croissance
+    optimales afin d'améliorer la couche initiale de hBN, les couches suivantes et les
+    matériaux 3D à base de GaN. (2) Lorsque le h-BN est utilisé comme couche active, des
+    améliorations de la densité des défauts, du dopage et des interfaces avec les
+    matériaux 3D AlGaN sont nécessaires pour que les niveaux d'émission UV deviennent
+    compétitifs. (3) Les simulations de la dynamique de croissance MOVPE sont
+    notoirement peu fiables et l'espace des paramètres est trop vaste pour être exploré
+    uniquement par simulation. Ces obstacles soulignent la nécessité d'une
+    caractérisation plus poussée des échantillons à différents stades de croissance et
+    l'utilisation de procédures d'optimisation guidées par l'IA pour identifier les
+    paramètres de croissance permettant la production de h-BN de haute qualité.
+  start_date: "2025-11-24"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2029-11-23"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/reborn/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Abdallah"
+      last_name:  "OUGAZZADEN"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "IRL GT-CNRS"
+      full_name: "IRL Georgia Tech/CNRS(UMI 2958 CNRS/GeorgiaTech Lorraine)"
+      ror:       null  # optional
+    - acronym:   "CEA IRIG/MEM"
+      full_name: "CEA IRIG/MEM"
+      ror:       null  # optional
+    - acronym:   "Synchrotron SOLEIL"
+      full_name: "Synchrotron SOLEIL"
+      ror:       null  # optional
+    - acronym:   "ASDL lab (Georgia Tech, Atlanta, USA)"
+      full_name: "ASDL lab (Georgia Tech, Atlanta, USA)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "2D Materials"
+  - "III-nitride materials"
+  - "Boron Nitride"
+  - "MOCVD"
+  - "Deep characterization"
+  - "Machine learning"
+  - "prediction"
+  - "Artificial Intelligence.\n\nMatériaux 2D"
+  - "matériaux à base de nitrure III"
+  - "nitrure de bore"
+  - "MOCVD"
+  - "caractérisation approfondie"
+  - "apprentissage automatique"
+  - "prédiction"
+  - "intelligence artificielle."
+  - "optimization"
+  - "models"
+  - "learning"
+  - "machine"
+  - "machine learning"
+  - "model"
+  - "structure"
+  - "electron"
+  - "heterostructures"
+  - "artificial"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

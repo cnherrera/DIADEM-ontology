@@ -1,0 +1,179 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "LUMEN"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Liquid structure Understanding for Microstructure Engineering with Novel upscaling assisted by artificial intelligence"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Le projet LUMEN propose de développer de nouveaux alliages d’aluminium à partir de
+    la connaissance de la structure du liquide. L’objectif est d’explorer l'ajout
+    d'éléments de transition et d’adjuvants éventuels dans les alliages d'aluminium pour
+    optimiser leur microstructure dans le contexte d'intensification du recyclage, qui
+    entraîne une augmentation inévitable d’impuretés altérant les propriétés mécaniques
+    des alliages. Les calculs de dynamique moléculaire ab initio montrent que certaines
+    microstructures plus favorables peuvent être obtenues en lien avec une structuration
+    du liquide où domine la symétrie d’ordre 5. Certaines impuretés pourraient donc
+    devenir des éléments bénéfiques : il s’agit de comprendre à quelles conditions. On
+    sait par ailleurs qu’en fabrication additive l'ajout d'éléments diffusant lentement
+    améliore les propriétés en sursaturant la matrice pendant la solidification et en
+    ralentissant la précipitation à l’état solide. Le projet utilise la plateforme
+    métallurgie haut débit DIAMS pour cribler les alliages et la plateforme DIAMOND pour
+    développer une approche de modélisation multi-échelles. Les modélisations atomiques
+    par dynamique moléculaire utilisent des potentiels interatomiques issus de
+    l'apprentissage automatique sur des résultats de modélisation ab initio pour
+    capturer l'influence des éléments d'alliages sur la structure du liquide et le
+    comportement des interfaces solide-liquide. La modélisation de la microstructure par
+    champ de phase prédit la dynamique des microstructures de solidification, en tenant
+    compte de l'anisotropie de l'énergie interfaciale et de la cinétique d'attachement
+    atomique. La modélisation à l'échelle du procédé par le modèle d’enveloppe de grain
+    (GEM) simule la macrostructure de solidification et étudie la compétition de
+    croissance intergranulaire. Le lien entre les différentes échelles est assuré par de
+    nouveaux outils pour transférer les lois constitutives de l'échelle atomique vers le
+    champ de phase puis vers le GEM. Les résultats expérimentaux serviront de base
+    d’étalonnage et de validation des modélisations, avec un intérêt particulier pour
+    les systèmes Al-Cr-Fe-Ti. Le projet comprend cinq work-packages (WP). Le WP1 se
+    concentre sur les simulations à l’échelle atomique des liquides et des interfaces,
+    réalisant des simulations de dynamique moléculaire de grande échelle pour obtenir
+    une représentation précise des interfaces solide- liquide et de la diffusivité
+    atomique dans le liquide. Le WP2 se concentre sur la modélisation par méthode de
+    champ de phase, développant des codes pour prédire quantitativement la dynamique des
+    microstructures de solidification. Le WP3, dédié à la modélisation par la méthode
+    d’enveloppe de grains, vise à étendre le GEM aux alliages multi-constitués et à
+    simuler les compétitions de croissance entre grains. Le WP4 utilise l'apprentissage
+    machine pour relier les descriptions atomique et microstructurale et développer un
+    modèle génératif fondé sur les graphes pour le coarse-graining.
+  start_date: "2025-10-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2029-09-30"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/lumen/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Julien"
+      last_name:  "ZOLLINGER"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "IJL"
+      full_name: "Institut Jean Lamour (UMR 7198 Univ. Lorraine/CNRS)"
+      ror:       null  # optional
+    - acronym:   "SIMaP"
+      full_name: "Sciences et Ingénierie, Matériaux, Procédés (UMR 5266 CNRS/GrenobleINP/UGA)"
+      ror:       null  # optional
+    - acronym:   "PMC"
+      full_name: "Laboratoire de Physique de la Matière Condensée (UMR 7643 CNRS/Ecole Polytechnique)"
+      ror:       null  # optional
+    - acronym:   "LAMBE"
+      full_name: "Laboratoire Analyse et Modélisation pour la Biologie et l'Environnement (UMR 8587 CNRS/Univ. Evry Val d'Essone, Univ. Paris Saclay/Cergy Paris Univ.)"
+      ror:       null  # optional
+    - acronym:   "Constellium C-TEC"
+      full_name: "Constellium C-TEC"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Microstructure"
+  - "Processes"
+  - "Atomic Scale"
+  - "Artificial Intelligence"
+  - "High-Speed Metallurgy"
+  - "Metal Alloys"
+  - "Multi-Scale Modeling"
+  - "High-Performance Computing"
+  - "Solidification.\n\nMicrostructure"
+  - "Procédés"
+  - "Echelle Atomique"
+  - "Intelligence artificielle"
+  - "Métallurgie haut-débit"
+  - "Alliages Métalliques"
+  - "Modélisation multi-échelle"
+  - "Calculs hautes performances"
+  - "Solidification."
+  - "alloys"
+  - "simulations"
+  - "models"
+  - "model"
+  - "alloy"
+  - "microstructures"
+  - "structure"
+  - "molecular"
+  - "modeling"
+  - "phase-field"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

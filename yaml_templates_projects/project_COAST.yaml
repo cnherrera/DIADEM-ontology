@@ -1,0 +1,160 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "COAST"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Catalysts for a sustainable future"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Les enjeux liés aux problématiques environnementales et au changement climatique
+    appellent à une accélération des innovations en faisant travailler ensemble, en
+    synergie, les acteurs de plusieurs disciplines. Cela va de pair avec une évolution
+    drastique des connaissances actuelles afin d’être plus efficace dans la recherche de
+    solutions. Dans le domaine de l’énergie, les systèmes catalytiques sont un vecteur
+    essentiel de transformation des procédés non renouvelables en processus durables.
+    Ils sont indispensables pour la substitution des énergies fossiles, avec des coûts
+    de production et un impact environnemental acceptables. Dans ce projet, nous
+    proposons le développement d'intermétalliques des familles TM-sp (où TM est un
+    élément de transition et sp un métal pauvre), éventuellement supportés sur oxydes,
+    comme catalyseurs actifs et sélectifs, limitant le recours aux éléments critiques,
+    pour un avenir durable. La réduction de CO2 en méthanol sera étudiée, pour son
+    impact dans le domaine de l'énergie. Le projet combinera des réalisations
+    numériques, expérimentales et méthodologiques : - développements « Machine learning
+    » (ML) et numériques – Les approches ML visant la frugalité sont capables de
+    réaliser des prédictions et des analyses suffisamment précises pour être
+    exploitables avec un minimum de données. Le développement d'approches frugales est
+    nécessaire pour réduire l'impact environnemental de l'intelligence artificielle. Cet
+    objectif peut être atteint par le développement de modèles dédiés à des tâches
+    précises plutôt que de grands modèles génériques nécessitant des bases de données
+    gigantesques. D’une part, nous souhaitons accélérer les analyses de sciences de
+    surfaces, en intégrant les données expérimentales (microscopie à effet tunnel,
+    photoémission, spectroscopies, diffraction de surface) pour contraindre l’espace des
+    paramètres numériques des modèles structuraux nécessaires aux interprétations
+    (simulations d’images de microscopie à effet tunnel, calcul de structures
+    électroniques). D’autre part, nous souhaitons poursuivre le développement de
+    méthodes ML pour la prédiction de grandeurs (énergies d’adsorption, de barrières,
+    etc) avec un minimum de données ab initio. Sur le plan des simulations numériques,
+    nous utiliserons des méthodes d’optimisation globale, des approches basées sur la
+    théorie de la fonctionnelle de la densité, ainsi que sur des approches basées sur
+    des potentiels « machine learning » que nous raffinerons pour nos systèmes
+    d’intérêt. Enfin, l’exploration de l’espace chimique permettra de sélectionner une
+    ou plusieurs phases pour les tests catalytiques en conditions réelles, afin de
+    concevoir des catalyseurs efficaces.
+  start_date: "2026-02-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2030-01-31"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/coast/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Emilie"
+      last_name:  "GAUDRY"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "IJL"
+      full_name: "Institut Jean Lamour (UMR 7198 Univ. Lorraine/CNRS)"
+      ror:       null  # optional
+    - acronym:   "IRCELYON"
+      full_name: "Institut de recherches sur la catalyse et l’environnement de Lyon (UMR 5256 CNRS/Univ. Lyon 1)"
+      ror:       null  # optional
+    - acronym:   "INSP"
+      full_name: "Institut des nanosciences de Paris (UMR 7588 CNRS/Sorbonne Univ.)"
+      ror:       null  # optional
+    - acronym:   "Synchrotron SOLEIL"
+      full_name: "Synchrotron SOLEIL"
+      ror:       null  # optional
+    - acronym:   "LORIA"
+      full_name: "Laboratoire lorrain de recherche en informatique et ses applications (UMR 7503 CNRS/Univ. Lorraine/CentraleSupélec/Inria)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Intermetallic compounds; CO2 reduction to methanol; Catalysis; High-Throughput Screening; Surface Science\n\nComposés intermétalliques ; réduction du CO2 en méthanol ; catalyse ; criblage à haut débit ; science des surfaces"
+  - "surface"
+  - "catalytic"
+  - "catalysts"
+  - "oxide"
+  - "surfaces"
+  - "learning"
+  - "atomic"
+  - "intermetallic"
+  - "structure"
+  - "catalyst"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

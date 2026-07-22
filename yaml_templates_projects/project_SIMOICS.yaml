@@ -1,0 +1,178 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "SIMOICS"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Simulation and Instrumentation for Multi-Objective Optimization by Artificial Intelligence – Cold Spray"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Les procédés de synthèse de matériaux sont multi-paramétriques, multi-physiques et
+    multi-échelles, et les modèles analytiques et numériques correspondant sont
+    généralement incomplets. Leur Optimization est d’autant plus complexe que les
+    objectifs peuvent être multiples et non explicitables par des lois mathématiques.
+    Par exemple, comment optimiser simultanément les propriétés des matériaux et les
+    performances énergétiques du procédé ? Le projet SIMOICS propose d’utiliser des
+    modèles d’intelligence artificielle pour répondre à cette problématique, et
+    l’appliquer aux procédés de ColdSpray et de post-traitement associés aux plateformes
+    CorrIS de MATEIS (Projet A-DREAM) et du CEA (projet ARTEMIS). L’objectif est de
+    combiner les outils afin de converger rapidement vers une solution en réalisant le
+    minimum de simulations et/ou d’expériences sur le système réel. Pour cela, l’INRIA
+    et le LORIA concentreront leurs efforts sur la construction de modèles de
+    substitutions prenant en compte des données issues d’expérimentations et de
+    simulations, la génération de multiples solutions performantes grâce à des
+    algorithmes évolutonnaires « Quality-Diversity » et l’utilisation d’outils
+    d’Optimization multi-objectif « boite noire ». Afin d’alimenter les modèles
+    d’intelligence artificielle, les procédés de ColdSpray et les post-traitements
+    seront instrumentés et simulés. Pour une meilleure compréhension, et optimiser les
+    performances des modèles d’intelligence artificielle, les procédés d’élaboration de
+    matériaux seront considérés en sous-systèmes, correspondant aux phases : 1. de
+    projection (transport des particules dans le gaz vecteur [distributeur et source
+    enthalpique]), 2. de dépôt (impact et adhésion des particules sur le subjectile) et
+    3. de post-traitement (refusion par laser, recuit de densification par traitement
+    thermique non conventionnel). La caractérisation des échantillons en fin de ligne
+    sera également nécessaire pour évaluer les propriétés et performandces des
+    matériaux, qui sont nécessairement un des objectifs à optimiser. Les données
+    expérimentales serviront à calibrer les modèles d’intelligence artificielle et
+    algorithmes d’Optimization. Le projet SIMOICS repose donc sur 3 piliers
+    interdépendants qui sont : l’instrumentation, la simulation numérique, la collecte
+    et le traitement de données par intelligence artificielle pour résoudre des
+    problèmes aux solutions et objectifs multiples. L’ambition de SIMOICS est d’une part
+    de développer des outils online et offline pouvant être déployés sur d’autres
+    plateformes de procédés et de projets de recherche accélérée de matériaux, et
+    d’autre part d’ouvrir les plateformes de synthèse par Cold Spray haute et basse
+    pression à d’autres applications que la corrosion et les alliages à mémoire de forme
+    (PEPR A-DREAM et ARTEMIS), grâce à une recherche de paramètres optimaux assistée par
+    IA.
+  start_date: "2026-03-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2030-02-28"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/simoics/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Nicolas"
+      last_name:  "JOZEFOWIEZ"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "Université de Lorraine"
+      full_name: "Université de Lorraine"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "LORIA"
+      full_name: "Laboratoire lorrain de recherche en informatique et ses applications (UMR 7503 CNRS/Univ. Lorraine/CentraleSupélec/Inria)"
+      ror:       null  # optional
+    - acronym:   "Centre Inria de l'Université de Lorraine (INRIA)"
+      full_name: "Centre Inria de l'Université de Lorraine (INRIA)"
+      ror:       null  # optional
+    - acronym:   "CEA Tech Metz (CEA)"
+      full_name: "CEA Tech Metz (CEA)"
+      ror:       null  # optional
+    - acronym:   "MATEIS"
+      full_name: "Matériaux : Ingénierie et Science (UMR 5510 INSA Lyon/CNRS/Univ. Lyon 1)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Artificial Intelligence"
+  - "Bayesian Optimization"
+  - "Quality Diversity"
+  - "Multi-objective Optimization"
+  - "Instrumentation"
+  - "Multi-physics simulation"
+  - "Cold Spray"
+  - "Laser remelting"
+  - "Thermal treatment"
+  - "Characterization\n\nIntelligence artificielle"
+  - "optimisation bayésienne"
+  - "diversité de qualité"
+  - "optimisation multi-objectifs"
+  - "instrumentation"
+  - "simulation multiphysique"
+  - "projection à froid"
+  - "refusion laser"
+  - "traitement thermique"
+  - "caractérisation"
+  - "optimization"
+  - "algorithms"
+  - "learning"
+  - "simulation"
+  - "models"
+  - "algorithm"
+  - "bayesian optimization"
+  - "machine"
+  - "machine learning"
+  - "thermal"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

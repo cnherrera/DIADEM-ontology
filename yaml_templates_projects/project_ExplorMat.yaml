@@ -1,0 +1,178 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "ExplorMat"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Accelerated Exploration of a Chemical System for the Discovery of New Materials for Photovoltaics and Solid-state Lighting"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Les méthodes traditionnelles de découverte de nouveaux matériaux sont souvent
+    longues et répétitives. Les récents progrès dans l'application d'algorithmes
+    d'optimisation prêts à l'emploi au sein de cycles fermés synthèse-caractérisation-
+    prédiction ont accéléré le processus de découverte. Cependant, les systèmes
+    chimiques étudiés sont prédéfinis par les scientifiques et doivent se limiter à une
+    faible dimension. Ainsi, les méthodes de type machine learning, couramment utilisées
+    aujourd'hui dans les boucles fermées, conviennent à l'optimisation mais pas à la
+    découverte de nouveaux matériaux exceptionnels, car ces algorithmes d'optimisation
+    ne « pensent pas en dehors du cadre » créé par les scientifiques et, pour cette
+    raison, ne peuvent pas faire de découvertes révolutionnaires. Dans le cadre du
+    projet ExplorMat, une nouvelle méthodologie génératrice de nouvelles connaissances
+    scientifiques sera développée pour explorer de manière exhaustive l'espace chimique
+    et découvrir de nouveaux matériaux exceptionnels pour les technologies
+    photovoltaïques et les LEDs. La stratégie principale consiste à concevoir un
+    algorithme d'exploration qui se concentrera sur des régions inexplorées de l'espace
+    chimique. Pour démontrer le potentiel de cet algorithme d'exploration, une boucle
+    fermée entre (1) synthèse, (2) caractérisation et (3) prise de décision sera
+    développée. Une prise de décision à haut débit intégrant ce nouvel algorithme
+    d'exploration, basé sur des systèmes multi-agents et le data mining, générera de
+    nouvelles hypothèses, décidera des systèmes chimiques à explorer et proposera
+    efficacement un ensemble de nouvelles synthèses, qui seront exécutées en haut débit
+    sur une plateforme robotique installée à l’IMN. Les résultats des nouvelles
+    synthèses permettront d'améliorer les performances de l'algorithme d'exploration.
+    Les itérations automatisées entre la prise de décision et l'expérimentation
+    fonctionneront indépendamment de toute intervention humaine. La synergie entre la
+    collecte de données expérimentales via une plateforme robotique et leur utilisation
+    par une série de nouvelles techniques basées sur l'exploration de l'espace chimique
+    sera initiée par une équipe interdisciplinaire de chimistes, spectroscopistes,
+    spécialistes des matériaux computationnels, experts en machine learning et
+    mathématiciens. Les propriétés optiques de la famille des halogénures de métaux
+    hybrides seront étudiées. L'objectif sera de développer et de démontrer l'efficacité
+    de cette nouvelle méthodologie en prouvant sa capacité à surpasser les les approches
+    traditionnelles et celles basées sur les algorithmes d’optimisation dans la
+    découverte de nouveaux matériaux photoluminescents blancs à base d’halogénures de
+    métaux hybrides pour l'éclairage LED et les absorbeurs solaires pour le
+    photovoltaïque
+  start_date: "2026-02-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2030-01-31"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/explormat/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Romain"
+      last_name:  "GAUTIER"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "IMN"
+      full_name: "Institut des Matériaux de Nantes Jean Rouxel (UMR 6502 CNRS/Univ Nantes)"
+      ror:       null  # optional
+    - acronym:   "CMC"
+      full_name: "Chimie de la matière complexe (UMR 7140 CNRS/Univ. Strasbourg)"
+      ror:       null  # optional
+    - acronym:   "IRCELYON"
+      full_name: "Institut de recherches sur la catalyse et l’environnement de Lyon (UMR 5256 CNRS/Univ. Lyon 1)"
+      ror:       null  # optional
+    - acronym:   "ISCR"
+      full_name: "Institut des Sciences Chimiques de Rennes (UMR 6226 CNRS/Univ. Rennes/ENS Chimie Rennes/INSA Rennes)"
+      ror:       null  # optional
+    - acronym:   "Chalmers University, Sweden"
+      full_name: "Chalmers University, Sweden"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Autonomous robot"
+  - "Automated exploration"
+  - "Hybrid metal halides"
+  - "Descriptors"
+  - "Exploration model"
+  - "White photoluminescence"
+  - "Solid-state lighting"
+  - "Photovoltaics"
+  - "Ab initio calculations\n\nRobot autonome"
+  - "Exploration automatisée"
+  - "Halogénures de métaux hybrides"
+  - "Descripteurs"
+  - "Modèle d’exploration"
+  - "Photoluminescence blanche"
+  - "Eclairage de type LED"
+  - "Photovoltaïque"
+  - "Calculs ab initio"
+  - "chemical"
+  - "chemical space"
+  - "synthesis"
+  - "metal"
+  - "optimization"
+  - "learning"
+  - "hybrid metal"
+  - "metal halides"
+  - "algorithm"
+  - "machine"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

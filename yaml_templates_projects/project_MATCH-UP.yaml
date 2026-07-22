@@ -1,0 +1,162 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "MATCH-UP"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "MATerials disCovery for next generation pHotovoltaics via highthroUghPut synthesis, characterization and ai-based analysis"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Dans le contexte de transition énergétique, de transformation digitale, de crise
+    climatique, et de souveraineté énergétique, la mise au point accélérée de matériaux
+    et dispositifs pour le photovoltaïque qui sont à la fois fiables, sobres, non
+    toxiques et performants est un élément clé. Ceci passe par une collaboration accrue
+    entre les différentes expertises des laboratoires et les lignes pilotes R&D
+    industrielles (alimentant les gigafactories françaises en projet), et une meilleure
+    circulation des données expérimentales permise par l'automatisation et la
+    robotisation des procédés, les caractérisations haut débit et les analyses par
+    modélisation physique et intelligence artificielles associées. Pour répondre à cette
+    nécessité et aux objectifs de l’AAP, le présent projet rassemble un consortium aux
+    compétences équilibrées sur les aspects matériaux, procédés de synthèse et dépôt de
+    couches minces, analyse par caractérisation in situ et dégradation avancées, analyse
+    de dispositifs PV, automatisation et analyse par modélisation physique et IA. Cette
+    complémentarité est un élément clé pour ce type de projet qui à la fois nécessite
+    une forte collaboration mais également permet d’accélérer les collaborations grâce à
+    la nouvelle plateforme développée localement, ainsi que les données générées et
+    valorisées. L'automatisation des différentes étapes allant de la synthèse à
+    l'analyse haut débit des dispositifs solaires permet d'accélérer le design de
+    couches minces, multicouches et cellules solaires. Ceci en permettant la découverte
+    accélérée de nouveaux matériaux, la prédiction de propriétés matériaux et de figures
+    de mérites de dispositifs solaires tout en réduisant drastiquement les temps
+    nécessaires pour l'exploration, l'analyse et la création de savoir. Pour résoudre
+    les problèmes inhérents à la recherche de nouveaux matériaux et dispositifs
+    solaires, les méthodes d'intelligence artificielle associées à l'automatisation des
+    analyses de dépôt, caractérisation et dégradation permet d'augmenter la
+    quantité/qualité, reproductibilité des échantillons et fiabilité des données crées.
+    A ce jour une infime partie des données générées dans les laboratoires est utilisée,
+    partagée et suffisamment fiable pour permettre une utilisation plus globale et
+    permettre d'exploiter le plein potentiel des méthodes de data science. Pour ce faire
+    nous proposons de rassembler en une seule plateforme automatisée : procédé de dépôt
+    de couche mince, caractérisation et analyse de dégradations haut débit et pouvant
+    alimenter des instruments nationaux plus sophistiquées comme par exemple les
+    synchrotrons.
+  start_date: "2024-10-31"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2028-10-30"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/match-up/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Philip"
+      last_name:  "SCHULZ"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "IPVF"
+      full_name: "Institut Photovoltaïque d'Ile de France (UMR 9006 CNRS/Ecole Polytechnique/ENS Chimie Paris/IPVF/IP Paris/Univ. Paris Sciences et Lettres)"
+      ror:       null  # optional
+    - acronym:   "GeePs"
+      full_name: "Laboratoire Génie électrique et électronique de Paris (UMR 8507 CentraleSupélec/CNRS/Sorbonne Univ./Univ. Paris Saclay)"
+      ror:       null  # optional
+    - acronym:   "LUMIN"
+      full_name: "Laboratoire Lumière-Matière aux Interfaces (UMR 9024 CNRS/ENS Paris Saclay/Univ. Paris Saclay/CentraleSupélec)"
+      ror:       null  # optional
+    - acronym:   "ILV"
+      full_name: "Institut Lavoisier de Versailles (UMR 8180 Univ. Versailles/CNRS/Univ. Paris Saclay)"
+      ror:       null  # optional
+    - acronym:   "LPICM"
+      full_name: "Laboratoire de physique des interfaces et des couches minces (UMR 7647 Ecole Polytechnique/CNRS/IP Paris)"
+      ror:       null  # optional
+    - acronym:   "EDF"
+      full_name: "EDF"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Transition énergétique ; Technologies vertes ; Cellules solaires ; Semi-conducteurs pérovskites halogénés ; Dépôt automatisé de couches minces ; Haut débit ; Caractérisation multimodale in situ ; Vieillissement accéléré ; Datamining ; Modélisation physique ; Méthodes basées sur l'IA\n\nEnergy transition; Green technologies; Solar cells; Halide perovskite semiconductors; Automated thin-film deposition; High throughput; Multimodal in-situ characterization; Accelerated aging; Datamining; Physical modeling; AI-based methods"
+  - "modeling"
+  - "synthesis"
+  - "energy"
+  - "chemical"
+  - "cells"
+  - "compositions"
+  - "physical modeling"
+  - "solar cells"
+  - "materials discovery"
+  - "artificial intelligence"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

@@ -1,0 +1,157 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "GreenFOAM"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Accelerated discovery and optimization of high-performance green foams with controlled hierarchical architecture by light-driven processes"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Chaque année, plus de 600000 tonnes de mousses sont produites pour la literie, les
+    meubles, les sièges, les articles de sport et de nombreux autres objets de notre
+    quotidien. Initialement adoptées dans l’industrie du transport pour l’allègement des
+    structures afin de minimiser la consommation d’énergie, les mousses polymères
+    occupent aujourd’hui une place prépondérante dans l’emballage, l’électronique,
+    l’ameublement ou les matériaux de construction, grâce à leur légèreté
+    exceptionnelle, leur capacité à absorber les chocs ainsi que leur faible
+    conductivité thermique et électrique. Au regard du potentiel industriel et
+    économique de ce secteur, ainsi que des enjeux environnementaux, la conception de
+    mousses polymères plus performantes et dégradables, ainsi que le développement de
+    nouveaux modes de fabrication de ces mousses plus efficients et vertueux
+    représentent des enjeux industriels et environnementaux considérables. Cependant,
+    les mousses sont des matériaux à l’architecture complexe. Elles sont structurées
+    selon des agencements tridimensionnels plus ou moins complexes, périodiques, mais le
+    plus souvent aléatoires. Le champ de conception de ces matériaux englobe un nombre
+    considérable de combinaisons qui rend difficile d’appréhender la recherche d’une
+    conception optimale, que ce soit via des mesures expérimentales ou des simulations
+    numériques. En particulier, la structure complexe et parfois stochastique des
+    mousses rend difficile le développement de modèles constitutifs pour ces matériaux
+    architecturés. Dans le cadre du projet GreenFoam, l’objectif est de mettre en place
+    une démarche scientifique couplant expérimentation rationnalisée et à haut débit,
+    simulation numérique et intelligence artificielle pour accélérer la découverte de
+    mousses à haute performance plus éco-responsables. Notre stratégie repose sur 4
+    piliers que sont i) la synthèse de nouveaux pré-polymères sans isocyanate,
+    dégradables et photosensibles, ii) la fabrication d’architecture 3D macroscopique
+    par des procédés photo-induits, iii) la caractérisation des phénomènes de moussage
+    et des propriétés mécaniques sous environnement contrôlé, et iv) le recours à
+    l’intelligence artificielle pour déterminer les architectures hiérarchiques
+    optimales en fonction des propriétés ciblées.
+  start_date: "2024-10-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2028-09-30"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/greenfoam/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Arnaud"
+      last_name:  "SPANGENBERG"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "IS2M"
+      full_name: "Institut de Science des Matériaux de Mulhouse (UMR 7361 CNRS/Univ. Haute-Alsace)"
+      ror:       null  # optional
+    - acronym:   "IRIMAS"
+      full_name: "Institut de Recherche en Informatique Mathématiques Automatique Signal (UMR 7499 Univ. Haute Alsace)"
+      ror:       null  # optional
+    - acronym:   "ICS"
+      full_name: "Institut Charles Sadron (UPR 22 CNRS/Univ. Strasbourg/INSA Strasbourg)"
+      ror:       null  # optional
+    - acronym:   "ICube"
+      full_name: "Laboratoire des sciences de l'Ingénieur, de l'Informatique et de l'Imagerie (UMR 7357 Univ. Strasbourg/CNRS/INRIA/ENGEEs Strasbourg/INSA Strasbourg/Telecom ParisTech/CHU Strasbourg/IP Paris)"
+      ror:       null  # optional
+    - acronym:   "LCPO"
+      full_name: "Laboratoire de chimie des polymères organiques (UMR 5629 Univ. Bordeaux/CNRS/Bordeaux INP)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Non Isocyanate Polyurethane (NIPU) ; Ring Opening Metathesis Polymerization (ROMP); Self-foaming and degradable polymer; Mechanic of polymer foam; Flow chemistry; Light induced processes; Volumetric Additive Manufacturing (VAM)"
+  - "Frontal PhotoPolymerization (FP);Hightroughput X-Ray Tomography; Artificial Intelligence.\nPolyuréthane non isocyanate ; polymérisation par ouverture de cycle ; polymère auto-moussant et dégradable ; mécanisme de la mousse polymère ; chimie des flux ; processus induits par la lumière ; fabrication additive volumétrique"
+  - "photo-polymérisation frontale ; tomographie à rayons X à haut débit ; intelligence artificielle."
+  - "optimization"
+  - "synthesis"
+  - "polymer"
+  - "polymerization"
+  - "prepolymers"
+  - "algorithms"
+  - "models"
+  - "artificial"
+  - "energy"
+  - "photopolymerization"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

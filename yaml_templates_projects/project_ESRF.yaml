@@ -1,0 +1,180 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "Targeted"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "ESRF"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Accelerated X-ray Characterization of Materials at French CRG ESRF beamlines"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Grâce à la profondeur de pénétration des rayons X de haute énergie de la nouvelle
+    source EBS de l’ESRF, les lignes de lumières des CRG françaises offrent à 150
+    laboratoires français une caractérisation multi-échelle à haute résolution par
+    diffraction, diffusion ou spectroscopie d’absorption. Elles développent des
+    environnements échantillon pour les mesures in situ et operando. Les propositions
+    d’expérience sont sélectionnées 2 fois par an par les comités scientifiques communs
+    avec SOLEIL, et ceux de l’ESRF. Le temps de faisceau peut aussi être acheté par les
+    entreprises privées. Le programme PEPR DIADEME vise à accélérer la découverte et
+    l’optimisation des matériaux fonctionnels ou de structure en rendant les expériences
+    plus rapides et en améliorant l’efficacité du traitement des données. Fortes de leur
+    expérience en caractérisation de matériaux avancés, 4 des lignes CRG proposent de
+    réaliser le projet DIADEM/ESRF : D2AM (BM02) et IF (BM32) en utilisant la
+    diffraction et la diffusion des rayons X en chimie, physique, traitement des
+    surfaces et des matériaux, y compris ceux du patrimoine ; FAME-UHD (BM16) et FAME-
+    PIX (BM30) pour la spectroscopie et la spéciation en biologie, chimie, sciences de
+    l’environnement et géosciences. Grâce aux performances renouvelées des équipements
+    (projet Equipex+ MAGNIFIX), les temps de comptage vont se réduire avec
+    l’amélioration du faisceau et de la détection. L’étape limitante deviendra alors la
+    manipulation des échantillons. L’automatiser plus complètement, comme le criblage,
+    la mesure et la gestion de données, permettrait d’augmenter le débit d’échantillons
+    caractérisés. Des opportunités en ce sens ont été identifiées sur les 4 lignes, où
+    des passeurs d’échantillons robotisés pourraient gérer des centaines d’échantillons
+    (SAXS-WAXS et GISAXS-GIWAXS sur D2AM, instruments LaueMAX et GMT (XRR, GIXRD) sur
+    IF). En parallèle, de nouveaux dispositifs operando (réacteurs ou microréacteurs
+    HPHT, (électro)chimiques, four, champs électriques) utilisant des détecteurs plus
+    rapides constituent une autre voie d’accélération des études, en particulier pour la
+    caractérisation par XAS (FAME-UHD et FAME-PIX), ou le criblage des conditions
+    d’élaboration par SAXS (D2AM). L’accélération résultera aussi de la mise en place
+    d’une nouvelle génération de détecteurs 2D résolus en énergie, où chaque pixel
+    enregistre un spectre : de tels détecteurs à pixels seront développés pour les
+    spectres Laue (IF) ou XAS sur des échantillons ultra-dilués (sub ppm : FAME-UHD).
+    Ainsi équipées, ces 4 lignes de lumière F-CRG rempliront les conditions de
+    caractérisation rapide requises pour prendre part au « open discovery hub » proposé
+    par le programme DIADEME. Avec l’arrivée de l’imagerie 3D à haute résolution et des
+    détecteurs 2D rapides, les TGIR du monde entier subissent un “déluge de données”, et
+    les outils numériques existants doivent être adaptés pour y faire face. Dans ce
+    contexte, l’Intelligence Artificielle (IA) va permettre l’analyse en série de
+    données massives et complexes, et la caractérisation des matériaux à l’échelle
+    nanométrique. Ces tâches requièrent des compétences numériques spécifiques
+    auxquelles les scientifiques de ligne devront être formés par des spécialistes d’IA.
+    Les processus de traitement et d’analyse des grands jeux de données doivent
+    interagir si l’on veut assurer l’interopérabilité demandée par les utilisateurs. Ces
+    nouvelles compétences seront mutualisées entre les lignes de lumière et au sein du
+    programme DIADEME afin de croiser les idées et les pratiques. Afin de répondre aux
+    objectifs de caractérisation rapide de DIADEME, le mode d’accès actuel aux lignes,
+    qui est semestriel, s’avèrera peut-être insuffisant. Un dernier objectif du projet
+    DIADEM/ESRF sera de voir si d’autres modes, tel les BAG (expériences allouées par
+    bloc en bio-cristallographie), pourraient être adaptés à la communauté des matériaux
+    avancés tout en respectant les exigences de qualité scientifique.
+  start_date: "2023-01-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2030-12-31"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/esrf/"   # optional
+  associated_platforms:  # List the associated DIADEM platforms - optional
+    - "GISAXS/GIWAXS at ESRF"
+    - "HERFD-XAS at ESRF"
+    - "Laue microdiffraction at ESRF"
+    - "Multi-technique goniometer – Reflectivity at ESRF"
+    - "SAXS/WAXS at ESRF"
+    - "X-ray Absorption Spectroscopy at ESRF"
+    - "X-ray ptychography imaging at ESRF"
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Nathalie"
+      last_name:  "BOUDET"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "CEA IRIG"
+      full_name: "CEA IRIG"
+      ror:       null  # optional
+    - acronym:   "NEEL"
+      full_name: "Institut Néel (UPR 2940 CNRS/Grenoble INP/Univ. Grenoble Alpes)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Synchrotron"
+  - "X-ray diffraction"
+  - "X-ray scattering"
+  - "X-ray absorption"
+  - "X-ray reflectivity"
+  - "fast data collection"
+  - "online analysis"
+  - "AI-assisted processes"
+  - "energy"
+  - "diffraction"
+  - "saxs"
+  - "spectroscopy"
+  - "learning"
+  - "structure"
+  - "energy-resolved"
+  - "advanced materials"
+  - "chemical"
+  - "machine"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

@@ -1,0 +1,153 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "Targeted"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "RUBIS"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Data-driven development and fabrication of ceramics and thermostructural composites: Research platform on the Factory of the Future, the Big data, the Artificial Intelligence and the associated Information Systems."   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    RUBIS se focalise sur les céramiques et les composites thermostructuraux capables de
+    résister dans des environnements sévères. Le besoin de tels matériaux à haute
+    température est en effet une nécessité urgente dans plusieurs domaines : énergie,
+    transport, défense... Leur ténacité/caractère réfractaire leur permet d'être
+    utilisés dans des applications aéronautiques, spatiales ou nucléaires par exemple.
+    La science de ces matériaux modernes et des processus de fabrication associés oblige
+    à considérer une approche multidisciplinaire incluant la chimie, la physique et
+    l'ingénierie, étroitement liée à l'exploitation de la science des données via
+    l'intelligence artificielle (IA) pour accélérer l'ensemble de la chaîne de valeur de
+    fabrication. RUBIS couvre l’ensemble des problématiques de conception et de
+    traitement des matériaux : mise en forme par fabrication additive, post-traitements
+    de consolidation (par exemple séchage, déliantage/pyrolyse, frittage). Le projet
+    RUBIS vise à transformer un ensemble d'outils de conception et de fabrication en une
+    « usine intelligente intégrée » pour améliorer la productivité et le contrôle
+    qualité offrant une traçabilité des pièces fabriquées. Avec la numérisation complète
+    de toutes les étapes, RUBIS entend également optimiser les performances des pièces
+    fabriquées, réduire leurs coûts ainsi que la consommation d'énergie et l'impact
+    environnemental, et augmenter le degré de flexibilité de la production permettant la
+    livraison de produits entièrement personnalisables et de haute qualité. Les deux
+    livrables de RUBIS prévus à l'année 5 seront 2 plateformes : une plateforme d'outils
+    de CAO pour la conception de structures céramiques et composites optimisées et une
+    plateforme de fabrication entièrement numérisée intégrant les étapes de mise en
+    forme par fabrication additive et de post-consolidation thermique avec des capacités
+    de Machine Learning (ML) pour chacune desdites étapes de fabrication. Les 2 jalons
+    associés sont prévus à l'année 3 et correspondent au cahier des charges des
+    plateformes. Les matériaux à l'étude seront à la fois des matériaux oxydes et non
+    oxydes adaptés aux environnements sévères envisagés. Dans le cas particulier du
+    procédé de fabrication, des oxydes tels que l'alumine avec des lois de comportement
+    bien documentées dans la littérature seront utilisés pour initier les
+    développements.
+  start_date: "2023-01-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2028-12-31"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/rubis/"   # optional
+  associated_platforms:  # List the associated DIADEM platforms - optional
+    - "1600°C so-called pixelated sintering oven"
+    - "5-axis additive and subtractive manufacturing frame..."
+    - "Instrumented nanoindenter"
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Fabrice"
+      last_name:  "ROSSIGNOL"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "CEA/DAM/Centre du Ripault (Tours)"
+      full_name: "CEA/DAM/Centre du Ripault (Tours)"
+      ror:       null  # optional
+    - acronym:   "LCTS"
+      full_name: "Laboratoire des Composites ThermoStructuraux (UMR 5801 CNRS/Univ. Bordeaux/SAFRAN/CEA)"
+      ror:       null  # optional
+    - acronym:   "IRCER"
+      full_name: "Institut de Recherche sur les CERamiques (UMR 7315 CNRS/Univ. Limoges)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Matériaux céramiques et composites à matrice céramique ; Fabrication Additive ; Usine du futur"
+  - "ceramic"
+  - "ceramics"
+  - "composite"
+  - "structure"
+  - "composites"
+  - "structures"
+  - "advanced ceramics"
+  - "ceramics cmcs"
+  - "energy"
+  - "modelling"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

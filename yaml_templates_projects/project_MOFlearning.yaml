@@ -1,0 +1,153 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "Targeted"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "MOFlearning"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Accelerating the design of MOFs through a Machine Learning assisted High-throughput methodology"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Les solides hybrides poreux cristallins de type Metal Organic Frameworks (MOFs) sont
+    d’intérêt pour une large gamme d’applications (séparation, catalyse, détection,
+    biomédecine…). Cependant leur synthèse n’est le plus souvent pas contrôlée ce qui
+    rend difficile leur élaboration ‘à façon’ selon la propriété visée. L’état de l’art
+    s’appuie sur des approches ‘big data’ avec peu de garanties que les matériaux
+    sélectionnés puissant être synthétisés. Cela a conduit à certains succès dans la
+    prédiction à grande échelle de corrélations structure-activité mais pour un nombre
+    très limité de propriétés (par ex en adsorption). De plus, la modélisation haut
+    débit d’autres propriétés physiques ou chimiques (au niveau Classique ou quantique)
+    n’est pas encore une méthodologie établie et nécessiterait d’autres développements
+    pour accompagner l’expansion des bases de données comme outils d’apprentissages pour
+    des approches de type intelligence artificielle. Ce projet de démonstration a pour
+    but d’établir pour la 1ère fois, dans le domaine des MOFs, une approche
+    méthodologique guidée par des méthodes de synthèse et caractérisation haut-débits.
+    Nous nous appuierons sur une série de MOFs existants avec une diversité structurale
+    et chimique adéquate et l’évaluation systématique de leurs propriétés
+    d’adsorption/séparation de molécules de gaz modèles (CO2, CH4, N2, gaz nobles…),
+    essentiellement des polycarboxylates ou phosphonates de métaux à haut degré
+    d’oxydation, fonctionnalisés par des groupements polaires ou apolaires, pouvant être
+    réalisés facilement et activés à l’échelle de quelques grammes. Cet effort
+    expérimental sera complémenté par la prédiction haut-débit de leurs propriétés
+    chimiques et physiques pour créer des bases de données enrichies, avec des
+    indicateurs comme moyens d’apprentissages pour des algorithmes statistiques pour
+    identifier les descripteurs clés, couplés avec des algorithmes génératifs pour
+    explorer l’espace des phases nouvelles et guider de futures découvertes. Dans un
+    second temps, s’appuyant sur une nouvelle plateforme de synthèse et de
+    caractérisation haut-débit et les nouveaux modèles prédictifs, pour 1 ou 2
+    applications d’intérêt, nous identifierons et synthétiserons de nouveaux MOFs
+    performants.
+  start_date: "2022-11-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2026-10-31"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/moflearning/"   # optional
+  associated_platforms:  # List the associated DIADEM platforms - optional
+    - "Gas adsorption in MOFs"
+    - "High-throughput MOFs synthesis"
+    - "High-throughput powder X-ray diffractometer"
+    - "High-throughput thermogravimetric analysis"
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Christian"
+      last_name:  "SERRE"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "IMAP"
+      full_name: "Institut des Matériaux Poreux de Paris (UMR 8004 ENS Paris/CNRS/Univ. Paris Sciences Lettres/ESPCI Paris)"
+      ror:       null  # optional
+    - acronym:   "CEA/DES/ISEC"
+      full_name: "Institut des sciences et technologies pour une économie circulaire des énergies bas carbone (CEA-Marcoule)"
+      ror:       null  # optional
+    - acronym:   "IRCP"
+      full_name: "Institut de Recherche de Chimie Paris (UMR 8247 CNRS/Chimie Paris Tech)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "MOFs ; Machine learning ; high-throughput"
+  - "synthesis"
+  - "chemical"
+  - "presentation mofs"
+  - "machine"
+  - "machine learning"
+  - "structure"
+  - "structural"
+  - "simulation"
+  - "structures"
+  - "molecular"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

@@ -1,0 +1,154 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "ADVANCE"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "AI-Driven Valuation and Novel Creation of Energy-efficient, Low-Dimensional, High-Entropy Alloys with Superior Catalytic Performance for Hydrogen Production"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    La demande croissante de solutions d’énergie verte souligne l’impératif de méthodes
+    de production d’hydrogène efficaces. Le fractionnement de l’eau s’avère être une
+    technique prometteuse dans ce contexte. Même si les métaux nobles comme le platine
+    et l’iridium présentent des prouesses catalytiques louables, leur disponibilité
+    limitée et leurs coûts prohibitifs les rendent moins viables pour des applications à
+    grande échelle. Le présent projet ADVANCE met en lumière les alliages de basse
+    dimensionnalité et à haute entropie (LD-HEA) comme alternative révolutionnaire,
+    ouvrant un vaste domaine de composition pour contourner les contraintes des
+    catalyseurs traditionnels. Les HEA, qui se distinguent par leur composition multi-
+    éléments dans des rapports quasi équimolaires, surpassent les alliages
+    conventionnels en termes de performances et de stabilité. La faible dimensionnalité
+    inhérente des LD-HEA amplifie la surface, optimise le transport de charges et
+    accentue les traits de confinement quantique indispensables à la catalyse. Pourtant,
+    naviguer dans le vaste espace de composition des LD-HEA n’est pas sans défis,
+    englobant les subtilités de la détermination des compositions optimales, la
+    complexité du traitement et la compréhension naissante de leur comportement nuancé.
+    Pour relever ces défis, notre recherche associe des techniques d’intelligence
+    artificielle (IA) à des méthodologies expérimentales et informatiques pratiques. Les
+    objectifs de la proposition sont de trois ordres:  1. Utiliser l’IA pour la
+    conception et la découverte de LD-HEA, en tirant parti de l’apprentissage
+    automatique (Machine Learning –ML) pour prédire les performances catalytiques et
+    concevoir des algorithmes pour une identification efficace.  2. Fabriquer et
+    caractériser la structure des LD-HEA recommandés par l'IA.  3. Évaluer et étudier
+    les performances électrocatalytiques de ces LD-HEA.
+  start_date: "2024-10-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2028-09-30"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/advance/"   # optional
+  associated_platforms:  # List the associated DIADEM platforms - optional
+    - "Fabrication and characterization of standardized millifluidic chips"
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Zheng"
+      last_name:  "LIU"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "CINTRA"
+      full_name: "IRL CNRS-International-NTU-Thales Research Alliance (Singapour)"
+      ror:       null  # optional
+    - acronym:   "ICMCB"
+      full_name: "Institut de Chimie de la Matière Condensée de Bordeaux (UMR 5096 CNRS/Univ. Bordeaux/Bordeaux INP)"
+      ror:       null  # optional
+    - acronym:   "MEM"
+      full_name: "Laboratoire Modélisation et Exploration des Matériaux (CEA/Univ. Grenoble Alpes)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "High Entropy Alloys (HEA); Artificial Intelligence (AI); 2D and 0D Materials; Material synthesis; material characterization; DFT and CALPHAD simulations; high-performance catalysis; Hydrogen production; Green Deal; materials by design.\nAlliages à haute entropie"
+  - "Intelligence Artificielle"
+  - "Matériaux 2D et 0D"
+  - "Synthèse de matériaux"
+  - "Caractérisation de matériaux"
+  - "Simulations DFT et CALPHAD"
+  - "Catalyse de haute-performane"
+  - "Production d'hydrogène"
+  - "Green Deal"
+  - "matériaux par conception"
+  - "hea"
+  - "energy"
+  - "catalytic"
+  - "hydrogen"
+  - "alloys"
+  - "model"
+  - "synthesis"
+  - "catalysts"
+  - "high entropy"
+  - "entropy"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

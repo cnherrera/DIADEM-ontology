@@ -1,0 +1,176 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "GRENAT"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "data-auGmented mAterial engineeRing for advaNced surfacE functTionalization"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    La projection thermique est une famille de procédés de revêtements obtenus à partir
+    d’une source d’enthalpie et de quantité de mouvement qui permet de projeter des
+    matériaux pour former un revêtement. Ce dernier est constitué d’un empilement de
+    lamelles dont l’état thermocinétique des matériaux à l’impact sur le substrat
+    conditionne les propriétés du revêtement. La projection couvre un large spectre de
+    procédés (projection gaz froid, combustion, plasma) et peut ainsi être appliquée à
+    toutes les grandes catégories de matériaux (polymères, métaux, céramiques, cermets,
+    …). Les paramètres opératoires, comme les caractéristiques des matériaux initiaux et
+    les paramètres du procédé, permettent d’ajuster les propriétés des revêtements
+    déposables sur des géométries complexes. La projection thermique est une technologie
+    mature qui adresse de nombreux secteurs industriels tels que l'automobile,
+    l'aérospatiale, la médecine, les turbines à gaz industrielles, l'imprimerie. Les
+    revêtements sont exploités pour leur résistance aux températures élevées et à la
+    corrosion (e.g. barrières thermiques, TBC), leur résistance à l’usure, chimique,
+    isolation électrique, etc…Cependant, le nombre relativement important de paramètres
+    de procédés, leurs effets couplés et non-linéaires sur le traitement thermocinétique
+    des particules, les échelles de temps et d’espace décrivant les mécanismes s’étalant
+    sur plusieurs ordres de grandeur rendent complexes l’optimisation expérimentale du
+    procédé et la mise en oeuvre des modélisations et simulations numériques.
+    L’Intelligence Artificielle (IA) est une alternative d’optimisation de procédés
+    complexes grâce à l’utilisation des données produites par des capteurs et des
+    systèmes de diagnostics avancés. L’IA permet de développer des processus industriels
+    durables et économes en ressources, réduisant les besoins énergétiques et les
+    déchets sans sacrifier la qualité des systèmes. Le projet GRENAT a pour objectif de
+    répondre au second axe thématique de DIADEM sur l’accélération de la maîtrise des
+    procédés en s’appuyant sur la plateforme technologique de fonctionnalisation de
+    surface avancée SAFIR issue du laboratoire commun Prothéis entre l’IRCER, SAFRAN et
+    OERLIKON. Le consortium sera également composé du partenaire CEA-LIST spécialisé
+    dans l’IA, la science des données et les capteurs innovants. Le projet GRENAT
+    constituera la première brique d’IA, comme preuve de concept, pour prédire les
+    propriétés des revêtements sur deux systèmes complémentaires modèles de couples
+    procédés/matériaux (projection plasma de poudres/abradables et projection plasma de
+    suspensions/TBC) dans l’environnement de SAFIR et qui interagira avec les projets
+    ciblés RUBIS sur les procédés céramiques et DIAMOND sur les bases de données et
+    outils IA de DIADEM.
+  start_date: "2024-10-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2028-09-30"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/grenat/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Vincent"
+      last_name:  "RAT"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "IRCER"
+      full_name: "Institut de Recherche sur les CERamiques (UMR 7315 CNRS/Univ. Limoges)"
+      ror:       null  # optional
+    - acronym:   "LIST"
+      full_name: "Laboratoire d'Intégration des Systèmes et des Technologies (Grenoble)"
+      ror:       null  # optional
+    - acronym:   "SAFRAN"
+      full_name: "SAFRAN"
+      ror:       null  # optional
+    - acronym:   "OERLIKON"
+      full_name: "OERLIKON"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Ingénierie des surfaces"
+  - "Intelligence Artificielle"
+  - "procédés d’élaboration"
+  - "projection thermique"
+  - "barrière thermique"
+  - "dépôt abradable"
+  - "instrumentation"
+  - "capteurs"
+  - "diagnostics et caractérisation des matériaux à haut-débit"
+  - "réduction de données\nSurface engineering"
+  - "Artificial Intelligence"
+  - "elaboration processes"
+  - "thermal spraying"
+  - "thermal barrier"
+  - "abradable deposition"
+  - "instrumentation"
+  - "sensors"
+  - "high-throughput diagnostics and materials characterization"
+  - "data reduction"
+  - "thermal"
+  - "models"
+  - "thermal spray"
+  - "model"
+  - "machine"
+  - "learning"
+  - "diagnostics"
+  - "prediction"
+  - "surface"
+  - "ceramic"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

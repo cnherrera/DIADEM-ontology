@@ -1,0 +1,186 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "OPTISCRAPS"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Lifting the locks of the green steel industry through the optimized use of scraps and their residuals and the dynamic design of alloys"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Le projet OPTISCRAPS s’inscrit dans le contexte de la décarbonation de l’industrie
+    sidérurgique et de l’arrêt à venir des hauts fourneaux. Ces changements vont
+    impliquer un essor massif des filières électriques et une augmentation de la
+    consommation en ferrailles issues du recyclage. Ces ferrailles constituent un apport
+    d’éléments résiduels qui ne peuvent pas être éliminés de l’acier liquide avec les
+    technologies actuelles d’élaboration. Ces derniers impactent la formation des
+    microstructures ainsi que les propriétés finales de l’acier produit (ténacité,
+    ductilité, soudabilité…). La faible disponibilité des ferrailles de bonne qualité,
+    i.e. à faible niveau d’éléments résiduels, va inévitablement entrainer des tensions
+    spéculatives sur les marchés et des compétitions d’usage. Afin de permettre à la
+    sidérurgie nationale et européenne de conserver un avantage concurrentiel, le projet
+    OPTISCRAPS vise à accélérer le développement et le déploiement de modèles
+    métallurgiques permettant un pilotage dynamique des procédés de fabrication aval
+    (recuit continu des produits plats), pour tenir compte de la variabilité de ces
+    nouveaux éléments résiduels (Mo, Sn, Sb, As, …). Toutefois, les connaissances
+    manquent sur les possibles effets de ces éléments (thermodynamique, ségrégations,
+    transformations de phases, propriétés mécaniques). Cette « Science of Dirty Alloys»
+    est un des défis bien identifiés pour permettre l’avènement d’une métallurgie
+    durable et circulaire. Compte tenu du nombre de combinaisons possibles entre ces
+    éléments, souhaitées ou subies, seule la mise en oeuvre des méthodes à haut débit,
+    appuyées par des modèles d’apprentissage automatisé permettra d’étudier, dans les
+    délais attendus par l’industrie, leurs effets respectifs et leurs interactions. Pour
+    atteindre ces objectifs, la stratégie scientifique se décline en 3 volets fortement
+    interconnectés et interdisciplinaires :  • Conception et caractérisation in situ de
+    microstructures par des approches à haut débit  • Caractérisation multiéchelle
+    avancée des microstructures post mortem  • Modélisation multiéchelle hybrides
+    assistée par des méthodes d’apprentissage automatisé  Les principales innovations
+    attendues du projet concerneront :  • Le déploiement des outils de la métallurgie
+    combinatoire sur des systèmes multi constitués, avec de très nombreux éléments
+    chimiques ; mais très dilués de façon complémentaire aux approches déjà déployées
+    pour les éléments majoritaires dans DIADEM  • Le développement d’une méthodologie et
+    des compétences pour quantifier ces éléments résiduels et leurs ségrégations dans la
+    microstructure d’un acier tout au long du process (benchmark de différentes
+    techniques avancées
+  start_date: "2024-10-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2028-09-30"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/optiscraps/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Sébastien"
+      last_name:  "ALLAIN"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "IJL"
+      full_name: "Institut Jean Lamour (UMR 7198 Univ. Lorraine/CNRS)"
+      ror:       null  # optional
+    - acronym:   "SIMaP"
+      full_name: "Sciences et Ingénierie, Matériaux, Procédés (UMR 5266 CNRS/GrenobleINP/Univ. Grenoble Alpes)"
+      ror:       null  # optional
+    - acronym:   "UMET"
+      full_name: "Unité Matériaux et Transformations (UMR 8207 Univ. Lille/CNRS/INRAE/Centrale Lille Institut)"
+      ror:       null  # optional
+    - acronym:   "GPM"
+      full_name: "Groupe de Physique des Matériaux (UMR 6634 Univ. Rouen/INSA Rouen/EDF/CNRS)"
+      ror:       null  # optional
+    - acronym:   "PIMM"
+      full_name: "Procédés et Ingénierie en Mécanique et Matériaux (UMR 8006 ENS Arts et Métiers/CNRS/CNAM Paris)"
+      ror:       null  # optional
+    - acronym:   "LIST (Luxembourg)"
+      full_name: "Luxembourg Institute of Science and Technology (partenaire associé)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "acier"
+  - "recyclage"
+  - "rebuts"
+  - "modélisation hydride"
+  - "métallurgie combinatoire"
+  - "apprentissage automatique"
+  - "ségrégation"
+  - "haut débit"
+  - "optimisation"
+  - "transformation de phase"
+  - "propriétés mécaniques"
+  - "microstructure"
+  - "caractérisation analytique avancée\n\nsteel"
+  - "recycling"
+  - "scraps"
+  - "hydrid modelling"
+  - "combinatorial metallurgy"
+  - "machine learning"
+  - "segregation"
+  - "high throughput"
+  - "optimization"
+  - "phase transformation"
+  - "mechanical properties microstructure"
+  - "advanced analytical characterization"
+  - "models"
+  - "modelling"
+  - "metallurgy"
+  - "phase"
+  - "model"
+  - "microstructures"
+  - "microstructure"
+  - "learning"
+  - "metallurgical"
+  - "phase transformations"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

@@ -1,0 +1,146 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "Targeted"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "LIBELUL"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "LIBS for ELemental high throughpUt anaLysis"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Le développement accéléré des matériaux par l’usage de l’intelligence artificielle
+    tel que proposé dans le projet PEPR DIADEME requiert le développement d’outils
+    d’analyse haut débit afin d’alimenter les bases de données utilisées. Dans ce cadre,
+    l’analyse élémentaire peut être effectuée à l’aide de la technologie LIBS (Laser
+    Induced Breakdown Sprectroscopy) dont le principe consiste à analyser le spectre
+    d’émission de fluorescence du plasma induit par l’ablation du matériau à analyser
+    par une impulsion laser. Cette technique permet ainsi de détecter les différents
+    constituants de matériaux très divers (métaux, isolants, polymères...) avec un très
+    bon niveau de sensibilité pouvant descendre à quelques ppm pour certains éléments et
+    est tout à fait adaptée à la stratégie du projet DIADEME. Le projet LIBELUL vise à
+    développer deux expériences « plateformes » exploitant la technologie LIBS. La
+    première plateforme consistera à la mise en place d’une cartographie élémentaire sur
+    de très grandes surfaces avec un pas de mesure de 30 mm, nécessitant de viser la
+    très haute cadence laser (jusqu’au kHz). L’imagerie sera couplée sur une unique
+    expérience à de la spectroscopie RAMAN et de Luminescence. En effet, la
+    spectroscopie RAMAN informe sur les aspects structuraux alors que la spectroscopie
+    de Luminescence peut également informer sur les propriétés optiques d’un grand
+    nombre d’impuretés dans leur environnement ainsi que certains défauts. L’usage de
+    l’intelligence artificielle sera également exploité pour la détection automatique
+    des éléments majeurs et l’amélioration du rapport signal à bruit afin d’accélérer
+    également le traitement des données brutes. Si la première plateforme prévoit de
+    recevoir les matériaux à analyser, la seconde plateforme LIBS prévoit au contraire
+    d’aller sur le lieu de synthèse haut débit de matériaux. Il s’agit donc de
+    développer une plateforme LIBS mobile et adaptable pouvant être opérée sur site.
+    Cette seconde plateforme présentera les meilleures performances combinant
+    sensibilité et reproductibilité et aura vocation à être facilement opérable. Ces
+    deux plateformes viendront enrichir les outils d’analyse élémentaire haut débit du
+    projet DIADEME.
+  start_date: "01/06/2022"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2026-02-28"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/libelul/"   # optional
+  associated_platforms:  # List the associated DIADEM platforms - optional
+    - "Mobile LIBS platform"
+    - "Multi-characterization by LIBS/Raman/photoluminescence imaging"
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Christophe"
+      last_name:  "DUJARDIN"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "Univ. Claude Bernard Lyon 1"
+      full_name: "Univ. Claude Bernard Lyon 1"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "iLM"
+      full_name: "institut Lumière Matière (UMR 5306 Univ. Lyon 1/CNRS)"
+      ror:       null  # optional
+    - acronym:   "CEA/DES/LANIE"
+      full_name: "Laboratoire de développement Analytique Nucléaire Isotopique et Elémentaire (CEA Saclay)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "libs"
+  - "raman"
+  - "imaging"
+  - "spectroscopy"
+  - "optical"
+  - "libs imaging"
+  - "nanoparticles"
+  - "imaging module"
+  - "breakdown spectroscopy"
+  - "libs system"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

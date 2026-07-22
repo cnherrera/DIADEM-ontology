@@ -1,0 +1,183 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "Targeted"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "DIAMS"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Design by artificial Intelligence and high throughput data of advanced Alloys and innovative Metallurgical concepts for Structural applications"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Le projet ciblé DIAMS vise à mettre en place des infrastructures permettant la
+    conception accélérée d’alliages métalliques pour applications structurales, à
+    élaborer une méthodologie permettant la mise en œuvre de ces plateformes pour
+    l’ensemble de la communauté de la métallurgie française, et à en démontrer les
+    possibilités à travers trois projets démonstrateurs menés en partenariat entre les
+    acteurs du projet. La synthèse accélérée d’alliages métalliques sera mise en œuvre
+    au travers de plateformes de criblage d’alliages à haut débit. Ce criblage pourra se
+    faire au travers de plateformes de fabrication additive à mélange de poudre / fil
+    mises à disposition et développées dans le cadre du projet au CEA, à l’IJL et au
+    SIMAP, ainsi que par la fabrication d’alliages à gradient de composition. Une
+    plateforme de caractérisation à haut débit, permettant l’étude structurale et
+    microstructurale in-situ lors de traitements thermo-mécaniques représentatifs des
+    procédés d’élaboration industriels, sera déployée sur un ensemble de lignes haute
+    énergie du synchrotron européen ESRF. Cet outil permettra la création de banques de
+    données métallurgiques uniques sur les alliages élaborés dans le projet. Cette
+    plateforme sera complémentée sur les autres lignes synchrotron dédiées au programme
+    DIADEME, et en particulier pour le projet DIAMS avec les moyens de la ligne MARS de
+    SOLEIL. En parallèle de ces fabrications d’alliages et acquisitions de données,
+    l’intelligence artificielle, couplée à la modélisation physique, sera mise en œuvre
+    à tous les niveaux du processus, depuis la proposition des compositions d’alliages,
+    jusqu’à l’aide à la caractérisation et à la modélisation à haut débit des évolutions
+    microstructurales et l’optimisation des alliages. Les trois projets démonstrateurs
+    du projet ciblé DIAMS impliqueront chacun une collaboration entre plusieurs acteurs
+    du projet, mettant chacun en œuvre des plateformes ou des compétences propres sur la
+    démarche : * Le premier projet mettra en œuvre une méthodologie avancée de
+    conception d’alliages à haute entropie et d’alliages complexes concentrés, pour
+    applications en milieu sévère (irradiation / corrosion). Celle-ci suivra une
+    démarche de proposition d’alliages par calculs et IA, suivie de criblage et de
+    caractérisation haut débit de la microstructure, puis de caractérisation haut débit
+    du comportement en milieu sévère (en partenariat avec le projet ciblé A-DREAM) * Le
+    deuxième projet mettra en œuvre la fabrication d’alliages à gradient de composition
+    pour évaluer les effets d’alliages sur la conception d’aciers à haute résistance de
+    3ème génération (medium manganèse), et leur caractérisation à haut débit couplée à
+    une modélisation IA grâce à la plateforme thermo-mécanique sur ligne de lumière
+    synchrotron à haute énergie. * Le troisième projet mettra en œuvre la conception
+    d’alliages légers base aluminium spécifiques pour la fabrication additive, grâce aux
+    plateformes de mélange de poudres du projet. Les alliages criblés par ces méthodes
+    de synthèses pourront également être caractérisés à haut débit et les données ainsi
+    obtenues être incluses dans une démarche IA de conception d’alliages.
+  start_date: "2022-09-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2027-08-31"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/diams/"   # optional
+  associated_platforms:  # List the associated DIADEM platforms - optional
+    - "3D Saclay (powder bed, cladding, wire, extrusion)"
+    - "Conventional metallurgy"
+    - "High-throughput 3D metallurgy (INSSTEK 3D)"
+    - "Plasto-dilatometer for synchrotron beamline"
+    - "Ultra-fast high-energy X-ray detector"
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Alexis DESCHAMPS"
+      last_name:  "(UGA)"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "SIMaP"
+      full_name: "Sciences et Ingénierie, Matériaux, Procédés (UMR 5266 CNRS/GrenobleINP/UGA)"
+      ror:       null  # optional
+    - acronym:   "IJL"
+      full_name: "Institut Jean Lamour (UMR 7198 Univ. Lorraine/CNRS)"
+      ror:       null  # optional
+    - acronym:   "LEM3"
+      full_name: "Laboratoire d'Etude des Microstructures et de Mécanique des Matériaux  (UMR 7239 CNRS/Univ Lorraine/Arts et Métiers Paris Tech)"
+      ror:       null  # optional
+    - acronym:   "LGF"
+      full_name: "laboratoire Georges Friedel (UMR 5307 CNRS/ENS Mines St Etienne)"
+      ror:       null  # optional
+    - acronym:   "IMN"
+      full_name: "Institut des Matériaux de Nantes Jean Rouxel (UMR 6502 CNRS/Univ Nantes)"
+      ror:       null  # optional
+    - acronym:   "CEA Saclay SEARS / LISL SAMANTA (Saclay's Additive MANufacturing & surface TreAtment)"
+      full_name: "CEA Saclay SEARS / LISL SAMANTA (Saclay's Additive MANufacturing & surface TreAtment)"
+      ror:       null  # optional
+    - acronym:   "ESRF"
+      full_name: "European Synchrotron Radiation Facility (Grenoble)"
+      ror:       null  # optional
+    - acronym:   "SOLEIL"
+      full_name: "Synchrotron SOLEIL (Paris Saclay)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Metallurgy"
+  - "Alloy design"
+  - "high throughput alloy screening"
+  - "high throughput characterization"
+  - "IA-based alloy optimization"
+  - "alloys"
+  - "alloy"
+  - "metallurgy"
+  - "microstructure"
+  - "machine"
+  - "modelling"
+  - "compositions"
+  - "hea"
+  - "composition"
+  - "alloy screening"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

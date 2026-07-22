@@ -1,0 +1,174 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "MADNESS"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Artificial intelligence-assisted methodology for the discovery of new materials in molten salts"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    L’objectif du projet MADNESS est de combiner l’intelligence artificielle à la
+    synthèse inorganique pour répondre à une question simple mais complexe : comment
+    accélérer la recherche de matériaux avec des techniques de synthèse difficilement
+    automatisables ? Nous prendrons comme cas d’école la synthèse en sels fondus, une
+    méthode originale dont la capacité à ouvrir la voie vers de nouveaux matériaux
+    émerge depuis quelques années, mais qui n’est pas adaptée à l’automatisation et au
+    criblage à haut débit. Nous chercherons plus spécifiquement des matériaux capables
+    de remplacer les métaux précieux pour l’électrocatalyse de la production de
+    dihydrogène à partir de l’eau, en nous concentrant sur des composés prometteurs et
+    dont l’espace chimique est en grande partie vierge, car ils sont difficiles à
+    synthétiser : composés non-oxydes de métaux de transition et d’éléments non
+    critiques du bloc p. Nous développerons une méthodologie de synthèse s’appuyant sur
+    deux piliers principaux : Le premier pilier consiste à tirer le meilleur parti des
+    expériences, en considérant chaque synthèse comme une grande source de données pour
+    cribler certains des paramètres expérimentaux les plus importants. Nous utiliserons
+    la diffraction des rayons X sous rayonnement synchrotron, dans le but de réaliser le
+    suivi in situ des synthèses. Nous mobiliserons des méthodes d’apprentissage
+    automatique (ML) pour développer un outil numérique capable de détecter, parmi les
+    produits et intermédiaires réactionnels, les solides déjà répertoriés et ceux qui
+    restent à identifier. Une analyse plus détaillée nous permettra de sélectionner les
+    conditions de synthèse ex situ de ces matériaux. Le deuxième pilier est la
+    prédiction de nouveaux composés et de diagrammes de phases pour des systèmes
+    chimiques inexplorés ou mal connus. Au contraire d’autres approches classiques
+    coûteuses en calcul, cette prédiction utilisera des techniques génératives afin
+    d’accélérer la recherche de nouveaux composés et des calculs ab initio à haut débit
+    pour cartographier les diagrammes de phase et identifier les solides stables et
+    métastables. Cette méthode fournira aussi des caractéristiques relatives aux
+    compositions chimiques, structures cristallines et structures électroniques. Nous
+    utiliserons ainsi la fouille de données pour identifier des descripteurs simples
+    afin d’anticiper les propriétés électrocatalytiques, qui seront mesurées a
+    posteriori. Ces nouveaux matériaux prédits seront intégrés dans l’outil d’analyse
+    des synthèses in situ, afin de les rechercher en priorité lors des expériences
+    synchrotron.
+  start_date: "2024-11-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2028-10-31"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/madness/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "David"
+      last_name:  "PORTEHAULT"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "Sorbonne Université"
+      full_name: "Sorbonne Université"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "LCMCP"
+      full_name: "Laboratoire de Chimie de la Matière Condensée de Paris (UMR 7574 Sorbonne Univ./CNRS)"
+      ror:       null  # optional
+    - acronym:   "IMN"
+      full_name: "Institut des Matériaux de Nantes Jean Rouxel (UMR 6502 CNRS/Univ Nantes)"
+      ror:       null  # optional
+    - acronym:   "LINK"
+      full_name: "Laboratory for Innovative Key Materials and Structures (IRL 3629 CNRS/NIMS/STGOBAIN)"
+      ror:       null  # optional
+    - acronym:   "Synchrotron SOLEIL"
+      full_name: "Synchrotron SOLEIL"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "New materials"
+  - "Liquid-phase synthesis"
+  - "Molten salts"
+  - "Intermetallics and compounds"
+  - "X-ray diffraction"
+  - "in situ"
+  - "Crystal structure prediction"
+  - "Supervised machine learning"
+  - "Graph neural networks"
+  - "Electrocatalysis\n\nNouveaux matériaux"
+  - "synthèse en phase liquide"
+  - "sels fondus"
+  - "intermétalliques et composés"
+  - "diffraction des rayons X"
+  - "in situ"
+  - "prédiction de la structure cristalline"
+  - "apprentissage automatique supervisé"
+  - "réseaux neuronaux graphiques"
+  - "électrocatalyse"
+  - "synthesis"
+  - "xrd"
+  - "phase"
+  - "syntheses"
+  - "structures"
+  - "structure"
+  - "crystal"
+  - "prediction"
+  - "electrocatalysis"
+  - "chemical"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

@@ -1,0 +1,167 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "Targeted"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "A-DREAM"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Accelerated Development of corrosion REsistAnt Materials"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    L'objectif du projet A-DREAM est de développer une approche générique pour accélérer
+    la découverte de matériaux et revêtements résistants à la corrosion dans des
+    environnements sévères. Elle est appliquée dans cette étude au sel fondu LiCl-KCl à
+    450°C. Une base de données corrosion a d'abord été élaborée à partir de données de
+    la littérature et un modèle de résistance des alliages métalliques à la corrosion
+    par les sels fondus a été construit par une approche novatrice de fouille de
+    données, associant un algorithme de classement par comparaison de paires à un outil
+    de régression par apprentissage machine. Puis grâce à l'élaboration de matériaux
+    massifs et matériaux revêtus par des voies de synthèse combinatoire (PVD,
+    fabrication additive) ou par voies conventionnelles (Cold Spray, four de fusion)
+    ainsi que l'apport d'alliages complexes concentrés et à haute entropie issus du
+    projet ciblé DIAMS, des essais haut débit de corrosion ont été réalisés. Plus de 70
+    nuances différentes ont été testées, constituées de 19 éléments différents. Deux
+    types d’essais haut débit ont été réalisés : (i) des essais d’immersion en mini-
+    béchers pour les matériaux massifs, (ii) des essais sur des plaquettes avec des
+    pastilles de sels fondus pour les films minces et revêtements. L'intégration de ces
+    données a permis de donner lieu à de nouveaux classements de matériaux via
+    l'algorithme SpringRank qui vont permettre l'établissement de deux autres modèles de
+    corrosion pour relier le score à la composition élémentaire. Au total, trois modèles
+    de corrosion seront utilisés et comparés pour la phase d’optimisation multicritères
+    permettant de proposer des compositions de matériaux optimisées vis-à-vis de la
+    corrosion et vis-à-vis de l’impact environnemental. Des avancées importantes ont
+    également été réalisées pour l'acquisition de données in situ, notamment par
+    spectroscopie Raman. Pour cela une cellule dédiée a été développée permattant
+    l'acquisition de spectres Raman en chlorures fondus à 450°C pour le suivi de la
+    corrosion. Des mesures électrochimiques en goutte de sels sont en cours
+    développement, couplées à la spectroscopie Raman permettant l'acquisition de données
+    à la fois sur le matériau corrodé et au sein du sel.
+  start_date: "2022-10-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2027-09-30"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/a-dream/"   # optional
+  associated_platforms:  # List the associated DIADEM platforms - optional
+    - "Atm-PECVD equipment"
+    - "DAMCO: Accelerated Development of Corrosion Materials"
+    - "DARMiColS: Accelerated Development of Coatings... Cold Spray"
+    - "Hybrid PVD reactor"
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Fanny"
+      last_name:  "BALBAUD-CELERIER"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CEA"
+      full_name: "CEA"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "CEA/ISAS/DRMP/S2CM"
+      full_name: "Service de recherche en corrosion et comportement des matériaux (CEA)"
+      ror:       null  # optional
+    - acronym:   "MATEIS"
+      full_name: "Matériaux : Ingénierie et Science (UMR 5510 INSA Lyon/CNRS/Univ. Lyon 1)"
+      ror:       null  # optional
+    - acronym:   "IMN"
+      full_name: "Institut des Matériaux de Nantes Jean Rouxel (UMR 6502 CNRS/Univ Nantes)"
+      ror:       null  # optional
+    - acronym:   "ICMCB"
+      full_name: "Institut de Chimie de la Matière condensée de Bordeaux (UMR 5026 CNRS/Bordeaux INP/Univ. Bordeaux)"
+      ror:       null  # optional
+    - acronym:   "LRS"
+      full_name: "Laboratoire de Réactivité de Surface - Sorbonne (UMR 7197 Sorbonne Université/CNRS)"
+      ror:       null  # optional
+    - acronym:   "IJC Lab"
+      full_name: "Laboratoire de physique des deux infinis Irène Joliot-Curie (UMR 9012 CNRS/Univ Paris Saclay/Univ Paris Cité)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Corrosion"
+  - "Matériaux"
+  - "Electrochimie"
+  - "Revêtements"
+  - "Sels fondus"
+  - "Thermodynamique"
+  - "Conception numérique"
+  - "alloys"
+  - "electrochemical"
+  - "alloy"
+  - "surface"
+  - "spectroscopy"
+  - "impedance spectroscopy"
+  - "learning"
+  - "machine"
+  - "machine learning"
+  - "materials coatings"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

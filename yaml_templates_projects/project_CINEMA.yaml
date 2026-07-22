@@ -1,0 +1,175 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "CINEMA"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Smart growth of novel thin films of enhanced functional oxides"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Le projet CINEMA est un projet de recherche académique ambitieux ayant pour objectif
+    la croissance intelligente par épitaxie par jets moléculaires (MBE) de nouvelles
+    couches minces d’oxydes fonctionnels améliorées. Concernant le premier objectif
+    principal de croissance intelligente, deux approches seront étudiées en utilisant
+    des solutions solides modèles d’oxydes thermoélectriques de structure pérovskite
+    basées sur SrTiO3, déjà bien maîtrisées à l’INL. La première approche est basée sur
+    des mesures operando pendant la croissance et de l’apprentissage profond par des
+    algorithmes de l’intelligence artificielle (IA). Dans un premier temps, il inclura
+    le couplage de nombreuses mesures in-situ et operando des propriétés structurales et
+    physiques pendant la croissance en temps réel (INL). Dans un deuxième temps, il
+    inclura le traitement de ces données par des algorithmes utilisant des réseaux de
+    neuronaux convolutifs (IRCER, INL, plateforme DIADEM-DM). Dans un troisième temps,
+    des boucles de rétroaction seront mises en place pour le contrôle de la croissance
+    par les propriétés visées, mesurées et analysées en temps réel. La seconde approche
+    consiste à créer un jumeau numérique de la croissance par des simulations (P’). Ces
+    simulations seront effectuées par Monte Carlo cinétique (k-MC) et par des calculs
+    DFT optimisés par des algorithmes de l’IA (Collab. Univ. Montreal & LAAS). Les
+    résultats théoriques seront confrontés aux résultats expérimentaux de complexité
+    croissante (oxydes binaires, ternaires et enfin quaternaires). Un deuxième objectif
+    conjoint concerne la prédiction par IA et l’élaboration par MBE de nouvelles
+    solutions solides d’oxydes thermoélectriques de type p performants (PF > 10 μW cm-1
+    K-2), stables et durables (contentant des éléments non/peu toxiques et abondants).
+    Dans un premier temps, ces prédictions nécessiteront d’alimenter une base de données
+    et de l’analyser (plateforme DIADEM-DM). Dans un deuxième temps, la stabilité
+    structurale de ces nouveaux oxydes sera évaluée par calculs DFT (P’). Dans un
+    troisième temps, les propriétés thermoélectriques des nouveaux oxydes les plus
+    prometteurs seront estimées par calculs ab-initio (ILM). Enfin, les solutions
+    solides les plus prometteuses seront élaborées en couches minces par MBE, assistée
+    par IA, et l’ensemble de leurs propriétés thermoélectriques seront mesurées (INL,
+    ILM). En plus de la plateforme DIADEM-DM, ce projet réunit quatre partenaires
+    académiques reconnus et complémentaires ayant toutes les compétences et outils à
+    disposition pour atteindre les objectifs visés. Ce projet permettrait d’accélérer la
+    découverte et la maîtrise de nouveaux matériaux aux propriétés améliorées, dans
+    différents champs d’applications, dans la recherche académique et l’industrie.
+  start_date: "2026-03-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2030-02-28"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/cinema/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Romain"
+      last_name:  "BACHELET"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "INL"
+      full_name: "Institut des Nanotechnologies de Lyon (UMR 5270 CNRS/Ecole Centrale Lyon/INSA Lyon/Univ. Lyon 1/CPE Lyon)"
+      ror:       null  # optional
+    - acronym:   "P'"
+      full_name: "Institut Pprime (UPR 3346 CNRS/Univ. Poitiers/ENS mécanique et aéronautique de Poitiers-ISAE-ENSMA)"
+      ror:       null  # optional
+    - acronym:   "IRCER"
+      full_name: "Institut de Recherche sur les CERamiques (UMR 7315 CNRS/Univ. Limoges)"
+      ror:       null  # optional
+    - acronym:   "iLM"
+      full_name: "institut Lumière Matière (UMR 5306 Univ. Lyon 1/CNRS)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Smart growth"
+  - "digital twin"
+  - "functional perovskite oxides"
+  - "molecular beam epitaxy (MBE)"
+  - "operando characterizations"
+  - "thermoelectricity"
+  - "SrTiO3"
+  - "p-type oxides"
+  - "deep learning"
+  - "convolutional neural networks (CNN)\n\nCroissance intelligente"
+  - "jumeau numérique"
+  - "oxydes de pérovskite fonctionnels"
+  - "épitaxie par faisceau moléculaire (MBE)"
+  - "caractérisations operando"
+  - "thermoélectricité"
+  - "SrTiO3"
+  - "oxydes de type p"
+  - "apprentissage profond"
+  - "réseaux neuronaux convolutifs (CNN)"
+  - "oxides"
+  - "oxide"
+  - "learning"
+  - "thermoelectric"
+  - "energy"
+  - "deep learning"
+  - "deep"
+  - "functional oxides"
+  - "algorithms"
+  - "structure"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

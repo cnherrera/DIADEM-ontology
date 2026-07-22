@@ -1,0 +1,86 @@
+# ── 1. DIGITAL METHODS, AI & DATA  ─────────────────────
+- machine-learning
+- deep-learning
+- active-learning            # Crucial for closed-loop, AI-guided material discovery
+- bayesian-optimization      # Heavily used for predicting chemical compositions
+- generative-models          # GenAI for structural and molecular design
+- computer-vision            # Image processing for automated microscopy/characterization
+- natural-language-processing # Data mining of scientific literature and patents
+- materials-informatics
+- materials-databases        # FAIR data repositories (DIADEM data platform)
+- digital-twin               # Digital twins of synthesis processes or material behavior
+- workflow-automation        # Automated orchestration of numerical calculations
+- workflow-orchestration     # Using tools like AiiDA, FireWorks, or Snakemake)
+- data-engineering              # Databases, FAIR data implementation, data pipelines
+- machine-learning-engineering  # Training, deploying, and optimizing models
+- computer-vision
+- image-analysis
+- natural-language-processing
+- scientific-software-development # Writing Python packages, APIs, or GUI wrappers
+
+# Automation & Robotics
+- Robot Programming & Control   #(ROS, Python robot interfaces, PLC programming)
+- Hardware-Software Integration #(Connecting lab instruments to computers via API/Serial)
+- Liquid Handling & Fluidic System Design #(Microfluidics/Millifluidics engineering)
+- High-Throughput Screen Design #(Setting up combinatorial workflows and library design)
+- CAD & Rapid Prototyping #(3D printing custom parts, mechanical design for lab rigs)
+
+
+# ── 2. SYNTHESIS & ADVANCED MANUFACTURING  ──────
+- high-throughput-synthesis
+- combinatorial-synthesis
+- self-driving-lab           # Autonomous laboratories driven by active learning loops
+- automated-deposition       # Automated deposition for solar cells, thin films, etc.
+- additive-manufacturing     # 3D printing (powders, wires, compositional gradients)
+- thin-film-engineering      # Thin films and multilayered architectures
+- millifluidics              # Millifluídics (e.g., standard DIADEM micro/millifluidic chips)
+- microfluidics
+- composition-gradient       # Gradient screening for fast discovery
+- solid-state-synthesis
+
+# ── 3. ADVANCED CHARACTERIZATION & SCREENING ───────
+- high-throughput-characterization
+- in-situ-characterization
+- operando-characterization
+- synchrotron-radiation       # Dedicated beamlines at ESRF and SOLEIL
+- high-energy-scattering
+- x-ray-diffraction           # Automated high-throughput XRD
+- libs                        # Laser-Induced Breakdown Spectroscopy (e.g., LIBELUL platform)
+- accelerated-aging           # Advanced degradation and fast aging tests
+- multiscale-characterization
+- automated-microscopy
+- Synchrotron Beamline Operation # X-ray scattering, spectroscopy at ESRF/SOLEIL
+- Automated Electron Microscopy  # SEM, TEM with automated mapping
+- Surface Analysis Techniques    # XPS, AFM, nanoindentation
+- Advanced Degradation Testing   # Electrochemistry, accelerated corrosion, aging
+
+
+
+# ── 4. PHYSICAL SIMULATION & MODELING  ─────────────────
+- physical-modeling
+- digital-simulation
+- multiscale-simulation
+- multiscale-modeling-integration # Linking DFT to macroscale properties
+- ab-initio-quantum-mechanics # DFT calculations, electronic structure
+- dft                         # Density Functional Theory (Ab initio calculations)
+- calphad                     # Computational thermodynamics for multi-component alloys
+- molecular-dynamics
+- atomistic-simulation
+- phase-field-modeling
+- Thermodynamic-Modeling      # CALPHAD, phase diagrams
+- Mesoscale-Modeling          # Phase-field, crystal plasticity
+
+
+# ── 5. MATERIAL CLASSES & TARGET APPLICATIONS  ─────────────
+- advanced-alloys            # Advanced structural alloys (e.g., DIAMS project)
+- high-entropy-alloys        # HEAs (e.g., ADVANCE project)
+- functional-materials
+- halide-perovskites         # Advanced photovoltaic semiconductors (e.g., MATCH-UP project)
+- nano-objects               # 0D, 1D, 2D and nanomaterials (e.g., FastNano project)
+- organic-inorganic-hybrids
+- bio-sourced-polymers
+- green-deal                 # Sustainable materials, non-critical/non-toxic raw materials
+- energy-transition
+- hydrogen-production        # High-throughput catalysis (Water splitting)
+- photovoltaics              # Next-gen solar cells
+- future-medicine            # Bio-compatible materials, implantable/wearable medical devices

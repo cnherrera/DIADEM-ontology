@@ -1,0 +1,159 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "Targeted"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "HIWAY-2-MAT"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "High-throughput combinatorial and autonomous pathways in Solid State Chemistry"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Ces dernières années, des approches originales ont été développées pour accélérer la
+    découverte de nouveaux matériaux : La voie combinatoire et la voie de recherche
+    autonome. La voie combinatoire permet la production de librairie de matériaux
+    contenant formellement plusieurs centaines voire milliers de compositions. La
+    recherche autonome suppose l’emploi de robots de découverte de matériaux comprenant
+    des modules de synthèse, de caractérisation des propriétés structurelles et
+    fonctionnelles automatisés, et faisant appel à des modèles d'IA pour le choix des
+    zones à explorer. Une telle combinaison permet d'explorer des espaces
+    multidimensionnels complexes pour optimiser la composition des matériaux sans aucune
+    intervention humaine. Dans ce domaine de recherche, l'Europe est loin derrière les
+    États-Unis et la Chine. Notre ambition dans le cadre de ce projet ciblé est à la
+    fois d'utiliser des approches combinatoires à haut débit et de développer des
+    configurations autonomes pour explorer les espaces de composition des matériaux pour
+    les applications à faible consommation d'énergie. Concrètement, nous appliquerons
+    les approches proposées pour accélérer la découverte de matériaux d'oxyde pour les
+    fenêtres intelligentes, les capteurs intelligents, l'éclairage à faible consommation
+    et les systèmes électroniques. La voie combinatoire parallélisée sera mise en œuvre
+    et bouclée avec des modèles d'IA. Des interactions avec d'autres projets ciblés
+    permettront d'étendre cette stratégie autour des oxydes à d'autres catégories de
+    matériaux. Enfin, en plus d'automatiser la découverte de nouveaux matériaux, cette
+    stratégie devrait aider les chercheurs à acquérir une connaissance et une
+    compréhension statistiquement fondées de la relation composition-(micro)structure-
+    propriété.
+  start_date: "2022-07-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2026-12-31"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/hiway-2-mat/"   # optional
+  associated_platforms:  # List the associated DIADEM platforms - optional
+    - "Automated XRD synthesis and characterization of powder libraries"
+    - "Autonomous robotic synthesis of powders and thin films"
+    - "Combinatorial PVD"
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Guilhem"
+      last_name:  "DEZANNEAU"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "SPMS"
+      full_name: "Structures, Propriétés et Modélisation des Solides (UMR 8580 CentraleSupélec/CNRS/Univ. Paris Saclay)"
+      ror:       null  # optional
+    - acronym:   "ICMCB"
+      full_name: "Institut de Chimie de la Matière condensée de Bordeaux (UMR 5026 CNRS/Bordeaux INP/Univ. Bordeaux)"
+      ror:       null  # optional
+    - acronym:   "IMN"
+      full_name: "Institut des Matériaux de Nantes Jean Rouxel (UMR 6502 CNRS/Univ Nantes)"
+      ror:       null  # optional
+    - acronym:   "L2S"
+      full_name: "Laboratoire des Signaux et Systèmes (UMR 8506 CNRS/CentraleSupélec/Univ. Paris Saclay)"
+      ror:       null  # optional
+    - acronym:   "CEA/ISAS/DPC/SCCME/LM2T"
+      full_name: "Laboratoire de Modélisation, de Thermodynamique et de Thermochimie"
+      ror:       null  # optional
+    - acronym:   "CEA/DRT/CEA Tech Nouvelle Aquitaine"
+      full_name: "CEA/DRT/CEA Tech Nouvelle Aquitaine"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Combinatorial"
+  - "oxides"
+  - "autonomous research"
+  - "low-consumption"
+  - "energy"
+  - "materials libraries"
+  - "synthesis"
+  - "chemical"
+  - "composition"
+  - "energy"
+  - "modelling"
+  - "structural"
+  - "xrd"
+  - "materials science"
+  - "compositions"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

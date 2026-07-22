@@ -1,0 +1,158 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "NanoPhia"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Understanding nanoparticle formation in physical synthesis: Using AI to couple characterization, in-situ measurement and simulations"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    La structure cristallographique des nanoparticules pilote directement leur propriété
+    physico-chimique et a foritiori leur potentiel applicatif. Un défi majeur pour faire
+    progresser les nanotechnologies par l’usage des nanoparticules demeure donc dans
+    notre capacité à contrôler leur taille, la phase cristalline, la morphologie et la
+    composition chimique. Une approche empirique est actuellement privilégiée et
+    consiste en une objectivation de la relation entre les paramètres de synthèse et les
+    caractéristiques morphologiques et structurales. Mais l’espace des paramètres est
+    parfois trop grand pour qu’une approche purement empirique suffise. Pour aller au-
+    delà, il devient crucial d'obtenir une meilleure compréhension des mécanismes
+    impliqués durant la synthèse de nanoparticules et en particulier durant la
+    nucléation du cristal. Dans notre projet, nous concentrons nos efforts sur les
+    méthodes de synthèse par voie physique. Notre consortium mobilise trois équipes de
+    recherche possédant chacune une méthode de synthèse par voie physique différente:
+    chemical vapor synthesis (INSP-Paris), magnetron sputtering inert-gas condensation
+    (CEMES-Toulouse) et Laser ablation in liquid (ILM-Lyon). Ces méthodes ont pour point
+    commun le passage par une phase plasma au sein de laquelle les collisions entre les
+    espèces chimiques permettent la nucléation des nanoparticules dans des conditions
+    hautement hors équilibre. En travaillant sur un même matériau, l’étude permettra
+    donc un benchmark des conditions de synthèse. En pratique, nous avons choisi de
+    travailler sur des oxydes de complexité graduelle ie. ZnO, CuxOy et enfin ZnxCuyOz.
+    Ces matériaux présentent des intérêts d’un point de vue application en catalyse et
+    en biomédicale mais aussi une riche complexité structurale (polymorphisme avec une
+    dépendance possible envers la taille) . Au-delà du regroupement inédit de ces trois
+    méthodes de synthèse, notre projet vise à développer une expérience de spectroscopie
+    mobile capable d’être déployée sur les différentes expériences de synthèse. En
+    particulier, il s’agira de mesurer l’évolution temporelle des propriétés
+    thermodynamiques du plasma aux temps courts en fonction des conditions
+    expérimentales. La comparaison des méthodes permettra un mapping des
+    caractéristiques thermodynamiques incluant une composante temporelle. Fort de ces
+    résultats, nous construirons un modèle basé sur l’IA permettant d’établir une boucle
+    de rétroaction entre les paramètres expérimentaux imposés en synthèse et les
+    propriétés thermodynamiques. Dans la troisième partie de notre projet, nous
+    utiliserons la dynamique moléculaire assistée par champs de force machine-learning
+    afin d’obtenir un jumeau numérique des expériences de synthèse calqué sur les
+    propriétés thermodynamiques mesurées.
+  start_date: "2026-03-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2030-02-28"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/nanophia/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Julien"
+      last_name:  "LAM"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "Université de Lille"
+      full_name: "Université de Lille"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "CEMES"
+      full_name: "Centre d'élaboration de matériaux et d'études structurales (UPR 8011 CNRS/Univ. Paul Sabatier Toulouse/INSA Toulouse)"
+      ror:       null  # optional
+    - acronym:   "UMET"
+      full_name: "Unité Matériaux et Transformations (UMR 8207 Univ. Lille/CNRS/INRAE/Centrale Lille Institut)"
+      ror:       null  # optional
+    - acronym:   "INSP"
+      full_name: "Institut des nanosciences de Paris (UMR 7588 CNRS/Sorbonne Univ.)"
+      ror:       null  # optional
+    - acronym:   "iLM"
+      full_name: "institut Lumière Matière (UMR 5306 Univ. Lyon 1/CNRS)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Nanoparticle synthesis; Nucleation and crystallization; In-situ and in-operando instrumentation; Digital twins ; Molecular dynamics assisted by machine-learning; Big data analysis\n\nSynthèse de nanoparticules ; nucléation et cristallisation ; instrumentation in situ et in operando ; jumeaux numériques ; dynamique moléculaire assistée par apprentissage automatique ; analyse de big data."
+  - "synthesis"
+  - "nanoparticles"
+  - "chemical"
+  - "oxide"
+  - "simulations"
+  - "structure"
+  - "thermodynamic"
+  - "structures"
+  - "composition"
+  - "phase"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

@@ -1,0 +1,167 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "ALEUTIAN"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Eutectic alloys developed by artificial intelligence and numerical computations"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Le projet ALEUTIAN vise à développer une méthodologie pour accélérer la conception
+    d’alliages métalliques liquides, comme des eutectiques. De tels alliages ont des
+    applications dans de nombreux domaines comme le brasage ou la synthèse de verres
+    métalliques, mais aussi comme matériaux pour l’énergie en tant que caloporteurs dans
+    les réacteurs nucléaires à neutrons rapides ou que matériaux à changement de phase
+    (MCPs) pour le stockage de la chaleur. Deux approches numériques complémentaires
+    seront mises en oeuvre pour la conception d’alliages liquides par optimisation
+    multicritère. La première repose sur le développement de modèles machine learning
+    pour prédire les propriétés clés des alliages comme le point de fusion, l’intervalle
+    de solidification et l’enthalpie de fusion. La seconde repose sur le criblage haut
+    débit de bases de données thermodynamiques Calphad. Dans les deux cas, la recherche
+    ne se limitera pas à une famille d’alliage en particulier, puisqu’une variété
+    d’alliages sont susceptibles de répondre à chacune des applications des métaux
+    liquides. Le projet vise principalement à développer une méthodologie applicable à
+    tout type de métaux liquides, mais la découverte de nouveaux MCPs pour le stockage
+    de la chaleur dans les centrales solaires à concentration est choisie comme
+    application phare. Les MCPs prédits comme étant les plus prometteurs seront
+    synthétisés, caractérisés, et leurs propriétés seront mesurées et comparées avec les
+    prédictions. Les interactions et la réactivité des métaux liquides ainsi
+    sélectionnés avec différents matériaux susceptibles de les contenir seront étudiées
+    et mesurées et des solutions seront proposées. Enfin, un démonstrateur technologique
+    sera réalisé afin de vérifier l’applicabilité des couples MCP/contenant sélectionnés
+    pour le stockage de la chaleur dans les centrales solaires à concentration.
+  start_date: "2024-10-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2028-09-30"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/aleutian/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Guillaume"
+      last_name:  "DEFFRENNES"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "LMI"
+      full_name: "Laboratoire des Multimatériaux et Interfaces (UMR 5615 CNRS/Univ. Lyon 1)"
+      ror:       null  # optional
+    - acronym:   "ICMPE"
+      full_name: "Institut de Chimie et des Matériaux Paris-Est (UMR 7182 CNRS/ Univ. Paris est Créteil Val de Marne)"
+      ror:       null  # optional
+    - acronym:   "SIMaP"
+      full_name: "Sciences et Ingénierie, Matériaux, Procédés (UMR 5266 CNRS/Grenoble INP/Univ. Grenoble Alpes)"
+      ror:       null  # optional
+    - acronym:   "IM2NP"
+      full_name: "Institut des Matériaux, de Microélectronique et des Nanosciences de Provence (UMR 7334 CNRS/Univ Aix Marseille/Univ. Toulon/ISEN Toulon)"
+      ror:       null  # optional
+    - acronym:   "PROMES"
+      full_name: "Laboratoire Procédés, Matériaux, Energie solaire  (UPR 8521 CNRS/Univ. Perpignan via Domitia)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Alloy design"
+  - "machine learning"
+  - "high-throughput thermodynamic calculations"
+  - "eutectic alloys"
+  - "phase change materials"
+  - "thermal energy storage"
+  - "concentrated solar power"
+  - "nuclear reactor coolants"
+  - "metallic glasses"
+  - "brazing alloys\nConception d'alliages"
+  - "apprentissage automatique"
+  - "calculs thermodynamiques à haut débit"
+  - "alliages eutectiques"
+  - "matériaux à changement de phase"
+  - "stockage d'énergie thermique"
+  - "énergie solaire concentrée"
+  - "liquides de refroidissement de réacteurs nucléaires"
+  - "verres métalliques"
+  - "alliages de brasage"
+  - "alloys"
+  - "thermal"
+  - "energy"
+  - "metallic"
+  - "thermodynamic"
+  - "phase"
+  - "alloy"
+  - "learning"
+  - "machine"
+  - "machine learning"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

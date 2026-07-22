@@ -1,0 +1,146 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "SYNEART"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Artificial synapses and neurons based on ferroelectric relaxors: towards lower-power AI"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Ce projet cherche à révéler le potentiel des matériaux ferroélectriques relaxeurs
+    dont les caractéristiques sont très prometteuses pour la conception de dispositifs
+    nanoélectroniques pour l’informatique neuromorphique. Contrairement aux matériaux
+    ferroélectriques classiques, le domaine des couches minces à base de relaxeurs n'en
+    est qu'à ses débuts. À travers une approche de synthèse combinatoire, des outils de
+    caractérisations structurales, chimiques et électriques haut-débit couplés à des
+    analyses et prédictions basées sur l’intelligence artificielle, nous souhaitons
+    identifier les compositions/épaisseurs/électrodes les plus pertinentes et les
+    utiliser comme briques élémentaires pour concevoir des neurones et des synapses
+    artificiels. Au-delà des matériaux relaxeurs neuromorphiques d’intérêt dans le
+    présent projet, les protocoles de synthèse, caractérisation et prédictions haut
+    débit, et les outils de traitement et d’analyse des données par intelligence
+    artificielle, seront développés ou consolidés pour être mis à disposition de la
+    communauté afin de faciliter et d’accélérer la découverte de nouveaux matériaux dans
+    d’autres domaines et leur mise sur le marché.
+  start_date: "2026-03-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2029-08-31"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/syneart/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Brahim"
+      last_name:  "DKHIL"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CentraleSupélec"
+      full_name: "CentraleSupélec"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "SPMS"
+      full_name: "Structures, Propriétés et Modélisation des Solides (UMR 8580 CentraleSupélec/CNRS/Univ. Paris Saclay)"
+      ror:       null  # optional
+    - acronym:   "GREMAN"
+      full_name: "Matériaux, Microélectronique, Acoustique et Nanotechnologies (UMR 7347 Univ. Tours/CNRS/INSA Centre Val de Loire)"
+      ror:       null  # optional
+    - acronym:   "LPMC"
+      full_name: "Laboratoire de Physique de la Matière Condensée (UR 2081 Univ. Picardie Jules Verne Amiens)"
+      ror:       null  # optional
+    - acronym:   "IRCER"
+      full_name: "Institut de Recherche sur les CERamiques (UMR 7315 CNRS/Univ. Limoges)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Relaxor ferroelectric"
+  - "thin film"
+  - "neuromorphic"
+  - "high throughput synthesis"
+  - "AI-assisted characterization and analysis\n\nFerroélectrique relaxeur"
+  - "couche mince"
+  - "neuromorphique"
+  - "synthèse à haut débit"
+  - "caractérisation et analyse assistées par IA"
+  - "neuromorphic"
+  - "heterostructures"
+  - "composition"
+  - "raman"
+  - "neural"
+  - "spectroscopy"
+  - "phase"
+  - "learning"
+  - "xrd"
+  - "artificial"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

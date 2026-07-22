@@ -1,0 +1,184 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "Targeted"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "ADAM"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Accelerated Design of Architectured Materials"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Avec une demande grandissante de matériaux multifonctionnels aux propriétés
+    optimisées, l’approche usuelle de design de matériaux qui optimise leur chimie et
+    leur nanostructure est intéressante mais atteint ses limites. Pour les dépasser, une
+    approche complémentaire s’avère pertinente et consiste à tirer parti de l’échelle
+    supérieure, la mésostructure, dans laquelle l’architecture du matériau peut être
+    pilotée par hybridation et/ou optimisation de la géométrie. Cette démarche nécessite
+    le recours à des procédés d’élaboration et de mise en forme des matériaux innovants,
+    comme l’impression 3D ou 4D. En profitant des avancées récentes sur l’intelligence
+    artificielle et la fouille de données, le projet ADAM (Accelerated Design of
+    Architectured Materials) se propose de découvrir de nouveaux matériaux architecturés
+    (i) aux mesostructures optimisées pour des propriétés multifonctionnelles
+    augmentées, (ii) qui représentent de réelles ruptures au regard des solutions
+    matériaux existantes, (iii) en accélérant ce processus de design d’un facteur dix.
+    La preuve de concept globale sera mise en évidence avec trois matériaux
+    architecturés imprimés, en phase avec les problématiques majeures de la transition
+    énergétique et du changement climatique. Ils sont d’intérêts particuliers dans le
+    domaine de l’énergie, du transport de biens et de personnes ou bien encore de la
+    santé. Pour les deux premiers systèmes architecturés, métalliques, nous optimiserons
+    leur mise en forme, leurs mesostructures et leurs propriétés thermiques (conductives
+    et radiatives) et mécaniques (élasto-plastiques) en couplant (1) imagerie 3D in
+    operando en temps réel sur dispositif de fabrication additive instrumenté, (2)
+    imagerie 3D in situ en temps réel au cours de la déformation des architectures
+    produites, (3) modélisation numérique avancée en science des matériaux et en
+    optimisation de structures, et (4) techniques issues de la fouille de données et de
+    l’intelligence artificielle. Le troisième système sera un système bio-sourcé
+    hydrophile élaboré par impression et optimisé pour atteindre des propriétés
+    hygromorphes nouvelles.
+  start_date: "2023-04-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2028-12-31"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/adam/"   # optional
+  associated_platforms:  # List the associated DIADEM platforms - optional
+    - "3D printer 6-axis biopol in operando"
+    - "3D printing L-PBF in operando"
+    - "Automated traction-torsion bench"
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Laurent"
+      last_name:  "ORGEAS"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CNRS"
+      full_name: "CNRS"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "3SR"
+      full_name: "Laboratoire SOLS, SOLIDES, STRUCTURES, RISQUES (UMR 5521 UGA Grenoble/CNRS/Grenoble INP)"
+      ror:       null  # optional
+    - acronym:   "CEA Le Ripault"
+      full_name: "CEA Le Ripault"
+      ror:       null  # optional
+    - acronym:   "CEA LIST"
+      full_name: "systèmes numériques intelligents"
+      ror:       null  # optional
+    - acronym:   "CEA LITEN"
+      full_name: "Laboratoire d'Innovation pour les Technologies des Energies Nouvelles et les nanomatériaux"
+      ror:       null  # optional
+    - acronym:   "CEA IRAMIS"
+      full_name: "Institut Rayonnement-Matière de Saclay"
+      ror:       null  # optional
+    - acronym:   "CMAP"
+      full_name: "Centre de Mathématiques Appliquées (UMR 7641 Institut Polytechnique de Paris/CNRS/INRIA)"
+      ror:       null  # optional
+    - acronym:   "CMM"
+      full_name: "Centre de Morphologie Mathématique (Mines Paris/Université PSL)"
+      ror:       null  # optional
+    - acronym:   "LaMCoS"
+      full_name: "Laboratoire de Mécanique des Contacts et des Structures (UMR 5259 INSA Lyon/CNRS)"
+      ror:       null  # optional
+    - acronym:   "LGP2"
+      full_name: "Laboratoire de génie des procédés pour la bioraffinerie, les matériaux bio-sourcés et l'impression fonctionnelle (UMR 5518 CNRS/Université Grenoble Alpes/Grenoble INP/Univ. Grenoble Alpes/Agefpi)"
+      ror:       null  # optional
+    - acronym:   "LMPS"
+      full_name: "Laboratoire de Mécanique de Paris Saclay (UMR 9026 Univ. Paris Saclay/CNRS/CentraleSupélec/ENS Paris Saclay)"
+      ror:       null  # optional
+    - acronym:   "MATEIS"
+      full_name: "Matériaux : Ingénierie et Science (UMR 5510 INSA Lyon/CNRS/Univ. Lyon 1)"
+      ror:       null  # optional
+    - acronym:   "PIMM"
+      full_name: "Procédés et Ingénierie en Mécanique et Matériaux (UMR 8006 ENS Arts et Métiers/CNRS/CNAM Paris)"
+      ror:       null  # optional
+    - acronym:   "SIMaP"
+      full_name: "Sciences et Ingénierie, Matériaux, Procédés (UMR 5266 CNRS/Grenoble INP/UGA)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Architectured Materials"
+  - "3D-4D Printing"
+  - "3D-4D imaging"
+  - "IA-based Design"
+  - "Thermal and (Hygro-)Mechanical Properties"
+  - "architectured materials"
+  - "optimization"
+  - "simulation"
+  - "mesostructures"
+  - "metallic"
+  - "structures"
+  - "architectured material"
+  - "energy"
+  - "process optimization"
+  - "bio"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

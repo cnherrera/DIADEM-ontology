@@ -1,0 +1,190 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "GREENTEA"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "high-throughput GeneRation via machinE lEarning of New ThErmoelectric sulfide alloys composed of Abundant elements"   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    Dans le cadre du projet GREENTEA, nous nous concentrerons sur la conversion de
+    l'énergie thermique en énergie électrique ou inversement en appliquant une démarche
+    d’éco-conception. En effet, i) la recherche de nouvelles sources d'énergie verte est
+    l'un des défis les plus fondamentaux pour soutenir la croissance économique et
+    réduire les émissions de gaz à effet de serre. ii) la recherche de nouvelles
+    solutions de refroidissement peut améliorer la performance et la durabilité des
+    systèmes électroniques ou industriels, tout en offrant des alternatives aux
+    réfrigérants chimiques nocifs pour la couche d'ozone et le climat. L'utilisation de
+    technologies plus efficaces ou écologiques peuvent ainsi réduire la consommation
+    d'énergie. iii) les générateurs thermoélectriques et les dispositifs de
+    refroidissement thermoélectriques ont l'avantage d'être de petite taille, fiables,
+    silencieux, sans parties mobiles, capables de réguler la température en modulant le
+    flux thermique, sans effet d'échelle (de la micro- à la macro-
+    génération/refroidissement) et avoir une longue durée de vie. Ils peuvent
+    fonctionner dans n'importe quelle position de travail et sont donc très adaptés aux
+    systèmes embarqués. Pour continuer le développement de ce type de technologie, il
+    est fondamental de réduire le coût des dispositifs et de rechercher des matériaux
+    performants et composés d’éléments plus respectueux de l'environnement. Pour
+    participer à cet effort, le projet GREENTEA s’inscrit dans une démarche
+    d’écoconception. Il s’appuie sur une approche pluridisciplinaire qui a pour objectif
+    d’identifier de nouveaux composés semi-conducteurs stables (ou légèrement
+    métastables) au sein de systèmes plurinaires, tout en intégrant des principes
+    d’écoconception pour minimiser l'impact environnemental dès la phase de conception.
+    Pour y parvenir, il s’appuie sur une approche combinée s'appuyant sur des calculs
+    DFT à haut débit à des techniques d'apprentissage automatique, permettant
+    l'exploration de plusieurs millions de configurations. Les matériaux ciblés seront
+    synthétisés par des procédés en solution et/ou par voie solide, en s’appuyant sur
+    les plateformes de synthèse et de caractérisation du PEPR DIADEM, tout en optimisant
+    les procédés pour réduire l'empreinte écologique. L’utilisation de l’IA, à chaque
+    étape du projet permettra d’identifier et de sélectionner les phases les plus
+    prometteuses pour les applications visées. Ce projet a également pour objectif de
+    valider une approche méthodologique et conceptuelle pouvant être appliquée à
+    d’autres familles de matériaux et/ou d’autres applications afin d’accélérer leur
+    découverte.
+  start_date: "2026-03-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2030-02-28"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/greentea/"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Mickaël"
+      last_name:  "BEAUDHUIN"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "Université de Montpellier"
+      full_name: "Université de Montpellier"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "ICGM"
+      full_name: "Institut Charles Gerhardt Montpellier (UMR 5253 Univ. Montpellier/CNRS/ENS Chimie Montpellier)"
+      ror:       null  # optional
+    - acronym:   "ISCR"
+      full_name: "Institut des Sciences Chimiques de Rennes (UMR 6226 CNRS/Univ. Rennes/ENS Chimie Rennes/INSA Rennes)"
+      ror:       null  # optional
+    - acronym:   "ICMPE"
+      full_name: "Institut de Chimie et des Matériaux Paris-Est (UMR 7182 CNRS/ Univ. Paris est Créteil Val de Marne)"
+      ror:       null  # optional
+    - acronym:   "CRISMAT"
+      full_name: "Laboratoire de Cristallographie et Sciences des Matériaux (UMR 6508 CNRS/ENSICAEN/Univ. Caen Normandie)"
+      ror:       null  # optional
+    - acronym:   "IMN"
+      full_name: "Institut des Matériaux de Nantes Jean Rouxel (UMR 6502 CNRS/Univ Nantes)"
+      ror:       null  # optional
+    - acronym:   "LINK"
+      full_name: "Laboratory for Innovative Key Materials and Structures (IRL 3629 CNRS/NIMS/STGOBAIN)"
+      ror:       null  # optional
+    - acronym:   "NEEL"
+      full_name: "Institut Néel (UPR 2940 CNRS/Grenoble INP/Univ. Grenoble Alpes)"
+      ror:       null  # optional
+    - acronym:   "CEA/IRAMIS/NIMBE"
+      full_name: "Nanosciences et Innovation pour les Matériaux, la Biomédecine et l'Énergie (UMR 3685 CEA/CNRS)"
+      ror:       null  # optional
+    - acronym:   "MMK – Department of materials and environmental chemistry - Univ. Stockholm"
+      full_name: "MMK – Department of materials and environmental chemistry - Univ. Stockholm"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "Thermoélectricité"
+  - "intelligence artificielle"
+  - "apprentissage automatique"
+  - "apprentissage par renforcement"
+  - "synthèse à haut débit"
+  - "caractérisation à haut débit"
+  - "chimie douce"
+  - "Green Deal"
+  - "sulfure"
+  - "éco-conception\nThermoelectricity"
+  - "Artificial Intelligence"
+  - "Machine Learning"
+  - "Learning reinforcement"
+  - "High throughput synthesis"
+  - "High throughput characterization"
+  - "Soft-chemistry"
+  - "Green deal"
+  - "Sulfide"
+  - "Eco-design"
+  - "synthesis"
+  - "thermoelectric"
+  - "thermal"
+  - "energy"
+  - "learning"
+  - "machine"
+  - "machine learning"
+  - "structural"
+  - "dft"
+  - "structure"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional

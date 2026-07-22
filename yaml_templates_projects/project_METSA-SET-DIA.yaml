@@ -1,0 +1,160 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  DIADEM Project Description File  
+#  One file per project (targeted or AAP).
+#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
+#  Dates must follow ISO 8601: YYYY-MM-DD
+#  Lists use the YAML dash-item syntax.
+# ─────────────────────────────────────────────────────────────────────────────
+
+project:
+  type: "Targeted"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "METSA-SET-DIA"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Mixing Electron Tomographies in Scanning mode with Advanced algorithms and advanced Direct Electron Detectors."   # REQUIRED
+  description: >          # REQUIRED - free text, multiline OK
+    DIADEM a pour mission d’accélérer le développement de nouveaux matériaux en France,
+    en combinant de façon intégrée modélisation, simulation numérique, méthodologies
+    associées à l’intelligence artificielle (IA), technologies de synthèse/criblage et
+    caractérisation à haut débit. METSA contribue à la réalisation de cette mission en
+    optimisant et développant trois techniques de Tomographie dans un microscope
+    électronique à transmission en mode Balayage (Scanning Electron Tomography : SET),
+    de façon à ce qu’elles soient plus rapides, performantes et automatiques. Les trois
+    SETs choisies sont complémentaires et ont plusieurs points en commun : EELS-SET pour
+    la caractérisation tridimensionnelle (3D) chimique à l’échelle nanométrique (EELS :
+    Energy Electron Loss Spectroscopy), Nano-SET et Ptycho-SET pour la caractérisation
+    structurale respectivement à l’échelle nanométrique et atomique. METSA s’appuiera
+    sur (1) les équipements et le savoir-faire présents soit sur la PlateForme de
+    NanoCaractérisation (PFNC) de Minatec au CEA-Grenoble, soit sur ceux de l’institut
+    NEEL (NEEL) à Grenoble, (2) de nouveaux équipements achetés soit dans le cadre de
+    METSA soit en dehors de DIADEM (installation d’un nouveau microscope basse tension,
+    début 2023 au CEA, et installation d’un nouveau microscope courant 2022 à NEEL).
+    Deux des techniques SET proposées (EELS-SET et Nano-SET) sont déjà bien maîtrisées à
+    la PFNC et le projet METSA permettra de les accélérer et automatiser en (i)
+    utilisant un nouveau type de caméra à détection directe d’électrons (DeD : Direct
+    Electron Detector), sans bruit et sensible à un seul électron et avec une résolution
+    temporelle, (ii) en améliorant les techniques numériques de reconstruction d’images
+    3D en utilisant les concepts d’Apprentissage Profond (Deep Learning, DL) et de
+    parcimonie, (iii) en optimisant la gestion et le traitement numérique de grandes
+    données expérimentales (utilisation de clusters ou de cartes graphiques). Le
+    troisième SET, le ptycho-SET, est totalement nouveau mais c’est en fait une
+    association des techniques de tomographie et de ptychographie-2D qui utilisera des
+    méthodes très similaires (même détecteur, même balayage, techniques de traitement
+    numériques …) aux deux autres SETs. Cette association ‘tomo-ptycho’ a déjà été
+    démontrée dans le cas des rayons-X mais avec une résolution de l’ordre du nanomètre
+    alors que dans le cas de METSA, et donc des électrons, une résolution à l’échelle
+    atomique de quelques picomètres devrait être obtenue. Disposer d’outils de
+    caractérisation rapides et semi-automatiques pour déterminer la structure et la
+    chimie des matériaux devraient fortement aider à la conception et l’élaboration de
+    nouveaux matériaux aux propriétés améliorées. En guise de démonstration, les
+    techniques développés seront bien sûr appliquées à une sélection de matériaux
+    élaborés dans le cadre de DIADEM. En s’appuyant sur les outils et les
+    infrastructures mis en place dans les différentes plateformes de DIADEM, les
+    développements réalisés dans METSA seront accélérés et optimisés et les savoir-faire
+    et les connaissances acquis pourront être rapidement diffusés à l’échelle nationale
+    grâce aux échanges avec l’infrastructure de Recherche (IR) française METSA
+    (Microscopie Electronique à Transmission et Sonde Atomique). Pour souligner le
+    rapprochement entre ce sous-projet de DIADEM et l’IR METSA, le même nom a été
+    choisi. Lorsque METSA est en gras, le mot fait référence au sous-projet de DIADEM.
+  start_date: "01/01/2023"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2027-06-30"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/metsa-set-dia/"   # optional
+  associated_platforms:  # List the associated DIADEM platforms - optional
+    - "3D Tomography reconstruction"
+
+  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  lead:
+    person:                # REQUIRED
+      first_name: "Zineb"
+      last_name:  "SAGHI"
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:           # REQUIRED
+      acronym:   "CEA"
+      full_name: "CEA"
+      ror:       null  # optional
+
+  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
+    institution:
+      acronym:   null
+      full_name: null
+      ror:       null  # optional
+
+  # ── Partner organisations ─────────────────────────────────────────────────
+  organizations:           # REQUIRED - at least one
+    - acronym:   "CEA/DRT/Leti"
+      full_name: "Laboratoire d'électronique et de technologie de l'information (CEA Grenoble)"
+      ror:       null  # optional
+    - acronym:   "CEA/DRF/IRIG"
+      full_name: "Institut de recherche interdisciplinaire de Grenoble (CEA Grenoble)"
+      ror:       null  # optional
+
+# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
+# Please select/add terms from the DIADEM controlled vocabulary where possible.
+keywords:
+
+  competences:
+  - "electron"
+  - "tomography"
+  - "tem"
+  - "atomic"
+  - "diffraction"
+  - "microscopy"
+  - "electron tomography"
+  - "electron microscopy"
+  - "imaging"
+  - "algorithms"
+
+  scientific_domain: []  # fill by hand
+
+  methodology: []  # fill by hand
+
+  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
+
+  #if characterization:
+  characterization_tools: []  # fill by hand (if characterization)
+
+  #if simulation:
+  simulation_tools: []  # fill by hand (if simulation)
+
+  # if synthesis:
+  synthesis_tools: []  # fill by hand (if synthesis)
+
+# ── Work packages ─────────────────────────────────────────────────────────
+# Example structure below. Duplicate this block once per work package,
+# fill it in, and remove any lines that don't apply.
+work_packages:
+- number: null               # REQUIRED - integer
+  acronym: null               # optional short label, e.g. "WP1"
+  title: null                 # REQUIRED
+  description: null           # REQUIRED
+  lead_institution: null      # REQUIRED - must match an acronym in organizations
+  deliverables:                # optional
+  - title: null
+    description: null
+    due_date: null             # optional
+    type: null                 # optional - e.g. report / software / dataset / other
+  tasks:                        # optional
+  - id: null
+    title: null
+    description: null
+  tools:                        # tools (software, algorithms, etc) used in this work package
+  - name: null
+    url: null                  # optional
+  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
+  - name: null
+    description: null
+    url: null                  # optional
+  competences:                  # list competences used/developed in this work package
+  - null
+  contributors:                 # people working on this WP
+  - first_name: null
+    last_name: null
+    email: null                # optional
+    orcid: null                # optional
+    competences:                # this contributor's competences within the WP
+    - domain: null
+      level: null              # optional
