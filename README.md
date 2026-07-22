@@ -1,14 +1,3 @@
-# DIADEM-ontology
-Ontology  describing the PEPR DIADEM and all associated projects
-
-## Folder project's information
-In the yaml_templates_projects folder 
-
-
-## Visualization
-https://cnherrera.github.io/DIADEM-ontology/onto-viewer.html
-
-
 # PEPR DIADEM Ontology & Knowledge Graph - preparation
 
 PEPR DIADEM ontology and Knowledge Graph generation repository.
@@ -16,6 +5,10 @@ PEPR DIADEM ontology and Knowledge Graph generation repository.
 This repository centralizes the ontological models and structured data required to build the unified Knowledge Graph for the ecosystem.
 
 ---
+
+## Visualization
+https://cnherrera.github.io/DIADEM-ontology/onto-viewer.html
+
 
 ## Overview
 
