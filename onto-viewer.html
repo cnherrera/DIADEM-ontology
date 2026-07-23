@@ -205,59 +205,18 @@
 <div id="helpModal" style="display:none;position:fixed;inset:0;z-index:300;background:rgba(0,0,0,0.55);align-items:center;justify-content:center;">
   <div style="background:#fff;border-radius:12px;padding:28px 32px;width:600px;max-width:90vw;max-height:85vh;overflow-y:auto;box-shadow:0 8px 40px rgba(0,0,0,0.22);position:relative;">
     <button id="helpModalClose" style="position:absolute;top:12px;right:16px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#888;">✕</button>
-    <div style="font-size:1.15rem;font-weight:700;color:#3b0764;margin-bottom:4px;">❓ Guía de navegación</div>
-    <div style="font-size:0.8rem;color:#94a3b8;margin-bottom:16px;">Hacé click en "❓ Help" en cualquier momento para volver a abrir esta ventana.</div>
 
-    <div style="font-size:0.85rem;color:#334155;line-height:1.55;">
-
-      <div style="font-weight:700;color:#7c3aed;margin:14px 0 4px;">📦 TBox vs ABox</div>
-      <p style="margin:0 0 6px;">
-        <strong>TBox</strong> ("Terminological Box") = las <strong>clases</strong> de la ontología (los conceptos,
-        p.ej. <em>Project</em>, <em>Person</em>) y sus relaciones <code>subClassOf</code>.
-        Es el "esquema" / vocabulario de la ontología.
-      </p>
-      <p style="margin:0 0 6px;">
-        <strong>ABox</strong> ("Assertional Box") = las <strong>instancias</strong> concretas
-        (p.ej. el proyecto <em>DIADEM</em>, la persona <em>Jean Dupont</em>) y sus relaciones entre sí.
-        Es el "dato" real.
-      </p>
-      <p style="margin:0 0 10px;color:#64748b;font-size:0.78rem;">
-        Por defecto solo se muestra el ABox (instancias) — activá "TBox (Classes)" en la barra de herramientas
-        para ver también el esquema de clases.
-      </p>
-
-      <div style="font-weight:700;color:#7c3aed;margin:14px 0 4px;">🎛️ Botones de la barra de herramientas</div>
-      <ul style="margin:0 0 10px;padding-left:18px;">
-        <li><strong>ABox (Instances)</strong> — muestra/oculta los individuos (instancias) y sus vínculos.</li>
-        <li><strong>TBox (Classes)</strong> — muestra/oculta las clases de la ontología.</li>
-        <li><strong>subClassOf</strong> — muestra/oculta los vínculos de jerarquía entre clases (líneas sólidas).</li>
-        <li><strong>Object Properties</strong> — muestra/oculta las relaciones entre individuos/clases (líneas discontinuas).</li>
-        <li><strong>Datatype Props</strong> — muestra/oculta los atributos con valor literal (texto, número — líneas punteadas finas).</li>
-        <li><strong>🔗 Imported Concepts</strong> — carga y muestra conceptos de ontologías externas usados por las instancias.</li>
-      </ul>
-
-      <div style="font-weight:700;color:#7c3aed;margin:14px 0 4px;">🖱️ Interacción con el grafo</div>
-      <ul style="margin:0 0 10px;padding-left:18px;">
-        <li>Click en un <strong>nodo</strong>: lo resalta junto con sus vecinos directos y muestra sus detalles en el panel de la derecha.</li>
-        <li>Click en el <strong>fondo</strong> del grafo: resetea la vista.</li>
-        <li>La barra de <strong>búsqueda</strong> (🔍) filtra y resalta los nodos que coinciden.</li>
-      </ul>
-
-      <div style="font-weight:700;color:#7c3aed;margin:14px 0 4px;">📁 Panel Projects</div>
-      <p style="margin:0 0 10px;">
-        Arriba a la derecha del grafo aparece un botón por cada instancia de <em>Project</em>
-        (<em>TargetedProject</em>, <em>AAPProject</em>, o cualquier subclase). Al hacer click en un botón,
-        se hace exactamente lo mismo que clickear ese nodo en el grafo: se resalta junto con sus conexiones directas.
-        El botón "✕" arriba del panel limpia el filtro.
-      </p>
-
-      <div style="font-weight:700;color:#7c3aed;margin:14px 0 4px;">🎨 Leyenda (parte inferior)</div>
-      <p style="margin:0;color:#64748b;font-size:0.78rem;">
-        Revisá la leyenda en la parte inferior de la pantalla para el significado de colores y estilos de línea
-        (subClassOf, Object Property, Datatype Property, rdf:type, Instance, Datatype, Imported Concept).
-      </p>
-
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;padding-right:28px;">
+      <div id="helpTitle" style="font-size:1.15rem;font-weight:700;color:#3b0764;">❓ Guía de navegación</div>
+      <div id="helpLangSwitch" style="display:flex;gap:4px;flex-shrink:0;">
+        <button data-lang="es" class="help-lang-btn">ES</button>
+        <button data-lang="en" class="help-lang-btn">EN</button>
+        <button data-lang="fr" class="help-lang-btn">FR</button>
+      </div>
     </div>
+    <div id="helpSubtitle" style="font-size:0.8rem;color:#94a3b8;margin-bottom:16px;"></div>
+
+    <div id="helpContentBody" style="font-size:0.85rem;color:#334155;line-height:1.55;"></div>
   </div>
 </div>
 
@@ -3008,9 +2967,186 @@ document.getElementById('btnCenter').addEventListener('click', () => {
 });
 
 // ─────────────────────────────────────────────────────────────────
-// Help modal
+// Help modal (ES / EN / FR)
 // ─────────────────────────────────────────────────────────────────
-function openHelpModal()  { document.getElementById('helpModal').style.display = 'flex'; }
+const HELP_CONTENT = {
+    es: {
+        title: '❓ Guía de navegación',
+        subtitle: 'Hacé click en "❓ Help" en cualquier momento para volver a abrir esta ventana.',
+        body: `
+            <div class="help-section-title">📦 TBox vs ABox</div>
+            <p class="help-p">
+                <strong>TBox</strong> ("Terminological Box") = las <strong>clases</strong> de la ontología (los conceptos,
+                p.ej. <em>Project</em>, <em>Person</em>) y sus relaciones <code>subClassOf</code>.
+                Es el "esquema" / vocabulario de la ontología.
+            </p>
+            <p class="help-p">
+                <strong>ABox</strong> ("Assertional Box") = las <strong>instancias</strong> concretas
+                (p.ej. el proyecto <em>DIADEM</em>, la persona <em>Jean Dupont</em>) y sus relaciones entre sí.
+                Es el "dato" real.
+            </p>
+            <p class="help-p help-note">
+                Por defecto solo se muestra el ABox (instancias) — activá "TBox (Classes)" en la barra de herramientas
+                para ver también el esquema de clases.
+            </p>
+
+            <div class="help-section-title">🎛️ Botones de la barra de herramientas</div>
+            <ul class="help-ul">
+                <li><strong>ABox (Instances)</strong> — muestra/oculta los individuos (instancias) y sus vínculos.</li>
+                <li><strong>TBox (Classes)</strong> — muestra/oculta las clases de la ontología.</li>
+                <li><strong>subClassOf</strong> — muestra/oculta los vínculos de jerarquía entre clases (líneas sólidas).</li>
+                <li><strong>Object Properties</strong> — muestra/oculta las relaciones entre individuos/clases (líneas discontinuas).</li>
+                <li><strong>Datatype Props</strong> — muestra/oculta los atributos con valor literal (texto, número — líneas punteadas finas).</li>
+                <li><strong>🔗 Imported Concepts</strong> — carga y muestra conceptos de ontologías externas usados por las instancias.</li>
+            </ul>
+
+            <div class="help-section-title">🖱️ Interacción con el grafo</div>
+            <ul class="help-ul">
+                <li>Click en un <strong>nodo</strong>: lo resalta junto con sus vecinos directos y muestra sus detalles en el panel de la derecha.</li>
+                <li>Click en el <strong>fondo</strong> del grafo: resetea la vista.</li>
+                <li>La barra de <strong>búsqueda</strong> (🔍) filtra y resalta los nodos que coinciden.</li>
+            </ul>
+
+            <div class="help-section-title">📁 Panel Projects</div>
+            <p class="help-p">
+                Arriba a la derecha del grafo aparece un botón por cada instancia de <em>Project</em>
+                (<em>TargetedProject</em>, <em>AAPProject</em>, o cualquier subclase). Al hacer click en un botón,
+                se hace exactamente lo mismo que clickear ese nodo en el grafo: se resalta junto con sus conexiones directas.
+                El botón "✕" arriba del panel limpia el filtro.
+            </p>
+
+            <div class="help-section-title">🎨 Leyenda (parte inferior)</div>
+            <p class="help-p help-note">
+                Revisá la leyenda en la parte inferior de la pantalla para el significado de colores y estilos de línea
+                (subClassOf, Object Property, Datatype Property, rdf:type, Instance, Datatype, Imported Concept).
+            </p>`
+    },
+
+    en: {
+        title: '❓ Navigation guide',
+        subtitle: 'Click "❓ Help" anytime to reopen this window.',
+        body: `
+            <div class="help-section-title">📦 TBox vs ABox</div>
+            <p class="help-p">
+                <strong>TBox</strong> ("Terminological Box") = the ontology's <strong>classes</strong> (the concepts,
+                e.g. <em>Project</em>, <em>Person</em>) and their <code>subClassOf</code> relations.
+                It's the "schema" / vocabulary.
+            </p>
+            <p class="help-p">
+                <strong>ABox</strong> ("Assertional Box") = the concrete <strong>instances</strong>
+                (e.g. the project <em>DIADEM</em>, the person <em>Jean Dupont</em>) and their relations to each other.
+                It's the actual "data".
+            </p>
+            <p class="help-p help-note">
+                By default only the ABox (instances) is shown — enable "TBox (Classes)" in the toolbar
+                to also see the class schema.
+            </p>
+
+            <div class="help-section-title">🎛️ Toolbar buttons</div>
+            <ul class="help-ul">
+                <li><strong>ABox (Instances)</strong> — shows/hides individuals (instances) and their links.</li>
+                <li><strong>TBox (Classes)</strong> — shows/hides the ontology's classes.</li>
+                <li><strong>subClassOf</strong> — shows/hides the class hierarchy links (solid lines).</li>
+                <li><strong>Object Properties</strong> — shows/hides relations between individuals/classes (dashed lines).</li>
+                <li><strong>Datatype Props</strong> — shows/hides literal-valued attributes (text, number — thin dotted lines).</li>
+                <li><strong>🔗 Imported Concepts</strong> — loads and shows concepts from external ontologies used by the instances.</li>
+            </ul>
+
+            <div class="help-section-title">🖱️ Interacting with the graph</div>
+            <ul class="help-ul">
+                <li>Clicking a <strong>node</strong> highlights it along with its direct neighbours and shows its details in the right-hand panel.</li>
+                <li>Clicking the <strong>background</strong> resets the view.</li>
+                <li>The <strong>search</strong> bar (🔍) filters and highlights matching nodes.</li>
+            </ul>
+
+            <div class="help-section-title">📁 Projects panel</div>
+            <p class="help-p">
+                A button appears top-right of the graph for every instance of <em>Project</em>
+                (<em>TargetedProject</em>, <em>AAPProject</em>, or any subclass). Clicking a button
+                does exactly the same as clicking that node in the graph: it gets highlighted along with its direct connections.
+                The "✕" button at the top of the panel clears the filter.
+            </p>
+
+            <div class="help-section-title">🎨 Legend (bottom of screen)</div>
+            <p class="help-p help-note">
+                Check the legend at the bottom of the screen for the meaning of colors and line styles
+                (subClassOf, Object Property, Datatype Property, rdf:type, Instance, Datatype, Imported Concept).
+            </p>`
+    },
+
+    fr: {
+        title: '❓ Guide de navigation',
+        subtitle: 'Cliquez sur "❓ Help" à tout moment pour rouvrir cette fenêtre.',
+        body: `
+            <div class="help-section-title">📦 TBox vs ABox</div>
+            <p class="help-p">
+                <strong>TBox</strong> ("Terminological Box") = les <strong>classes</strong> de l'ontologie (les concepts,
+                p.ex. <em>Project</em>, <em>Person</em>) et leurs relations <code>subClassOf</code>.
+                C'est le "schéma" / vocabulaire.
+            </p>
+            <p class="help-p">
+                <strong>ABox</strong> ("Assertional Box") = les <strong>instances</strong> concrètes
+                (p.ex. le projet <em>DIADEM</em>, la personne <em>Jean Dupont</em>) et leurs relations entre elles.
+                C'est la "donnée" réelle.
+            </p>
+            <p class="help-p help-note">
+                Par défaut, seul l'ABox (instances) est affiché — activez "TBox (Classes)" dans la barre d'outils
+                pour voir aussi le schéma des classes.
+            </p>
+
+            <div class="help-section-title">🎛️ Boutons de la barre d'outils</div>
+            <ul class="help-ul">
+                <li><strong>ABox (Instances)</strong> — affiche/masque les individus (instances) et leurs liens.</li>
+                <li><strong>TBox (Classes)</strong> — affiche/masque les classes de l'ontologie.</li>
+                <li><strong>subClassOf</strong> — affiche/masque les liens de hiérarchie entre classes (traits pleins).</li>
+                <li><strong>Object Properties</strong> — affiche/masque les relations entre individus/classes (traits pointillés).</li>
+                <li><strong>Datatype Props</strong> — affiche/masque les attributs à valeur littérale (texte, nombre — traits en pointillés fins).</li>
+                <li><strong>🔗 Imported Concepts</strong> — charge et affiche les concepts d'ontologies externes utilisés par les instances.</li>
+            </ul>
+
+            <div class="help-section-title">🖱️ Interaction avec le graphe</div>
+            <ul class="help-ul">
+                <li>Cliquer sur un <strong>nœud</strong> le met en évidence, avec ses voisins directs, et affiche ses détails dans le panneau de droite.</li>
+                <li>Cliquer sur le <strong>fond</strong> du graphe réinitialise la vue.</li>
+                <li>La barre de <strong>recherche</strong> (🔍) filtre et met en évidence les nœuds correspondants.</li>
+            </ul>
+
+            <div class="help-section-title">📁 Panneau Projects</div>
+            <p class="help-p">
+                En haut à droite du graphe, un bouton apparaît pour chaque instance de <em>Project</em>
+                (<em>TargetedProject</em>, <em>AAPProject</em>, ou toute sous-classe). Cliquer sur un bouton
+                fait exactement comme cliquer sur ce nœud dans le graphe : il est mis en évidence avec ses connexions directes.
+                Le bouton "✕" en haut du panneau réinitialise le filtre.
+            </p>
+
+            <div class="help-section-title">🎨 Légende (bas de l'écran)</div>
+            <p class="help-p help-note">
+                Consultez la légende en bas de la fenêtre pour la signification des couleurs et styles de trait
+                (subClassOf, Object Property, Datatype Property, rdf:type, Instance, Datatype, Imported Concept).
+            </p>`
+    }
+};
+
+let currentHelpLang = 'es';
+
+function renderHelpContent(lang) {
+    const c = HELP_CONTENT[lang] || HELP_CONTENT.es;
+    currentHelpLang = lang;
+    document.getElementById('helpTitle').textContent      = c.title;
+    document.getElementById('helpSubtitle').textContent    = c.subtitle;
+    document.getElementById('helpContentBody').innerHTML   = c.body;
+
+    document.querySelectorAll('.help-lang-btn').forEach(b => {
+        const active = b.dataset.lang === lang;
+        b.style.background = active ? '#7c3aed' : '#f5f3ff';
+        b.style.color      = active ? '#ffffff' : '#5b21b6';
+    });
+}
+
+function openHelpModal()  {
+    renderHelpContent(currentHelpLang);
+    document.getElementById('helpModal').style.display = 'flex';
+}
 function closeHelpModal() { document.getElementById('helpModal').style.display = 'none'; }
 
 document.getElementById('btnHelp').addEventListener('click', openHelpModal);
@@ -3021,6 +3157,23 @@ document.getElementById('helpModal').addEventListener('click', (evt) => {
 document.addEventListener('keydown', (evt) => {
     if (evt.key === 'Escape') closeHelpModal();
 });
+document.querySelectorAll('.help-lang-btn').forEach(btn => {
+    btn.style.cssText = 'background:#f5f3ff;color:#5b21b6;border:1px solid #ddd6fe;border-radius:5px;' +
+        'padding:3px 9px;font-size:0.72rem;font-weight:700;cursor:pointer;';
+    btn.addEventListener('click', () => renderHelpContent(btn.dataset.lang));
+});
+
+// Inject minimal styles used by the help modal body sections
+(function injectHelpStyles() {
+    const style = document.createElement('style');
+    style.textContent = `
+        .help-section-title { font-weight:700; color:#7c3aed; margin:14px 0 4px; }
+        .help-p  { margin:0 0 6px; }
+        .help-ul { margin:0 0 10px; padding-left:18px; }
+        .help-note { margin:0 0 10px; color:#64748b; font-size:0.78rem; }
+    `;
+    document.head.appendChild(style);
+})();
 </script>
 </body>
 </html>
