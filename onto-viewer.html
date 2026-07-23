@@ -45,6 +45,7 @@
             <input type="file" id="fileInput" accept=".ttl,.turtle,.rdf,.owl,.n3" style="display:none">
         </label>
         <button id="btnLoad" class="btn btn-primary">Upload →</button>
+        <button id="btnHelp" class="btn btn-secondary" title="Help / Navigation guide">❓ Help</button>
     </div>
 </header>
 
@@ -65,7 +66,7 @@
     <div class="tb-group">
         <span class="tb-label">View</span>
         <button id="btnInstances"     class="toggle-btn on-rose">ABox (Instances)</button>
-        <button id="btnTBox"      class="toggle-btn on-rose">TBox (Classes)</button>
+        <button id="btnTBox"      class="toggle-btn">TBox (Classes)</button>
 <!---        <button id="btnTBox"      class="toggle-btn on-rose">TBox (Classes)</button> -->
         <button id="btnSubclass" class="toggle-btn on">subClassOf</button>
         <button id="btnProps"    class="toggle-btn on-gold">Object Properties</button>
@@ -196,6 +197,66 @@
       <span id="importedStatus" style="font-size:0.78rem;color:#64748b;flex:1;"></span>
       <button id="importedClear" style="background:#fee2e2;color:#b91c1c;border:none;border-radius:6px;padding:6px 16px;cursor:pointer;font-size:0.85rem;">Clear</button>
       <button id="importedLoad"  style="background:#7c3aed;color:#fff;border:none;border-radius:6px;padding:6px 18px;cursor:pointer;font-size:0.88rem;font-weight:600;">Load &amp; Show</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Help Modal ──────────────────────────────────────────────── -->
+<div id="helpModal" style="display:none;position:fixed;inset:0;z-index:300;background:rgba(0,0,0,0.55);align-items:center;justify-content:center;">
+  <div style="background:#fff;border-radius:12px;padding:28px 32px;width:600px;max-width:90vw;max-height:85vh;overflow-y:auto;box-shadow:0 8px 40px rgba(0,0,0,0.22);position:relative;">
+    <button id="helpModalClose" style="position:absolute;top:12px;right:16px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#888;">✕</button>
+    <div style="font-size:1.15rem;font-weight:700;color:#3b0764;margin-bottom:4px;">❓ Guía de navegación</div>
+    <div style="font-size:0.8rem;color:#94a3b8;margin-bottom:16px;">Hacé click en "❓ Help" en cualquier momento para volver a abrir esta ventana.</div>
+
+    <div style="font-size:0.85rem;color:#334155;line-height:1.55;">
+
+      <div style="font-weight:700;color:#7c3aed;margin:14px 0 4px;">📦 TBox vs ABox</div>
+      <p style="margin:0 0 6px;">
+        <strong>TBox</strong> ("Terminological Box") = las <strong>clases</strong> de la ontología (los conceptos,
+        p.ej. <em>Project</em>, <em>Person</em>) y sus relaciones <code>subClassOf</code>.
+        Es el "esquema" / vocabulario de la ontología.
+      </p>
+      <p style="margin:0 0 6px;">
+        <strong>ABox</strong> ("Assertional Box") = las <strong>instancias</strong> concretas
+        (p.ej. el proyecto <em>DIADEM</em>, la persona <em>Jean Dupont</em>) y sus relaciones entre sí.
+        Es el "dato" real.
+      </p>
+      <p style="margin:0 0 10px;color:#64748b;font-size:0.78rem;">
+        Por defecto solo se muestra el ABox (instancias) — activá "TBox (Classes)" en la barra de herramientas
+        para ver también el esquema de clases.
+      </p>
+
+      <div style="font-weight:700;color:#7c3aed;margin:14px 0 4px;">🎛️ Botones de la barra de herramientas</div>
+      <ul style="margin:0 0 10px;padding-left:18px;">
+        <li><strong>ABox (Instances)</strong> — muestra/oculta los individuos (instancias) y sus vínculos.</li>
+        <li><strong>TBox (Classes)</strong> — muestra/oculta las clases de la ontología.</li>
+        <li><strong>subClassOf</strong> — muestra/oculta los vínculos de jerarquía entre clases (líneas sólidas).</li>
+        <li><strong>Object Properties</strong> — muestra/oculta las relaciones entre individuos/clases (líneas discontinuas).</li>
+        <li><strong>Datatype Props</strong> — muestra/oculta los atributos con valor literal (texto, número — líneas punteadas finas).</li>
+        <li><strong>🔗 Imported Concepts</strong> — carga y muestra conceptos de ontologías externas usados por las instancias.</li>
+      </ul>
+
+      <div style="font-weight:700;color:#7c3aed;margin:14px 0 4px;">🖱️ Interacción con el grafo</div>
+      <ul style="margin:0 0 10px;padding-left:18px;">
+        <li>Click en un <strong>nodo</strong>: lo resalta junto con sus vecinos directos y muestra sus detalles en el panel de la derecha.</li>
+        <li>Click en el <strong>fondo</strong> del grafo: resetea la vista.</li>
+        <li>La barra de <strong>búsqueda</strong> (🔍) filtra y resalta los nodos que coinciden.</li>
+      </ul>
+
+      <div style="font-weight:700;color:#7c3aed;margin:14px 0 4px;">📁 Panel Projects</div>
+      <p style="margin:0 0 10px;">
+        Arriba a la derecha del grafo aparece un botón por cada instancia de <em>Project</em>
+        (<em>TargetedProject</em>, <em>AAPProject</em>, o cualquier subclase). Al hacer click en un botón,
+        se hace exactamente lo mismo que clickear ese nodo en el grafo: se resalta junto con sus conexiones directas.
+        El botón "✕" arriba del panel limpia el filtro.
+      </p>
+
+      <div style="font-weight:700;color:#7c3aed;margin:14px 0 4px;">🎨 Leyenda (parte inferior)</div>
+      <p style="margin:0;color:#64748b;font-size:0.78rem;">
+        Revisá la leyenda en la parte inferior de la pantalla para el significado de colores y estilos de línea
+        (subClassOf, Object Property, Datatype Property, rdf:type, Instance, Datatype, Imported Concept).
+      </p>
+
     </div>
   </div>
 </div>
@@ -1054,7 +1115,7 @@ function buildElements(ontology) {
 let cy         = null;
 let parsedData = null;
 
-let showTBox          = true;
+let showTBox          = false;
 let showInstances     = true;
 let showSubclass      = true;
 let showPropEdges     = true;
@@ -2944,6 +3005,21 @@ document.getElementById('btnCenter').addEventListener('click', () => {
         clearActiveProjectButton();
         cy.animate({ fit: { padding: 40 } }, { duration: 300 });
     }
+});
+
+// ─────────────────────────────────────────────────────────────────
+// Help modal
+// ─────────────────────────────────────────────────────────────────
+function openHelpModal()  { document.getElementById('helpModal').style.display = 'flex'; }
+function closeHelpModal() { document.getElementById('helpModal').style.display = 'none'; }
+
+document.getElementById('btnHelp').addEventListener('click', openHelpModal);
+document.getElementById('helpModalClose').addEventListener('click', closeHelpModal);
+document.getElementById('helpModal').addEventListener('click', (evt) => {
+    if (evt.target.id === 'helpModal') closeHelpModal(); // click on the dark backdrop
+});
+document.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape') closeHelpModal();
 });
 </script>
 </body>
