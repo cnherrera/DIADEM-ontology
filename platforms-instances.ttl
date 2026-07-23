@@ -1,0 +1,833 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix proj: <https://raw.githubusercontent.com/cnherrera/DIADEM-ontology/refs/heads/main/proj-ontology.ttl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://raw.githubusercontent.com/cnherrera/DIADEM-ontology/refs/heads/main/platforms-abox.ttl> a owl:Ontology ;
+    dcterms:description "Instances of proj:Platform (and related MaterialType, DimensionType, TechniqueType, TargetedProject individuals) generated automatically from Platformes.ods."@en ;
+    dcterms:title "PEPR DIADEM Platforms ABox"@en ;
+    owl:imports <https://raw.githubusercontent.com/cnherrera/DIADEM-ontology/refs/heads/main/proj-ontology.ttl> .
+
+proj:Platform_1600c-so-called-pixelated-sintering-oven a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "1600°C so-called pixelated sintering oven"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/1600c-so-called-pixelated-sintering-oven/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_3d ;
+    proj:hasMaterialType proj:MaterialType_ceramics ;
+    proj:hasAssociatedProject proj:Project_rubis ;
+    proj:identifier "1600c-so-called-pixelated-sintering-oven" .
+
+proj:Platform_3d-4d-poudrinnov-metal-polymer-additive-manufacturing a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "3D/4D Poudrinnov (Metal/Polymer Additive Manufacturing)"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/3d-4d-poudrinnov-metal-polymer-additive-manufacturing/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_3d,
+        proj:DimensionType_4d ;
+    proj:hasMaterialType proj:MaterialType_metals ;
+    proj:hasAssociatedProject proj:Project_artemis ;
+    proj:identifier "3d-4d-poudrinnov-metal-polymer-additive-manufacturing" .
+
+proj:Platform_3d-printer-6-axis-biopol-in-operando a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "3D printer 6-axis biopol in operando"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/3d-printer-6-axis-biopol-in-operando/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_3d ;
+    proj:hasMaterialType proj:MaterialType_metals,
+        proj:MaterialType_polymers ;
+    proj:hasAssociatedProject proj:Project_adam ;
+    proj:identifier "3d-printer-6-axis-biopol-in-operando" .
+
+proj:Platform_3d-printing-l-pbf-in-operando a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "3D printing L-PBF in operando"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/3d-printing-l-pbf-in-operando/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_3d ;
+    proj:hasAssociatedProject proj:Project_adam ;
+    proj:identifier "3d-printing-l-pbf-in-operando" .
+
+proj:Platform_3d-saclay-powder-bed-cladding-wire-extrusion a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "3D Saclay (powder bed, cladding, wire, extrusion)"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/3d-saclay-powder-bed-cladding-wire-extrusion/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_2d,
+        proj:DimensionType_3d ;
+    proj:hasMaterialType proj:MaterialType_metals ;
+    proj:hasAssociatedProject proj:Project_diams ;
+    proj:identifier "3d-saclay-powder-bed-cladding-wire-extrusion" .
+
+proj:Platform_3d-tomography-reconstruction a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "3D Tomography reconstruction"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/3d-tomography-reconstruction/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metal ;
+    proj:hasAssociatedProject proj:Project_metsa-set-dia ;
+    proj:hasTechnique proj:TechniqueType_imaging ;
+    proj:identifier "3d-tomography-reconstruction" .
+
+proj:Platform_5-axis-additive-and-subtractive-manufacturing-frame-instrumented-for-ai-and-high-precision a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "5-axis additive and subtractive manufacturing frame..."@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/5-axis-additive-and-subtractive-manufacturing-frame-instrumented-for-ai-and-high-precision/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_3d ;
+    proj:hasMaterialType proj:MaterialType_ceramics ;
+    proj:hasAssociatedProject proj:Project_rubis ;
+    proj:identifier "5-axis-additive-and-subtractive-manufacturing-frame-instrumented-for-ai-and-high-precision" .
+
+proj:Platform_afm-microscope a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "AFM microscope"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/afm-microscope/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metal,
+        proj:MaterialType_polymers ;
+    proj:hasAssociatedProject proj:Project_fastnano ;
+    proj:hasTechnique proj:TechniqueType_imaging ;
+    proj:identifier "afm-microscope" .
+
+proj:Platform_atm-pecvd-equipment a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "Atm-PECVD equipment"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/atm-pecvd-equipment/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_2d ;
+    proj:hasMaterialType proj:MaterialType_ceramics ;
+    proj:hasAssociatedProject proj:Project_a-dream,
+        proj:Project_atherm-coat ;
+    proj:identifier "atm-pecvd-equipment" .
+
+proj:Platform_automated-traction-torsion-bench a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "Automated traction-torsion bench"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/automated-traction-torsion-bench/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_metal,
+        proj:MaterialType_polymers ;
+    proj:hasAssociatedProject proj:Project_adam ;
+    proj:hasTechnique proj:TechniqueType_mechanical ;
+    proj:identifier "automated-traction-torsion-bench" .
+
+proj:Platform_automated-xrd-synthesis-and-characterization-of-powder-libraries a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "Automated XRD synthesis and characterization of powder libraries"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/automated-xrd-synthesis-and-characterization-of-powder-libraries/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics ;
+    proj:hasAssociatedProject proj:Project_hiway-2-mat ;
+    proj:identifier "automated-xrd-synthesis-and-characterization-of-powder-libraries" .
+
+proj:Platform_autonomous-robotic-synthesis-of-powders-and-thin-films a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "Autonomous robotic synthesis of powders and thin films"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/autonomous-robotic-synthesis-of-powders-and-thin-films/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_2d ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_metals ;
+    proj:hasAssociatedProject proj:Project_hiway-2-mat ;
+    proj:identifier "autonomous-robotic-synthesis-of-powders-and-thin-films" .
+
+proj:Platform_bioresources-imaging-biochemistry-structure a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "Bioresources: Imaging, Biochemistry & Structure"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/bioresources-imaging-biochemistry-structure/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_polymers ;
+    proj:hasAssociatedProject proj:Project_amethyst ;
+    proj:hasTechnique proj:TechniqueType_imaging ;
+    proj:identifier "bioresources-imaging-biochemistry-structure" .
+
+proj:Platform_combinatorial-growth-of-heterostructures-by-combinatorial-pulsed-laser-deposition a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "Combinatorial growth of heterostructures by PLD/PVD"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/combinatorial-growth-of-heterostructures-by-combinatorial-pulsed-laser-deposition/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_2d ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_metals ;
+    proj:hasAssociatedProject proj:Project_microelec ;
+    proj:identifier "combinatorial-growth-of-heterostructures-by-combinatorial-pulsed-laser-deposition" .
+
+proj:Platform_combinatorial-low-pressure-micro-cold-spray-equipment a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "Combinatorial low pressure micro-Cold Spray equipment"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/combinatorial-low-pressure-micro-cold-spray-equipment/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_2d,
+        proj:DimensionType_3d,
+        proj:DimensionType_4d ;
+    proj:hasMaterialType proj:MaterialType_metals ;
+    proj:hasAssociatedProject proj:Project_artemis ;
+    proj:identifier "combinatorial-low-pressure-micro-cold-spray-equipment" .
+
+proj:Platform_combinatorial-pvd a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "Combinatorial PVD"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/combinatorial-pvd/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_2d ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metals ;
+    proj:hasAssociatedProject proj:Project_hiway-2-mat ;
+    proj:identifier "combinatorial-pvd" .
+
+proj:Platform_conventional-metallurgy a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "Conventional metallurgy"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/conventional-metallurgy/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_metals ;
+    proj:hasAssociatedProject proj:Project_diams ;
+    proj:identifier "conventional-metallurgy" .
+
+proj:Platform_damco-accelerated-development-of-corrosion-materials a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "DAMCO: Accelerated Development of Corrosion Materials"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/damco-accelerated-development-of-corrosion-materials/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metal ;
+    proj:hasAssociatedProject proj:Project_a-dream ;
+    proj:hasTechnique proj:TechniqueType_chemical ;
+    proj:identifier "damco-accelerated-development-of-corrosion-materials" .
+
+proj:Platform_darmicols-accelerated-development-of-coatings-and-microstructures-by-cold-spray a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "DARMiColS: Accelerated Development of Coatings... Cold Spray"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/darmicols-accelerated-development-of-coatings-and-microstructures-by-cold-spray/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_2d ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metals ;
+    proj:hasAssociatedProject proj:Project_a-dream ;
+    proj:identifier "darmicols-accelerated-development-of-coatings-and-microstructures-by-cold-spray" .
+
+proj:Platform_daum-tube a proj:CharacterizationPlatform,
+        proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "Daum tube"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/daum-tube/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_2d ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metals ;
+    proj:hasTechnique proj:TechniqueType_chemical,
+        proj:TechniqueType_electrical-magnetic,
+        proj:TechniqueType_imaging,
+        proj:TechniqueType_multi-tech,
+        proj:TechniqueType_spectroscopic,
+        proj:TechniqueType_structural ;
+    proj:identifier "daum-tube" .
+
+proj:Platform_diffraction-at-synchrotron-soleil a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "Diffraction at Synchrotron SOLEIL"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/diffraction-at-synchrotron-soleil/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metal,
+        proj:MaterialType_polymers ;
+    proj:hasAssociatedProject proj:Project_soleil ;
+    proj:hasTechnique proj:TechniqueType_structural-characterization-and-diffraction ;
+    proj:identifier "diffraction-at-synchrotron-soleil" .
+
+proj:Platform_dli-mocvd-antidote-equipment a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "DLI-MOCVD ANTIDOTE equipment"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/dli-mocvd-antidote-equipment/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_2d ;
+    proj:hasMaterialType proj:MaterialType_ceramics ;
+    proj:hasAssociatedProject proj:Project_atherm-coat ;
+    proj:identifier "dli-mocvd-antidote-equipment" .
+
+proj:Platform_fabrication-and-characterization-of-standardized-millifluidic-chips a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "Fabrication and characterization of standardized millifluidic chips"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/fabrication-and-characterization-of-standardized-millifluidic-chips/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_autres-d ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_metals,
+        proj:MaterialType_polymers ;
+    proj:hasAssociatedProject proj:Project_advance ;
+    proj:identifier "fabrication-and-characterization-of-standardized-millifluidic-chips" .
+
+proj:Platform_gas-adsorption-in-mofs a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "Gas adsorption in MOFs"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/gas-adsorption-in-mofs/"^^xsd:anyURI ;
+    proj:hasAssociatedProject proj:Project_moflearning ;
+    proj:hasTechnique proj:TechniqueType_chemical ;
+    proj:identifier "gas-adsorption-in-mofs" .
+
+proj:Platform_gas-analyzer-for-exhausts-gazes-of-the-combustion-calorimetry a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "Gas analyzer for exhausts gazes of the combustion calorimetry"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/gas-analyzer-for-exhausts-gazes-of-the-combustion-calorimetry/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_organometallic ;
+    proj:hasAssociatedProject proj:Project_atherm-coat ;
+    proj:hasTechnique proj:TechniqueType_chemical,
+        proj:TechniqueType_thermal ;
+    proj:identifier "gas-analyzer-for-exhausts-gazes-of-the-combustion-calorimetry" .
+
+proj:Platform_gisaxs-giwaxs-at-esrf a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "GISAXS/GIWAXS at ESRF"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/gisaxs-giwaxs-at-esrf/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metal ;
+    proj:hasAssociatedProject proj:Project_esrf ;
+    proj:hasTechnique proj:TechniqueType_structural-characterization-and-diffraction ;
+    proj:identifier "gisaxs-giwaxs-at-esrf" .
+
+proj:Platform_herfd-xas-at-esrf a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "HERFD-XAS at ESRF"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/herfd-xas-at-esrf/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metal ;
+    proj:hasAssociatedProject proj:Project_esrf ;
+    proj:hasTechnique proj:TechniqueType_spectroscopic-characterization ;
+    proj:identifier "herfd-xas-at-esrf" .
+
+proj:Platform_high-speed-lab-swaxs a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "High-speed lab SWAXS"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/high-speed-lab-swaxs/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metal ;
+    proj:hasAssociatedProject proj:Project_fastnano ;
+    proj:hasTechnique proj:TechniqueType_imaging ;
+    proj:identifier "high-speed-lab-swaxs" .
+
+proj:Platform_high-throughput-3d-metallurgy-insstek-3d a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "High-throughput 3D metallurgy (INSSTEK 3D)"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/high-throughput-3d-metallurgy-insstek-3d/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_3d ;
+    proj:hasMaterialType proj:MaterialType_metals ;
+    proj:hasAssociatedProject proj:Project_diams ;
+    proj:identifier "high-throughput-3d-metallurgy-insstek-3d" .
+
+proj:Platform_high-throughput-millifluidic-synthesis-in-hydro-solvothermal-conditions-of-materials-with-online-control-by-raman-spectroscopy a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "High-throughput millifluidic synthesis in hydro-/solvothermal conditions"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/high-throughput-millifluidic-synthesis-in-hydro-solvothermal-conditions-of-materials-with-online-control-by-raman-spectroscopy/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_0d ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_metals,
+        proj:MaterialType_mofs,
+        proj:MaterialType_polymers ;
+    proj:hasAssociatedProject proj:Project_2fast ;
+    proj:identifier "high-throughput-millifluidic-synthesis-in-hydro-solvothermal-conditions-of-materials-with-online-control-by-raman-spectroscopy" .
+
+proj:Platform_high-throughput-mofs-synthesis a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "High-throughput MOFs synthesis"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/high-throughput-mofs-synthesis/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_autres-d ;
+    proj:hasMaterialType proj:MaterialType_mofs ;
+    proj:hasAssociatedProject proj:Project_moflearning ;
+    proj:identifier "high-throughput-mofs-synthesis" .
+
+proj:Platform_high-throughput-platform-for-synthesis-and-characterization-of-polymers-by-flow-chemistry a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "High-throughput platform for the implementation... polymer matrix composites"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/high-throughput-platform-for-synthesis-and-characterization-of-polymers-by-flow-chemistry/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_composites,
+        proj:MaterialType_polymers ;
+    proj:hasAssociatedProject proj:Project_amethyst ;
+    proj:identifier "high-throughput-platform-for-synthesis-and-characterization-of-polymers-by-flow-chemistry" .
+
+proj:Platform_high-throughput-platform-for-the-implementation-and-characterization-of-polymer-matrix-composites a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "High-throughput platform for synthesis... of polymers by flow chemistry"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/high-throughput-platform-for-the-implementation-and-characterization-of-polymer-matrix-composites/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_composites,
+        proj:MaterialType_polymers ;
+    proj:hasAssociatedProject proj:Project_amethyst ;
+    proj:identifier "high-throughput-platform-for-the-implementation-and-characterization-of-polymer-matrix-composites" .
+
+proj:Platform_high-throughput-powder-x-ray-diffractometer a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "High-throughput powder X-ray diffractometer"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/high-throughput-powder-x-ray-diffractometer/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_mofs ;
+    proj:hasAssociatedProject proj:Project_moflearning ;
+    proj:hasTechnique proj:TechniqueType_structural-characterization-and-diffraction ;
+    proj:identifier "high-throughput-powder-x-ray-diffractometer" .
+
+proj:Platform_high-throughput-thermogravimetric-analysis a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "High-throughput thermogravimetric analysis"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/high-throughput-thermogravimetric-analysis/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metal,
+        proj:MaterialType_mofs,
+        proj:MaterialType_polymers ;
+    proj:hasAssociatedProject proj:Project_moflearning ;
+    proj:hasTechnique proj:TechniqueType_thermal ;
+    proj:identifier "high-throughput-thermogravimetric-analysis" .
+
+proj:Platform_hybrid-pvd-reactor a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "Hybrid PVD reactor"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/hybrid-pvd-reactor/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_2d ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metals ;
+    proj:hasAssociatedProject proj:Project_a-dream ;
+    proj:identifier "hybrid-pvd-reactor" .
+
+proj:Platform_imaging-at-synchrotron-soleil a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "Imaging at Synchrotron SOLEIL"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/imaging-at-synchrotron-soleil/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metal,
+        proj:MaterialType_polymers ;
+    proj:hasAssociatedProject proj:Project_soleil ;
+    proj:hasTechnique proj:TechniqueType_imaging ;
+    proj:identifier "imaging-at-synchrotron-soleil" .
+
+proj:Platform_in-line-raman-spectrometer a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "In-line Raman spectrometer"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/in-line-raman-spectrometer/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metal,
+        proj:MaterialType_polymers ;
+    proj:hasAssociatedProject proj:Project_fastnano ;
+    proj:hasTechnique proj:TechniqueType_spectroscopic-characterization ;
+    proj:identifier "in-line-raman-spectrometer" .
+
+proj:Platform_instrumented-nanoindenter a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "Instrumented nanoindenter"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/instrumented-nanoindenter/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metal,
+        proj:MaterialType_polymers ;
+    proj:hasAssociatedProject proj:Project_rubis ;
+    proj:hasTechnique proj:TechniqueType_mechanical ;
+    proj:identifier "instrumented-nanoindenter" .
+
+proj:Platform_laue-microdiffraction-at-esrf a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "Laue microdiffraction at ESRF"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/laue-microdiffraction-at-esrf/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metal ;
+    proj:hasAssociatedProject proj:Project_esrf ;
+    proj:hasTechnique proj:TechniqueType_imaging,
+        proj:TechniqueType_structural-characterization-and-diffraction ;
+    proj:identifier "laue-microdiffraction-at-esrf" .
+
+proj:Platform_mobile-libs-platform a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "Mobile LIBS platform"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/mobile-libs-platform/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metal,
+        proj:MaterialType_polymers ;
+    proj:hasAssociatedProject proj:Project_libelul ;
+    proj:hasTechnique proj:TechniqueType_chemical ;
+    proj:identifier "mobile-libs-platform" .
+
+proj:Platform_multi-characterization-by-libs-raman-photoluminescence-imaging a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "Multi-characterization by LIBS/Raman/photoluminescence imaging"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/multi-characterization-by-libs-raman-photoluminescence-imaging/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metal,
+        proj:MaterialType_polymers ;
+    proj:hasAssociatedProject proj:Project_libelul ;
+    proj:hasTechnique proj:TechniqueType_analysis-specific-platforms,
+        proj:TechniqueType_chemical,
+        proj:TechniqueType_spectroscopic ;
+    proj:identifier "multi-characterization-by-libs-raman-photoluminescence-imaging" .
+
+proj:Platform_multi-technique-goniometer-reflectivity-at-esrf a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "Multi-technique goniometer – Reflectivity at ESRF"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/multi-technique-goniometer-reflectivity-at-esrf/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metal ;
+    proj:hasAssociatedProject proj:Project_esrf ;
+    proj:hasTechnique proj:TechniqueType_multi-tech,
+        proj:TechniqueType_structural-characterization-and-diffraction ;
+    proj:identifier "multi-technique-goniometer-reflectivity-at-esrf" .
+
+proj:Platform_nano-hybrid-1d-2d-anapurna a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "Nano-hybrid 1D/2D (ANAPURNA)"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/nano-hybrid-1d-2d-anapurna/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_1d ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites ;
+    proj:hasAssociatedProject proj:Project_fastnano ;
+    proj:identifier "nano-hybrid-1d-2d-anapurna" .
+
+proj:Platform_nanoparticles-gas-route-fsp a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "Nanoparticles gas route FSP"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/nanoparticles-gas-route-fsp/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_1d ;
+    proj:hasMaterialType proj:MaterialType_ceramics ;
+    proj:hasAssociatedProject proj:Project_fastnano ;
+    proj:identifier "nanoparticles-gas-route-fsp" .
+
+proj:Platform_nanoparticles-liquid-route a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "Nanoparticles liquid route"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/nanoparticles-liquid-route/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_1d ;
+    proj:hasMaterialType proj:MaterialType_ceramics ;
+    proj:hasAssociatedProject proj:Project_fastnano ;
+    proj:identifier "nanoparticles-liquid-route" .
+
+proj:Platform_operando-characterization-of-electronic-structure-under-electrical-stress a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "Operando characterization of electronic structure under electrical stress"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/operando-characterization-of-electronic-structure-under-electrical-stress/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metal ;
+    proj:hasAssociatedProject proj:Project_microelec ;
+    proj:hasTechnique proj:TechniqueType_electrical-and-magnetic-characterization ;
+    proj:identifier "operando-characterization-of-electronic-structure-under-electrical-stress" .
+
+proj:Platform_optical-multi-characterization-platform-for-two-dimensional-materials a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "Optical multi-characterization platform for two-dimensional materials"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/optical-multi-characterization-platform-for-two-dimensional-materials/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metal,
+        proj:MaterialType_polymers ;
+    proj:hasAssociatedProject proj:Project_fastnano ;
+    proj:hasTechnique proj:TechniqueType_multi-technology-characterization ;
+    proj:identifier "optical-multi-characterization-platform-for-two-dimensional-materials" .
+
+proj:Platform_plasto-dilatometer-for-synchrotron-beamline a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "Plasto-dilatometer for synchrotron beamline"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/plasto-dilatometer-for-synchrotron-beamline/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metal ;
+    proj:hasAssociatedProject proj:Project_diams ;
+    proj:hasTechnique proj:TechniqueType_multi-technology-characterization ;
+    proj:identifier "plasto-dilatometer-for-synchrotron-beamline" .
+
+proj:Platform_pvd-tripros-reactor a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "PVD TriProS Reactor"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/pvd-tripros-reactor/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_2d ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metals ;
+    proj:identifier "pvd-tripros-reactor" .
+
+proj:Platform_realcat a proj:CharacterizationPlatform,
+        proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "REALCAT"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/realcat/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_0d ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metals,
+        proj:MaterialType_mofs,
+        proj:MaterialType_polymers ;
+    proj:hasAssociatedProject proj:Project_dream-bio ;
+    proj:hasTechnique proj:TechniqueType_chemical,
+        proj:TechniqueType_imaging,
+        proj:TechniqueType_multi-tech,
+        proj:TechniqueType_spectroscopic,
+        proj:TechniqueType_structural,
+        proj:TechniqueType_thermal ;
+    proj:identifier "realcat" .
+
+proj:Platform_reflectivity-at-synchrotron-soleil a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "Reflectivity at Synchrotron SOLEIL"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/reflectivity-at-synchrotron-soleil/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metal,
+        proj:MaterialType_polymers ;
+    proj:hasAssociatedProject proj:Project_soleil ;
+    proj:hasTechnique proj:TechniqueType_structural-characterization-and-diffraction ;
+    proj:identifier "reflectivity-at-synchrotron-soleil" .
+
+proj:Platform_robotic-synthesis-of-van-der-waals-heterostructures a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "Robotic synthesis of van der Waals heterostructures"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/robotic-synthesis-of-van-der-waals-heterostructures/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_2d ;
+    proj:hasMaterialType proj:MaterialType_ceramics ;
+    proj:hasAssociatedProject proj:Project_fastnano ;
+    proj:identifier "robotic-synthesis-of-van-der-waals-heterostructures" .
+
+proj:Platform_saxs-waxs-at-esrf a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "SAXS/WAXS at ESRF"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/saxs-waxs-at-esrf/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metal ;
+    proj:hasAssociatedProject proj:Project_esrf ;
+    proj:hasTechnique proj:TechniqueType_structural-characterization-and-diffraction ;
+    proj:identifier "saxs-waxs-at-esrf" .
+
+proj:Platform_spatial-ald a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "Spatial ALD"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/spatial-ald/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_2d ;
+    proj:hasMaterialType proj:MaterialType_composites ;
+    proj:hasAssociatedProject proj:Project_fastnano ;
+    proj:identifier "spatial-ald" .
+
+proj:Platform_spectroscopy-at-synchrotron-soleil a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "Spectroscopy at Synchrotron SOLEIL"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/spectroscopy-at-synchrotron-soleil/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metal ;
+    proj:hasAssociatedProject proj:Project_soleil ;
+    proj:hasTechnique proj:TechniqueType_spectroscopic-characterization ;
+    proj:identifier "spectroscopy-at-synchrotron-soleil" .
+
+proj:Platform_spray-deposition-and-laser-annealing a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "Spray deposition and laser annealing"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/spray-deposition-and-laser-annealing/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_2d ;
+    proj:hasMaterialType proj:MaterialType_ceramics ;
+    proj:hasAssociatedProject proj:Project_fastnano ;
+    proj:identifier "spray-deposition-and-laser-annealing" .
+
+proj:Platform_structural-and-electrical-characterization-of-2d-gradient-layers a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "Structural and electrical characterization of 2D gradient layers"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/structural-and-electrical-characterization-of-2d-gradient-layers/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metal ;
+    proj:hasAssociatedProject proj:Project_microelec ;
+    proj:hasTechnique proj:TechniqueType_electrical-and-magnetic-characterization ;
+    proj:identifier "structural-and-electrical-characterization-of-2d-gradient-layers" .
+
+proj:Platform_synthesis-of-2d-materials-by-cvd a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "Synthesis of 2D materials by CVD"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/synthesis-of-2d-materials-by-cvd/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_2d ;
+    proj:hasMaterialType proj:MaterialType_ceramics ;
+    proj:hasAssociatedProject proj:Project_fastnano ;
+    proj:identifier "synthesis-of-2d-materials-by-cvd" .
+
+proj:Platform_two-photon-light-polymerization a proj:Platform,
+        proj:SynthesisPlatform ;
+    rdfs:label "Two-photon light polymerization"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/two-photon-light-polymerization/"^^xsd:anyURI ;
+    proj:hasDimension proj:DimensionType_3d,
+        proj:DimensionType_4d ;
+    proj:hasMaterialType proj:MaterialType_composites,
+        proj:MaterialType_polymers ;
+    proj:hasAssociatedProject proj:Project_artemis ;
+    proj:identifier "two-photon-light-polymerization" .
+
+proj:Platform_ultra-fast-high-energy-x-ray-detector a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "Ultra-fast high-energy X-ray detector"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/ultra-fast-high-energy-x-ray-detector/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metal ;
+    proj:hasAssociatedProject proj:Project_diams ;
+    proj:hasTechnique proj:TechniqueType_analysis-and-specific-platforms ;
+    proj:identifier "ultra-fast-high-energy-x-ray-detector" .
+
+proj:Platform_x-ray-absorption-spectroscopy-at-esrf a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "X-ray Absorption Spectroscopy at ESRF"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/x-ray-absorption-spectroscopy-at-esrf/"^^xsd:anyURI ;
+    proj:hasMaterialType proj:MaterialType_ceramics,
+        proj:MaterialType_composites,
+        proj:MaterialType_metal ;
+    proj:hasAssociatedProject proj:Project_esrf ;
+    proj:hasTechnique proj:TechniqueType_spectroscopic-characterization ;
+    proj:identifier "x-ray-absorption-spectroscopy-at-esrf" .
+
+proj:Platform_x-ray-ptychography-imaging-at-esrf a proj:CharacterizationPlatform,
+        proj:Platform ;
+    rdfs:label "X-ray ptychography imaging at ESRF"@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/x-ray-ptychography-imaging-at-esrf/"^^xsd:anyURI ;
+    proj:hasAssociatedProject proj:Project_esrf ;
+    proj:hasTechnique proj:TechniqueType_imaging ;
+    proj:identifier "x-ray-ptychography-imaging-at-esrf" .
+
+proj:MaterialType_organometallic a proj:MaterialType ;
+    rdfs:label "Organometallic"@en .
+
+proj:Project_2fast a proj:TargetedProject ;
+    rdfs:label "2FAST"@en ;
+    proj:acronym "2FAST" .
+
+proj:Project_advance a proj:TargetedProject ;
+    rdfs:label "ADVANCE"@en ;
+    proj:acronym "ADVANCE" .
+
+proj:Project_dream-bio a proj:TargetedProject ;
+    rdfs:label "DREAM-BIO"@en ;
+    proj:acronym "DREAM-BIO" .
+
+proj:Project_metsa-set-dia a proj:TargetedProject ;
+    rdfs:label "METSA-SET-DIA"@en ;
+    proj:acronym "METSA-SET-DIA" .
+
+proj:TechniqueType_analysis-and-specific-platforms a proj:TechniqueType ;
+    rdfs:label "Analysis and specific platforms"@en .
+
+proj:TechniqueType_analysis-specific-platforms a proj:TechniqueType ;
+    rdfs:label "Analysis & specific platforms"@en .
+
+proj:TechniqueType_electrical-magnetic a proj:TechniqueType ;
+    rdfs:label "Electrical/Magnetic"@en .
+
+proj:DimensionType_0d a proj:DimensionType ;
+    rdfs:label "0D"@en .
+
+proj:DimensionType_autres-d a proj:DimensionType ;
+    rdfs:label "Autres > ∞ D"@en .
+
+proj:Project_libelul a proj:TargetedProject ;
+    rdfs:label "LIBELUL"@en ;
+    proj:acronym "LIBELUL" .
+
+proj:TechniqueType_electrical-and-magnetic-characterization a proj:TechniqueType ;
+    rdfs:label "Electrical and magnetic characterization"@en .
+
+proj:TechniqueType_mechanical a proj:TechniqueType ;
+    rdfs:label "Mechanical"@en .
+
+proj:TechniqueType_multi-technology-characterization a proj:TechniqueType ;
+    rdfs:label "Multi-technology characterization"@en .
+
+proj:TechniqueType_structural a proj:TechniqueType ;
+    rdfs:label "Structural"@en .
+
+proj:DimensionType_1d a proj:DimensionType ;
+    rdfs:label "1D"@en .
+
+proj:DimensionType_4d a proj:DimensionType ;
+    rdfs:label "4D"@en .
+
+proj:Project_adam a proj:TargetedProject ;
+    rdfs:label "ADAM"@en ;
+    proj:acronym "ADAM" .
+
+proj:Project_amethyst a proj:TargetedProject ;
+    rdfs:label "AMETHYST"@en ;
+    proj:acronym "AMETHYST" .
+
+proj:Project_artemis a proj:TargetedProject ;
+    rdfs:label "ARTEMIS"@en ;
+    proj:acronym "ARTEMIS" .
+
+proj:Project_atherm-coat a proj:TargetedProject ;
+    rdfs:label "ATHERM_COAT"@en ;
+    proj:acronym "ATHERM_COAT" .
+
+proj:Project_hiway-2-mat a proj:TargetedProject ;
+    rdfs:label "HIWAY-2-MAT"@en ;
+    proj:acronym "HIWAY-2-MAT" .
+
+proj:Project_microelec a proj:TargetedProject ;
+    rdfs:label "MicroElec"@en ;
+    proj:acronym "MicroElec" .
+
+proj:Project_rubis a proj:TargetedProject ;
+    rdfs:label "RUBIS"@en ;
+    proj:acronym "RUBIS" .
+
+proj:TechniqueType_multi-tech a proj:TechniqueType ;
+    rdfs:label "Multi-tech"@en .
+
+proj:TechniqueType_spectroscopic a proj:TechniqueType ;
+    rdfs:label "Spectroscopic"@en .
+
+proj:TechniqueType_thermal a proj:TechniqueType ;
+    rdfs:label "Thermal"@en .
+
+proj:Project_a-dream a proj:TargetedProject ;
+    rdfs:label "A-DREAM"@en ;
+    proj:acronym "A-DREAM" .
+
+proj:Project_moflearning a proj:TargetedProject ;
+    rdfs:label "MOFlearning"@en ;
+    proj:acronym "MOFlearning" .
+
+proj:Project_soleil a proj:TargetedProject ;
+    rdfs:label "SOLEIL"@en ;
+    proj:acronym "SOLEIL" .
+
+proj:TechniqueType_spectroscopic-characterization a proj:TechniqueType ;
+    rdfs:label "Spectroscopic characterization"@en .
+
+proj:MaterialType_mofs a proj:MaterialType ;
+    rdfs:label "MOFs"@en .
+
+proj:Project_diams a proj:TargetedProject ;
+    rdfs:label "DIAMS"@en ;
+    proj:acronym "DIAMS" .
+
+proj:Project_esrf a proj:TargetedProject ;
+    rdfs:label "ESRF"@en ;
+    proj:acronym "ESRF" .
+
+proj:TechniqueType_chemical a proj:TechniqueType ;
+    rdfs:label "Chemical"@en .
+
+proj:TechniqueType_structural-characterization-and-diffraction a proj:TechniqueType ;
+    rdfs:label "Structural characterization and diffraction"@en .
+
+proj:DimensionType_3d a proj:DimensionType ;
+    rdfs:label "3D"@en .
+
+proj:TechniqueType_imaging a proj:TechniqueType ;
+    rdfs:label "Imaging"@en .
+
+proj:Project_fastnano a proj:TargetedProject ;
+    rdfs:label "FastNano"@en ;
+    proj:acronym "FastNano" .
+
+proj:DimensionType_2d a proj:DimensionType ;
+    rdfs:label "2D"@en .
+
+proj:MaterialType_metals a proj:MaterialType ;
+    rdfs:label "Metals"@en .
+
+proj:MaterialType_polymers a proj:MaterialType ;
+    rdfs:label "Polymers"@en .
+
+proj:MaterialType_metal a proj:MaterialType ;
+    rdfs:label "Metal"@en .
+
+proj:MaterialType_composites a proj:MaterialType ;
+    rdfs:label "Composites"@en .
+
+proj:MaterialType_ceramics a proj:MaterialType ;
+    rdfs:label "Ceramics"@en .
+
