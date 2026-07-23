@@ -2967,61 +2967,9 @@ document.getElementById('btnCenter').addEventListener('click', () => {
 });
 
 // ─────────────────────────────────────────────────────────────────
-// Help modal (ES / EN / FR)
+// Help modal (EN / FR)
 // ─────────────────────────────────────────────────────────────────
 const HELP_CONTENT = {
-    es: {
-        title: '❓ Guía de navegación',
-        subtitle: 'Hacé click en "❓ Help" en cualquier momento para volver a abrir esta ventana.',
-        body: `
-            <div class="help-section-title">📦 TBox vs ABox</div>
-            <p class="help-p">
-                <strong>TBox</strong> ("Terminological Box") = las <strong>clases</strong> de la ontología (los conceptos,
-                p.ej. <em>Project</em>, <em>Person</em>) y sus relaciones <code>subClassOf</code>.
-                Es el "esquema" / vocabulario de la ontología.
-            </p>
-            <p class="help-p">
-                <strong>ABox</strong> ("Assertional Box") = las <strong>instancias</strong> concretas
-                (p.ej. el proyecto <em>DIADEM</em>, la persona <em>Jean Dupont</em>) y sus relaciones entre sí.
-                Es el "dato" real.
-            </p>
-            <p class="help-p help-note">
-                Por defecto solo se muestra el ABox (instancias) — activá "TBox (Classes)" en la barra de herramientas
-                para ver también el esquema de clases.
-            </p>
-
-            <div class="help-section-title">🎛️ Botones de la barra de herramientas</div>
-            <ul class="help-ul">
-                <li><strong>ABox (Instances)</strong> — muestra/oculta los individuos (instancias) y sus vínculos.</li>
-                <li><strong>TBox (Classes)</strong> — muestra/oculta las clases de la ontología.</li>
-                <li><strong>subClassOf</strong> — muestra/oculta los vínculos de jerarquía entre clases (líneas sólidas).</li>
-                <li><strong>Object Properties</strong> — muestra/oculta las relaciones entre individuos/clases (líneas discontinuas).</li>
-                <li><strong>Datatype Props</strong> — muestra/oculta los atributos con valor literal (texto, número — líneas punteadas finas).</li>
-                <li><strong>🔗 Imported Concepts</strong> — carga y muestra conceptos de ontologías externas usados por las instancias.</li>
-            </ul>
-
-            <div class="help-section-title">🖱️ Interacción con el grafo</div>
-            <ul class="help-ul">
-                <li>Click en un <strong>nodo</strong>: lo resalta junto con sus vecinos directos y muestra sus detalles en el panel de la derecha.</li>
-                <li>Click en el <strong>fondo</strong> del grafo: resetea la vista.</li>
-                <li>La barra de <strong>búsqueda</strong> (🔍) filtra y resalta los nodos que coinciden.</li>
-            </ul>
-
-            <div class="help-section-title">📁 Panel Projects</div>
-            <p class="help-p">
-                Arriba a la derecha del grafo aparece un botón por cada instancia de <em>Project</em>
-                (<em>TargetedProject</em>, <em>AAPProject</em>, o cualquier subclase). Al hacer click en un botón,
-                se hace exactamente lo mismo que clickear ese nodo en el grafo: se resalta junto con sus conexiones directas.
-                El botón "✕" arriba del panel limpia el filtro.
-            </p>
-
-            <div class="help-section-title">🎨 Leyenda (parte inferior)</div>
-            <p class="help-p help-note">
-                Revisá la leyenda en la parte inferior de la pantalla para el significado de colores y estilos de línea
-                (subClassOf, Object Property, Datatype Property, rdf:type, Instance, Datatype, Imported Concept).
-            </p>`
-    },
-
     en: {
         title: '❓ Navigation guide',
         subtitle: 'Click "❓ Help" anytime to reopen this window.',
@@ -3127,10 +3075,10 @@ const HELP_CONTENT = {
     }
 };
 
-let currentHelpLang = 'es';
+let currentHelpLang = 'en';
 
 function renderHelpContent(lang) {
-    const c = HELP_CONTENT[lang] || HELP_CONTENT.es;
+    const c = HELP_CONTENT[lang] || HELP_CONTENT.en;
     currentHelpLang = lang;
     document.getElementById('helpTitle').textContent      = c.title;
     document.getElementById('helpSubtitle').textContent    = c.subtitle;
