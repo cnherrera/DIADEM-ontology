@@ -115,6 +115,15 @@
             <div class="loading-msg" id="loadingMsg">Uploading...</div>
         </div>
 
+        <!-- Projects panel — floating overlay, top-right of the graph -->
+        <div id="projectPanel" style="position:absolute;top:12px;right:12px;z-index:15;width:200px;max-height:75%;overflow-y:auto;background:rgba(255,255,255,0.96);border:1px solid #e5e0f5;border-radius:10px;box-shadow:0 4px 18px rgba(124,58,237,0.15);padding:10px;display:none;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <span style="font-size:0.72rem;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:0.03em;">📁 Projects</span>
+                <button id="btnProjectsReset" title="Clear project filter" style="background:none;border:none;cursor:pointer;color:#94a3b8;font-size:0.9rem;line-height:1;">✕</button>
+            </div>
+            <div id="projectButtonsList" style="display:flex;flex-direction:column;gap:6px;"></div>
+        </div>
+
     </div>
 
     <!-- Info panel -->
@@ -1437,6 +1446,7 @@ function initCytoscape(elements) {
         if (evt.target === cy) {
             cy.elements().removeClass('hl dim');
             resetInfoPanel();
+            clearActiveProjectButton();
         }
     });
 }
@@ -1753,6 +1763,137 @@ function focusNode(id) {
     highlightNode(node);
     renderInfoPanel(node);
 }
+
+// ─────────────────────────────────────────────────────────────────
+// Project buttons panel
+// ─────────────────────────────────────────────────────────────────
+
+// Names (local part of the URI) that count as "a Project class".
+// Add more names here if the ontology grows more Project subtypes.
+const PROJECT_CLASS_NAMES = new Set(['Project', 'TargetedProject', 'AAPProject']);
+
+function getProjectClassUris(ontology) {
+    // 1. Seed with any class in the TBox whose local name matches
+    const rootUris = new Set();
+    for (const uri of ontology.classes.keys()) {
+        if (PROJECT_CLASS_NAMES.has(localName(uri))) rootUris.add(uri);
+    }
+    // 2. Also seed with any rdf:type actually used by instances that matches
+    //    (covers the case where the TBox class declaration wasn't loaded)
+    for (const inst of ontology.instances.values()) {
+        for (const t of (inst.allTypes || [inst.type])) {
+            if (t && PROJECT_CLASS_NAMES.has(localName(t))) rootUris.add(t);
+        }
+    }
+
+    // 3. Expand transitively to any subclass of these (e.g. subclasses of Project
+    //    that aren't named Project/TargetedProject/AAPProject)
+    const childrenOf = new Map(); // superclass uri → [subclass uris]
+    for (const { from, to } of ontology.subClassEdges) {
+        if (!childrenOf.has(to)) childrenOf.set(to, []);
+        childrenOf.get(to).push(from);
+    }
+
+    const all = new Set(rootUris);
+    const queue = [...rootUris];
+    while (queue.length) {
+        const cur = queue.shift();
+        for (const child of (childrenOf.get(cur) || [])) {
+            if (!all.has(child)) {
+                all.add(child);
+                queue.push(child);
+            }
+        }
+    }
+    return all;
+}
+
+function getProjectInstances(ontology) {
+    if (!ontology) return [];
+    const projectClassUris = getProjectClassUris(ontology);
+    const result = [];
+    for (const inst of ontology.instances.values()) {
+        const types = inst.allTypes || [inst.type];
+        if (types.some(t => t && projectClassUris.has(t))) {
+            result.push(inst);
+        }
+    }
+    result.sort((a, b) => a.label.localeCompare(b.label));
+    return result;
+}
+
+let activeProjectUri = null;
+
+function renderProjectButtons(ontology) {
+    const panel = document.getElementById('projectPanel');
+    const list  = document.getElementById('projectButtonsList');
+    const projects = getProjectInstances(ontology);
+
+    activeProjectUri = null;
+    list.innerHTML = '';
+
+    if (!projects.length) {
+        panel.style.display = 'none';
+        return;
+    }
+
+    projects.forEach(inst => {
+        const btn = document.createElement('button');
+        btn.className = 'project-filter-btn';
+        btn.dataset.uri = inst.uri;
+        btn.textContent = inst.label;
+        btn.title = inst.uri;
+        btn.style.cssText = 'background:#f5f3ff;color:#5b21b6;border:1px solid #ddd6fe;' +
+            'border-radius:6px;padding:5px 10px;font-size:0.78rem;cursor:pointer;text-align:left;' +
+            'white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:background 0.15s,color 0.15s;';
+        btn.addEventListener('mouseenter', () => {
+            if (btn.dataset.uri !== activeProjectUri) btn.style.background = '#ede9fe';
+        });
+        btn.addEventListener('mouseleave', () => {
+            if (btn.dataset.uri !== activeProjectUri) btn.style.background = '#f5f3ff';
+        });
+        btn.addEventListener('click', () => selectProjectButton(inst.uri));
+        list.appendChild(btn);
+    });
+
+    panel.style.display = 'block';
+}
+
+function selectProjectButton(uri) {
+    if (!cy) return;
+    const node = cy.getElementById(uri);
+    if (!node.length) {
+        showToast('⚠ Project node not found in the current view.');
+        return;
+    }
+
+    activeProjectUri = uri;
+    document.querySelectorAll('#projectButtonsList .project-filter-btn').forEach(b => {
+        const isActive = b.dataset.uri === uri;
+        b.style.background = isActive ? '#7c3aed' : '#f5f3ff';
+        b.style.color      = isActive ? '#ffffff' : '#5b21b6';
+    });
+
+    // Same action as clicking the project's node directly in the graph
+    focusNode(uri);
+}
+
+function clearActiveProjectButton() {
+    activeProjectUri = null;
+    document.querySelectorAll('#projectButtonsList .project-filter-btn').forEach(b => {
+        b.style.background = '#f5f3ff';
+        b.style.color      = '#5b21b6';
+    });
+}
+
+document.getElementById('btnProjectsReset').addEventListener('click', () => {
+    clearActiveProjectButton();
+    if (cy) {
+        cy.elements().removeClass('hl dim');
+        cy.animate({ fit: { padding: 40 } }, { duration: 300 });
+    }
+    resetInfoPanel();
+});
 
 // ─────────────────────────────────────────────────────────────────
 // Layout application
@@ -2169,6 +2310,7 @@ async function processText(ttlText, sourceName) {
     document.getElementById('toolbar').style.display = 'flex';
     document.getElementById('legend').style.display  = 'flex';
     setStatus(`${nClass} classes · ${nInst} instances · ${nPEdges} object props · ${nDTEdges} datatype props — ${sourceName}`);
+    renderProjectButtons(ontology);
     setLoading(false);
 }
 
@@ -2195,6 +2337,7 @@ async function processStore(store, sourceName) {
     document.getElementById('legend').style.display  = 'flex';
 
     setStatus('Loaded with imports → ' + sourceName);
+    renderProjectButtons(ontology);
     setLoading(false);
 }
 // ─────────────────────────────────────────────────────────────────
@@ -2798,6 +2941,7 @@ document.getElementById('btnCenter').addEventListener('click', () => {
     if (cy) {
         cy.elements().removeClass('hl dim');
         resetInfoPanel();
+        clearActiveProjectButton();
         cy.animate({ fit: { padding: 40 } }, { duration: 300 });
     }
 });
