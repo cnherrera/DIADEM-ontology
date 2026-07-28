@@ -88,6 +88,12 @@
         <button id="btnFit"    class="icon-btn" title="Fit to screen">⊞ Fit</button>
         <button id="btnCenter" class="icon-btn" title="Reset view">↺ Reset</button>
     </div>
+    
+    <div class="tb-group">
+        <span class="tb-label">View par Project/Platform: </span>
+        <button id="btnProjectsToggle"  class="toggle-btn" title="Show a button for each Project instance">Projects</button>
+        <button id="btnPlatformsToggle" class="toggle-btn" title="Show a button for each Platform instance">Platforms</button>
+    </div>
 
     <div class="stats-area" id="statsArea"></div>
 </div>
@@ -123,6 +129,15 @@
                 <button id="btnProjectsReset" title="Clear project filter" style="background:none;border:none;cursor:pointer;color:#94a3b8;font-size:0.9rem;line-height:1;">✕</button>
             </div>
             <div id="projectButtonsList" style="display:flex;flex-direction:column;gap:6px;"></div>
+        </div>
+
+        <!-- Platforms panel — floating overlay, top-right of the graph -->
+        <div id="platformPanel" style="position:absolute;top:12px;right:12px;z-index:15;width:200px;max-height:75%;overflow-y:auto;background:rgba(255,255,255,0.96);border:1px solid #e5e0f5;border-radius:10px;box-shadow:0 4px 18px rgba(124,58,237,0.15);padding:10px;display:none;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <span style="font-size:0.72rem;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:0.03em;">🖥️ Platforms</span>
+                <button id="btnPlatformsReset" title="Clear platform filter" style="background:none;border:none;cursor:pointer;color:#94a3b8;font-size:0.9rem;line-height:1;">✕</button>
+            </div>
+            <div id="platformButtonsList" style="display:flex;flex-direction:column;gap:6px;"></div>
         </div>
 
     </div>
@@ -1465,7 +1480,7 @@ function initCytoscape(elements) {
         if (evt.target === cy) {
             cy.elements().removeClass('hl dim');
             resetInfoPanel();
-            clearActiveProjectButton();
+            clearActiveConceptButtons();
         }
     });
 }
@@ -1784,134 +1799,205 @@ function focusNode(id) {
 }
 
 // ─────────────────────────────────────────────────────────────────
-// Project buttons panel
+// Concept panels (Projects / Platforms) — floating buttons that
+// mirror clicking a node directly in the graph.
 // ─────────────────────────────────────────────────────────────────
 
-// Names (local part of the URI) that count as "a Project class".
-// Add more names here if the ontology grows more Project subtypes.
-const PROJECT_CLASS_NAMES = new Set(['Project', 'TargetedProject', 'AAPProject']);
+function createConceptPanel({ toggleBtnId, panelId, listId, resetBtnId, rootNames, label }) {
+    const toggleBtn = document.getElementById(toggleBtnId);
+    const panel     = document.getElementById(panelId);
+    const list      = document.getElementById(listId);
 
-function getProjectClassUris(ontology) {
-    // 1. Seed with any class in the TBox whose local name matches
-    const rootUris = new Set();
-    for (const uri of ontology.classes.keys()) {
-        if (PROJECT_CLASS_NAMES.has(localName(uri))) rootUris.add(uri);
-    }
-    // 2. Also seed with any rdf:type actually used by instances that matches
-    //    (covers the case where the TBox class declaration wasn't loaded)
-    for (const inst of ontology.instances.values()) {
-        for (const t of (inst.allTypes || [inst.type])) {
-            if (t && PROJECT_CLASS_NAMES.has(localName(t))) rootUris.add(t);
+    let activeUri  = null;
+    let instances  = [];
+
+    function getClassUris(ontology) {
+        // 1. Seed with any class in the TBox whose local name matches
+        const rootUris = new Set();
+        for (const uri of ontology.classes.keys()) {
+            if (rootNames.has(localName(uri))) rootUris.add(uri);
         }
-    }
-
-    // 3. Expand transitively to any subclass of these (e.g. subclasses of Project
-    //    that aren't named Project/TargetedProject/AAPProject)
-    const childrenOf = new Map(); // superclass uri → [subclass uris]
-    for (const { from, to } of ontology.subClassEdges) {
-        if (!childrenOf.has(to)) childrenOf.set(to, []);
-        childrenOf.get(to).push(from);
-    }
-
-    const all = new Set(rootUris);
-    const queue = [...rootUris];
-    while (queue.length) {
-        const cur = queue.shift();
-        for (const child of (childrenOf.get(cur) || [])) {
-            if (!all.has(child)) {
-                all.add(child);
-                queue.push(child);
+        // 2. Also seed with any rdf:type actually used by instances that matches
+        //    (covers the case where the TBox class declaration wasn't loaded)
+        for (const inst of ontology.instances.values()) {
+            for (const t of (inst.allTypes || [inst.type])) {
+                if (t && rootNames.has(localName(t))) rootUris.add(t);
             }
         }
+        // 3. Expand transitively to any subclass of these
+        const childrenOf = new Map(); // superclass uri → [subclass uris]
+        for (const { from, to } of ontology.subClassEdges) {
+            if (!childrenOf.has(to)) childrenOf.set(to, []);
+            childrenOf.get(to).push(from);
+        }
+        const all = new Set(rootUris);
+        const queue = [...rootUris];
+        while (queue.length) {
+            const cur = queue.shift();
+            for (const child of (childrenOf.get(cur) || [])) {
+                if (!all.has(child)) {
+                    all.add(child);
+                    queue.push(child);
+                }
+            }
+        }
+        return all;
     }
-    return all;
-}
 
-function getProjectInstances(ontology) {
-    if (!ontology) return [];
-    const projectClassUris = getProjectClassUris(ontology);
-    const result = [];
-    for (const inst of ontology.instances.values()) {
-        const types = inst.allTypes || [inst.type];
-        if (types.some(t => t && projectClassUris.has(t))) {
-            result.push(inst);
+    function getInstances(ontology) {
+        if (!ontology) return [];
+        const classUris = getClassUris(ontology);
+        const result = [];
+        for (const inst of ontology.instances.values()) {
+            const types = inst.allTypes || [inst.type];
+            if (types.some(t => t && classUris.has(t))) {
+                result.push(inst);
+            }
+        }
+        result.sort((a, b) => a.label.localeCompare(b.label));
+        return result;
+    }
+
+    function clearActive() {
+        activeUri = null;
+        list.querySelectorAll('.concept-filter-btn').forEach(b => {
+            b.style.background = '#f5f3ff';
+            b.style.color      = '#5b21b6';
+        });
+    }
+
+    function select(uri) {
+        if (!cy) return;
+        const node = cy.getElementById(uri);
+        if (!node.length) {
+            showToast(`⚠ ${label} node not found in the current view.`);
+            return;
+        }
+        activeUri = uri;
+        list.querySelectorAll('.concept-filter-btn').forEach(b => {
+            const isActive = b.dataset.uri === uri;
+            b.style.background = isActive ? '#7c3aed' : '#f5f3ff';
+            b.style.color      = isActive ? '#ffffff' : '#5b21b6';
+        });
+        // Same action as clicking this node directly in the graph
+        focusNode(uri);
+    }
+
+    function renderButtons(ontology) {
+        instances = getInstances(ontology);
+        activeUri = null;
+        list.innerHTML = '';
+
+        instances.forEach(inst => {
+            const btn = document.createElement('button');
+            btn.className = 'concept-filter-btn';
+            btn.dataset.uri = inst.uri;
+            btn.textContent = inst.label;
+            btn.title = inst.uri;
+            btn.style.cssText = 'background:#f5f3ff;color:#5b21b6;border:1px solid #ddd6fe;' +
+                'border-radius:6px;padding:5px 10px;font-size:0.78rem;cursor:pointer;text-align:left;' +
+                'white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:background 0.15s,color 0.15s;';
+            btn.addEventListener('mouseenter', () => {
+                if (btn.dataset.uri !== activeUri) btn.style.background = '#ede9fe';
+            });
+            btn.addEventListener('mouseleave', () => {
+                if (btn.dataset.uri !== activeUri) btn.style.background = '#f5f3ff';
+            });
+            btn.addEventListener('click', () => select(inst.uri));
+            list.appendChild(btn);
+        });
+
+        // Grey out the toolbar toggle if this ontology has nothing of this kind
+        const hasAny = instances.length > 0;
+        toggleBtn.disabled     = !hasAny;
+        toggleBtn.style.opacity = hasAny ? '' : '0.4';
+        toggleBtn.style.cursor  = hasAny ? '' : 'not-allowed';
+
+        if (isActive()) {
+            panel.style.display = hasAny ? 'block' : 'none';
+            if (!hasAny) toggleBtn.classList.remove('on-rose');
         }
     }
-    result.sort((a, b) => a.label.localeCompare(b.label));
-    return result;
-}
 
-let activeProjectUri = null;
+    function isActive() {
+        return toggleBtn.classList.contains('on-rose');
+    }
 
-function renderProjectButtons(ontology) {
-    const panel = document.getElementById('projectPanel');
-    const list  = document.getElementById('projectButtonsList');
-    const projects = getProjectInstances(ontology);
+    function show() {
+        panel.style.display = 'block';
+        toggleBtn.classList.add('on-rose');
+    }
 
-    activeProjectUri = null;
-    list.innerHTML = '';
-
-    if (!projects.length) {
+    function hide() {
         panel.style.display = 'none';
-        return;
+        toggleBtn.classList.remove('on-rose');
+        clearActive();
     }
 
-    projects.forEach(inst => {
-        const btn = document.createElement('button');
-        btn.className = 'project-filter-btn';
-        btn.dataset.uri = inst.uri;
-        btn.textContent = inst.label;
-        btn.title = inst.uri;
-        btn.style.cssText = 'background:#f5f3ff;color:#5b21b6;border:1px solid #ddd6fe;' +
-            'border-radius:6px;padding:5px 10px;font-size:0.78rem;cursor:pointer;text-align:left;' +
-            'white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:background 0.15s,color 0.15s;';
-        btn.addEventListener('mouseenter', () => {
-            if (btn.dataset.uri !== activeProjectUri) btn.style.background = '#ede9fe';
+    const resetBtn = document.getElementById(resetBtnId);
+    if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+            clearActive();
+            if (cy) {
+                cy.elements().removeClass('hl dim');
+                cy.animate({ fit: { padding: 40 } }, { duration: 300 });
+            }
+            resetInfoPanel();
         });
-        btn.addEventListener('mouseleave', () => {
-            if (btn.dataset.uri !== activeProjectUri) btn.style.background = '#f5f3ff';
-        });
-        btn.addEventListener('click', () => selectProjectButton(inst.uri));
-        list.appendChild(btn);
-    });
-
-    panel.style.display = 'block';
-}
-
-function selectProjectButton(uri) {
-    if (!cy) return;
-    const node = cy.getElementById(uri);
-    if (!node.length) {
-        showToast('⚠ Project node not found in the current view.');
-        return;
     }
 
-    activeProjectUri = uri;
-    document.querySelectorAll('#projectButtonsList .project-filter-btn').forEach(b => {
-        const isActive = b.dataset.uri === uri;
-        b.style.background = isActive ? '#7c3aed' : '#f5f3ff';
-        b.style.color      = isActive ? '#ffffff' : '#5b21b6';
-    });
-
-    // Same action as clicking the project's node directly in the graph
-    focusNode(uri);
+    return { renderButtons, show, hide, isActive, clearActive };
 }
 
-function clearActiveProjectButton() {
-    activeProjectUri = null;
-    document.querySelectorAll('#projectButtonsList .project-filter-btn').forEach(b => {
-        b.style.background = '#f5f3ff';
-        b.style.color      = '#5b21b6';
-    });
+const projectPanelCtrl = createConceptPanel({
+    toggleBtnId: 'btnProjectsToggle',
+    panelId:     'projectPanel',
+    listId:      'projectButtonsList',
+    resetBtnId:  'btnProjectsReset',
+    rootNames:   new Set(['Project', 'TargetedProject', 'AAPProject']),
+    label:       'Project'
+});
+
+const platformPanelCtrl = createConceptPanel({
+    toggleBtnId: 'btnPlatformsToggle',
+    panelId:     'platformPanel',
+    listId:      'platformButtonsList',
+    resetBtnId:  'btnPlatformsReset',
+    rootNames:   new Set(['Platform']),
+    label:       'Platform'
+});
+
+// Renders both panels' button lists (called after loading an ontology).
+// Project panel is shown automatically.
+function renderConceptPanels(ontology) {
+    projectPanelCtrl.renderButtons(ontology);
+    platformPanelCtrl.renderButtons(ontology);
+    projectPanelCtrl.show(); 
 }
 
-document.getElementById('btnProjectsReset').addEventListener('click', () => {
-    clearActiveProjectButton();
-    if (cy) {
-        cy.elements().removeClass('hl dim');
-        cy.animate({ fit: { padding: 40 } }, { duration: 300 });
+// Clears the highlighted selection in both panels (used on background click / Reset)
+function clearActiveConceptButtons() {
+    projectPanelCtrl.clearActive();
+    platformPanelCtrl.clearActive();
+}
+
+// Projects and Platforms are mutually exclusive: turning one on turns the other off.
+document.getElementById('btnProjectsToggle').addEventListener('click', () => {
+    if (projectPanelCtrl.isActive()) {
+        projectPanelCtrl.hide();
+    } else {
+        platformPanelCtrl.hide();
+        projectPanelCtrl.show();
     }
-    resetInfoPanel();
+});
+
+document.getElementById('btnPlatformsToggle').addEventListener('click', () => {
+    if (platformPanelCtrl.isActive()) {
+        platformPanelCtrl.hide();
+    } else {
+        projectPanelCtrl.hide();
+        platformPanelCtrl.show();
+    }
 });
 
 // ─────────────────────────────────────────────────────────────────
@@ -2329,7 +2415,7 @@ async function processText(ttlText, sourceName) {
     document.getElementById('toolbar').style.display = 'flex';
     document.getElementById('legend').style.display  = 'flex';
     setStatus(`${nClass} classes · ${nInst} instances · ${nPEdges} object props · ${nDTEdges} datatype props — ${sourceName}`);
-    renderProjectButtons(ontology);
+    renderConceptPanels(ontology);
     setLoading(false);
 }
 
@@ -2356,7 +2442,7 @@ async function processStore(store, sourceName) {
     document.getElementById('legend').style.display  = 'flex';
 
     setStatus('Loaded with imports → ' + sourceName);
-    renderProjectButtons(ontology);
+    renderConceptPanels(ontology);
     setLoading(false);
 }
 // ─────────────────────────────────────────────────────────────────
@@ -2960,7 +3046,7 @@ document.getElementById('btnCenter').addEventListener('click', () => {
     if (cy) {
         cy.elements().removeClass('hl dim');
         resetInfoPanel();
-        clearActiveProjectButton();
+        clearActiveConceptButtons();
         cy.animate({ fit: { padding: 40 } }, { duration: 300 });
     }
 });
