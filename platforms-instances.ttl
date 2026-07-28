@@ -5,7 +5,7 @@
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 @prefix plat:     <https://cnherrera.github.io/DIADEM-ontology/platforms-instances.ttl#> .
 
-<https://cnherrera.github.io/DIADEM-ontology/platforms-instances.ttl> . rdf:type owl:Ontology ;
+<https://cnherrera.github.io/DIADEM-ontology/platforms-instances.ttl> rdf:type owl:Ontology ;
     dcterms:description "Instances of proj:Platform (and related MaterialType, DimensionType, TechniqueType, TargetedProject individuals) generated automatically from Platformes.ods."@en ;
     dcterms:title "PEPR DIADEM Platforms ABox"@en ;
     owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> .
