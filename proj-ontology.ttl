@@ -126,10 +126,9 @@ proj:ResearchOrganization rdf:type owl:Class ;
     rdfs:comment "An organization performing research activities."@en .
 
 proj:ResearchPerson rdf:type owl:Class ;
-    rdfs:subClassOf foaf:Person .
+    rdfs:subClassOf foaf:Person ;
     rdfs:label   "Person"@en , "Personne"@fr ;
     rdfs:comment "A natural person involved in the program and/or project."@en .
-
 
 ### no needed???
 proj:Membership rdf:type owl:Class ;
