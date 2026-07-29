@@ -1,0 +1,310 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/projects/proj-ontology.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/people.ttl> a owl:Ontology ;
+    rdfs:comment "Instances general DIADEM people" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/projects/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl> ;
+    owl:versionInfo "0.1" .
+
+:AADHITYAN_ARIVAZHAGAN rdf:type proj:ResearchPerson ;
+    foaf:familyName "Arivazhagan" ;
+    foaf:givenName "Aadhityan" ;
+    foaf:mbox "mailto:aadhityan.arivazhagan@sorbonne-universite.fr" ;
+    foaf:name "Aadhityan Arivazhagan" ;
+    proj:employedBy org:Sorbonne  .
+
+:ADRIEN_BRUNETON rdf:type proj:ResearchPerson ;
+    foaf:familyName "Bruneton" ;
+    foaf:givenName "Adrien" ;
+    foaf:mbox "mailto:adrien.bruneton@cea.fr" ;
+    foaf:name "Adrien Bruneton" ;
+    proj:employedBy org:CEASaclay .
+#hasOrcid
+
+:AHMED_AMRANI rdf:type proj:ResearchPerson ;
+    foaf:familyName "Amrani" ;
+    foaf:givenName "Ahmed" ;
+    foaf:mbox "mailto:ahmed.amrani@cea.fr" ;
+    foaf:name "Ahmed Amrani" ;
+    proj:employedBy org:CEA-LIST .
+
+:AKSHAY_AMMOTHUM_KANDY rdf:type proj:ResearchPerson ;
+    rdfs:seeAlso <file:///homelocal/ch279548/DIADEM/Ontology/DIADEM-ontology/projects/www.linkedin.com/in/aksam432>,
+        <https://scholar.google.com/citations?user=iE9GGREAAAAJ&hl=sv> ;
+    foaf:familyName "Ammothum kandy" ;
+    foaf:givenName "Akshay" ;
+    foaf:mbox "mailto:akshaykrishnaak9@gmail.com" ;
+    foaf:name "Akshay Ammothum kandy" ;
+    proj:employedBy org:IMPMC  .
+
+:ANRUO_ZHONG rdf:type proj:ResearchPerson ;
+    foaf:familyName "Zhong" ;
+    foaf:givenName "Anruo" ;
+    foaf:mbox "mailto:Anruo.ZHONG@cea.fr" ;
+    foaf:name "Anruo Zhong" ;
+    proj:employedBy org:CEA-SRMP .
+
+:ARAWINTH_CAMATCHY rdf:type proj:ResearchPerson ;
+    foaf:familyName "Camatchy" ;
+    foaf:givenName "Arawinth" ;
+    foaf:mbox "mailto:arawinth.camatchy@cea.fr" ;
+    foaf:name "Arawinth Camatchy" ;
+    proj:employedBy org:CEA-IRIG  .
+
+:ARTHUR_FRANCE_LANORD rdf:type proj:ResearchPerson ;
+    foaf:familyName "France-Lanord" ;
+    foaf:givenName "Arthur" ;
+    foaf:mbox "mailto:arthur.france-lanord@sorbonne-universite.fr" ;
+    foaf:name "Arthur France-Lanord" ;
+    proj:employedBy org:Sorbonne  .
+
+:BA rdf:type proj:ResearchPerson ;
+    foaf:familyName "Arrondeau" ;
+    foaf:givenName "Benjamin" ;
+    foaf:mbox "mailto:benjamin.arrondeau@univ-grenoble-alpes.fr" ;
+    foaf:name "Benjamin Arrondeau" ;
+    proj:employedBy org:GRICAD .
+
+:CINTHYA_HERRERA rdf:type proj:ResearchPerson ;
+    rdfs:seeAlso <https://diamond-diadem.github.io/team/cinthya-herrera/>,
+        <https://www.linkedin.com/in/cinthyaherrera/> ;
+    foaf:familyName "Herrera" ;
+    foaf:givenName "Cinthya" ;
+    foaf:mbox "mailto:cinthya.herreracontreras@cea.fr" ;
+    foaf:name "Cinthya Herrera Contreras" ;
+    proj:employedBy org:CEA-IRIG ;
+    proj:hasOrcid <https://orcid.org/0000-0001-6405-0785> .
+
+:DAVID_MARTIN_CALLE rdf:type proj:ResearchPerson ;
+    foaf:familyName "Martin-Calle" ;
+    foaf:givenName "David" ;
+    foaf:mbox "mailto:david.martin-calle@univ-lyon1.fr" ;
+    foaf:name "David Martin-Calle" ;
+    proj:employedBy org:ILM  .
+
+:DORIAN_ROLLAND rdf:type proj:ResearchPerson ;
+    foaf:familyName "Rolland" ;
+    foaf:givenName "Dorian" ;
+    foaf:mbox "mailto:dorian.rolland@cea.fr" ;
+    foaf:name "Dorian Rolland" ;
+    proj:employedBy org:CEA-IRIG .
+
+:DR rdf:type proj:ResearchPerson ;
+    rdfs:seeAlso <https://diamond-diadem.github.io/team/david-rodney/> ;
+    foaf:familyName "Rodney" ;
+    foaf:givenName "David" ;
+    foaf:mbox "mailto:david.rodney@univ-lyon1.fr" ;
+    foaf:name "David Rodney" ;
+    proj:employedBy org:ILM  .
+
+:D_BISSUEL rdf:type proj:ResearchPerson ;
+    foaf:familyName "Dylan" ;
+    foaf:givenName "Bissuel" ;
+    foaf:name "Dylan Bissuel" ;
+    proj:employedBy org:iLM .
+
+:ETIENNE_POLACK rdf:type proj:ResearchPerson ;
+    foaf:familyName "Polack" ;
+    foaf:givenName "Etienne" ;
+    foaf:mbox "mailto:etienne.polack@cea.fr" ;
+    foaf:name "Etienne Polack" ;
+    proj:employedBy org:CEA-IRIG .
+
+:FEIROUZ_KSONTINI rdf:type proj:ResearchPerson ;
+    foaf:familyName "Feirouz" ;
+    foaf:givenName "Ksontini" ;
+    foaf:mbox "mailto:feirouz.ksontini@cea.fr" ;
+    foaf:name "Feirouz Ksontini" ;
+    proj:employedBy org:CEA-LIST .
+
+:FW rdf:type proj:ResearchPerson ;
+    rdfs:seeAlso <https://diamond-diadem.github.io/team/fran-ois-willaime/> ;
+    foaf:familyName "Willaime" ;
+    foaf:givenName "François" ;
+    foaf:mbox "mailto:francois.willaime@cea.fr" ;
+    foaf:name "François Willaime" ;
+    proj:employedBy org:CEA-LGLS .
+
+
+:GABRIELE_CASSETTA rdf:type proj:ResearchPerson ;
+    foaf:familyName "Gabriele" ;
+    foaf:givenName "Cassetta" ;
+    foaf:mbox "mailto:gabriele.cassetta@cea.fr" ;
+    foaf:name "Gabriele Cassetta" ;
+    proj:employedBy org:CEA-SGLS  .
+
+:GEOFFREY_DANIEL rdf:type proj:ResearchPerson ;
+    foaf:familyName "Daniel" ;
+    foaf:givenName "Geoffrey" ;
+    foaf:mbox "mailto:geoffrey.daniel@cea.fr" ;
+    foaf:name "Geoffrey Daniel" ;
+    proj:employedBy org:CEASaclay  .
+
+:IMANOL_SETOAIN rdf:type proj:ResearchPerson ;
+    foaf:familyName "Setoain" ;
+    foaf:givenName "Imanol" ;
+    foaf:mbox "mailto:imanol.setoain@cea.fr" ;
+    foaf:name "Imanol Setoain" ;
+    proj:employedBy org:CEA-LIST  .
+
+:IRINA_PIAZZA rdf:type proj:ResearchPerson ;
+    rdfs:seeAlso <https://scholar.google.com/citations?user=BlPP-x4AAAAJ&hl=fr&oi=ao>,
+        <https://www.linkedin.com/in/irina-piazza/> ;
+    foaf:familyName "Piazza" ;
+    foaf:givenName "Irina" ;
+    foaf:mbox "mailto:irina.piazza@grenoble-inp.fr" ;
+    foaf:name "Irina Piazza" ;
+    proj:employedBy org:SIMAP  .
+
+:JONATHAN_DAUBIN rdf:type proj:ResearchPerson ;
+    foaf:familyName "Daubin" ;
+    foaf:givenName "Jonathan" ;
+    foaf:mbox "mailto:jonathan.daubin@cea.fr" ;
+    foaf:name "Jonathan Daubin" ;
+    proj:employedBy org:CEA-SGLS .
+
+:JPADM rdf:type proj:ResearchPerson ;
+    rdfs:seeAlso <https://diamond-diadem.github.io/team/joao-paulo-almeida/>,
+        <https://scholar.google.com/citations?user=KtS3vY4AAAAJ>,
+        <https://www.linkedin.com/in/jo%C3%A3o-paulo-almeida-de-mendon%C3%A7a-574598b1/> ;
+    foaf:familyName "Almeida de Mendonca" ;
+    foaf:givenName "Joao Paulo" ;
+    foaf:mbox "mailto:joao-paulo.almeida-de-mendonca@grenoble-inp.fr" ;
+    foaf:name "Joao Paulo Almeida de Mendoca" ;
+    proj:employedBy org:SIMAP .
+
+:JPP rdf:type proj:ResearchPerson ;
+    foaf:familyName "Poli" ;
+    foaf:givenName "Jean-Philippe" ;
+    foaf:mbox "mailto:jean-philippe.poli@cea.fr" ;
+    foaf:name "Jean-Philippe Poli" ;
+    proj:employedBy org:CEA-LIST .
+
+:KarimAA rdf:type proj:ResearchPerson ;
+    foaf:familyName "Aït Ammar" ;
+    foaf:givenName "Karim" ;
+    foaf:mbox "mailto:karim.aitammar@cea.fr" ;
+    foaf:name "Karim Aït Ammar" ;
+    proj:employedBy org:CEA-SGLS .
+
+:LEO_ORVEILLON rdf:type proj:ResearchPerson ;
+    rdfs:seeAlso <https://www.linkedin.com/in/leo-orveillon/> ;
+    foaf:familyName "Orveillon" ;
+    foaf:givenName "Léo" ;
+    foaf:mbox "mailto:leo.orveillon@univ-grenoble-alpes.fr" ;
+    foaf:name "Leo Orveillon" ;
+    proj:employedBy org:GRICAD  .
+
+:LORENZO_PAULATTO rdf:type proj:ResearchPerson ;
+    foaf:familyName "Paulatto" ;
+    foaf:givenName "Lorenzo" ;
+    foaf:mbox "mailto:Lorenzo.paulatto@sorbonne-universite.fr" ;
+    foaf:name "Lorenzo Paulatto" ;
+    proj:employedBy org:Sorbonne  .
+
+:MARTIN_UHRIN rdf:type proj:ResearchPerson ;
+    foaf:familyName "Uhrin" ;
+    foaf:givenName "Martin" ;
+    foaf:mbox "mailto:martin.uhrin@grenoble-inp.fr" ;
+    foaf:name "Martin Uhrin" ;
+    proj:employedBy org:SIMAP .
+
+:MAY_CHOUEIB rdf:type proj:ResearchPerson ;
+    foaf:familyName "Choueib" ;
+    foaf:givenName "May" ;
+    foaf:mbox "mailto:may.choueid@univ-lyon1.fr" ;
+    foaf:name "May Choueib" ;
+    proj:employedBy org:iLM  .
+
+:MIHAI_COSMIN_MARINICA rdf:type proj:ResearchPerson ;
+    foaf:familyName "Marinica" ;
+    foaf:givenName "Mihai-Cosmin" ;
+    foaf:mbox "mailto:cosmin.marinica@cea.fr" ;
+    foaf:name "Mihai-Cosmin Marinica" ;
+    proj:employedBy org:CEA-SRMP  .
+
+:MS rdf:type proj:ResearchPerson ;
+    rdfs:seeAlso <https://diamond-diadem.github.io/team/marco-saitta/> ;
+    foaf:familyName "Saitta" ;
+    foaf:givenName "Marco" ;
+    foaf:mbox "mailto:marco.saitta@sorbonne-universite.fr" ;
+    foaf:name "A. Marco Saitta" ;
+    proj:employedBy org:Sorbonne .
+
+:NICOLAS_CROUZET rdf:type proj:ResearchPerson ;
+    foaf:familyName "Crouzet" ;
+    foaf:givenName "Nicolas" ;
+    foaf:mbox "mailto:nicolas.crouzet@cea.fr" ;
+    foaf:name "Nicolas Crouzet" ;
+    proj:employedBy org:CEA-SGLS  .
+
+:NICOLA_VIGANO rdf:type proj:ResearchPerson ;
+    foaf:familyName "Vigano" ;
+    foaf:givenName "Nicola" ;
+    foaf:mbox "mailto:nicola.vigano@cea.fr" ;
+    foaf:name "Nicola Vigano" ;
+    proj:employedBy org:CEA-IRIG  .
+
+:NILS_KASCH rdf:type proj:ResearchPerson ;
+    rdfs:seeAlso <file:///homelocal/ch279548/DIADEM/Ontology/DIADEM-ontology/projects/www.linkedin.com/in/nils-kasch> ;
+    foaf:familyName "Kasch" ;
+    foaf:givenName "Nils" ;
+    foaf:mbox "mailto:nils.kasch@cea.fr" ;
+    foaf:name "Nils Kasch" ;
+    proj:employedBy org:CEA-SGLS .
+
+:NJ rdf:type proj:ResearchPerson ;
+    rdfs:seeAlso <https://diamond-diadem.github.io/team/no-l-jakse/> ;
+    foaf:familyName "Jakse" ;
+    foaf:givenName "Noël" ;
+    foaf:mbox "mailto:noel.jakse@grenoble-inp.fr" ;
+    foaf:name "Noël Jakse" ;
+    proj:employedBy org:GrenobleINP .
+
+:OMAR_BENYAHYA rdf:type proj:ResearchPerson ;
+    foaf:familyName "Benyahya" ;
+    foaf:givenName "Omar" ;
+    foaf:mbox "mailto:omar.benyahya@cea.fr" ;
+    foaf:name "Omar Benyahya" ;
+    proj:employedBy org:CEA-LIST .
+
+:PAB rdf:type proj:ResearchPerson ;
+    rdfs:seeAlso <https://www.linkedin.com/in/pierre-antoine-bouttier/> ;
+    foaf:familyName "Bouttier" ;
+    foaf:givenName "Pierre-Antoine" ;
+    foaf:mbox "mailto:pierre-antoine.bouttier@univ-grenoble-alpes.fr" ;
+    foaf:name "Pierre-Antoine Bouttier" ;
+    proj:employedBy org:GRICAD .
+
+
+:THIERRY_DEUTSCH rdf:type proj:ResearchPerson ;
+    rdfs:seeAlso <https://diamond-diadem.github.io/team/thierry-deutsch/> ;
+    foaf:familyName "Deutsch" ;
+    foaf:givenName "Thierry" ;
+    foaf:mbox "mailto:thierry.deutsch@cea.fr" ;
+    foaf:name "Thierry Deutsch" ;
+    proj:employedBy org:CEA-IRIG .
+
+:VB rdf:type proj:ResearchPerson ;
+    rdfs:seeAlso <https://diamond-diadem.github.io/team/vincent-bergeaud/> ;
+    foaf:familyName "Bergeaud" ;
+    foaf:givenName "Vincent" ;
+    foaf:mbox "mailto:vincent.bergeaud@cea.fr" ;
+    foaf:name "Vincent Bergeaud" ;
+    proj:employedBy org:CEA-LIST .
+
+
+:YAIDEL_TOLEDO rdf:type proj:ResearchPerson ;
+    foaf:familyName "Yaidel" ;
+    foaf:givenName "Toledo Gonzalez" ;
+    foaf:mbox "mailto:yaidel.toledogonzalez@cea.fr" ;
+    foaf:name "Yaidel Toledo Gonzalez" ;
+    proj:employedBy org:CEA-SGLS .

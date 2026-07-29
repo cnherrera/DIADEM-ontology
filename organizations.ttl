@@ -1,0 +1,149 @@
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations/> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/organizations.ttl>
+    a owl:Ontology ;
+    rdfs:comment "DIADEM organization instances."@en ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+#################################################################
+# Organizations
+#################################################################
+
+
+org:CNRS rdf:type proj:ResearchOrganization ;
+    rdfs:label "CNRS"@en ;
+    skos:prefLabel "CNRS"@en ;
+    proj:acronym "CNRS" ;
+    proj:fullName 
+        "Centre National de la Recherche Scientifique"@fr ,
+        "French National Centre for Scientific Research"@en ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" ;
+    proj:hasROR  <https://ror.org/02feahw73> .
+
+
+org:CEA rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA"@en ;
+    skos:prefLabel "CEA"@en ;
+    proj:acronym "CEA" ;
+    proj:fullName
+        "Commissariat à l'énergie atomique et aux énergies alternatives"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+org:CEA-MEM rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA-MEM"@en ;
+    skos:prefLabel "CEA-MEM"@en ;
+    proj:acronym "CEA-MEM" ;
+    proj:fullName
+        "Laboratoire Modélisation et Exploration des Matériaux"@fr ,
+        "Matter Exploration and Modeling Laboratory"@en ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA .
+
+org:CEA-IRIG rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA-IRIG"@en ;
+    skos:prefLabel "CEA-IRIG"@en ;
+    proj:acronym "CEA-IRIG" ;
+    proj:fullName
+        "Institut de recherche interdisciplinaire de Grenoble"@fr ,
+        "Interdisciplinary Research Institute of Grenoble"@en ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA .
+
+org:CEA-LIST rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA-LIST"@en ;
+    skos:prefLabel "CEA-LIST"@en ;
+    proj:acronym "CEA-LIST" ;
+    proj:fullName "Laboratoire d'Intégration de Systèmes et des Technologies"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA .
+
+org:CEASaclay rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA Saclay"@en ;
+    skos:prefLabel "CEA Saclay"@en ;
+    proj:acronym "CEA Saclay" ;
+    proj:organizationType "Research center" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA .
+
+
+org:CEA-SRMP rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA-SRMP"@en ;
+    skos:prefLabel "CEA-SRMP"@en ;
+    proj:acronym "CEA-SRMP" ;
+    proj:fullName
+        "Service de Recherches de Métallurgie Physique"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA .
+
+org:GrenobleINP rdf:type proj:ResearchOrganization ;
+    rdfs:label "Grenoble INP"@en ;
+    skos:prefLabel "Grenoble INP"@en ;
+    proj:acronym "Grenoble INP" ;
+    proj:fullName
+        "Institut polytechnique de Grenoble"@fr ,
+        "Grenoble Institute of Technology"@en ;
+    proj:organizationType "University" ;
+    proj:country "France" .
+
+
+org:GRICAD rdf:type proj:ResearchOrganization ;
+    rdfs:label "GRICAD"@en ;
+    skos:prefLabel "GRICAD"@en ;
+    proj:acronym "GRICAD" ;
+    proj:fullName
+        "Grenoble Alpes Recherche - Infrastructure de Calcul intensif et de Données"@fr ,
+        "Grenoble Alpes Research Scientific Computing and Data Infrastructure"@en ;
+    proj:organizationType "Research infrastructure" ;
+    proj:country "France" .
+
+org:ILM rdf:type proj:ResearchOrganization ;
+    rdfs:label "iLM"@en ;
+    skos:prefLabel "iLM"@en ;
+    proj:acronym "iLM" ;
+    proj:fullName
+        "Institut Lumière Matière"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:IMPMC rdf:type proj:ResearchOrganization ;
+    rdfs:label "IMPMC"@en ;
+    skos:prefLabel "IMPMC"@en ;
+    proj:acronym "IMPMC" ;
+    proj:fullName
+        "Institut de Minéralogie, de Physique des Matériaux et de Cosmochimie"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:Sorbonne rdf:type proj:ResearchOrganization ;
+    rdfs:label "Sorbonne University"@en ;
+    skos:prefLabel "Sorbonne Université"@fr ;
+    proj:acronym "SU" ;
+    proj:fullName
+        "Sorbonne Université"@fr ,
+        "Sorbonne University"@en ;
+    proj:organizationType "University" ;
+    proj:country "France" .
+
+org:SIMAP rdf:type proj:ResearchOrganization ;
+    rdfs:label "SIMaP"@en ;
+    skos:prefLabel "SIMaP"@en ;
+    proj:acronym "SIMaP" ;
+    proj:fullName "Science et Ingénierie des Matériaux et Procédés"@fr ,
+        "Science and Engineering of Materials and Processes"@en ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
