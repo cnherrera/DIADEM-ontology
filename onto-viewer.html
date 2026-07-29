@@ -703,7 +703,15 @@ function extractOntology(store) {
     // 
     // Capturar todos los Literales para el panel de detalles
     for (const q of store.getQuads(null, null, null, null)) {
-        if (q.object.termType === 'Literal' || q.predicate.value.includes('hasURL')) {
+        if (q.predicate.value === RDF + 'type') continue;
+
+        const isLiteral = q.object.termType === 'Literal';
+        // URI objects that are NOT themselves a known instance (e.g. rdfs:seeAlso,
+        // foaf:mbox, proj:hasOrcid pointing to mailto:/orcid.org/external pages)
+        // never become graph edges, so they must be captured here or they vanish.
+        const isExternalRef = q.object.termType === 'NamedNode' && !instances.has(q.object.value);
+
+        if (isLiteral || isExternalRef || q.predicate.value.includes('hasURL')) {
             const inst = instances.get(q.subject.value);
             if (inst) {
                 const pred = q.predicate.value;
@@ -729,7 +737,8 @@ function extractOntology(store) {
 
                 inst.attributes.push({
                     prop: predLocal,
-                    value: q.object.value
+                    value: q.object.value,
+                    isRef: isExternalRef
                 });
             }
         }
@@ -1505,7 +1514,11 @@ function highlightNode(node) {
 function formatAttributeValue(val) {
     // Verificamos si es una URL simple
     if (typeof val === 'string' && (val.startsWith('http://') || val.startsWith('https://'))) {
-        return `<a href="${val}" target="_blank" style="color:#2563eb; text-decoration:underline;">${val}</a>`;
+        return `<a href="${esc(val)}" target="_blank" style="color:#2563eb; text-decoration:underline;">${esc(val)}</a>`;
+    }
+    // mailto:, tel:, etc. — other URI schemes worth making clickable
+    if (typeof val === 'string' && /^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(val) && val.startsWith('mailto:')) {
+        return `<a href="${esc(val)}" style="color:#2563eb; text-decoration:underline;">${esc(val.replace('mailto:', ''))}</a>`;
     }
     // Si no es URL, lo devolvemos tal cual (escapado por seguridad)
     return esc(val);
