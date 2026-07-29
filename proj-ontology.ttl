@@ -117,12 +117,19 @@ proj:AAPProject rdf:type owl:Class ;
 # -- Organizations & People -----------------------------------------------
 
 proj:Organization rdf:type owl:Class ;
-    rdfs:label   "Organization"@en , "Organisation"@fr ;
-    rdfs:comment "A legal or academic entity (laboratory, university, company, …)."@en .
+    rdfs:label "Organization"@en , "Organisation"@fr ;
+    rdfs:comment "A legal or academic entity involved in a program, such as a laboratory, university, research institute, company or infrastructure."@en .
 
-proj:Person rdf:type owl:Class ;
+proj:ResearchOrganization rdf:type owl:Class ;
+    rdfs:subClassOf proj:Organization ;
+    rdfs:label "Research organization"@en ;
+    rdfs:comment "An organization performing research activities."@en .
+
+proj:ResearchPerson rdf:type owl:Class ;
+    rdfs:subClassOf foaf:Person .
     rdfs:label   "Person"@en , "Personne"@fr ;
     rdfs:comment "A natural person involved in the program and/or project."@en .
+
 
 ### no needed???
 proj:Membership rdf:type owl:Class ;
@@ -162,7 +169,31 @@ proj:Competence rdf:type owl:Class ;
     rdfs:comment "A skill, domain expertise or technical ability."@en .
 
 
+# -- Call for Projects -------------------------------------------------------
+# Class, properties and canonical instances
+proj:Call rdf:type owl:Class ;
+    rdfs:label "Call for projects"@en , "Appel à projets"@fr ;
+    rdfs:comment "A funding call through which AAP projects are selected."@en .
 
+proj:callYear rdf:type owl:DatatypeProperty ;
+    rdfs:domain proj:Call ;
+    rdfs:range xsd:gYear ;
+    rdfs:label "call year"@en .
+
+proj:selectedInCall rdf:type owl:ObjectProperty ;
+    rdfs:domain proj:AAPProject ;
+    rdfs:range proj:Call ;
+    rdfs:label "selected in call"@en .
+
+proj:Call2023
+    rdf:type proj:Call ;
+    rdfs:label "AAP 2023"@en ;
+    proj:callYear "2023"^^xsd:gYear .
+
+proj:Call2024
+    rdf:type proj:Call ;
+    rdfs:label "AAP 2024"@en ;
+    proj:callYear "2024"^^xsd:gYear .
 # ─────────────────────────────────────────────
 #  Object Properties
 # ─────────────────────────────────────────────
@@ -252,7 +283,7 @@ proj:producesProduct rdf:type owl:ObjectProperty ;
 
 proj:hasContributor rdf:type owl:ObjectProperty ;
     rdfs:domain  proj:WorkPackage ;
-    rdfs:range   proj:Person ;
+    rdfs:range   proj:ResearchPerson ;
     rdfs:label   "has contributor"@en .
 
 proj:hasLeadOrganization rdf:type owl:ObjectProperty ;
@@ -262,12 +293,12 @@ proj:hasLeadOrganization rdf:type owl:ObjectProperty ;
 
 # Person → Competence / Membership
 proj:hasCompetence rdf:type owl:ObjectProperty ;
-    rdfs:domain  [ owl:unionOf ( proj:Person proj:WorkPackage ) ] ;
+    rdfs:domain  [ owl:unionOf ( proj:ResearchPerson proj:WorkPackage ) ] ;
     rdfs:range   proj:Competence ;
     rdfs:label   "has competence"@en .
 
 proj:hasMembership rdf:type owl:ObjectProperty ;
-    rdfs:domain  proj:Person ;
+    rdfs:domain  proj:ResearchPerson ;
     rdfs:range   proj:Membership ;
     rdfs:label   "has membership"@en .
 
@@ -284,21 +315,44 @@ proj:memberRole rdf:type owl:DatatypeProperty ;
 # Project ↔ Person (generic participation)
 proj:involvesPerson rdf:type owl:ObjectProperty ;
     rdfs:domain  proj:Project ;
-    rdfs:range   proj:Person ;
+    rdfs:range   proj:ResearchPerson ;
     rdfs:label   "involves person"@en .
 
 
 # ─────────────────────────────────────────────
 #  Datatype Properties
 # ─────────────────────────────────────────────
+proj:employedBy rdf:type owl:ObjectProperty ;
+    rdfs:domain proj:Person ;
+    rdfs:range proj:Organization ;
+    skos:prefLabel "employed by" ;
+    owl:inverseOf proj:employs .
+
+proj:employs rdf:type owl:ObjectProperty ;
+    skos:prefLabel "employs" ;
+    rdfs:domain proj:Organization ;
+    rdfs:range proj:Person ;
+    owl:inverseOf proj:employedBy .
+
 
 proj:identifier rdf:type owl:DatatypeProperty ;
     rdfs:label   "identifier"@en ;
     rdfs:range   xsd:string .
 
 proj:acronym rdf:type owl:DatatypeProperty ;
-    rdfs:label   "acronym"@en ;
+    rdfs:label   "Acronym"@en ;
     rdfs:range   xsd:string .
+
+#proj:acronym rdf:type owl:DatatypeProperty ;
+#    rdfs:domain proj:Organization ;
+#    rdfs:range xsd:string ;
+#    rdfs:label "Acronym"@en .
+
+proj:fullName rdf:type owl:DatatypeProperty ;
+#    rdfs:domain proj:Organization ;
+    rdfs:domain  [ owl:unionOf ( proj:Organization proj:Project ) ] ;
+    rdfs:range xsd:string ;
+    rdfs:label "Full name"@en .    
 
 proj:description rdf:type owl:DatatypeProperty ;
     rdfs:label   "description"@en ;
@@ -331,29 +385,37 @@ proj:fundingSource rdf:type owl:DatatypeProperty ;
     rdfs:range   xsd:string ;
     rdfs:label   "funding source"@en .
 
-proj:orcid rdf:type owl:DatatypeProperty ;
-    rdfs:domain  proj:Person ;
-    rdfs:range   xsd:anyURI ;
-    rdfs:label   "ORCID"@en .
+proj:country rdf:type owl:DatatypeProperty ;
+    rdfs:domain proj:Organization ;
+    rdfs:range xsd:string ;
+    rdfs:label "Country"@en .
 
-proj:email rdf:type owl:DatatypeProperty ;
-    rdfs:range   xsd:string ;
-    rdfs:label   "email"@en .
+# University - Research institute - Laboratory- Infrastructure - Company
+proj:organizationType rdf:type owl:DatatypeProperty ;
+    rdfs:domain proj:Organization ;
+    rdfs:range xsd:string ;
+    rdfs:label "Organization type"@en .
 
-proj:firstName rdf:type owl:DatatypeProperty ;
-    rdfs:domain  proj:Person ;
-    rdfs:range   xsd:string ;
-    rdfs:label   "first name"@en .
+proj:partOfOrganization rdf:type owl:ObjectProperty ;
+    rdfs:domain proj:Organization ;
+    rdfs:range proj:Organization .
 
-proj:lastName rdf:type owl:DatatypeProperty ;
-    rdfs:domain  proj:Person ;
-    rdfs:range   xsd:string ;
-    rdfs:label   "last name"@en .
+#proj:hasOrcid rdf:type owl:ObjectProperty ;
+#    rdfs:domain proj:ResearchPerson ;
+#    rdfs:range xsd:anyURI ;
+#    rdfs:label   "ORCID"@en .
 
-proj:rorID rdf:type owl:DatatypeProperty ;
-    rdfs:domain  proj:Organization ;
-    rdfs:range   xsd:anyURI ;
-    rdfs:label   "ROR identifier"@en .
+proj:hasOrcid rdf:type owl:ObjectProperty ;
+    rdfs:domain proj:ResearchPerson ;
+    rdfs:label "ORCID identifier"@en .
+
+#proj:rorID rdf:type owl:DatatypeProperty ;
+#    rdfs:domain  proj:Organization ;
+#    rdfs:range   xsd:anyURI ;
+#    rdfs:label   "ROR identifier"@en .
+proj:hasROR rdf:type owl:ObjectProperty ;
+    rdfs:domain proj:Organization ;
+    rdfs:label "ROR identifier"@en .
 
 proj:goalDescription rdf:type owl:DatatypeProperty ;
     rdfs:domain  proj:Platform ;
