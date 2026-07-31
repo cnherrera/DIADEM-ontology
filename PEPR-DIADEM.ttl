@@ -1,0 +1,225 @@
+###############################################################################
+# PEPR DIADEM project – INSTANCES
+#
+# Version     : 1.0
+# Date        : 2026-04-22
+# Sources     :
+#   - https://www.pepr-diadem.fr/
+#
+# Authors     : DIAMOND - WP2 team
+#
+# Notes       :
+#   EN – This file contains the instances for the PEPR DIADEM project,
+#        encompassing people and institutions inviolved in the project,
+#        projects and platforms.
+# 
+#   FR – Ce fichier contient les instances pour le projet PEPR DIADEM,
+#        englobant les personnes et les institutions impliquées dans le
+#        projet, les projets et les plateformes.
+###############################################################################
+
+@prefix :     <https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM.ttl#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl:  <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org:  <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ppd:  <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+# anadir projectos individuales
+
+<https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM.ttl> rdf:type owl:Ontology ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl> ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/platforms-instances.ttl> ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/projects/project-diamond.ttl> ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl> .
+
+#################################################################
+# DIADEM PROGRAM
+#################################################################
+
+:DIADEM rdf:type proj:Program ;
+    rdfs:label "PEPR DIADEM"@en ;
+    proj:acronym "PEPR-DIADEM" ;
+    proj:fullName "Discovery Acceleration for the Deployment of Emerging Materials"@en ,
+        "Dispositifs Intégrés pour l’Accélération du Déploiement de Matériaux Emergents"@fr ;
+    proj:description
+        "Priority Research Program and Equipment on the development of innovative materials using artificial intelligence."@en ;
+    proj:documentationURL "https://www.pepr-diadem.fr"^^xsd:anyURI ;
+    proj:startDate "2023-01-01"^^xsd:date ;
+    proj:endDate "2030-12-31"^^xsd:date ;
+    proj:hasCoLeadInstitution org:CNRS ;
+    proj:hasCoLeadInstitution org:CEA ;
+    proj:hasCoLeadPerson ppl:FREDERIC_SCHUSTER ;
+    proj:hasCoLeadPerson ppl:MARIO_MAGLIONE ;
+    proj:hasFunding :Fund_DIADEM ;
+    proj:hasPlatform plat:DimensionType_0d ;
+    proj:hasPlatform plat:DimensionType_1d ;
+    proj:hasPlatform plat:DimensionType_2d ;
+    proj:hasPlatform plat:DimensionType_3d ;
+    proj:hasPlatform plat:DimensionType_4d ;
+    proj:hasPlatform plat:DimensionType_autres-d ;
+    proj:hasPlatform plat:MaterialType_ceramics ;
+    proj:hasPlatform plat:MaterialType_composites ;
+    proj:hasPlatform plat:MaterialType_metal ;
+    proj:hasPlatform plat:MaterialType_metals ;
+    proj:hasPlatform plat:MaterialType_mofs ;
+    proj:hasPlatform plat:MaterialType_organometallic ;
+    proj:hasPlatform plat:MaterialType_polymers ;
+    proj:hasPlatform plat:Platform_1600c-so-called-pixelated-sintering-oven ;
+    proj:hasPlatform plat:Platform_3d-4d-poudrinnov-metal-polymer-additive-manufacturing ;
+    proj:hasPlatform plat:Platform_3d-printer-6-axis-biopol-in-operando ;
+    proj:hasPlatform plat:Platform_3d-printing-l-pbf-in-operando ;
+    proj:hasPlatform plat:Platform_3d-saclay-powder-bed-cladding-wire-extrusion ;
+    proj:hasPlatform plat:Platform_3d-tomography-reconstruction ;
+    proj:hasPlatform plat:Platform_5-axis-additive-and-subtractive-manufacturing-frame-instrumented-for-ai-and-high-precision ;
+    proj:hasPlatform plat:Platform_afm-microscope ;
+    proj:hasPlatform plat:Platform_atm-pecvd-equipment ;
+    proj:hasPlatform plat:Platform_automated-traction-torsion-bench ;
+    proj:hasPlatform plat:Platform_automated-xrd-synthesis-and-characterization-of-powder-libraries ;
+    proj:hasPlatform plat:Platform_autonomous-robotic-synthesis-of-powders-and-thin-films ;
+    proj:hasPlatform plat:Platform_bioresources-imaging-biochemistry-structure ;
+    proj:hasPlatform plat:Platform_combinatorial-growth-of-heterostructures-by-combinatorial-pulsed-laser-deposition ;
+    proj:hasPlatform plat:Platform_combinatorial-low-pressure-micro-cold-spray-equipment ;
+    proj:hasPlatform plat:Platform_combinatorial-pvd ;
+    proj:hasPlatform plat:Platform_conventional-metallurgy ;
+    proj:hasPlatform plat:Platform_damco-accelerated-development-of-corrosion-materials ;
+    proj:hasPlatform plat:Platform_darmicols-accelerated-development-of-coatings-and-microstructures-by-cold-spray ;
+    proj:hasPlatform plat:Platform_daum-tube ;
+    proj:hasPlatform plat:Platform_diffraction-at-synchrotron-soleil ;
+    proj:hasPlatform plat:Platform_dli-mocvd-antidote-equipment ;
+    proj:hasPlatform plat:Platform_fabrication-and-characterization-of-standardized-millifluidic-chips ;
+    proj:hasPlatform plat:Platform_gas-adsorption-in-mofs ;
+    proj:hasPlatform plat:Platform_gas-analyzer-for-exhausts-gazes-of-the-combustion-calorimetry ;
+    proj:hasPlatform plat:Platform_gisaxs-giwaxs-at-esrf ;
+    proj:hasPlatform plat:Platform_herfd-xas-at-esrf ;
+    proj:hasPlatform plat:Platform_high-speed-lab-swaxs ;
+    proj:hasPlatform plat:Platform_high-throughput-3d-metallurgy-insstek-3d ;
+    proj:hasPlatform plat:Platform_high-throughput-millifluidic-synthesis-in-hydro-solvothermal-conditions-of-materials-with-online-control-by-raman-spectroscopy ;
+    proj:hasPlatform plat:Platform_high-throughput-mofs-synthesis ;
+    proj:hasPlatform plat:Platform_high-throughput-platform-for-synthesis-and-characterization-of-polymers-by-flow-chemistry ;
+    proj:hasPlatform plat:Platform_high-throughput-platform-for-the-implementation-and-characterization-of-polymer-matrix-composites ;
+    proj:hasPlatform plat:Platform_high-throughput-powder-x-ray-diffractometer ;
+    proj:hasPlatform plat:Platform_high-throughput-thermogravimetric-analysis ;
+    proj:hasPlatform plat:Platform_hybrid-pvd-reactor ;
+    proj:hasPlatform plat:Platform_imaging-at-synchrotron-soleil ;
+    proj:hasPlatform plat:Platform_in-line-raman-spectrometer ;
+    proj:hasPlatform plat:Platform_instrumented-nanoindenter ;
+    proj:hasPlatform plat:Platform_laue-microdiffraction-at-esrf ;
+    proj:hasPlatform plat:Platform_mobile-libs-platform ;
+    proj:hasPlatform plat:Platform_multi-characterization-by-libs-raman-photoluminescence-imaging ;
+    proj:hasPlatform plat:Platform_multi-technique-goniometer-reflectivity-at-esrf ;
+    proj:hasPlatform plat:Platform_nano-hybrid-1d-2d-anapurna ;
+    proj:hasPlatform plat:Platform_nanoparticles-gas-route-fsp ;
+    proj:hasPlatform plat:Platform_nanoparticles-liquid-route ;
+    proj:hasPlatform plat:Platform_operando-characterization-of-electronic-structure-under-electrical-stress ;
+    proj:hasPlatform plat:Platform_optical-multi-characterization-platform-for-two-dimensional-materials ;
+    proj:hasPlatform plat:Platform_plasto-dilatometer-for-synchrotron-beamline ;
+    proj:hasPlatform plat:Platform_pvd-tripros-reactor ;
+    proj:hasPlatform plat:Platform_realcat ;
+    proj:hasPlatform plat:Platform_reflectivity-at-synchrotron-soleil ;
+    proj:hasPlatform plat:Platform_robotic-synthesis-of-van-der-waals-heterostructures ;
+    proj:hasPlatform plat:Platform_saxs-waxs-at-esrf ;
+    proj:hasPlatform plat:Platform_spatial-ald ;
+    proj:hasPlatform plat:Platform_spectroscopy-at-synchrotron-soleil ;
+    proj:hasPlatform plat:Platform_spray-deposition-and-laser-annealing ;
+    proj:hasPlatform plat:Platform_structural-and-electrical-characterization-of-2d-gradient-layers ;
+    proj:hasPlatform plat:Platform_synthesis-of-2d-materials-by-cvd ;
+    proj:hasPlatform plat:Platform_two-photon-light-polymerization ;
+    proj:hasPlatform plat:Platform_ultra-fast-high-energy-x-ray-detector ;
+    proj:hasPlatform plat:Platform_x-ray-absorption-spectroscopy-at-esrf ;
+    proj:hasPlatform plat:Platform_x-ray-ptychography-imaging-at-esrf ;
+    proj:hasPlatform plat:Project_2fast ;
+    proj:hasPlatform plat:Project_a-dream ;
+    proj:hasPlatform plat:Project_adam ;
+    proj:hasPlatform plat:Project_advance ;
+    proj:hasPlatform plat:Project_amethyst ;
+    proj:hasPlatform plat:Project_artemis ;
+    proj:hasPlatform plat:Project_atherm-coat ;
+    proj:hasPlatform plat:Project_diams ;
+    proj:hasPlatform plat:Project_dream-bio ;
+    proj:hasPlatform plat:Project_esrf ;
+    proj:hasPlatform plat:Project_fastnano ;
+    proj:hasPlatform plat:Project_hiway-2-mat ;
+    proj:hasPlatform plat:Project_libelul ;
+    proj:hasPlatform plat:Project_metsa-set-dia ;
+    proj:hasPlatform plat:Project_microelec ;
+    proj:hasPlatform plat:Project_moflearning ;
+    proj:hasPlatform plat:Project_rubis ;
+    proj:hasPlatform plat:Project_soleil ;
+    proj:hasPlatform plat:TechniqueType_analysis-and-specific-platforms ;
+    proj:hasPlatform plat:TechniqueType_analysis-specific-platforms ;
+    proj:hasPlatform plat:TechniqueType_chemical ;
+    proj:hasPlatform plat:TechniqueType_electrical-and-magnetic-characterization ;
+    proj:hasPlatform plat:TechniqueType_electrical-magnetic ;
+    proj:hasPlatform plat:TechniqueType_imaging ;
+    proj:hasPlatform plat:TechniqueType_mechanical ;
+    proj:hasPlatform plat:TechniqueType_multi-tech ;
+    proj:hasPlatform plat:TechniqueType_multi-technology-characterization ;
+    proj:hasPlatform plat:TechniqueType_spectroscopic ;
+    proj:hasPlatform plat:TechniqueType_spectroscopic-characterization ;
+    proj:hasPlatform plat:TechniqueType_structural ;
+    proj:hasPlatform plat:TechniqueType_structural-characterization-and-diffraction ;
+    proj:hasPlatform plat:TechniqueType_thermal ;
+    proj:hasTargetedProject proj:Project_2fast ;
+    proj:hasTargetedProject proj:Project_adam ;
+    proj:hasTargetedProject proj:Project_a-dream ;
+    proj:hasTargetedProject proj:Project_amethyst ;
+    proj:hasTargetedProject proj:Project_artemis ;
+    proj:hasTargetedProject proj:Project_atherm-coat ;
+    proj:hasTargetedProject proj:Project_diamond ;
+    proj:hasTargetedProject proj:Project_diams ;
+    proj:hasTargetedProject proj:Project_esrf ;
+    proj:hasTargetedProject proj:Project_fast-in-fuels ;
+    proj:hasTargetedProject proj:Project_fastnano ;
+    proj:hasTargetedProject proj:Project_hiway-2-mat ;
+    proj:hasTargetedProject proj:Project_libelul ;
+    proj:hasTargetedProject proj:Project_metsa-set-dia ;
+    proj:hasTargetedProject proj:Project_microelec ;
+    proj:hasTargetedProject proj:Project_moflearning ;
+    proj:hasTargetedProject proj:Project_photonia ;
+    proj:hasTargetedProject proj:Project_rubis ;
+    proj:hasTargetedProject proj:Project_soleil ;
+    proj:hasAAPProject proj:Project_advance ;
+    proj:hasAAPProject proj:Project_aleutian ;
+    proj:hasAAPProject proj:Project_amadeus ;
+    proj:hasAAPProject proj:Project_asterix ;
+    proj:hasAAPProject proj:Project_biman ;
+    proj:hasAAPProject proj:Project_crocus ;
+    proj:hasAAPProject proj:Project_dream-bio ;
+    proj:hasAAPProject proj:Project_greenfoam ;
+    proj:hasAAPProject proj:Project_grenat ;
+    proj:hasAAPProject proj:Project_m2p2-hea ;
+    proj:hasAAPProject proj:Project_madness ;
+    proj:hasAAPProject proj:Project_match-up ;
+    proj:hasAAPProject proj:Project_miam ;
+    proj:hasAAPProject proj:Project_mistral ;
+    proj:hasAAPProject proj:Project_nacre ;
+    proj:hasAAPProject proj:Project_optiscraps ;
+    proj:hasAAPProject proj:Project_phurious ;
+    proj:hasAAPProject proj:Project_ai-mahc ;
+    proj:hasAAPProject proj:Project_ammetis ;
+    proj:hasAAPProject proj:Project_catana-2 ;
+    proj:hasAAPProject proj:Project_cinderella ;
+    proj:hasAAPProject proj:Project_cinema ;
+    proj:hasAAPProject proj:Project_coast ;
+    proj:hasAAPProject proj:Project_collectif ;
+    proj:hasAAPProject proj:Project_explormat ;
+    proj:hasAAPProject proj:Project_greentea ;
+    proj:hasAAPProject proj:Project_lumen ;
+    proj:hasAAPProject proj:Project_masky ;
+    proj:hasAAPProject proj:Project_nanophia ;
+    proj:hasAAPProject proj:Project_reborn ;
+    proj:hasAAPProject proj:Project_simoics ;
+    proj:hasAAPProject proj:Project_syneart .
+
+:Fund_DIADEM rdf:type proj:Funding ;
+    proj:fundingAmount 30000000.0 ;
+    proj:fundingCurrency "EUR"^^xsd:string ;
+    proj:fundingSource "ANR / France 2030"^^xsd:string .
