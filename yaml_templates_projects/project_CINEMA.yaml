@@ -7,7 +7,7 @@
 # ─────────────────────────────────────────────────────────────────────────────
 
 project:
-  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  type: "AAP2024"          # REQUIRED - "Targeted" or "AAP"
   acronym: "CINEMA"      # REQUIRED - short identifier, no spaces (used as RDF local name)
   title: "Smart growth of novel thin films of enhanced functional oxides"   # REQUIRED
   description: >          # REQUIRED - free text, multiline OK

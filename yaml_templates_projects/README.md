@@ -60,7 +60,7 @@ For each Work Package in your file, ensure you fill:
 
 # Step-by-Step Workflow for Teams
  
-**You can either do the following, or just email us back with your modified file.**
+ > s**You can either do the following, or just email us back with your modified file.**
 
 
 1. Clone the repository:

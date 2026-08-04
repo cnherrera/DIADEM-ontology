@@ -7,7 +7,7 @@
 # ─────────────────────────────────────────────────────────────────────────────
 
 project:
-  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  type: "AAP2024"          # REQUIRED - "Targeted" or "AAP"
   acronym: "GREENTEA"      # REQUIRED - short identifier, no spaces (used as RDF local name)
   title: "high-throughput GeneRation via machinE lEarning of New ThErmoelectric sulfide alloys composed of Abundant elements"   # REQUIRED
   description: >          # REQUIRED - free text, multiline OK

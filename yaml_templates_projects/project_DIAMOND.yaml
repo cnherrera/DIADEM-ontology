@@ -7,51 +7,41 @@
 # ─────────────────────────────────────────────────────────────────────────────
 
 project:
-  type: "AAP2024"          # REQUIRED - "Targeted" or "AAP"
-  acronym: "AMMETIS"      # REQUIRED - short identifier, no spaces (used as RDF local name)
-  title: "AI-assisted Simulations of Microstructure driven Mechanical properties from high Throughput and multiscale analysIS"   # REQUIRED
+  type: "Targeted"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "DIAMOND"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Data management and Infrastructures for Artificial intelligence, Modelling, Optimization and Numerical Design"   # REQUIRED
   description: >          # REQUIRED - free text, multiline OK
-    Le projet AMMETIS (AI-assisted Simulations of Microstructure driven MEchanical
-    properties from high Throughput and multiscale analysIS) a pour objectif d’accélérer
-    notre capacité à prédire de façon fiable le comportement en service des nouvelles
-    innovations matériaux proposées pour répondre aux enjeux de la transition
-    énergétique. Cet objectif implique : (1) Le développement d’une plateforme
-    expérimentale de caractérisation haut débit à l’échelle mésoscopique (cartographies
-    mécaniques par nanoindentation et corrélation d’images/EBSD haute résolution in-situ
-    MEB) pour une meilleure compréhension des relations microstructures/mécanismes de
-    déformation/comportements macroscopiques en service, (2) Le développement de modèles
-    de plasticité cristalline innovants (intégrant la Mécanique de Champ de Dislocations
-    et la Plasticité à Gradient de Déformations). Ces modèles seront enrichis par
-    l'expérience pour améliorer leurs capacités prédictives et appliqués au polycristal
-    via des calculs résolus par FFT massivement parallélisés, (3) Le développement de
-    modèles réduits basés sur l’IA, capables de prédire en temps réel les propriétés
-    mécaniques en connaissant la microstructure, adaptés à une intégration dans un
-    calcul de structure. Ce projet ambitieux regroupe 4 partenaires nationaux et est
-    soutenu financièrement par deux partenaires industriels (ArcelorMittal et
-    SafranTech). De plus, il sera enrichi par des collaborations avec deux laboratoires
-    étrangers engagés dans des défis semblables. Les méthodologies seront optimisées et
-    validées sur l’INCONEL718 en tant que matériau modèle, puis mises en oeuvre pour
-    mieux comprendre et prédire le comportement : (1) des aciers de 3ème génération
-    issus des procédés décarbonés pour approfondir l'impact des éléments résiduels sur
-    le comportement mécanique en lien avec la microstructure (ARCELORMITTAL Maizières
-    Research), (2) des matériaux à gradient de composition chimique et/ou de
-    microstructure en superalliage base nickel avec des applications à la réparation des
-    pièces de structure, en particulier (SafranTech).
-  start_date: "2026-02-01"   # REQUIRED  YYYY-MM-DD
-  end_date:   "2030-01-30"   # REQUIRED  YYYY-MM-DD
-  documentation_url: "https://www.pepr-diadem.fr/projet/ammetis/"   # optional
+    L’objectif principal de ce projet ciblé est de mettre en place une infrastructure
+    numérique pour accélérer le développement des matériaux. Elle est basée d’une part
+    sur une plateforme dédiée aux codes de simulation aux différentes échelles et aux
+    workflows pour l’automatisation de séries de calculs, dont les calculs à haut débit
+    et le traitement des résultats par intelligence artificielle (IA) et d’autre part
+    sur une infrastructure de bases de données venant à la fois des expériences et des
+    simulations. Pour chacune de ces infrastructures, des cas d’usage issus des projets
+    ciblés en coursont été identifiés pour servir d’exemple et s’assurer de l’adéquation
+    avec les besoins des utilisateurs, ils concernent les projets MOF-learning, ESRF et
+    FastNano. Un démonstrateur utilisant ces deux infrastructures sera également
+    développé, il sera consacré au développement par apprentissage machine de potentiels
+    interatomiques pour les simulations à l’échelle atomique. Les cahiers des charges de
+    ces infrastructures et ce démonstrateur seront établis en s’appuyant sur des groupes
+    de travail avec des représentants des principaux laboratoires concernés. La
+    plateforme codes et workflows sera développée et déployée au meso-centre de calcul
+    GRICAD et l’infrastructure de bases de données sera déployée au TGCC.
+  start_date: "2023-04-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2029-03-31"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.pepr-diadem.fr/projet/diamond/"   # optional
   associated_platforms: []  # List the associated DIADEM platforms - optional
 
   # ── Lead & co-lead ───────────────────────────────────────────────────────
   lead:
     person:                # REQUIRED
-      first_name: "Nathalie"
-      last_name:  "GEY"
+      first_name: "François"
+      last_name:  "WILLAIME"
       email:      null    # optional
       orcid:      null    # optional
     institution:           # REQUIRED
-      acronym:   "CNRS"
-      full_name: "CNRS"
+      acronym:   "CEA"
+      full_name: "CEA"
       ror:       null  # optional
 
   colead:                  # optional block - leave fields null if there is no co-lead
@@ -67,17 +57,35 @@ project:
 
   # ── Partner organisations ─────────────────────────────────────────────────
   organizations:           # REQUIRED - at least one
-    - acronym:   "LEM3"
-      full_name: "Laboratoire d'Etude des Microstructures et de Mécanique des Matériaux (UMR 7239 CNRS/Université de Lorraine/Arts et Métiers)"
+    - acronym:   "SIMaP"
+      full_name: "Sciences et Ingénierie, Matériaux, Procédés (UMR 5266 CNRS/Grenoble INP/Univ. Grenoble Alpes)"
       ror:       null  # optional
-    - acronym:   "ICA"
-      full_name: "Institut Clément Ader (UMR 5312 CNRS/IMT mines Albi/INSA Toulouse/ISAE SUPAERO/Univ Toulouse 3)"
+    - acronym:   "CEA Irig/MEM"
+      full_name: "Laboratoire Modélisation et Exploration des Matériaux (CEA/Univ. Grenoble Alpes)"
       ror:       null  # optional
-    - acronym:   "PIMM"
-      full_name: "Procédés et Ingénierie en Mécanique et Matériaux (UMR 8006 CNRS/CNAM Paris/Arts et Métiers)"
+    - acronym:   "LPENS"
+      full_name: "Laboratoire de physique de l'ENS (UMR 8023 CNRS/ENS Paris/Sorbonne Univ./U Paris Cité/Univ. Paris Sciences et Lettres)"
       ror:       null  # optional
-    - acronym:   "CEA Saclay"
-      full_name: "CEA Saclay"
+    - acronym:   "ILM"
+      full_name: "Institut Lumière Matière (UMR 5306 CNRS/UCBL)"
+      ror:       null  # optional
+    - acronym:   "GRICAD"
+      full_name: "Grenoble Alpes Recherche Infrastructure de Calcul Intensif et de Données (UAR 3758 CNRS/UGA/Grenoble-INP/INRIA)"
+      ror:       null  # optional
+    - acronym:   "CEA/DEN/DANS/DMN/SRMP"
+      full_name: "Section de Recherches de Métallurgie Physique - CEA-Saclay"
+      ror:       null  # optional
+    - acronym:   "CEA/DEN/DANS/DM2S/SGLS"
+      full_name: "Service de Génie Logiciel pour la Simulation - CEA-Saclay"
+      ror:       null  # optional
+    - acronym:   "CEA List - DIN"
+      full_name: "Département d'Instrumentation Numérique - CEA-Saclay"
+      ror:       null  # optional
+    - acronym:   "CEA/DES"
+      full_name: "Direction Scientifique des Energies - CEA-Saclay"
+      ror:       null  # optional
+    - acronym:   "CEA/DAM/DSSI"
+      full_name: "Département des sciences de la simulation et de l'information - CEA-Bruyères-le-Châtel"
       ror:       null  # optional
 
 # ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
@@ -85,45 +93,21 @@ project:
 keywords:
 
   competences:
-  - "Microstructure"
-  - "mechanical properties"
-  - "metal alloys"
-  - "surfaces"
-  - "interfaces"
-  - "high-throughput characterization"
-  - "in-situ testing"
-  - "microscopy"
-  - "nanoindentation"
-  - "micromechanics"
-  - "crystal plasticity models"
-  - "gradient plasticity"
-  - "homogenization"
-  - "reduced models"
-  - "artificial intelligence.\n\nMicrostructure"
-  - "propriétés mécaniques"
-  - "alliages métalliques"
-  - "surfaces"
-  - "interfaces"
-  - "caractérisation à haut débit"
-  - "essais in situ"
-  - "microscopie"
-  - "nanoindentation"
-  - "micromécanique"
-  - "modèles de plasticité cristalline"
-  - "plasticité gradient"
-  - "homogénéisation"
-  - "modèles réduits"
-  - "intelligence artificielle."
-  - "models"
-  - "microstructure"
-  - "ebsd"
-  - "crystal"
-  - "nanoindentation"
-  - "crystal plasticity"
-  - "microstructural"
+  - "Plateformes"
+  - "codes"
+  - "données"
+  - "intelligence artificielle"
+  - "workflows"
+  - "infrastructure"
+  - "simulation"
+  - "learning"
+  - "machine"
+  - "machine learning"
   - "simulations"
-  - "modeling"
-  - "structural"
+  - "artificial"
+  - "artificial intelligence"
+  - "regression"
+  - "database infrastructure"
 
   scientific_domain: []  # fill by hand
 

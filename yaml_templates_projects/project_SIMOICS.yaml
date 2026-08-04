@@ -7,7 +7,7 @@
 # ─────────────────────────────────────────────────────────────────────────────
 
 project:
-  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  type: "AAP2024"          # REQUIRED - "Targeted" or "AAP"
   acronym: "SIMOICS"      # REQUIRED - short identifier, no spaces (used as RDF local name)
   title: "Simulation and Instrumentation for Multi-Objective Optimization by Artificial Intelligence – Cold Spray"   # REQUIRED
   description: >          # REQUIRED - free text, multiline OK

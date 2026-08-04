@@ -7,7 +7,7 @@
 # ─────────────────────────────────────────────────────────────────────────────
 
 project:
-  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  type: "AAP2024"          # REQUIRED - "Targeted" or "AAP"
   acronym: "NanoPhia"      # REQUIRED - short identifier, no spaces (used as RDF local name)
   title: "Understanding nanoparticle formation in physical synthesis: Using AI to couple characterization, in-situ measurement and simulations"   # REQUIRED
   description: >          # REQUIRED - free text, multiline OK

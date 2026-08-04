@@ -7,7 +7,7 @@
 # ─────────────────────────────────────────────────────────────────────────────
 
 project:
-  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  type: "AAP2024"          # REQUIRED - "Targeted" or "AAP"
   acronym: "CINDERELLA"      # REQUIRED - short identifier, no spaces (used as RDF local name)
   title: "3D metal printing control using innovative laser sources, digital augmented models and artificial intelligence"   # REQUIRED
   description: >          # REQUIRED - free text, multiline OK

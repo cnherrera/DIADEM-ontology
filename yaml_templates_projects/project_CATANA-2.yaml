@@ -7,7 +7,7 @@
 # ─────────────────────────────────────────────────────────────────────────────
 
 project:
-  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  type: "AAP2024"          # REQUIRED - "Targeted" or "AAP"
   acronym: "CATANA-2"      # REQUIRED - short identifier, no spaces (used as RDF local name)
   title: "Cooperative modeling – experimental learning for the identification of low temperature catalysts for the synthesis and decomposition of NH3"   # REQUIRED
   description: >          # REQUIRED - free text, multiline OK

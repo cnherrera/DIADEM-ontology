@@ -7,7 +7,7 @@
 # ─────────────────────────────────────────────────────────────────────────────
 
 project:
-  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  type: "AAP2024"          # REQUIRED - "Targeted" or "AAP"
   acronym: "MASKY"      # REQUIRED - short identifier, no spaces (used as RDF local name)
   title: "Advanced MAterials for SKYrmion based Spintronics"   # REQUIRED
   description: >          # REQUIRED - free text, multiline OK

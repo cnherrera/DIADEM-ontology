@@ -7,7 +7,7 @@
 # ─────────────────────────────────────────────────────────────────────────────
 
 project:
-  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  type: "AAP2024"          # REQUIRED - "Targeted" or "AAP"
   acronym: "REBORN"      # REQUIRED - short identifier, no spaces (used as RDF local name)
   title: "Optimization and modeling of 2D h-BN epitaxy and its high-quality layered heterostructures using artificial intelligence."   # REQUIRED
   description: >          # REQUIRED - free text, multiline OK
