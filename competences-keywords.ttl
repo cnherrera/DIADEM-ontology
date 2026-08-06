@@ -1,0 +1,111 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+
+
+<https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> a owl:Ontology ;
+    rdfs:comment "Instances Competences and Keywords DIAMOND project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+:ContainerDeployment rdf:type proj:Computational ;
+    rdfs:comment "Packaging and deploying scientific software using container technologies such as Apptainer or Docker." ;
+    skos:prefLabel "Scientific Software Containerization" .
+
+:DatabaseInfrastructureDesign rdf:type proj:DataManagement ;
+    rdfs:comment "Designing the architecture and implementation of scalable and reliable database systems for scientific workflows." ;
+    skos:prefLabel "Database Infrastructure Design" .
+
+
+:HighPerformanceComputing rdf:type proj:Computational ;
+    rdfs:comment "Using and optimizing scientific codes for execution on high-performance computing infrastructures, including GPU clusters and parallel systems." ;
+    skos:prefLabel "High-performance Computing" .
+
+:WorkflowDesign rdf:type proj:Methodological ;
+    rdfs:comment "Structuring scientific and computational procedures into reproducible workflows." ;
+    skos:prefLabel "Workflow Design" .
+
+:AIBasedModelling rdf:type proj:Methodological ;
+    rdfs:comment "Application of artificial intelligence techniques to accelerate and enhance materials modelling and discovery." ;
+    skos:prefLabel "AI-based Modelling" .
+
+
+:AtomicSimulation rdf:type proj:Computational ;
+    rdfs:comment "Developing and applying atomistic simulation techniques for materials modelling." ;
+    skos:prefLabel "Atomistic Simulation" .
+
+:Containerization rdf:type proj:Computational ;
+    rdfs:comment "Using container technologies to encapsulate, distribute, and execute scientific software in reproducible environments." ;
+    skos:prefLabel "Containerization" .
+
+:DatabaseInfrastructure rdf:type proj:DataManagement ;
+    rdfs:comment "Building and maintaining backend infrastructure for storing, querying, and scaling access to scientific simulation and experimental data." ;
+    skos:prefLabel "Database Infrastructure" .
+
+:FAIRDataHandling rdf:type proj:DataManagement ;
+    rdfs:comment "Applying FAIR principles to ensure that research data is Findable, Accessible, Interoperable, and Reusable." ;
+    skos:prefLabel "FAIR Data Handling" .
+
+:GuixPackaging rdf:type proj:Computational ;
+    rdfs:comment "Creating and maintaining Guix packages to ensure reproducible software environments for scientific computing." ;
+    skos:prefLabel "Guix Packaging" .
+
+
+:MLIP rdf:type proj:Computational ;
+    rdfs:comment "Using and developing ML-based interatomic potentials for atomistic simulations, including training, validation, and workflow integration." ;
+    skos:prefLabel "Machine Learning Interatomic Potentials" .
+
+
+:MLPValidation rdf:type proj:Methodological ;
+    rdfs:comment "Expertise in validation methods for machine learning potentials, including biased molecular dynamics, phonon-based sampling, and benchmark testing." ;
+    skos:prefLabel "MLP Validation Methods" .
+
+:MLWorkflowDesign rdf:type proj:Methodological ;
+    rdfs:comment "Designing ML workflows involving data preparation, feature engineering, training, validation, and deployment for scientific tasks." ;
+    skos:prefLabel "Machine Learning Workflow Design" .
+
+:MOF rdf:type proj:Competence ;
+    rdfs:comment "Expertise in the chemistry, structure, modelling, or application of metal-organic frameworks." ;
+    skos:prefLabel "Metal-Organic Frameworks" .
+
+:NeuralNetworkPotentials rdf:type proj:Computational ;
+    rdfs:comment "Expertise in Behler-Parrinello neural network architectures and other neural network-based interatomic potentials for atomistic simulations." ;
+    skos:prefLabel "Neural Network Potentials" .
+
+
+:WebDevelopment rdf:type proj:Methodological ;
+    rdfs:comment "Design and implementation of user-facing web applications for presenting, accessing, or submitting scientific data and workflows." ;
+    skos:prefLabel "Web Application Development" .
+
+:WorkflowOrchestration rdf:type proj:Methodological ;
+    rdfs:comment "Coordinating and managing computational workflows using orchestration tools such as CWL, Nextflow, or Airflow." ;
+    skos:prefLabel "Workflow Orchestration" .
+
+
+:AiiDAPluginDevelopment rdf:type proj:Computational ;
+    rdfs:comment "Development of AiiDA plugins to interface scientific simulation codes with automated workflow engines." ;
+    skos:prefLabel "AiiDA Plugin Development" .
+
+:AiidaWorkflows rdf:type proj:Computational ;
+    rdfs:comment "Design and execution of automated and reproducible scientific workflows using the AiiDA computational framework." ;
+    skos:prefLabel "AiiDA Workflows" .
+
+:LargeScaleWorkflows rdf:type proj:Computational ;
+    rdfs:comment "Design and execution of large-scale computational workflows running across distributed or HPC infrastructures." ;
+    skos:prefLabel "Large-scale Workflows" .
+
+:MetadataStandardization rdf:type proj:DataManagement ;
+    rdfs:comment "Defining, adopting, and applying metadata schemas to improve data interoperability and reusability." ;
+    skos:prefLabel "Metadata Standardization" .
+
+:AIApproaches rdf:type proj:Methodological ;
+    rdfs:comment "General methodological approaches based on artificial intelligence for analysis, prediction, or automation in scientific research." ;
+    skos:prefLabel "AI Approaches" .
+

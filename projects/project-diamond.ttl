@@ -1,0 +1,953 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-diamond.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl:  <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org:  <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-diamond.ttl> a owl:Ontology ;
+    rdfs:comment "Instances DIAMOND project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+
+:Diamond rdf:type proj:Project ;
+    rdfs:comment "Ontology representing all entities of the DIAMOND project" ;
+    skos:prefLabel "DIAMOND Project" ;
+    proj:description """
+    L’objectif principal de ce projet ciblé est de mettre en place une infrastructure
+    numérique pour accélérer le développement des matériaux. Elle est basée d’une part
+    sur une plateforme dédiée aux codes de simulation aux différentes échelles et aux
+    workflows pour l’automatisation de séries de calculs, dont les calculs à haut débit
+    et le traitement des résultats par intelligence artificielle (IA) et d’autre part
+    sur une infrastructure de bases de données venant à la fois des expériences et des
+    simulations. Pour chacune de ces infrastructures, des cas d’usage issus des projets
+    ciblés en coursont été identifiés pour servir d’exemple et s’assurer de l’adéquation
+    avec les besoins des utilisateurs, ils concernent les projets MOF-learning, ESRF et
+    FastNano. Un démonstrateur utilisant ces deux infrastructures sera également
+    développé, il sera consacré au développement par apprentissage machine de potentiels
+    interatomiques pour les simulations à l’échelle atomique. Les cahiers des charges de
+    ces infrastructures et ce démonstrateur seront établis en s’appuyant sur des groupes
+    de travail avec des représentants des principaux laboratoires concernés. La
+    plateforme codes et workflows sera développée et déployée au meso-centre de calcul
+    GRICAD et l’infrastructure de bases de données sera déployée au TGCC.
+    """@fr ,
+    """
+    The main objective of this targeted project is to establish a digital infrastructure to 
+    accelerate materials development. It is based, on the one hand, on a platform dedicated 
+    to multi-scale simulation codes and workflows for automating series of calculations—including 
+    high-throughput calculations and the processing of results using artificial intelligence 
+    (AI)—and, on the other hand, on a database infrastructure fed by both experiments and simulations.
+    For each of these infrastructures, use cases from ongoing targeted projects have been identified 
+    to serve as examples and ensure alignment with user needs; these relate to the MOF-learning, ESRF, 
+    and FastNano projects. A demonstrator utilizing both infrastructures will also be developed, 
+    focusing on the machine learning development of interatomic potentials for atomic-scale simulations.
+    The specifications for these infrastructures and this demonstrator will be established based on 
+    working groups with representatives from the main relevant laboratories. The codes and workflows 
+    platform will be developed and deployed at the GRICAD meso-centre for high-performance computing, 
+    and the database infrastructure will be deployed at the TGCC.
+    """@en ;
+    proj:hasWorkPackage :WP1,
+        :WP2,
+        :WP3 .
+
+
+
+## ------->> Work Packages << --------------
+
+:WP3 rdf:type proj:WorkPackage ;
+    rdfs:comment "Machine-learning Interatomic-potential demonstrator. Delivers an open-access repository of MLPs, builds a platform for MLP development including automated training dataset generation, common interface for MLP packages, and containerized workflow solutions." ;
+    skos:prefLabel "WP3 - MLIP demonstrator" ;
+    proj:coLedBy org:SIMAP ;
+    proj:gathersCompetence ckey:AIApproaches,
+        ckey:AIBasedModelling,
+        ckey:AiiDAPluginDevelopment,
+        ckey:AiidaWorkflows,
+        ckey:AtomicSimulation,
+        ckey:MLIP,
+        ckey:MLPValidation,
+        ckey:MLWorkflowDesign,
+        ckey:NeuralNetworkPotentials ;
+    proj:ledBy org:IMPMC ;
+    proj:hasScientificResponsable :MARCO_SAITTA ;
+    proj:partOf :Diamond ;
+    proj:producesOutput :AiidaN2p2Plugin,
+        :MLIPDB,
+        :WorkflowPlatform ,
+        :MLPWebRepository ;
+    proj:usesResource :AiiDA,
+        :CP2K,
+        :LAMMPS,
+        :n2p2 .
+
+:WP2 rdf:type proj:WorkPackage ;
+    rdfs:comment "Design and implementation of data management infrastructure for the DIAMOND project" ;
+    skos:prefLabel "WP2 - Data Management" ;
+    proj:coLedBy org:CEA-LIST ;
+    proj:gathersCompetence ckey:AIApproaches,
+        ckey:DatabaseInfrastructureDesign,
+        ckey:DatabaseInfrastructure,
+        ckey:FAIRDataHandling,
+        ckey:LargeScaleWorkflows,
+        ckey:MetadataStandardization,
+        ckey:WorkflowOrchestration ;
+    proj:ledBy org:CEA-IRIG ;
+    proj:hasScientificResponsable :THIERRY_DEUTSCH ;
+    proj:partOf :Diamond ;
+    proj:producesOutput :DiamondDBInfrastructure,
+                  :AtomisticNumericalSimulationDB,
+                  :Fast2NanoDB ;
+                  :MLIPDB
+    proj:usesResource :MongoDB .
+
+:WP1 rdf:type proj:WorkPackage ;
+    rdfs:comment "Development of the code and workflow platform for the DIAMOND project."@en ,
+                 "Development de la platforme codes et workflows pour le projet DIAMOND."@fr ;
+    skos:prefLabel "WP1 - Codes and Workflows" ;
+    proj:ledBy org:SIMAP ;
+    proj:coLedBy org:ILM,
+        org:IMPMC ;
+    proj:gathersCompetence ckey:AIApproaches,
+        ckey:Containerization,
+        ckey:GuixPackaging,
+        ckey:MOF,
+        ckey:WebDevelopment ;
+    proj:partOf :Diamond ;
+    proj:producesOutput :Abinit,
+        :CP2K,
+        :DFTBPlus,
+        :DIAMONDWebpage,
+        :FEniCS,
+        :FreeFEM,
+        :GaTewAY,
+        :Gmsh,
+        :LAMMPS,
+        :NWChem,
+        :Neper,
+        :OpenCalphad,
+        :OpenDiS,
+        :Ovito,
+        :PLUMED,
+        :ParaView,
+        :QuantumESPRESSO,
+        :RASPA2,
+        :VESTA,
+        :VMD,
+        :Wannier90,
+        :XCrySDen,
+        :XTB,
+        :ZeoPlusPlus,
+        :Zset,
+        :n2p2 ,
+        :DIAMONDWebpage ;
+    proj:usesResource :Apptainer,
+        :Guix .
+
+
+# --> People <--
+:AADHITYAN_ARIVAZHAGAN proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:joinDate "September 2024" ;
+    # proj:leftDate "August 2026" ;
+    proj:worksOn :WP1 .
+
+:ADRIEN_BRUNETON proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember false ;
+    proj:worksOn :WP1 .
+
+:AHMED_AMRANI proj:hasPersonnelType proj:Engineer ;
+    proj:isCurrentMember true ;
+    proj:worksOn :WP2 .
+
+:AKSHAY_AMMOTHUM_KANDY proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:joinDate "November 2023" ;
+    # proj:leftDate "October 2026" ;
+    proj:worksOn :WP3 .
+
+:ANRUO_ZHONG proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:joinDate "Mars 2025" ;
+    proj:leftDate "Mars 2028" ;
+    proj:worksOn :WP3 .
+
+:ARAWINTH_CAMATCHY proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:worksOn :WP2 .
+
+:ARTHUR_FRANCE_LANORD proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:worksOn :WP3 .
+
+:BENJAMIN_ARRONDEAU rdf:type proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember false ;
+    proj:joinDate "February 2024" ;
+    proj:leftDate "January 2026" ;
+    proj:worksOn :WP1 .
+
+:CINTHYA_HERRERA proj:hasCompetence :LargeScaleWorkflows,
+        :MetadataStandardization ;
+    proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:joinDate "May 2024" ;
+    # proj:leftDate "May 2027" ;
+    proj:worksOn :WP2 .
+
+:DAVID_MARTIN_CALLE proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember false ;
+    proj:joinDate "November 2023" ;
+    proj:leftDate "November 2025" ;
+    proj:worksOn :WP1 .
+
+:DORIAN_ROLLAND proj:hasPersonnelType proj:Engineer ;
+    proj:isCurrentMember true ;
+    proj:worksOn :WP1 .
+
+:DAVID_RODNEY rdf:type proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:worksOn :WP1 .
+
+:DYLAN_BISSUEL proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember false ;
+    proj:worksOn :WP1 .
+
+:ETIENNE_POLACK proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:joinDate "April 2025" ;
+    proj:worksOn :WP1 .
+
+:FEIROUZ_KSONTINI proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:worksOn :WP2 .
+
+:FRANCOIS_WILLAIME proj:hasPersonnelType :ProjectCoordinator ;
+    proj:isCurrentMember true ;
+    proj:worksOn :Diamond .
+
+:GABRIELE_CASSETTA proj:hasPersonnelType :Scientific ;
+    proj:joinDate "February 2026" ;
+    # proj:leftDate "February 2029" ;
+    proj:worksOn :WP1 .
+
+:GEOFFREY_DANIEL proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember false ;
+    proj:worksOn :WP1 .
+
+:IMANOL_SETOAIN proj:hasPersonnelType :Engineer ;
+    proj:isCurrentMember true ;
+    proj:worksOn :WP2 .
+
+:IRINA_PIAZZA proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:joinDate "December 2024" ;
+    # proj:leftDate "November 2028" ;
+    proj:worksOn :WP3 .
+
+:JONATHAN_DAUBIN proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:worksOn :WP1 .
+
+:JOAOPAULO_ALMEIDADEMENDOCA proj:hasCompetence ckey:AIApproaches ;
+    proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:joinDate "January 2024" ;
+    # proj:leftDate "December 2027" ;
+    proj:worksOn :WP1 .
+
+:JEANPHILIPPE_POLI proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:worksOn :WP2 .
+
+:KARIM_AITAMMAR proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:joinDate "December 2025" ;
+    # proj:leftDate "July 2027" ;
+    proj:worksOn :WP1 .
+
+:LEO_ORVEILLON proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:joinDate "April 2025" ;
+    proj:leftDate "Mars 2027" ;
+    proj:worksOn :WP1 .
+
+:LORENZO_PAULATTO proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:worksOn :WP1 .
+
+:MARTIN_UHRIN proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:worksOn :WP1,
+        :WP3 .
+
+:MAY_CHOUEIB  proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:joinDate "September 2025" ;
+    # proj:leftDate "September 2027" ;
+    proj:worksOn :WP1 .
+
+:MIHAI_COSMIN_MARINICA proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:worksOn :WP3 .
+
+:MARCO_SAITTA proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:worksOn :WP3 .
+
+:NICOLAS_CROUZET proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:worksOn :WP1 .
+
+:NICOLA_VIGANO proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:worksOn :WP2 .
+
+:NILS_KASCH proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:joinDate "Mars 2025" ;
+    # proj:leftDate "October 2026" ;
+    proj:worksOn :WP1 .
+
+:NOEL_JAKSE proj:hasPersonnelType :ProjectCoordinator ;
+    proj:isCurrentMember true ;
+    proj:worksOn :WP1 .
+
+:OMAR_BENYAHYA proj:hasPersonnelType :Engineer ;
+    proj:isCurrentMember true ;
+    proj:joinDate "October 2024" ;
+    # proj:leftDate "October 2027" ;
+    proj:worksOn :WP2 .
+
+:PIERREANTOINE_BOUTTIER proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:worksOn :WP1 .
+
+:THIERRY_DEUTSCH proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:worksOn :WP2 .
+
+:VINCENT_BERGEAUD proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:worksOn :WP2 .
+
+:YAIDEL_TOLEDO proj:hasPersonnelType :Scientific ;
+    proj:isCurrentMember true ;
+    proj:joinDate "November 2025" ;
+    # proj:leftDate "July 2027" ;
+    proj:worksOn :WP1 .
+
+
+#------------------------------------------------------
+
+# Concept to describe the SoftwareComponent 
+
+:UserInterface rdf:type owl:Class ;
+    rdfs:subClassOf proj:SoftwareComponent ;
+    skos:prefLabel "User interface"@en .
+
+:BackendService rdf:type owl:Class ;
+    rdfs:subClassOf proj:SoftwareComponent ;
+    skos:prefLabel "Backend service"@en .
+
+:StorageService rdf:type owl:Class ;
+    rdfs:subClassOf proj:SoftwareComponent ;
+    skos:prefLabel "Storage service"@en .
+
+
+# -->> Products Outputs <<-------------------------------------
+
+# Database
+:DiamondDBInfrastructure rdf:type proj:DatabaseInfrastructure , proj:ProjectOutput ;  
+    rdfs:comment "Core DIAMOND database and data lake infrastructure deployed at the TGCC-Cloud." ;
+    skos:prefLabel "DIAMOND database infrastructure (TGCC-Cloud)",
+        "DIAMOND database infrastructure hosted at the TGCC-Cloud" ;
+    proj:hasSoftwareComponent :DiamondDBConsultationUI,
+        :DiamondDBInjectionUI,
+        :GraphQLEndpoint,
+        :GrapheneAPI,
+        :KeycloakAuth,
+        :MinioDatalake,
+        :MongoDBService ;
+    proj:hasURL <https:tbc> .
+
+
+# -> SoftwareComponents <--
+:DiamondDBConsultationUI rdf:type proj:UserInterface ;
+    rdfs:comment "User interface for querying, browsing and visualizing contents of the Diamond database." ;
+    skos:prefLabel "Consultation Interface" .
+
+:DiamondDBInjectionUI rdf:type proj:UserInterface ;
+    rdfs:comment "Interface for uploading or inserting structured data into the DIAMOND database." ;
+    skos:prefLabel "Data Injection Interface" .
+
+:GraphQLEndpoint rdf:type proj:BackendService ;
+    rdfs:comment "GraphQL endpoint providing structured access to the DIAMOND data backend." ;
+    skos:prefLabel "GraphQL endpoint" .
+
+:GrapheneAPI rdf:type proj:BackendService ;
+    rdfs:comment "Python GraphQL API implemented using Graphene." ;
+    skos:prefLabel "Graphene API" .
+
+:KeycloakAuth rdf:type proj:BackendService ;
+    rdfs:comment "Identity and access management layer using Keycloak for authentication and authorization." ;
+    skos:prefLabel "Keycloak authentication service" .
+
+:MongoDBService rdf:type proj:BackendService ;
+    rdfs:comment "MongoDB instance used for DIAMOND's metadata store and backend infrastructure." ;
+    skos:prefLabel "MongoDB backend" .
+
+:MinioDatalake rdf:type proj:StorageService ;
+    rdfs:comment "Object storage solution for experimental and computational datasets, used as DIAMOND's data lake." ;
+    skos:prefLabel "MinIO data lake" .
+
+
+############# - Products
+
+### 1. Databases
+
+:MLIPDB rdf:type proj:Database ;
+    proj:isHostedOn :DiamondDBInfrastructure ;
+    skos:prefLabel "Machine Learning Interatomic Potentials database" ; 
+    rdfs:comment "An open-access web repository where external users can submit new MLP models and download MLP parameterizations." .
+
+:Fast2NanoDB rdf:type proj:Database ;
+    proj:isHostedOn :DiamondDBInfrastructure ;
+    proj:hasDatabaseAssociatedProject allp:Project_2fast , allp:Project_fastnano ;
+    rdfs:comment "Fast2Nano database" .
+
+:AtomisticNumericalSimulationDB rdf:type proj:Database ;
+    proj:isHostedOn :DiamondDBInfrastructure ;
+    rdfs:comment "Database for atomistic numerical simulations - based on BigDFT code simulation" ;
+    skos:prefLabel "Atomistic Numerical Simulations - BigDFT" .
+
+
+### 
+
+:MLPWorkflowPlatform rdf:type proj:Product ;
+    rdfs:label "MLP Workflow Platform" ;
+    rdfs:comment "A containerized workflow solution for MLP development, including automated generation of training, validation and test datasets, and integration with ab initio calculation engines." ;
+    skos:prefLabel "MLP Development Workflow Platform" ;
+    proj:hasURL "https://diamond-diadem.github.io/workflows/home"^^xsd:anyURI .
+
+
+:DiamondWebpage rdf:type proj:Webpage ;
+    rdfs:comment "DIAMOND Web page giving users access to all the containers of codes and workflows." ;
+    skos:prefLabel "DIAMOND Project Webpage" ;
+    proj:hasURL "https://diamond-diadem.github.io/"^^xsd:anyURI .
+
+:MLPWebRepository rdf:type proj:Webpage ;
+    rdfs:label "MLP Web Repository" ;
+    rdfs:comment "An open-access web repository where external users can submit new MLP models and download MLP parameterizations." ;
+    skos:prefLabel "Machine Learning Potential Repository" .
+
+
+##------------------_>> <<------------------------
+# Tasks - to be filled if needed
+
+#:Task3_3 rdf:type proj:Task ;
+#    rdfs:comment "info" ;
+#    skos:prefLabel "Task 3.3" ;
+#    proj:isTaskOf :WP3 ;
+#    proj:taskCoLead :CEA-SRMP,
+#        :IMPMC ;
+#    proj:taskLead :SIMAP ;
+#    proj:taskName "Integration of tools for descriptors" .
+
+
+# --> Resources used < --    
+:BigDFTsim rdf:type proj:SoftwareSystem ;
+    rdfs:label "BigDFT"@en ;
+    skos:prefLabel "BigDFT"@en ;
+    rdfs:comment "BigDFT is an open-source electronic structure code based on density functional theory (DFT) that utilizes Daubechies wavelets as a computational basis. It is designed for ab initio simulations of materials and molecular systems, offering high precision and scalability for large-scale simulations."@en ;
+    proj:hasLicense proj:OpenSource ;
+    proj:hasURL "https://bigdft.org/index.html"^^xsd:anyURI ;
+    proj:isUsedForDevelopment :AtomisticNumericalSimulationDB .
+
+:AiiDA rdf:type proj:SoftwareSystem ;
+    rdfs:label "AiiDA Framework"@en ;
+    skos:prefLabel "AiiDA"@en ;
+    rdfs:comment "AiiDA (Automated Interactive Infrastructure and Database for Computational Science) is an open-source Python framework for managing, preserving, and disseminating computational scientific workflows. It provides automated provenance tracking, data management, and workflow execution capabilities for high-throughput computational materials science."@en ;
+    proj:hasLicense proj:OpenSource ;
+    proj:isUsedForDevelopment ckey:AiiDAPluginDevelopment ,
+                              ckey:AiidaWorkflows ;
+    proj:hasSoftwareComponent :AiidaN2p2Plugin .
+
+:Apptainer rdf:type proj:SoftwareSystem ;
+    rdfs:label "Apptainer"@en ;
+    skos:prefLabel "Apptainer"@en ;
+    rdfs:comment "Apptainer is an open-source container platform. It enables users to create and run containers that encapsulate applications and their dependencies, ensuring portability and reproducibility across diverse computing systems."@en ;
+    proj:hasLicense proj:OpenSource .
+
+:Guix rdf:type proj:SoftwareSystem ;
+    rdfs:label "GNU Guix"@en ;
+    skos:prefLabel "Guix"@en ;
+    rdfs:comment "GNU Guix is a functional package manager that facilitates the creation of reproducible and declarative software environments. It allows users to define complete software environments that can be shared and replicated across different systems, enhancing reproducibility in software deployment."@en ;
+    proj:hasLicense proj:OpenSource .
+
+:MongoDB rdf:type proj:DatabaseInfrastructure ; # O proj:SoftwareSystem
+    rdfs:label "MongoDB Engine"@en ;
+    skos:prefLabel "MongoDB"@en ;
+    rdfs:comment "MongoDB is a document-oriented NoSQL database that stores data in flexible, JSON-like documents. It offers scalability and flexibility for handling large volumes of unstructured or semi-structured data, making it suitable for modern application development."@en ;
+    proj:hasLicense proj:OpenSource ;
+    proj:isUsedForDevelopment proj:DiamondDBInfrastructure .
+
+
+## >>---------------->> Software Produced <<------------------------------
+
+:AiidaN2p2Plugin rdf:type proj:SoftwareComponent ;
+    rdfs:label "AiiDA-n2p2 Plugin" ;
+    rdfs:comment "An AiiDA plugin for automating the development of Behler-Parrinello neural network MLPs using n2p2, including automated weight selection, validation through LAMMPS molecular dynamics, and semi-automated input generation." ;
+    skos:prefLabel "AiiDA-n2p2 Plugin" ;
+    proj:isSoftwareComponentOf :AiiDA .
+
+
+
+
+# --> List of Software codes contenarized by WP1 <-------------------
+
+# ADD the following for the codes:
+#    proj:usesContainerTechnology proj:Apptainer ; -> Docker
+#    proj:supportsHardware proj:CPU ; -> GPU
+#    proj:hasLicense proj:OpenSource -> Commercial, Private
+
+# Abinit
+#---------
+:Abinit rdf:type proj:SoftwareSystem ;
+    rdfs:label "ABINIT"@en ;
+    skos:prefLabel "ABINIT"@en ;
+    rdfs:comment "A software suite for electronic structure calculations based on density functional theory, using pseudopotentials and a plane wave or wavelet basis."@en ;
+    proj:hasCategory proj:ScientificComputing ;
+    proj:hasURL "https://www.abinit.org/"^^xsd:anyURI .
+
+:AbinitContainer rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond ABINIT Apptainer Container"@en ;
+    rdfs:comment "Apptainer container image of ABINIT built and distributed by the Diamond/DIADEM project for reproducible scientific computing."@en ;
+    proj:encapsulatesSoftware :Abinit ;
+#    proj:hasDistribution proj:Containerized ;
+    proj:usesContainerTechnology :Apptainer ;
+#    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/abinit/"^^xsd:anyURI .
+
+
+# DFTB+
+# ------
+:DFTBPlus rdf:type proj:SoftwareSystem ;
+    rdfs:label "DFTB+"@en ;
+    skos:prefLabel "DFTB+"@en ;
+    proj:hasCategory proj:ScientificComputing ;
+    proj:hasURL "https://dftbplus.org/"^^xsd:anyURI .
+
+:DFTBPlusContainer rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond DFTB+ Apptainer Container"@en ;
+    proj:encapsulatesSoftware :DFTBPlus ;
+    proj:usesContainerTechnology :Apptainer ;
+#    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/dftbplus/"^^xsd:anyURI .
+
+# FEniCS
+#----------
+:FEniCS rdf:type proj:SoftwareSystem ;
+    rdfs:label "FEniCS"@en ;
+    skos:prefLabel "FEniCS"@en ;
+    proj:hasCategory proj:ScientificComputing ;
+    proj:hasURL "https://fenicsproject.org/"^^xsd:anyURI .
+
+:FEniCSContainer rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond FEniCS Apptainer Container"@en ;
+    proj:encapsulatesSoftware :FEniCS ;
+    proj:usesContainerTechnology :Apptainer ;
+#    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/fenics/"^^xsd:anyURI .
+
+# FreeFEM
+# ---------
+:FreeFEM rdf:type proj:SoftwareSystem ;
+    rdfs:label "FreeFEM"@en ;
+    skos:prefLabel "FreeFEM"@en ;
+    proj:hasCategory proj:ScientificComputing ;
+    proj:hasURL "https://freefem.org/"^^xsd:anyURI .
+
+:FreeFEMContainer rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond FreeFEM Apptainer Container"@en ;
+    proj:encapsulatesSoftware :FreeFEM ;
+    proj:usesContainerTechnology :Apptainer ;
+#    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/freefem/"^^xsd:anyURI .
+
+
+# GaTewAY
+# -------
+
+:GaTewAY rdf:type proj:SoftwareSystem ;
+    rdfs:label "GaTewAY"@en ;
+    skos:prefLabel "GaTewAY"@en ;
+    proj:hasCategory proj:ScientificComputing .
+
+:GaTewAYContainer rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond GaTewAY Apptainer Container"@en ;
+    proj:encapsulatesSoftware :GaTewAY ;
+    proj:usesContainerTechnology :Apptainer ;
+#    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/gateway/"^^xsd:anyURI .
+
+# Gmsh
+# ------
+
+:Gmsh rdf:type proj:SoftwareSystem ;
+    rdfs:label "Gmsh"@en ;
+    skos:prefLabel "Gmsh"@en ;
+    proj:hasCategory proj:ScientificComputing ;
+    proj:hasURL "https://gmsh.info/"^^xsd:anyURI .
+
+:GmshContainer rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond Gmsh Apptainer Container"@en ;
+    proj:encapsulatesSoftware :Gmsh ;
+    proj:usesContainerTechnology :Apptainer ;
+    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/gmsh/"^^xsd:anyURI .
+
+
+# NWChem
+# ======
+
+:NWChem rdf:type proj:SoftwareSystem ;
+    rdfs:label "NWChem"@en ;
+    skos:prefLabel "NWChem"@en ;
+    proj:hasCategory proj:ScientificComputing ;
+    proj:hasURL "https://www.nwchem-se.org/"^^xsd:anyURI .
+
+:NWChemContainer rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond NWChem Apptainer Container"@en ;
+    proj:encapsulatesSoftware :NWChem ;
+    proj:usesContainerTechnology :Apptainer ;
+#    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/nwchem/"^^xsd:anyURI .
+
+
+# Neper
+# ========
+:Neper rdf:type proj:SoftwareSystem ;
+    rdfs:label "Neper"@en ;
+    skos:prefLabel "Neper"@en ;
+    proj:hasCategory proj:ScientificComputing ;
+    proj:hasURL "https://neper.info/"^^xsd:anyURI .
+
+:NeperContainer rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond Neper Apptainer Container"@en ;
+    proj:encapsulatesSoftware :Neper ;
+    proj:usesContainerTechnology :Apptainer ;
+#    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/neper/"^^xsd:anyURI .
+
+# OpenCalphad
+# ================
+
+:OpenCalphad rdf:type proj:SoftwareSystem ;
+    rdfs:label "OpenCalphad"@en ;
+    skos:prefLabel "OpenCalphad"@en ;
+    proj:hasCategory proj:ScientificComputing ;
+    proj:hasURL "http://www.opencalphad.com/"^^xsd:anyURI .
+
+:OpenCalphadContainer rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond OpenCalphad Apptainer Container"@en ;
+    proj:encapsulatesSoftware :OpenCalphad ;
+    proj:usesContainerTechnology :Apptainer ;
+#    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/opencalphad/"^^xsd:anyURI .
+
+
+# OpenDiS
+# ========
+
+:OpenDiS rdf:type proj:SoftwareSystem ;
+    rdfs:label "OpenDiS"@en ;
+    skos:prefLabel "OpenDiS"@en ;
+    proj:hasCategory proj:ScientificComputing .
+
+:OpenDiSContainer rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond OpenDiS Apptainer Container"@en ;
+    proj:encapsulatesSoftware :OpenDiS ;
+    proj:usesContainerTechnology :Apptainer ;
+#    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/opendis/"^^xsd:anyURI .
+
+
+# OVITO
+# ======
+
+:Ovito rdf:type proj:SoftwareSystem ;
+    rdfs:label "OVITO"@en ;
+    skos:prefLabel "OVITO"@en ;
+    proj:hasCategory proj:Visualization ;
+    proj:hasURL "https://www.ovito.org/"^^xsd:anyURI .
+
+:OvitoContainer rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond OVITO Apptainer Container"@en ;
+    proj:encapsulatesSoftware :Ovito ;
+    proj:usesContainerTechnology :Apptainer ;
+#    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/visualisation/ovito/"^^xsd:anyURI .
+
+
+# PLUMED
+# =======
+
+:PLUMED rdf:type proj:SoftwareSystem ;
+    rdfs:label "PLUMED"@en ;
+    skos:prefLabel "PLUMED"@en ;
+    proj:hasCategory proj:ScientificComputing ;
+    proj:hasURL "https://www.plumed.org/"^^xsd:anyURI .
+
+:PLUMEDContainer rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond PLUMED Apptainer Container"@en ;
+    proj:encapsulatesSoftware :PLUMED ;
+    proj:usesContainerTechnology :Apptainer ;
+#    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/plumed/"^^xsd:anyURI .
+
+
+# ParaView
+# ==========
+
+:ParaView rdf:type proj:SoftwareSystem ;
+    rdfs:label "ParaView"@en ;
+    skos:prefLabel "ParaView"@en ;
+    proj:hasCategory proj:Visualization ;
+    proj:hasURL "https://www.paraview.org/"^^xsd:anyURI .
+
+:ParaViewContainer rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond ParaView Apptainer Container"@en ;
+    proj:encapsulatesSoftware :ParaView ;
+    proj:usesContainerTechnology :Apptainer ;
+#    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/visualisation/paraview/"^^xsd:anyURI .
+
+
+# Quantum ESPRESSO
+# ====================
+
+:QuantumESPRESSO rdf:type proj:SoftwareSystem ;
+    rdfs:label "Quantum ESPRESSO"@en ;
+    skos:prefLabel "Quantum ESPRESSO"@en ;
+    proj:hasCategory proj:ScientificComputing ;
+    proj:hasURL "https://www.quantum-espresso.org/"^^xsd:anyURI .
+
+:QuantumESPRESSOContainer rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond Quantum ESPRESSO Apptainer Container"@en ;
+    proj:encapsulatesSoftware :QuantumESPRESSO ;
+    proj:usesContainerTechnology :Apptainer ;
+#    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/quantum-espresso/"^^xsd:anyURI .
+
+
+# RASPA2
+# ========
+
+:RASPA2 rdf:type proj:SoftwareSystem ;
+    rdfs:label "RASPA2"@en ;
+    skos:prefLabel "RASPA2"@en ;
+    proj:hasCategory proj:ScientificComputing .
+
+:RASPA2Container rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond RASPA2 Apptainer Container"@en ;
+    proj:encapsulatesSoftware :RASPA2 ;
+    proj:usesContainerTechnology :Apptainer ;
+#    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/raspa2/"^^xsd:anyURI .
+
+
+# VESTA
+# ===========
+
+:VESTA rdf:type proj:SoftwareSystem ;
+    rdfs:label "VESTA"@en ;
+    skos:prefLabel "VESTA"@en ;
+    proj:hasCategory proj:Visualization ;
+    proj:hasURL "https://jp-minerals.org/vesta/en/"^^xsd:anyURI .
+
+:VESTAContainer rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond VESTA Apptainer Container"@en ;
+    proj:encapsulatesSoftware :VESTA ;
+    proj:usesContainerTechnology :Apptainer ;
+#    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/visualisation/vesta/"^^xsd:anyURI .
+
+
+# VMD
+# ======
+:VMD rdf:type proj:SoftwareSystem ;
+    rdfs:label "VMD"@en ;
+    skos:prefLabel "VMD"@en ;
+    proj:hasCategory proj:Visualization ;
+    proj:hasURL "https://www.ks.uiuc.edu/Research/vmd/"^^xsd:anyURI .
+
+:VMDContainer rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond VMD Apptainer Container"@en ;
+    proj:encapsulatesSoftware :VMD ;
+    proj:usesContainerTechnology :Apptainer ;
+#    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/visualisation/vmd/"^^xsd:anyURI .
+
+
+# XCrySDen
+# ===========
+:XCrySDen rdf:type proj:SoftwareSystem ;
+    rdfs:label "XCrySDen"@en ;
+    skos:prefLabel "XCrySDen"@en ;
+    proj:hasCategory proj:Visualization ;
+    proj:hasURL "http://www.xcrysden.org/"^^xsd:anyURI .
+
+:XCrySDenContainer rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond XCrySDen Apptainer Container"@en ;
+    proj:encapsulatesSoftware :XCrySDen ;
+    proj:usesContainerTechnology :Apptainer ;
+#    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/visualisation/xcrysden/"^^xsd:anyURI .
+
+
+# Wannier90
+# =========
+:Wannier90 rdf:type proj:SoftwareSystem ;
+    rdfs:label "Wannier90"@en ;
+    skos:prefLabel "Wannier90"@en ;
+    proj:hasCategory proj:ScientificComputing ;
+    proj:hasLicense :OpenSource ;
+    proj:hasURL "http://www.wannier.org/"^^xsd:anyURI .
+
+:Wannier90Container rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond Wannier90 Apptainer Container"@en ;
+    proj:encapsulatesSoftware :Wannier90 ;
+    proj:usesContainerTechnology :Apptainer ;
+#    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/wannier90/"^^xsd:anyURI .
+
+# XTB
+# =======
+:XTB rdf:type proj:SoftwareSystem ;
+    rdfs:label "XTB"@en ;
+    skos:prefLabel "XTB"@en ;
+    proj:hasCategory proj:ScientificComputing ;
+    proj:hasURL "https://github.com/grimme-lab/xtb"^^xsd:anyURI .
+
+:XTBContainer rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond XTB Apptainer Container"@en ;
+    proj:encapsulatesSoftware :XTB ;
+    proj:usesContainerTechnology :Apptainer ;
+#    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/xtb/"^^xsd:anyURI .
+
+
+# Zeo++
+# ==========
+:ZeoPlusPlus rdf:type proj:SoftwareSystem ;
+    rdfs:label "Zeo++"@en ;
+    skos:prefLabel "Zeo++"@en ;
+    proj:hasCategory proj:ScientificComputing ;
+    proj:hasURL "http://www.zeoplusplus.org/"^^xsd:anyURI .
+
+:ZeoPlusPlusContainer rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond Zeo++ Apptainer Container"@en ;
+    proj:encapsulatesSoftware :ZeoPlusPlus ;
+    proj:usesContainerTechnology :Apptainer ;
+#    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/zeoplusplus/"^^xsd:anyURI .
+
+# Z-set
+# ======
+:Zset rdf:type proj:SoftwareSystem ;
+    rdfs:label "Z-set"@en ;
+    skos:prefLabel "Z-set"@en ;
+    proj:hasCategory proj:ScientificComputing ;
+    proj:hasURL "http://www.zset-software.com/"^^xsd:anyURI .
+
+:ZsetContainer rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond Z-set Apptainer Container"@en ;
+    proj:encapsulatesSoftware :Zset ;
+    proj:usesContainerTechnology :Apptainer ;
+#    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/zset/"^^xsd:anyURI .
+
+
+# CP2K
+# ==========
+:CP2K rdf:type proj:SoftwareSystem ;
+    rdfs:label "CP2K"@en ;
+    skos:prefLabel "CP2K"@en ;
+    proj:hasCategory proj:ScientificComputing ;
+    proj:hasURL "https://www.cp2k.org/"^^xsd:anyURI .
+
+:CP2KContainer rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond CP2K Apptainer Container"@en ;
+    proj:encapsulatesSoftware :CP2K ;
+    proj:usesContainerTechnology :Apptainer ;
+#    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/cp2k/"^^xsd:anyURI .
+
+
+# LAMMPS
+# ==========
+:LAMMPS rdf:type proj:SoftwareSystem ;
+    rdfs:label "LAMMPS"@en ;
+    skos:prefLabel "LAMMPS"@en ;
+    proj:hasCategory proj:ScientificComputing ;
+    proj:hasURL "https://www.lammps.org/"^^xsd:anyURI .
+
+:LAMMPSContainer rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond LAMMPS Apptainer Container"@en ;
+    proj:encapsulatesSoftware :LAMMPS ;
+    proj:usesContainerTechnology :Apptainer ;
+#    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/lammps/"^^xsd:anyURI .
+
+
+# n2p2
+# ======
+:n2p2 rdf:type proj:SoftwareSystem ;
+    rdfs:label "n2p2"@en ;
+    skos:prefLabel "n2p2"@en ;
+    proj:hasCategory proj:ScientificComputing ;
+    proj:hasURL "https://github.com/CompPhysAtm/n2p2"^^xsd:anyURI .
+
+:N2p2Container rdf:type proj:ContainerImage ;
+    rdfs:label "Diamond n2p2 Apptainer Container"@en ;
+    proj:encapsulatesSoftware :n2p2 ;
+    proj:usesContainerTechnology :Apptainer ;
+#    proj:hasAssociatedProject :DiamondProject ;
+    proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/n2p2/"^^xsd:anyURI .
+
+
+#######################
+ 
+
+
+## -----------> Personnel Type <--------------
+:Engineer rdf:type proj:PersonnelType ;
+    rdfs:label "Engineer"@en,
+        "Ingénieur"@fr ;
+    rdfs:comment "An engineer contributing to the project." .
+
+
+:ProjectCoordinator rdf:type proj:PersonnelType ;
+    rdfs:label "Project Coordinator"@en,
+        "Coordinateur de Projet"@fr ;
+    rdfs:comment "A coordinator overseeing project activities and organization." .
+
+:Scientific rdf:type proj:PersonnelType ;
+    rdfs:label "Scientific"@en,
+        "Scientifique"@fr ;
+    rdfs:comment "A scientific contributor in the project." .
+
+:ScientificResponsable rdf:type proj:PersonnelType ;
+    rdfs:label "Scientific Responsable"@en,
+        "Responsable Scientifique"@fr ;
+    rdfs:comment "A scientific lead or responsible person within the project." .
+
+
