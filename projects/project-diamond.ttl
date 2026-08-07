@@ -15,7 +15,9 @@
 
 <https://cnherrera.github.io/DIADEM-ontology/projects/project-diamond.ttl> a owl:Ontology ;
     rdfs:comment "Instances DIAMOND project" ;
-    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
     owl:versionInfo "0.1" .
 
 
@@ -96,18 +98,18 @@
     rdfs:comment "Design and implementation of data management infrastructure for the DIAMOND project" ;
     skos:prefLabel "WP2 - Data Management" ;
     proj:coLedBy org:CEA-LIST ;
-    proj:gathersCompetence ckey:AIApproaches,
-        ckey:DatabaseInfrastructureDesign,
-        ckey:DatabaseInfrastructure,
-        ckey:FAIRDataHandling,
-        ckey:LargeScaleWorkflows,
-        ckey:MetadataStandardization,
+    proj:gathersCompetence ckey:AIApproaches ,
+        ckey:DatabaseInfrastructureDesign ,
+        ckey:DatabaseInfrastructure ,
+        ckey:FAIRDataHandling ,
+        ckey:LargeScaleWorkflows ,
+        ckey:MetadataStandardization ,
         ckey:WorkflowOrchestration ;
     proj:ledBy org:CEA-IRIG ;
     proj:hasScientificResponsable :THIERRY_DEUTSCH ;
-    proj:partOf :Project_diamond;
-    proj:producesOutput :DiamondDBInfrastructure,
-                  :AtomisticNumericalSimulationDB,
+    proj:partOf :Project_diamond ;
+    proj:producesOutput :DiamondDBInfrastructure ,
+                  :AtomisticNumericalSimulationDB ,
                   :Fast2NanoDB ,
                   :MLIPDB ;
     proj:usesResource :MongoDB .
@@ -117,39 +119,38 @@
                  "Development de la platforme codes et workflows pour le projet DIAMOND."@fr ;
     skos:prefLabel "WP1 - Codes and Workflows" ;
     proj:ledBy org:SIMAP ;
-    proj:coLedBy org:ILM,
+    proj:coLedBy org:ILM ,
         org:IMPMC ;
-    proj:gathersCompetence ckey:AIApproaches,
-        ckey:Containerization,
-        ckey:GuixPackaging,
-        ckey:MOF,
+    proj:gathersCompetence ckey:AIApproaches ,
+        ckey:Containerization ,
+        ckey:GuixPackaging, 
+        ckey:MOF ,
         ckey:WebDevelopment ;
-    proj:partOf :Project_diamond;
-    proj:producesOutput :Abinit,
-        :CP2K,
-        :DFTBPlus,
-        :DIAMONDWebpage,
-        :FEniCS,
-        :FreeFEM,
-        :GaTewAY,
-        :Gmsh,
-        :LAMMPS,
-        :NWChem,
-        :Neper,
-        :OpenCalphad,
-        :OpenDiS,
-        :Ovito,
-        :PLUMED,
-        :ParaView,
-        :QuantumESPRESSO,
-        :RASPA2,
-        :VESTA,
+    proj:partOf :Project_diamond ;
+    proj:producesOutput :Abinit ,
+        :CP2K ,
+        :DFTBPlus ,
+        :FEniCS ,
+        :FreeFEM ,
+        :GaTewAY ,
+        :Gmsh ,
+        :LAMMPS ,
+        :NWChem ,
+        :Neper ,
+        :OpenCalphad ,
+        :OpenDiS ,
+        :Ovito ,
+        :PLUMED ,
+        :ParaView ,
+        :QuantumESPRESSO ,
+        :RASPA2 ,
+        :VESTA ,
         :VMD,
-        :Wannier90,
-        :XCrySDen,
-        :XTB,
-        :ZeoPlusPlus,
-        :Zset,
+        :Wannier90 ,
+        :XCrySDen ,
+        :XTB ,
+        :ZeoPlusPlus ,
+        :Zset ,
         :n2p2 ,
         :DIAMONDWebpage ;
     proj:usesResource proj:Apptainer ,
@@ -157,191 +158,191 @@
 
 
 # --> People <--
-:AADHITYAN_ARIVAZHAGAN proj:hasPersonnelType :Scientific ;
+ppl:AADHITYAN_ARIVAZHAGAN proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:joinDate "September 2024" ;
     # proj:leftDate "August 2026" ;
     proj:worksOn :WP1 .
 
-:ADRIEN_BRUNETON proj:hasPersonnelType :Scientific ;
+ppl:ADRIEN_BRUNETON proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember false ;
     proj:worksOn :WP1 .
 
-:AHMED_AMRANI proj:hasPersonnelType proj:Engineer ;
+ppl:AHMED_AMRANI proj:hasPersonnelType proj:Engineer ;
     proj:isCurrentMember true ;
     proj:worksOn :WP2 .
 
-:AKSHAY_AMMOTHUM_KANDY proj:hasPersonnelType :Scientific ;
+ppl:AKSHAY_AMMOTHUM_KANDY proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:joinDate "November 2023" ;
     # proj:leftDate "October 2026" ;
     proj:worksOn :WP3 .
 
-:ANRUO_ZHONG proj:hasPersonnelType :Scientific ;
+ppl:ANRUO_ZHONG proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:joinDate "Mars 2025" ;
     proj:leftDate "Mars 2028" ;
     proj:worksOn :WP3 .
 
-:ARAWINTH_CAMATCHY proj:hasPersonnelType :Scientific ;
+ppl:ARAWINTH_CAMATCHY proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:worksOn :WP2 .
 
-:ARTHUR_FRANCE_LANORD proj:hasPersonnelType :Scientific ;
+ppl:ARTHUR_FRANCE_LANORD proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:worksOn :WP3 .
 
-:BENJAMIN_ARRONDEAU proj:hasPersonnelType :Scientific ;
+ppl:BENJAMIN_ARRONDEAU proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember false ;
     proj:joinDate "February 2024" ;
     proj:leftDate "January 2026" ;
     proj:worksOn :WP1 .
 
-:CINTHYA_HERRERA proj:hasCompetence :LargeScaleWorkflows,
-        :MetadataStandardization ;
+ppl:CINTHYA_HERRERA proj:hasCompetence ckey:LargeScaleWorkflows,
+        ckey:MetadataStandardization ;
     proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:joinDate "May 2024" ;
     # proj:leftDate "May 2027" ;
     proj:worksOn :WP2 .
 
-:DAVID_MARTIN_CALLE proj:hasPersonnelType :Scientific ;
+ppl:DAVID_MARTIN_CALLE proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember false ;
     proj:joinDate "November 2023" ;
     proj:leftDate "November 2025" ;
     proj:worksOn :WP1 .
 
-:DORIAN_ROLLAND proj:hasPersonnelType proj:Engineer ;
+ppl:DORIAN_ROLLAND proj:hasPersonnelType proj:Engineer ;
     proj:isCurrentMember true ;
     proj:worksOn :WP1 .
 
-:DAVID_RODNEY proj:hasPersonnelType :Scientific ;
+ppl:DAVID_RODNEY proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:worksOn :WP1 .
 
-:DYLAN_BISSUEL proj:hasPersonnelType :Scientific ;
+ppl:DYLAN_BISSUEL proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember false ;
     proj:worksOn :WP1 .
 
-:ETIENNE_POLACK proj:hasPersonnelType :Scientific ;
+ppl:ETIENNE_POLACK proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:joinDate "April 2025" ;
     proj:worksOn :WP1 .
 
-:FEIROUZ_KSONTINI proj:hasPersonnelType :Scientific ;
+ppl:FEIROUZ_KSONTINI proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:worksOn :WP2 .
 
-:FRANCOIS_WILLAIME proj:hasPersonnelType :ProjectCoordinator ;
+ppl:FRANCOIS_WILLAIME proj:hasPersonnelType :ProjectCoordinator ;
     proj:isCurrentMember true ;
     proj:worksOn :Project_diamond.
 
-:GABRIELE_CASSETTA proj:hasPersonnelType :Scientific ;
+ppl:GABRIELE_CASSETTA proj:hasPersonnelType :Scientific ;
     proj:joinDate "February 2026" ;
     # proj:leftDate "February 2029" ;
     proj:worksOn :WP1 .
 
-:GEOFFREY_DANIEL proj:hasPersonnelType :Scientific ;
+ppl:GEOFFREY_DANIEL proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember false ;
     proj:worksOn :WP1 .
 
-:IMANOL_SETOAIN proj:hasPersonnelType :Engineer ;
+ppl:IMANOL_SETOAIN proj:hasPersonnelType :Engineer ;
     proj:isCurrentMember true ;
     proj:worksOn :WP2 .
 
-:IRINA_PIAZZA proj:hasPersonnelType :Scientific ;
+ppl:IRINA_PIAZZA proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:joinDate "December 2024" ;
     # proj:leftDate "November 2028" ;
     proj:worksOn :WP3 .
 
-:JONATHAN_DAUBIN proj:hasPersonnelType :Scientific ;
+ppl:JONATHAN_DAUBIN proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:worksOn :WP1 .
 
-:JOAOPAULO_ALMEIDADEMENDOCA proj:hasCompetence ckey:AIApproaches ;
+ppl:JOAOPAULO_ALMEIDADEMENDOCA proj:hasCompetence ckey:AIApproaches ;
     proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:joinDate "January 2024" ;
     # proj:leftDate "December 2027" ;
     proj:worksOn :WP1 .
 
-:JEANPHILIPPE_POLI proj:hasPersonnelType :Scientific ;
+ppl:JEANPHILIPPE_POLI proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:worksOn :WP2 .
 
-:KARIM_AITAMMAR proj:hasPersonnelType :Scientific ;
+ppl:KARIM_AITAMMAR proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:joinDate "December 2025" ;
     # proj:leftDate "July 2027" ;
     proj:worksOn :WP1 .
 
-:LEO_ORVEILLON proj:hasPersonnelType :Scientific ;
+ppl:LEO_ORVEILLON proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:joinDate "April 2025" ;
     proj:leftDate "Mars 2027" ;
     proj:worksOn :WP1 .
 
-:LORENZO_PAULATTO proj:hasPersonnelType :Scientific ;
+ppl:LORENZO_PAULATTO proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:worksOn :WP1 .
 
-:MARTIN_UHRIN proj:hasPersonnelType :Scientific ;
+ppl:MARTIN_UHRIN proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:worksOn :WP1,
         :WP3 .
 
-:MAY_CHOUEIB  proj:hasPersonnelType :Scientific ;
+ppl:MAY_CHOUEIB  proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:joinDate "September 2025" ;
     # proj:leftDate "September 2027" ;
     proj:worksOn :WP1 .
 
-:MIHAI_COSMIN_MARINICA proj:hasPersonnelType :Scientific ;
+ppl:MIHAI_COSMIN_MARINICA proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:worksOn :WP3 .
 
-:MARCO_SAITTA proj:hasPersonnelType :Scientific ;
+ppl:MARCO_SAITTA proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:worksOn :WP3 .
 
-:NICOLAS_CROUZET proj:hasPersonnelType :Scientific ;
+ppl:NICOLAS_CROUZET proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:worksOn :WP1 .
 
-:NICOLA_VIGANO proj:hasPersonnelType :Scientific ;
+ppl:NICOLA_VIGANO proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:worksOn :WP2 .
 
-:NILS_KASCH proj:hasPersonnelType :Scientific ;
+ppl:NILS_KASCH proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:joinDate "Mars 2025" ;
     # proj:leftDate "October 2026" ;
     proj:worksOn :WP1 .
 
-:NOEL_JAKSE proj:hasPersonnelType :ProjectCoordinator ;
+ppl:NOEL_JAKSE proj:hasPersonnelType :ProjectCoordinator ;
     proj:isCurrentMember true ;
     proj:worksOn :WP1 .
 
-:OMAR_BENYAHYA proj:hasPersonnelType :Engineer ;
+ppl:OMAR_BENYAHYA proj:hasPersonnelType :Engineer ;
     proj:isCurrentMember true ;
     proj:joinDate "October 2024" ;
     # proj:leftDate "October 2027" ;
     proj:worksOn :WP2 .
 
-:PIERREANTOINE_BOUTTIER proj:hasPersonnelType :Scientific ;
+ppl:PIERREANTOINE_BOUTTIER proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:worksOn :WP1 .
 
-:THIERRY_DEUTSCH proj:hasPersonnelType :Scientific ;
+ppl:THIERRY_DEUTSCH proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:worksOn :WP2 .
 
-:VINCENT_BERGEAUD proj:hasPersonnelType :Scientific ;
+ppl:VINCENT_BERGEAUD proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:worksOn :WP2 .
 
-:YAIDEL_TOLEDO proj:hasPersonnelType :Scientific ;
+ppl:YAIDEL_TOLEDO proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:joinDate "November 2025" ;
     # proj:leftDate "July 2027" ;
@@ -441,7 +442,7 @@
     proj:hasURL "https://diamond-diadem.github.io/workflows/home"^^xsd:anyURI .
 
 
-:DiamondWebpage rdf:type proj:Webpage ;
+:DIAMONDWebpage rdf:type proj:Webpage ;
     rdfs:comment "DIAMOND Web page giving users access to all the containers of codes and workflows." ;
     skos:prefLabel "DIAMOND Project Webpage" ;
     proj:hasURL "https://diamond-diadem.github.io/"^^xsd:anyURI .
