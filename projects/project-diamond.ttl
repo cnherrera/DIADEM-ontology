@@ -20,9 +20,11 @@
 
 
 
-:Diamond rdf:type proj:Project ;
+:Project_diamond rdf:type proj:Project ;
     rdfs:comment "Ontology representing all entities of the DIAMOND project" ;
-    skos:prefLabel "DIAMOND Project" ;
+    skos:prefLabel "DIAMOND" ;
+    proj:fullName "Databases, Artificial Intelligence, Modeling and Optimization tools for the Digital Design of materials"@en ,
+    "Bases de Données, outils d’Intelligence Artificielle, de Modélisation et d’OptimisatioN pour le Design Numérique de matériaux"@fr ;
     proj:description """
     L’objectif principal de ce projet ciblé est de mettre en place une infrastructure
     numérique pour accélérer le développement des matériaux. Elle est basée d’une part
@@ -79,7 +81,7 @@
         ckey:NeuralNetworkPotentials ;
     proj:ledBy org:IMPMC ;
     proj:hasScientificResponsable :MARCO_SAITTA ;
-    proj:partOf :Diamond ;
+    proj:partOf :Project_diamond;
     proj:producesOutput :AiidaN2p2Plugin,
         :MLIPDB,
         :WorkflowPlatform ,
@@ -102,11 +104,11 @@
         ckey:WorkflowOrchestration ;
     proj:ledBy org:CEA-IRIG ;
     proj:hasScientificResponsable :THIERRY_DEUTSCH ;
-    proj:partOf :Diamond ;
+    proj:partOf :Project_diamond;
     proj:producesOutput :DiamondDBInfrastructure,
                   :AtomisticNumericalSimulationDB,
-                  :Fast2NanoDB ;
-                  :MLIPDB
+                  :Fast2NanoDB ,
+                  :MLIPDB ;
     proj:usesResource :MongoDB .
 
 :WP1 rdf:type proj:WorkPackage ;
@@ -121,7 +123,7 @@
         ckey:GuixPackaging,
         ckey:MOF,
         ckey:WebDevelopment ;
-    proj:partOf :Diamond ;
+    proj:partOf :Project_diamond;
     proj:producesOutput :Abinit,
         :CP2K,
         :DFTBPlus,
@@ -188,7 +190,7 @@
     proj:isCurrentMember true ;
     proj:worksOn :WP3 .
 
-:BENJAMIN_ARRONDEAU rdf:type proj:hasPersonnelType :Scientific ;
+:BENJAMIN_ARRONDEAU proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember false ;
     proj:joinDate "February 2024" ;
     proj:leftDate "January 2026" ;
@@ -212,7 +214,7 @@
     proj:isCurrentMember true ;
     proj:worksOn :WP1 .
 
-:DAVID_RODNEY rdf:type proj:hasPersonnelType :Scientific ;
+:DAVID_RODNEY proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:worksOn :WP1 .
 
@@ -231,7 +233,7 @@
 
 :FRANCOIS_WILLAIME proj:hasPersonnelType :ProjectCoordinator ;
     proj:isCurrentMember true ;
-    proj:worksOn :Diamond .
+    proj:worksOn :Project_diamond.
 
 :GABRIELE_CASSETTA proj:hasPersonnelType :Scientific ;
     proj:joinDate "February 2026" ;
