@@ -24,7 +24,7 @@
 @prefix org:  <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
 @prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
 @prefix ppd:  <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
-@prefix p1:  <https://cnherrera.github.io/DIADEM-ontology/projects/project-diamond.ttl#> .
+@prefix p1:   <https://cnherrera.github.io/DIADEM-ontology/projects/project-diamond.ttl#> .
 
 
 @prefix owl:  <http://www.w3.org/2002/07/owl#> .
@@ -39,6 +39,7 @@
     owl:imports <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ;
     owl:imports <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl> ;
     owl:imports <https://cnherrera.github.io/DIADEM-ontology/platforms-instances.ttl> ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/projects/project-diamond.ttl> ;
     owl:imports <https://cnherrera.github.io/DIADEM-ontology/projects/project-diamond.ttl> ;
     owl:imports <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl> .
 
@@ -169,7 +170,6 @@
     proj:hasPlatform plat:TechniqueType_structural ;
     proj:hasPlatform plat:TechniqueType_structural-characterization-and-diffraction ;
     proj:hasPlatform plat:TechniqueType_thermal ;
-    proj:hasTargetedProject ppd:Project_diamond ;
     proj:hasTargetedProject ppd:Project_2fast ;
     proj:hasTargetedProject ppd:Project_adam ;
     proj:hasTargetedProject ppd:Project_a-dream ;
