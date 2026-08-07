@@ -58,8 +58,8 @@
     platform will be developed and deployed at the GRICAD meso-centre for high-performance computing, 
     and the database infrastructure will be deployed at the TGCC.
     """@en ;
-    proj:hasWorkPackage :WP1,
-        :WP2,
+    proj:hasWorkPackage :WP1 ,
+        :WP2 ,
         :WP3 .
 
 
@@ -70,25 +70,26 @@
     rdfs:comment "Machine-learning Interatomic-potential demonstrator. Delivers an open-access repository of MLPs, builds a platform for MLP development including automated training dataset generation, common interface for MLP packages, and containerized workflow solutions." ;
     skos:prefLabel "WP3 - MLIP demonstrator" ;
     proj:coLedBy org:SIMAP ;
-    proj:gathersCompetence ckey:AIApproaches,
-        ckey:AIBasedModelling,
-        ckey:AiiDAPluginDevelopment,
-        ckey:AiidaWorkflows,
-        ckey:AtomicSimulation,
-        ckey:MLIP,
-        ckey:MLPValidation,
-        ckey:MLWorkflowDesign,
+    proj:gathersCompetence ckey:AIApproaches ,
+        ckey:AIBasedModelling ,
+        ckey:AiiDAPluginDevelopment ,
+        ckey:AiidaWorkflows ,
+        ckey:AtomicSimulation ,
+        ckey:MLIP ,
+        ckey:MLPValidation ,
+        ckey:MLWorkflowDesign ,
         ckey:NeuralNetworkPotentials ;
     proj:ledBy org:IMPMC ;
     proj:hasScientificResponsable :MARCO_SAITTA ;
-    proj:partOf :Project_diamond;
-    proj:producesOutput :AiidaN2p2Plugin,
-        :MLIPDB,
+    proj:partOf :Project_diamond ;
+    proj:producesOutput :AiidaN2p2Plugin ,
+        :MLIPDB ,
+        :MLPWorkflowPlatform ,
         :WorkflowPlatform ,
         :MLPWebRepository ;
-    proj:usesResource :AiiDA,
-        :CP2K,
-        :LAMMPS,
+    proj:usesResource :AiiDA ,
+        :CP2K ,
+        :LAMMPS ,
         :n2p2 .
 
 :WP2 rdf:type proj:WorkPackage ;
@@ -151,7 +152,7 @@
         :Zset,
         :n2p2 ,
         :DIAMONDWebpage ;
-    proj:usesResource :Apptainer,
+    proj:usesResource proj:Apptainer ,
         :Guix .
 
 
@@ -482,11 +483,11 @@
                               ckey:AiidaWorkflows ;
     proj:hasSoftwareComponent :AiidaN2p2Plugin .
 
-:Apptainer rdf:type proj:SoftwareSystem ;
-    rdfs:label "Apptainer"@en ;
-    skos:prefLabel "Apptainer"@en ;
-    rdfs:comment "Apptainer is an open-source container platform. It enables users to create and run containers that encapsulate applications and their dependencies, ensuring portability and reproducibility across diverse computing systems."@en ;
-    proj:hasLicense proj:OpenSource .
+#proj:Apptainer rdf:type proj:SoftwareSystem ;
+#    rdfs:label "Apptainer"@en ;
+#    skos:prefLabel "Apptainer"@en ;
+#    rdfs:comment "Apptainer is an open-source container platform. It enables users to create and run containers that encapsulate applications and their dependencies, ensuring portability and reproducibility across diverse computing systems."@en ;
+#    proj:hasLicense proj:OpenSource .
 
 :Guix rdf:type proj:SoftwareSystem ;
     rdfs:label "GNU Guix"@en ;
@@ -516,7 +517,7 @@
 # --> List of Software codes contenarized by WP1 <-------------------
 
 # ADD the following for the codes:
-#    proj:usesContainerTechnology proj:Apptainer ; -> Docker
+#    proj:usesContainerTechnology projproj:Apptainer ; -> Docker
 #    proj:supportsHardware proj:CPU ; -> GPU
 #    proj:hasLicense proj:OpenSource -> Commercial, Private
 
@@ -534,7 +535,7 @@
     rdfs:comment "Apptainer container image of ABINIT built and distributed by the Diamond/DIADEM project for reproducible scientific computing."@en ;
     proj:encapsulatesSoftware :Abinit ;
 #    proj:hasDistribution proj:Containerized ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
 #    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/abinit/"^^xsd:anyURI .
 
@@ -550,7 +551,7 @@
 :DFTBPlusContainer rdf:type proj:ContainerImage ;
     rdfs:label "Diamond DFTB+ Apptainer Container"@en ;
     proj:encapsulatesSoftware :DFTBPlus ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
 #    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/dftbplus/"^^xsd:anyURI .
 
@@ -565,7 +566,7 @@
 :FEniCSContainer rdf:type proj:ContainerImage ;
     rdfs:label "Diamond FEniCS Apptainer Container"@en ;
     proj:encapsulatesSoftware :FEniCS ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
 #    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/fenics/"^^xsd:anyURI .
 
@@ -580,7 +581,7 @@
 :FreeFEMContainer rdf:type proj:ContainerImage ;
     rdfs:label "Diamond FreeFEM Apptainer Container"@en ;
     proj:encapsulatesSoftware :FreeFEM ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
 #    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/freefem/"^^xsd:anyURI .
 
@@ -596,7 +597,7 @@
 :GaTewAYContainer rdf:type proj:ContainerImage ;
     rdfs:label "Diamond GaTewAY Apptainer Container"@en ;
     proj:encapsulatesSoftware :GaTewAY ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
 #    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/gateway/"^^xsd:anyURI .
 
@@ -612,7 +613,7 @@
 :GmshContainer rdf:type proj:ContainerImage ;
     rdfs:label "Diamond Gmsh Apptainer Container"@en ;
     proj:encapsulatesSoftware :Gmsh ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
     proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/gmsh/"^^xsd:anyURI .
 
@@ -629,7 +630,7 @@
 :NWChemContainer rdf:type proj:ContainerImage ;
     rdfs:label "Diamond NWChem Apptainer Container"@en ;
     proj:encapsulatesSoftware :NWChem ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
 #    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/nwchem/"^^xsd:anyURI .
 
@@ -645,7 +646,7 @@
 :NeperContainer rdf:type proj:ContainerImage ;
     rdfs:label "Diamond Neper Apptainer Container"@en ;
     proj:encapsulatesSoftware :Neper ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
 #    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/neper/"^^xsd:anyURI .
 
@@ -661,7 +662,7 @@
 :OpenCalphadContainer rdf:type proj:ContainerImage ;
     rdfs:label "Diamond OpenCalphad Apptainer Container"@en ;
     proj:encapsulatesSoftware :OpenCalphad ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
 #    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/opencalphad/"^^xsd:anyURI .
 
@@ -677,7 +678,7 @@
 :OpenDiSContainer rdf:type proj:ContainerImage ;
     rdfs:label "Diamond OpenDiS Apptainer Container"@en ;
     proj:encapsulatesSoftware :OpenDiS ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
 #    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/opendis/"^^xsd:anyURI .
 
@@ -694,7 +695,7 @@
 :OvitoContainer rdf:type proj:ContainerImage ;
     rdfs:label "Diamond OVITO Apptainer Container"@en ;
     proj:encapsulatesSoftware :Ovito ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
 #    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/visualisation/ovito/"^^xsd:anyURI .
 
@@ -711,7 +712,7 @@
 :PLUMEDContainer rdf:type proj:ContainerImage ;
     rdfs:label "Diamond PLUMED Apptainer Container"@en ;
     proj:encapsulatesSoftware :PLUMED ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
 #    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/plumed/"^^xsd:anyURI .
 
@@ -728,7 +729,7 @@
 :ParaViewContainer rdf:type proj:ContainerImage ;
     rdfs:label "Diamond ParaView Apptainer Container"@en ;
     proj:encapsulatesSoftware :ParaView ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
 #    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/visualisation/paraview/"^^xsd:anyURI .
 
@@ -745,7 +746,7 @@
 :QuantumESPRESSOContainer rdf:type proj:ContainerImage ;
     rdfs:label "Diamond Quantum ESPRESSO Apptainer Container"@en ;
     proj:encapsulatesSoftware :QuantumESPRESSO ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
 #    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/quantum-espresso/"^^xsd:anyURI .
 
@@ -761,7 +762,7 @@
 :RASPA2Container rdf:type proj:ContainerImage ;
     rdfs:label "Diamond RASPA2 Apptainer Container"@en ;
     proj:encapsulatesSoftware :RASPA2 ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
 #    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/raspa2/"^^xsd:anyURI .
 
@@ -778,7 +779,7 @@
 :VESTAContainer rdf:type proj:ContainerImage ;
     rdfs:label "Diamond VESTA Apptainer Container"@en ;
     proj:encapsulatesSoftware :VESTA ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
 #    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/visualisation/vesta/"^^xsd:anyURI .
 
@@ -794,7 +795,7 @@
 :VMDContainer rdf:type proj:ContainerImage ;
     rdfs:label "Diamond VMD Apptainer Container"@en ;
     proj:encapsulatesSoftware :VMD ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
 #    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/visualisation/vmd/"^^xsd:anyURI .
 
@@ -810,7 +811,7 @@
 :XCrySDenContainer rdf:type proj:ContainerImage ;
     rdfs:label "Diamond XCrySDen Apptainer Container"@en ;
     proj:encapsulatesSoftware :XCrySDen ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
 #    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/visualisation/xcrysden/"^^xsd:anyURI .
 
@@ -827,7 +828,7 @@
 :Wannier90Container rdf:type proj:ContainerImage ;
     rdfs:label "Diamond Wannier90 Apptainer Container"@en ;
     proj:encapsulatesSoftware :Wannier90 ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
 #    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/wannier90/"^^xsd:anyURI .
 
@@ -842,7 +843,7 @@
 :XTBContainer rdf:type proj:ContainerImage ;
     rdfs:label "Diamond XTB Apptainer Container"@en ;
     proj:encapsulatesSoftware :XTB ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
 #    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/xtb/"^^xsd:anyURI .
 
@@ -858,7 +859,7 @@
 :ZeoPlusPlusContainer rdf:type proj:ContainerImage ;
     rdfs:label "Diamond Zeo++ Apptainer Container"@en ;
     proj:encapsulatesSoftware :ZeoPlusPlus ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
 #    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/zeoplusplus/"^^xsd:anyURI .
 
@@ -873,7 +874,7 @@
 :ZsetContainer rdf:type proj:ContainerImage ;
     rdfs:label "Diamond Z-set Apptainer Container"@en ;
     proj:encapsulatesSoftware :Zset ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
 #    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/zset/"^^xsd:anyURI .
 
@@ -889,7 +890,7 @@
 :CP2KContainer rdf:type proj:ContainerImage ;
     rdfs:label "Diamond CP2K Apptainer Container"@en ;
     proj:encapsulatesSoftware :CP2K ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
 #    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/cp2k/"^^xsd:anyURI .
 
@@ -905,7 +906,7 @@
 :LAMMPSContainer rdf:type proj:ContainerImage ;
     rdfs:label "Diamond LAMMPS Apptainer Container"@en ;
     proj:encapsulatesSoftware :LAMMPS ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
 #    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/lammps/"^^xsd:anyURI .
 
@@ -921,7 +922,7 @@
 :N2p2Container rdf:type proj:ContainerImage ;
     rdfs:label "Diamond n2p2 Apptainer Container"@en ;
     proj:encapsulatesSoftware :n2p2 ;
-    proj:usesContainerTechnology :Apptainer ;
+    proj:usesContainerTechnology proj:Apptainer ;
 #    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/n2p2/"^^xsd:anyURI .
 

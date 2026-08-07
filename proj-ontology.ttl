@@ -902,7 +902,11 @@ proj:Docker rdf:type owl:NamedIndividual ,
 
 proj:Apptainer rdf:type owl:NamedIndividual ,
                         proj:ContainerTechnology ;
-    rdfs:label "Apptainer"@en .
+    rdfs:label "Apptainer"@en ;
+    skos:prefLabel "Apptainer"@en ;
+    rdfs:comment "Apptainer is an open-source container platform. It enables users to create and run containers that encapsulate applications and their dependencies, ensuring portability and reproducibility across diverse computing systems."@en ;
+    proj:hasLicense proj:OpenSource .
+
 
 
 proj:Singularity rdf:type owl:NamedIndividual ,
