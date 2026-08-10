@@ -41,7 +41,7 @@
             autocomplete="off"
         />
         <label class="btn btn-secondary" title="Upload a local file">
-            📂 File
+            📂 or Chose Local File
             <input type="file" id="fileInput" accept=".ttl,.turtle,.rdf,.owl,.n3" style="display:none">
         </label>
         <button id="btnLoad" class="btn btn-primary">Upload →</button>
@@ -67,26 +67,27 @@
         <span class="tb-label">View</span>
         <button id="btnInstances"     class="toggle-btn on-rose">ABox (Instances)</button>
         <button id="btnTBox"      class="toggle-btn">TBox (Classes)</button>
-<!---        <button id="btnTBox"      class="toggle-btn on-rose">TBox (Classes)</button> -->
+<!---        <button id="btnTBox"      class="toggle-btn on-rose">TBox (Classes)</button> 
         <button id="btnSubclass" class="toggle-btn on">subClassOf</button>
         <button id="btnProps"    class="toggle-btn on-gold">Object Properties</button>
-        <button id="btnDatatypeProps" class="toggle-btn on-gold">Datatype Props</button>
+        <button id="btnDatatypeProps" class="toggle-btn on-gold">Datatype Props</button> -->
     </div>
 
     <div class="tb-group">
         <div class="search-wrap">
             <span class="search-icon">🔍</span>
-            <input type="text" id="searchInput" class="search-input" placeholder="Filter classes…">
+            <input type="text" id="searchInput" class="search-input" placeholder="General Search…">
         </div>
     </div>
-
+<!---
     <div class="tb-group">
         <button id="btnImportedConcepts" class="toggle-btn" title="Load &amp; show concepts from external ontologies used by instances">🔗 Imported Concepts</button>
     </div>
-
+-->
     <div class="tb-group">
         <button id="btnFit"    class="icon-btn" title="Fit to screen">⊞ Fit</button>
         <button id="btnCenter" class="icon-btn" title="Reset view">↺ Reset</button>
+        <button id="btnFullExtension" class="icon-btn" title="Show everything">⛶ Full Extension</button>
     </div>
     
     <div class="tb-group">
@@ -126,7 +127,7 @@
         <div id="projectPanel" style="position:absolute;top:12px;right:12px;z-index:15;width:200px;max-height:75%;overflow-y:auto;background:rgba(255,255,255,0.96);border:1px solid #e5e0f5;border-radius:10px;box-shadow:0 4px 18px rgba(124,58,237,0.15);padding:10px;display:none;">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
                 <span style="font-size:0.72rem;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:0.03em;">📁 Projects</span>
-                <button id="btnProjectsReset" title="Clear project filter" style="background:none;border:none;cursor:pointer;color:#94a3b8;font-size:0.9rem;line-height:1;">✕</button>
+                <button id="btnProjectsReset" title="Clear project selection" style="background:none;border:none;cursor:pointer;color:#94a3b8;font-size:0.9rem;line-height:1;">✕</button>
             </div>
             <div id="projectButtonsList" style="display:flex;flex-direction:column;gap:6px;"></div>
         </div>
@@ -135,7 +136,7 @@
         <div id="platformPanel" style="position:absolute;top:12px;right:12px;z-index:15;width:200px;max-height:75%;overflow-y:auto;background:rgba(255,255,255,0.96);border:1px solid #e5e0f5;border-radius:10px;box-shadow:0 4px 18px rgba(124,58,237,0.15);padding:10px;display:none;">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
                 <span style="font-size:0.72rem;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:0.03em;">🖥️ Platforms</span>
-                <button id="btnPlatformsReset" title="Clear platform filter" style="background:none;border:none;cursor:pointer;color:#94a3b8;font-size:0.9rem;line-height:1;">✕</button>
+                <button id="btnPlatformsReset" title="Clear platform selection" style="background:none;border:none;cursor:pointer;color:#94a3b8;font-size:0.9rem;line-height:1;">✕</button>
             </div>
             <div id="platformButtonsList" style="display:flex;flex-direction:column;gap:6px;"></div>
         </div>
@@ -1461,7 +1462,7 @@ function initCytoscape(elements) {
                     'z-index':            0,
                     'events':             'no'    // Opcional: hace que no puedas clickear lo "invisible"
                 }
-            }//,
+            }, //,
             // {
             //     selector: 'node[active = false]', // o node[!active] según cómo pases la data
             //     style: {
@@ -1470,7 +1471,77 @@ function initCytoscape(elements) {
             //         'opacity': 0.6,                // Un poco transparente
             //         'border-style': 'dashed'       // Borde punteado para indicar "pasado"
             //     }
-            // } 
+            // }
+            // ─ Indicador "tiene más conexiones ocultas" ──────────
+            // Morado = solo instancias (ABox) ocultas.
+            {
+                selector: 'node.has-more-abox',
+                style: {
+                    'background-image': 'data:image/svg+xml;utf8,' + encodeURIComponent(
+                        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">' +
+                        '<circle cx="12" cy="12" r="11" fill="#7c3aed" stroke="#ffffff" stroke-width="1.6"/>' +
+                        '<path d="M9 7l6 5-6 5" stroke="#ffffff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>' +
+                        '</svg>'
+                    ),
+                    'background-width':      '34%',
+                    'background-height':     '34%',
+                    'background-position-x': '100%',
+                    'background-position-y': '100%',
+                    'background-repeat':     'no-repeat',
+                    'background-clip':       'none',
+                    'background-fit':        'none'
+                }
+            },
+            // Ámbar = solo clases/TBox ocultas (p.ej. está apagado el
+            // toggle "TBox (Classes)" o alguno de sus sub-toggles).
+            {
+                selector: 'node.has-more-tbox',
+                style: {
+                    'background-image': 'data:image/svg+xml;utf8,' + encodeURIComponent(
+                        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">' +
+                        '<circle cx="12" cy="12" r="11" fill="#d97706" stroke="#ffffff" stroke-width="1.6"/>' +
+                        '<path d="M9 7l6 5-6 5" stroke="#ffffff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>' +
+                        '</svg>'
+                    ),
+                    'background-width':      '34%',
+                    'background-height':     '34%',
+                    'background-position-x': '100%',
+                    'background-position-y': '100%',
+                    'background-repeat':     'no-repeat',
+                    'background-clip':       'none',
+                    'background-fit':        'none'
+                }
+            },
+            // Turquesa = mezcla: hay tanto instancias como clases ocultas.
+            {
+                selector: 'node.has-more-mixed',
+                style: {
+                    'background-image': 'data:image/svg+xml;utf8,' + encodeURIComponent(
+                        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">' +
+                        '<circle cx="12" cy="12" r="11" fill="#0891b2" stroke="#ffffff" stroke-width="1.6"/>' +
+                        '<path d="M9 7l6 5-6 5" stroke="#ffffff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>' +
+                        '</svg>'
+                    ),
+                    'background-width':      '34%',
+                    'background-height':     '34%',
+                    'background-position-x': '100%',
+                    'background-position-y': '100%',
+                    'background-repeat':     'no-repeat',
+                    'background-clip':       'none',
+                    'background-fit':        'none'
+                }
+            },
+            // ─ Nodo atenuado (dim) → sin badge ────────────────────
+            // Declarado DESPUÉS de los .has-more-* para que gane en la
+            // cascada: un nodo dim no debe mostrar ningún ícono de "▸",
+            // aunque técnicamente siga teniendo vecinos ocultos — si no,
+            // quedan esparcidos por el lienzo como puntitos de color
+            // (el badge sobrevivía aunque el fondo/borde del nodo ya
+            // estuviera invisible).
+            {
+                selector: 'node.dim',
+                style: { 'background-image': 'none' }
+            }
         ],
 
 	wheelSensitivity: 0.1, 
@@ -1500,11 +1571,68 @@ function initCytoscape(elements) {
 function highlightNode(node) {
     if (!cy) return;
     cy.batch(() => {
+        // Revelamos el propio nodo, y CADA arista directa + el nodo del otro
+        // extremo, si estaban ocultos por el filtro de vista por defecto.
+        // Esto es deliberado e incondicional: el clic-para-revelar es una
+        // acción explícita del usuario sobre ESE nodo puntual, y no debe
+        // depender de los toggles maestros (TBox/ABox) — esos solo
+        // controlan el mostrar/ocultar masivo desde la barra de arriba.
+        node.style('display', 'element');
+        node.connectedEdges().forEach(e => {
+            const other = e.source().id() === node.id() ? e.target() : e.source();
+            other.style('display', 'element');
+            e.style('display', 'element');
+        });
+
         cy.elements().addClass('dim').removeClass('hl');
         node.addClass('hl').removeClass('dim');
         const edges = node.connectedEdges(':visible');
         edges.addClass('hl').removeClass('dim');
         edges.connectedNodes().addClass('hl').removeClass('dim');
+    });
+    updateExpandIndicators();
+}
+
+// ─────────────────────────────────────────────────────────────────
+// Indicador visual de "tiene más conexiones ocultas" (flecha ▸)
+// Se recalcula cada vez que cambia la visibilidad del grafo.
+// ─────────────────────────────────────────────────────────────────
+function updateExpandIndicators() {
+    if (!cy) return;
+    cy.batch(() => {
+        cy.nodes().forEach(n => {
+            n.removeClass('has-more-abox has-more-tbox has-more-mixed');
+            if (n.style('display') === 'none') return;
+
+            const hiddenEdges = n.connectedEdges().filter(e => e.style('display') === 'none');
+            if (hiddenEdges.length === 0) return;
+
+            let hasTBoxHidden = false;
+            let hasABoxHidden = false;
+
+            hiddenEdges.forEach(e => {
+                const other = e.source().id() === n.id() ? e.target() : e.source();
+                const otherType = other.data('type');
+                if (otherType === 'class' || otherType === 'datatype') {
+                    hasTBoxHidden = true;
+                } else if (otherType === 'instance') {
+                    hasABoxHidden = true;
+                } else {
+                    // Fallback: si no podemos inferir por el tipo del nodo
+                    // vecino, lo inferimos por el tipo de arista.
+                    const et = e.data('edgeType');
+                    if (et === 'subClassOf' || et === 'objectProperty' || et === 'datatypeProperty') {
+                        hasTBoxHidden = true;
+                    } else {
+                        hasABoxHidden = true;
+                    }
+                }
+            });
+
+            if (hasTBoxHidden && hasABoxHidden) n.addClass('has-more-mixed');
+            else if (hasTBoxHidden)             n.addClass('has-more-tbox');
+            else                                n.addClass('has-more-abox');
+        });
     });
 }
 
@@ -1720,7 +1848,7 @@ function renderInfoPanel(node) {
         if (urlAttr) {
             html += `
                 <div class="node-url-box" style="margin-top: 10px; padding: 8px; background: #f0f4ff; border-radius: 6px; border-left: 4px solid #2563eb;">
-                    <div style="font-size: 0.7rem; text-transform: uppercase; color: #2563eb; font-weight: bold; margin-bottom: 2px;">LINK TO RESOURCE</div>
+                    <div style="font-size: 0.7rem; text-transform: uppercase; color: #2563eb; font-weight: bold; margin-bottom: 2px;">DIAMOND image container</div>
                     <a href="${urlAttr.value}" target="_blank" style="color:#1d4ed8; text-decoration:none; font-weight:500; word-break: break-all; font-size: 0.9rem;">
                         ${esc(urlAttr.value)} ↗
                     </a>
@@ -1809,6 +1937,146 @@ function focusNode(id) {
     cy.animate({ center: { eles: node }, zoom: Math.max(cy.zoom(), 1.8) }, { duration: 300 });
     highlightNode(node);
     renderInfoPanel(node);
+}
+
+// ─────────────────────────────────────────────────────────────────
+// Vista por defecto: al cargar / al presionar "Reset":
+//   - Si el ontology tiene instancias de Program, se muestran esas
+//     instancias MÁS todos sus vecinos directos (relaciones de objeto
+//     en cualquier dirección: hijos y padres — típicamente Projects
+//     y otras cosas ligadas al Program) junto con esas aristas.
+//   - Si NO hay Program, se muestran solo las instancias de Project
+//     (TargetedProject / AAPProject) — comportamiento sin cambios.
+// El resto queda oculto hasta que el usuario haga click en un nodo
+// (revela su 1er nivel), use el buscador, o presione "Full Extension".
+// ─────────────────────────────────────────────────────────────────
+const PROGRAM_ROOT_NAMES = new Set(['Program']);
+const PROJECT_ROOT_NAMES = new Set(['Project', 'TargetedProject', 'AAPProject']);
+
+// Reutilizable: dado un conjunto de nombres "raíz", devuelve el
+// conjunto de URIs de clase que son esas raíces o cualquiera de
+// sus subclases (transitivamente, vía rdfs:subClassOf).
+function expandClassRootNames(ontology, rootNames) {
+    if (!ontology) return new Set();
+
+    const rootUris = new Set();
+    for (const uri of ontology.classes.keys()) {
+        if (rootNames.has(localName(uri))) rootUris.add(uri);
+    }
+    for (const inst of ontology.instances.values()) {
+        for (const t of (inst.allTypes || [inst.type])) {
+            if (t && rootNames.has(localName(t))) rootUris.add(t);
+        }
+    }
+    const childrenOf = new Map();
+    for (const { from, to } of ontology.subClassEdges) {
+        if (!childrenOf.has(to)) childrenOf.set(to, []);
+        childrenOf.get(to).push(from);
+    }
+    const all = new Set(rootUris);
+    const queue = [...rootUris];
+    while (queue.length) {
+        const cur = queue.shift();
+        for (const child of (childrenOf.get(cur) || [])) {
+            if (!all.has(child)) { all.add(child); queue.push(child); }
+        }
+    }
+    return all;
+}
+
+function getInstanceUrisByRootNames(ontology, rootNames) {
+    if (!ontology) return new Set();
+    const classUris = expandClassRootNames(ontology, rootNames);
+    const visible = new Set();
+    for (const inst of ontology.instances.values()) {
+        const types = inst.allTypes || [inst.type];
+        if (types.some(t => t && classUris.has(t))) visible.add(inst.uri);
+    }
+    return visible;
+}
+
+function hasProgramInstances(ontology) {
+    return getInstanceUrisByRootNames(ontology, PROGRAM_ROOT_NAMES).size > 0;
+}
+
+// Aplica la vista restringida por defecto (ver comentario arriba).
+function applyDefaultFocusFilter() {
+    if (!cy || !parsedData) return;
+
+    const programMode = hasProgramInstances(parsedData);
+    const rootUris = getInstanceUrisByRootNames(
+        parsedData,
+        programMode ? PROGRAM_ROOT_NAMES : PROJECT_ROOT_NAMES
+    );
+
+    cy.batch(() => {
+        // Partimos de cero: todo oculto (esto es lo que faltaba — si no,
+        // quedan expuestas clases que applyEdgeVisibility() había mostrado
+        // para el grafo completo, sin relación con lo que queremos ver).
+        cy.elements().style('display', 'none');
+
+        if (showInstances) {
+            const visibleUris = new Set(rootUris);
+
+            // Modo Program: sumamos también sus vecinos directos —
+            // hijos Y padres, vía cualquier relación de objeto entre
+            // instancias (típicamente los Projects, entre otras cosas).
+            if (programMode) {
+                rootUris.forEach(uri => {
+                    const n = cy.getElementById(uri);
+                    if (!n.length) return;
+                    n.connectedEdges('[edgeType="instanceRelation"]').forEach(e => {
+                        visibleUris.add(e.source().id());
+                        visibleUris.add(e.target().id());
+                    });
+                });
+            }
+
+            cy.nodes('[type="instance"]').forEach(n => {
+                if (visibleUris.has(n.id())) n.style('display', 'element');
+            });
+
+            // Solo en modo Program mostramos también las aristas de
+            // relación directa entre las instancias reveladas (para
+            // que se vean los links, no solo los nodos sueltos).
+            if (programMode) {
+                cy.edges('[edgeType="instanceRelation"]').forEach(e => {
+                    if (visibleUris.has(e.source().id()) && visibleUris.has(e.target().id())) {
+                        e.style('display', 'element');
+                    }
+                });
+            }
+
+            // Para cada instancia visible, su tipo directo (rdf:type),
+            // para identificarla de un vistazo — nada más del TBox.
+            cy.edges('[edgeType="instanceOf"]').forEach(e => {
+                if (!visibleUris.has(e.source().id())) return;
+                e.style('display', 'element');
+                e.target().style('display', 'element');
+            });
+        }
+
+        cy.elements().removeClass('hl dim');
+    });
+
+    applyInstanceColoring();
+    resetInfoPanel();
+    clearActiveConceptButtons();
+    updateExpandIndicators();
+}
+
+// Muestra absolutamente todo (respetando los toggles maestros de
+// TBox / ABox / subClassOf / Object props / Datatype props).
+function applyFullExtension() {
+    if (!cy) return;
+    applyEdgeVisibility();      // vuelve a aplicar los toggles maestros a todo el grafo
+    cy.batch(() => {
+        cy.elements().removeClass('hl dim');
+    });
+    resetInfoPanel();
+    clearActiveConceptButtons();
+    updateExpandIndicators();
+    cy.animate({ fit: { padding: 40 } }, { duration: 300 });
 }
 
 // ─────────────────────────────────────────────────────────────────
@@ -2429,6 +2697,7 @@ async function processText(ttlText, sourceName) {
     document.getElementById('legend').style.display  = 'flex';
     setStatus(`${nClass} classes · ${nInst} instances · ${nPEdges} object props · ${nDTEdges} datatype props — ${sourceName}`);
     renderConceptPanels(ontology);
+    applyDefaultFocusFilter();
     setLoading(false);
 }
 
@@ -2456,6 +2725,7 @@ async function processStore(store, sourceName) {
 
     setStatus('Loaded with imports → ' + sourceName);
     renderConceptPanels(ontology);
+    applyDefaultFocusFilter();
     setLoading(false);
 }
 // ─────────────────────────────────────────────────────────────────
@@ -2654,15 +2924,18 @@ document.getElementById('searchInput').addEventListener('input', function() {
 
     if (!q) {
         // Importante: removemos ambas clases para volver al estado original
-        cy.elements().removeClass('hl dim'); 
+        // (no volvemos a ocultar nada: lo que la búsqueda reveló, queda revelado
+        // hasta el próximo "↺ Reset")
+        cy.elements().removeClass('hl dim');
         return;
     }
 
     cy.batch(() => {
         // 1. Empezamos de cero: todos dimmed
         cy.elements().addClass('dim').removeClass('hl');
-        
-        // 2. Filtramos los que coinciden
+
+        // 2. Filtramos los que coinciden (buscamos en TODO el grafo,
+        //    incluso en nodos ocultos por la vista por defecto)
         const matches = cy.nodes().filter(n => {
             const label = (n.data('label') || "").toLowerCase();
             const id = n.id().toLowerCase();
@@ -2670,14 +2943,22 @@ document.getElementById('searchInput').addEventListener('input', function() {
         });
 
         if (matches.length > 0) {
-            // 3. A los que coinciden y su vecindario les quitamos 'dim' y ponemos 'hl'
+            // 3. Revelamos los que coinciden y su vecindario directo,
+            //    respetando los toggles maestros de TBox / ABox
             const neighborhood = matches.neighborhood().add(matches);
+            neighborhood.forEach(n => {
+                if (!n.isNode()) return;
+                const t = n.data('type');
+                if (t === 'instance' && showInstances) n.style('display', 'element');
+                if (t === 'class'    && showTBox)       n.style('display', 'element');
+            });
             neighborhood.removeClass('dim').addClass('hl');
-            
+
             // 4. Aseguramos que las líneas conectadas también se vean
             matches.connectedEdges(':visible').removeClass('dim').addClass('hl');
         }
     });
+    updateExpandIndicators();
 });
 
 
@@ -3057,11 +3338,13 @@ function clearImportedConcepts() {
 
 document.getElementById('btnCenter').addEventListener('click', () => {
     if (cy) {
-        cy.elements().removeClass('hl dim');
-        resetInfoPanel();
-        clearActiveConceptButtons();
+        applyDefaultFocusFilter();
         cy.animate({ fit: { padding: 40 } }, { duration: 300 });
     }
+});
+
+document.getElementById('btnFullExtension').addEventListener('click', () => {
+    applyFullExtension();
 });
 
 // ─────────────────────────────────────────────────────────────────
