@@ -22,7 +22,7 @@
 
 
 
-:Project_diamond rdf:type proj:Project ;
+:Project_diamond rdf:type proj:TargetedProject ;
     rdfs:comment "Ontology representing all entities of the DIAMOND project" ;
     skos:prefLabel "DIAMOND" ;
     proj:fullName "Databases, Artificial Intelligence, Modeling and Optimization tools for the Digital Design of materials"@en ,
