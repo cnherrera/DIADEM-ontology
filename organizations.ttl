@@ -58,7 +58,7 @@ org:CEA-MEM rdf:type proj:ResearchOrganization ;
 org:CEA-IRIG rdf:type proj:ResearchOrganization ;
     rdfs:label "CEA-IRIG"@en ;
     skos:prefLabel "CEA-IRIG"@en ;
-    proj:acronym "CEA-IRIG" ;
+    proj:acronym "CEA/DRF/IRIG" ;
     proj:fullName
         "Institut de recherche interdisciplinaire de Grenoble"@fr ,
         "Interdisciplinary Research Institute of Grenoble"@en ;
@@ -69,7 +69,7 @@ org:CEA-IRIG rdf:type proj:ResearchOrganization ;
 org:CEA-LIST rdf:type proj:ResearchOrganization ;
     rdfs:label "CEA-LIST"@en ;
     skos:prefLabel "CEA-LIST"@en ;
-    proj:acronym "CEA-LIST" ;
+    proj:acronym "CEA/DRT/LIST" ;
     proj:fullName "Laboratoire d'Intégration de Systèmes et des Technologies"@fr ;
     proj:organizationType "Research laboratory" ;
     proj:country "France" ;
@@ -87,7 +87,7 @@ org:CEASaclay rdf:type proj:ResearchOrganization ;
 org:CEA-SRMP rdf:type proj:ResearchOrganization ;
     rdfs:label "CEA-SRMP"@en ;
     skos:prefLabel "CEA-SRMP"@en ;
-    proj:acronym "CEA-SRMP" ;
+    proj:acronym "CEA/DES/ISAS/DRMP/S2CM/SRMP" ;
     proj:fullName
         "Service de Recherches de Métallurgie Physique"@fr ;
     proj:organizationType "Research laboratory" ;
@@ -152,3 +152,47 @@ org:SIMAP rdf:type proj:ResearchOrganization ;
     proj:organizationType "Research laboratory" ;
     proj:country "France" .
 
+org:CEA-DES rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA/DES"@en ;
+    skos:prefLabel "CEA/DES"@en ;
+    proj:acronym "CEA/DES" ;
+    proj:fullName "Direction Scientifique des Energies - CEA-Saclay" ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA .
+
+org:CEA-SGLS rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA/DES/ISAS/DM2S/SGLS"@en ;
+    skos:prefLabel "CEA-SGLS"@en ;
+    proj:acronym "CEA/DES/ISAS/DM2S/SGLS" ;
+    proj:fullName "Service de Génie Logiciel pour la Simulation - CEA-Saclay" ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA .
+
+org:CEA-DM2S rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA/DES/ISAS/DM2S"@en ;
+    skos:prefLabel "CEA-DM2S"@en ;
+    proj:acronym "CEA/DES/ISAS/DM2S" ;
+    proj:fullName "Département de modélisation des systémes et structures - CEA-Saclay" ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA .
+
+
+org:LPENS rdf:type proj:ResearchOrganization ;
+    rdfs:label "LPENS"@en ;
+    skos:prefLabel "LPENS"@en ;
+    proj:acronym "LPENS" ;
+    proj:fullName "Laboratoire de physique de l'ENS (UMR 8023 CNRS/ENS Paris/Sorbonne Univ./U Paris Cité/Univ. Paris Sciences et Lettres)" ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:CEA-DSSI rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA/DAM/DSSI"@en ;
+    skos:prefLabel "CEA/DAM/DSSI"@en ;
+    proj:acronym "CEA/DAM/DSSI" ;
+    proj:fullName "Département des sciences de la simulation et de l'information - CEA-Bruyères-le-Châtel" ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA .

@@ -11,8 +11,8 @@
 
 <https://cnherrera.github.io/DIADEM-ontology/people.ttl> rdf:type owl:Ontology ;
     rdfs:comment "Instances general DIADEM people" ;
-    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ;
-    owl:imports <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl> ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+     <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl> ;
     owl:versionInfo "0.1" .
 
 :MARIO_MAGLIONE rdf:type proj:ResearchPerson ;
@@ -42,7 +42,7 @@
     foaf:givenName "Adrien" ;
     foaf:mbox <mailto:adrien.bruneton@cea.fr> ;
     foaf:name "Adrien Bruneton" ;
-    proj:employedBy org:CEASaclay .
+    proj:employedBy org:CEA-DM2S .
 #hasOrcid
 
 :AHMED_AMRANI rdf:type proj:ResearchPerson ;
@@ -125,7 +125,7 @@
     foaf:familyName "Dylan" ;
     foaf:givenName "Bissuel" ;
     foaf:name "Dylan Bissuel" ;
-    proj:employedBy org:iLM .
+    proj:employedBy org:ILM .
 
 :ETIENNE_POLACK rdf:type proj:ResearchPerson ;
     foaf:familyName "Polack" ;
@@ -147,8 +147,8 @@
     foaf:givenName "François" ;
     foaf:mbox <mailto:francois.willaime@cea.fr> ;
     foaf:name "François Willaime" ;
-    proj:employedBy org:CEA-LGLS .
-
+    proj:employedBy org:CEA-DES .
+#CEA/DES/ISAS/DRMP
 
 :GABRIELE_CASSETTA rdf:type proj:ResearchPerson ;
     foaf:familyName "Gabriele" ;
@@ -162,7 +162,7 @@
     foaf:givenName "Geoffrey" ;
     foaf:mbox <mailto:geoffrey.daniel@cea.fr> ;
     foaf:name "Geoffrey Daniel" ;
-    proj:employedBy org:CEASaclay  .
+    proj:employedBy org:CEA-SGLS  .
 
 :IMANOL_SETOAIN rdf:type proj:ResearchPerson ;
     foaf:familyName "Setoain" ;
@@ -238,7 +238,7 @@
     foaf:givenName "May" ;
     foaf:mbox <mailto:may.choueid@univ-lyon1.fr> ;
     foaf:name "May Choueib" ;
-    proj:employedBy org:iLM  .
+    proj:employedBy org:ILM  .
 
 :MIHAI_COSMIN_MARINICA rdf:type proj:ResearchPerson ;
     foaf:familyName "Marinica" ;
