@@ -842,17 +842,15 @@ proj:Private
 
 # -->> Software Category <<----------------------------
 
-proj:ScientificComputing rdf:type owl:NamedIndividual ,
-                                  proj:SoftwareCategory ;
-    rdfs:label "Scientific computing"@en ;
-    rdfs:comment "Software primarily intended for numerical simulation, modelling or scientific computation."@en .
+#proj:ScientificComputing rdf:type owl:NamedIndividual ,
+#                                  proj:SoftwareCategory ;
+#    rdfs:label "Scientific computing"@en ;
+#    rdfs:comment "Software primarily intended for numerical simulation, modelling or scientific computation."@en .
 
-
-proj:Visualization rdf:type owl:NamedIndividual ,
-                            proj:SoftwareCategory ;
-    rdfs:label "Visualization"@en ;
-    rdfs:comment "Software intended for visualization, rendering or interactive exploration of scientific data."@en .
-
+#proj:Visualization rdf:type owl:NamedIndividual ,
+#                            proj:SoftwareCategory ;
+#    rdfs:label "Visualization"@en ;
+#    rdfs:comment "Software intended for visualization, rendering or interactive exploration of scientific data."@en .
 
 proj:MachineLearning rdf:type owl:NamedIndividual ,
                               proj:SoftwareCategory ;

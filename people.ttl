@@ -15,6 +15,21 @@
     owl:imports <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl> ;
     owl:versionInfo "0.1" .
 
+:MARIO_MAGLIONE rdf:type proj:ResearchPerson ;
+    foaf:familyName "Maglione" ;
+    foaf:givenName "Mario" ;
+    foaf:mbox <mailto:mario.maglione@icmcb.cnrs.fr> ;
+    foaf:name "Mario Maglione" ;
+    proj:employedBy org:CNRS  .
+
+:FREDERIC_SCHUSTER rdf:type proj:ResearchPerson ;
+    foaf:familyName "Schuster" ;
+    foaf:givenName "Frédéric" ;
+    foaf:mbox <mailto:frederic.schuster@cea.fr> ;
+    foaf:name "Frédéric Schuster" ;
+    proj:employedBy org:CEA .
+
+
 :AADHITYAN_ARIVAZHAGAN rdf:type proj:ResearchPerson ;
     foaf:familyName "Arivazhagan" ;
     foaf:givenName "Aadhityan" ;
@@ -67,7 +82,7 @@
     foaf:name "Arthur France-Lanord" ;
     proj:employedBy org:Sorbonne  .
 
-:BA rdf:type proj:ResearchPerson ;
+:BENJAMIN_ARRONDEAU rdf:type proj:ResearchPerson ;
     foaf:familyName "Arrondeau" ;
     foaf:givenName "Benjamin" ;
     foaf:mbox <mailto:benjamin.arrondeau@univ-grenoble-alpes.fr> ;
@@ -98,7 +113,7 @@
     foaf:name "Dorian Rolland" ;
     proj:employedBy org:CEA-IRIG .
 
-:DR rdf:type proj:ResearchPerson ;
+:DAVID_RODNEY rdf:type proj:ResearchPerson ;
     rdfs:seeAlso <https://diamond-diadem.github.io/team/david-rodney/> ;
     foaf:familyName "Rodney" ;
     foaf:givenName "David" ;
@@ -106,7 +121,7 @@
     foaf:name "David Rodney" ;
     proj:employedBy org:ILM  .
 
-:D_BISSUEL rdf:type proj:ResearchPerson ;
+:DYLAN_BISSUEL rdf:type proj:ResearchPerson ;
     foaf:familyName "Dylan" ;
     foaf:givenName "Bissuel" ;
     foaf:name "Dylan Bissuel" ;
@@ -126,7 +141,7 @@
     foaf:name "Feirouz Ksontini" ;
     proj:employedBy org:CEA-LIST .
 
-:FW rdf:type proj:ResearchPerson ;
+:FRANCOIS_WILLAIME rdf:type proj:ResearchPerson ;
     rdfs:seeAlso <https://diamond-diadem.github.io/team/fran-ois-willaime/> ;
     foaf:familyName "Willaime" ;
     foaf:givenName "François" ;
@@ -172,7 +187,7 @@
     foaf:name "Jonathan Daubin" ;
     proj:employedBy org:CEA-SGLS .
 
-:JPADM rdf:type proj:ResearchPerson ;
+:JOAOPAULO_ALMEIDADEMENDOCA rdf:type proj:ResearchPerson ;
     rdfs:seeAlso <https://diamond-diadem.github.io/team/joao-paulo-almeida/>,
         <https://scholar.google.com/citations?user=KtS3vY4AAAAJ>,
         <https://www.linkedin.com/in/jo%C3%A3o-paulo-almeida-de-mendon%C3%A7a-574598b1/> ;
@@ -182,14 +197,14 @@
     foaf:name "Joao Paulo Almeida de Mendoca" ;
     proj:employedBy org:SIMAP .
 
-:JPP rdf:type proj:ResearchPerson ;
+:JEANPHILIPPE_POLI rdf:type proj:ResearchPerson ;
     foaf:familyName "Poli" ;
     foaf:givenName "Jean-Philippe" ;
     foaf:mbox <mailto:jean-philippe.poli@cea.fr> ;
     foaf:name "Jean-Philippe Poli" ;
     proj:employedBy org:CEA-LIST .
 
-:KarimAA rdf:type proj:ResearchPerson ;
+:KARIM_AITAMMAR rdf:type proj:ResearchPerson ;
     foaf:familyName "Aït Ammar" ;
     foaf:givenName "Karim" ;
     foaf:mbox <mailto:karim.aitammar@cea.fr> ;
@@ -232,7 +247,7 @@
     foaf:name "Mihai-Cosmin Marinica" ;
     proj:employedBy org:CEA-SRMP  .
 
-:MS rdf:type proj:ResearchPerson ;
+:MARCO_SAITTA rdf:type proj:ResearchPerson ;
     rdfs:seeAlso <https://diamond-diadem.github.io/team/marco-saitta/> ;
     foaf:familyName "Saitta" ;
     foaf:givenName "Marco" ;
@@ -262,7 +277,7 @@
     foaf:name "Nils Kasch" ;
     proj:employedBy org:CEA-SGLS .
 
-:NJ rdf:type proj:ResearchPerson ;
+:NOEL_JAKSE rdf:type proj:ResearchPerson ;
     rdfs:seeAlso <https://diamond-diadem.github.io/team/no-l-jakse/> ;
     foaf:familyName "Jakse" ;
     foaf:givenName "Noël" ;
@@ -277,7 +292,7 @@
     foaf:name "Omar Benyahya" ;
     proj:employedBy org:CEA-LIST .
 
-:PAB rdf:type proj:ResearchPerson ;
+:PIERREANTOINE_BOUTTIER rdf:type proj:ResearchPerson ;
     rdfs:seeAlso <https://www.linkedin.com/in/pierre-antoine-bouttier/> ;
     foaf:familyName "Bouttier" ;
     foaf:givenName "Pierre-Antoine" ;
@@ -294,7 +309,7 @@
     foaf:name "Thierry Deutsch" ;
     proj:employedBy org:CEA-IRIG .
 
-:VB rdf:type proj:ResearchPerson ;
+:VINCENT_BERGEAUD rdf:type proj:ResearchPerson ;
     rdfs:seeAlso <https://diamond-diadem.github.io/team/vincent-bergeaud/> ;
     foaf:familyName "Bergeaud" ;
     foaf:givenName "Vincent" ;

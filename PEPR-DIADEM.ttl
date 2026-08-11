@@ -18,14 +18,12 @@
 #        projet, les projets et les plateformes.
 ###############################################################################
 
-@prefix :     <https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM.ttl#> .
+@prefix :     <https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM-v3.ttl#> .
 @prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
 @prefix ppl:  <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
 @prefix org:  <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
 @prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
 @prefix ppd:  <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
-@prefix p1:   <https://cnherrera.github.io/DIADEM-ontology/projects/project-diamond.ttl#> .
-
 
 @prefix owl:  <http://www.w3.org/2002/07/owl#> .
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -34,12 +32,11 @@
 
 # anadir projectos individuales
 
-<https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM.ttl> rdf:type owl:Ontology ;
+<https://cnherrera.github.io/DIADEM-ontology/PEPR-DIADEM-v3.ttl> rdf:type owl:Ontology ;
     owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ;
     owl:imports <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ;
     owl:imports <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl> ;
     owl:imports <https://cnherrera.github.io/DIADEM-ontology/platforms-instances.ttl> ;
-    owl:imports <https://cnherrera.github.io/DIADEM-ontology/projects/project-diamond.ttl> ;
     owl:imports <https://cnherrera.github.io/DIADEM-ontology/projects/project-diamond.ttl> ;
     owl:imports <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl> .
 
@@ -138,24 +135,6 @@
     proj:hasPlatform plat:Platform_ultra-fast-high-energy-x-ray-detector ;
     proj:hasPlatform plat:Platform_x-ray-absorption-spectroscopy-at-esrf ;
     proj:hasPlatform plat:Platform_x-ray-ptychography-imaging-at-esrf ;
-    proj:hasPlatform plat:Project_2fast ;
-    proj:hasPlatform plat:Project_a-dream ;
-    proj:hasPlatform plat:Project_adam ;
-    proj:hasPlatform plat:Project_advance ;
-    proj:hasPlatform plat:Project_amethyst ;
-    proj:hasPlatform plat:Project_artemis ;
-    proj:hasPlatform plat:Project_atherm-coat ;
-    proj:hasPlatform plat:Project_diams ;
-    proj:hasPlatform plat:Project_dream-bio ;
-    proj:hasPlatform plat:Project_esrf ;
-    proj:hasPlatform plat:Project_fastnano ;
-    proj:hasPlatform plat:Project_hiway-2-mat ;
-    proj:hasPlatform plat:Project_libelul ;
-    proj:hasPlatform plat:Project_metsa-set-dia ;
-    proj:hasPlatform plat:Project_microelec ;
-    proj:hasPlatform plat:Project_moflearning ;
-    proj:hasPlatform plat:Project_rubis ;
-    proj:hasPlatform plat:Project_soleil ;
     proj:hasPlatform plat:TechniqueType_analysis-and-specific-platforms ;
     proj:hasPlatform plat:TechniqueType_analysis-specific-platforms ;
     proj:hasPlatform plat:TechniqueType_chemical ;
@@ -170,13 +149,13 @@
     proj:hasPlatform plat:TechniqueType_structural ;
     proj:hasPlatform plat:TechniqueType_structural-characterization-and-diffraction ;
     proj:hasPlatform plat:TechniqueType_thermal ;
+    proj:TargetedProject proj:Project_diamond ;
     proj:hasTargetedProject ppd:Project_2fast ;
     proj:hasTargetedProject ppd:Project_adam ;
     proj:hasTargetedProject ppd:Project_a-dream ;
     proj:hasTargetedProject ppd:Project_amethyst ;
     proj:hasTargetedProject ppd:Project_artemis ;
     proj:hasTargetedProject ppd:Project_atherm-coat ;
-    proj:hasTargetedProject p1:Project_diamond ;
     proj:hasTargetedProject ppd:Project_diams ;
     proj:hasTargetedProject ppd:Project_esrf ;
     proj:hasTargetedProject ppd:Project_fast-in-fuels ;
@@ -221,6 +200,7 @@
     proj:hasAAPProject ppd:Project_reborn ;
     proj:hasAAPProject ppd:Project_simoics ;
     proj:hasAAPProject ppd:Project_syneart .
+
 
 :Fund_DIADEM rdf:type proj:Funding ;
     proj:fundingAmount 30000000.0 ;

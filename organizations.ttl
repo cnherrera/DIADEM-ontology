@@ -15,7 +15,13 @@
 #################################################################
 # Organizations
 #################################################################
-
+org:ICMCB rdf:type proj:ResearchOrganization ;
+    rdfs:label "ICMCB"@en ;
+    skos:prefLabel "ICMCB"@en ;
+    proj:acronym "ICMCB" ;
+    proj:fullName "Institute for Condensed Matter Chemistry of Bordeaux, University Bordeaux"@en ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
 
 org:CNRS rdf:type proj:ResearchOrganization ;
     rdfs:label "CNRS"@en ;
