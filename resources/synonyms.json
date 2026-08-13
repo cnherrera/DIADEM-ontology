@@ -1,0 +1,13 @@
+{
+  "webpage": ["web page", "website", "web site", "site"],
+  "dataset": ["data set", "data collection", "corpus"],
+  "platform": ["infrastructure", "environment"],
+  "software": ["tool", "application", "app"],
+  "document": ["doc", "file"],
+
+  "workflow": ["pipeline", "process chain", "process"],
+  "repository": ["repo", "code repository", "source repository"],
+  "publication": ["paper", "article", "manuscript"],
+  "researcher": ["scientist", "investigator", "author"],
+  "institution": ["organization", "organisation", "institute"]
+}

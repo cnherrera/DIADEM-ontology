@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OWL Ontology Visualizer</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="resources/style.css">
 
     <!-- N3.js for Turtle parsing -->
     <script src="https://unpkg.com/n3@1.17.2/browser/n3.min.js"></script>
@@ -15,6 +15,8 @@
     <script src="https://unpkg.com/cytoscape@3.28.1/dist/cytoscape.min.js"></script>
     <!-- Cytoscape dagre layout extension -->
     <script src="https://unpkg.com/cytoscape-dagre@2.5.0/cytoscape-dagre.js"></script>
+    <!-- Fuse.js for fuzzy / typo-tolerant search (fully client-side, no API calls) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.5/fuse.min.js"></script>
 
     
 </head>
@@ -286,6 +288,139 @@ function esc(str) {
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;');
+}
+
+// ─────────────────────────────────────────────────────────────────
+// SMART SEARCH: normalization + synonym expansion + fuzzy matching
+// Everything below runs 100% client-side (no API / no LLM calls).
+// ─────────────────────────────────────────────────────────────────
+
+// 1) Normalization: makes "WebPage", "web_page", "Web-Page" and
+//    "web page" all collapse to the same string "web page".
+function normalizeText(str) {
+    if (!str) return '';
+    return String(str)
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')  // strip accents
+        .replace(/([a-z0-9])([A-Z])/g, '$1 $2')             // camelCase -> camel Case
+        .replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2')          // ABCFoo -> ABC Foo
+        .replace(/[_\-\/.]+/g, ' ')                          // underscores/hyphens -> space
+        .toLowerCase()
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+// Same as above but WITHOUT the camelCase-splitting steps. Needed because
+// some project names use "stylized" mixed casing that ISN'T real camelCase
+// (e.g. "DARMiCoIS" — a branded acronym, not "darM iCo iS"). Splitting those
+// on every case change corrupts them beyond recognition. Keeping this
+// un-split variant lets such names still match verbatim after casefolding.
+function normalizeTextNoCamelSplit(str) {
+    if (!str) return '';
+    return String(str)
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')  // strip accents
+        .replace(/[_\-\/.]+/g, ' ')                          // underscores/hyphens -> space
+        .toLowerCase()
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+// Very light stemmer so "Platforms" also matches "platform", etc.
+// Deliberately conservative to avoid false positives.
+function stemWord(w) {
+    if (w.length > 4 && w.endsWith('ies')) return w.slice(0, -3) + 'y';
+    // "boxes"->"box", "matches"->"match" (but NOT "pages"->"pag": only
+    // strip the full "es" after a sibilant sound, otherwise just drop the "s")
+    if (w.length > 4 && /(?:[sxz]es|[cs]hes)$/.test(w)) return w.slice(0, -2);
+    if (w.length > 3 && w.endsWith('s') && !w.endsWith('ss')) return w.slice(0, -1);
+    return w;
+}
+
+// Combines BOTH the camel-split and the un-split variants (deduplicated),
+// so genuine camelCase names ("WebPage" -> "web page") AND stylized/acronym
+// names ("DARMiCoIS" -> "darmicois") are both matchable — whichever applies.
+function normalizeForMatch(str) {
+    const camelWords = normalizeText(str).split(' ').map(stemWord);
+    const rawWords = normalizeTextNoCamelSplit(str).split(' ').map(stemWord);
+    const seen = new Set();
+    const all = [];
+    for (const w of [...camelWords, ...rawWords]) {
+        if (w && !seen.has(w)) { seen.add(w); all.push(w); }
+    }
+    return all.join(' ');
+}
+
+// 2) Synonym dictionary. This now lives in an EXTERNAL file (synonyms.json,
+//    next to this HTML) so it can grow into a large domain glossary without
+//    touching this file. Format: canonical term -> list of equivalent terms.
+//    Small fallback below is used only if synonyms.json can't be loaded
+//    (e.g. opening the HTML directly as file:// without a local server —
+//    fetch() of local files is blocked by the browser in that case).
+const SYNONYMS_URL = 'resources/synonyms.json';
+
+let SEARCH_SYNONYMS = {
+    "webpage": ["web page", "website", "web site", "site"],
+    "dataset": ["data set", "data collection", "corpus"],
+    "platform": ["infrastructure", "environment"],
+    "software": ["tool", "application", "app"],
+    "document": ["doc", "file"],
+};
+
+// Reverse lookup, rebuilt whenever SEARCH_SYNONYMS changes (default now,
+// external file once it's loaded).
+let SYNONYM_GROUPS = [];
+function buildSynonymGroups() {
+    const groups = [];
+    for (const canonical in SEARCH_SYNONYMS) {
+        const variants = SEARCH_SYNONYMS[canonical];
+        if (!Array.isArray(variants)) continue;
+        const group = [canonical, ...variants].map(normalizeForMatch);
+        groups.push(new Set(group));
+    }
+    SYNONYM_GROUPS = groups;
+}
+buildSynonymGroups(); // build once with the fallback dictionary immediately
+
+// Fetch the external glossary and merge it in (external entries extend/add
+// to the defaults rather than requiring the file to duplicate everything).
+async function loadExternalSynonyms(url = SYNONYMS_URL) {
+    try {
+        const res = await fetch(url, { cache: 'no-store' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const external = await res.json();
+        if (external && typeof external === 'object') {
+            for (const canonical in external) {
+                const variants = Array.isArray(external[canonical]) ? external[canonical] : [];
+                if (SEARCH_SYNONYMS[canonical]) {
+                    SEARCH_SYNONYMS[canonical] = Array.from(new Set([...SEARCH_SYNONYMS[canonical], ...variants]));
+                } else {
+                    SEARCH_SYNONYMS[canonical] = variants;
+                }
+            }
+            buildSynonymGroups();
+            console.info(`[search] Loaded ${Object.keys(external).length} synonym entries from ${url}`);
+        }
+    } catch (err) {
+        console.warn(`[search] Could not load ${url} (using built-in fallback synonyms). ` +
+                      `If you're opening this file directly (file://), serve it via a local ` +
+                      `server (e.g. "python3 -m http.server") for the external glossary to load. ` +
+                      `Reason: ${err.message}`);
+    }
+}
+
+// Given a normalized query, return the set of normalized terms to search for
+// (the query itself plus any synonym-group matches it belongs to).
+function expandQuery(normQuery) {
+    const terms = new Set([normQuery]);
+    for (const group of SYNONYM_GROUPS) {
+        for (const term of group) {
+            // match if the query contains the term or the term contains the query
+            if (term.includes(normQuery) || normQuery.includes(term)) {
+                group.forEach(t => terms.add(t));
+                break;
+            }
+        }
+    }
+    return Array.from(terms);
 }
 
 function setLoading(on, msg = 'Uploading...') {
@@ -1096,6 +1231,8 @@ function buildElements(ontology) {
 // Cytoscape instance
 // ─────────────────────────────────────────────────────────────────
 let cy         = null;
+let searchFuse = null;       // Fuse.js fuzzy-search index (built lazily, see buildSearchIndex())
+let searchFuseNodeCount = -1;
 let parsedData = null;
 
 let showTBox          = false;
@@ -1107,6 +1244,7 @@ let showDatatypeProps = true;
 function initCytoscape(elements) {
     if (cy) { cy.destroy(); cy = null; }
 
+    searchFuse = null; // invalidate search index: a new ontology graph is being built
     cy = cytoscape({
         container: document.getElementById('cy'),
         elements:  elements,
@@ -1934,8 +2072,20 @@ function focusNode(id) {
     if (!cy) return;
     const node = cy.getElementById(id);
     if (!node.length) return;
-    cy.animate({ center: { eles: node }, zoom: Math.max(cy.zoom(), 1.8) }, { duration: 300 });
+    // Cancelamos cualquier animación / layout en curso antes de centrar.
+    cy.stop(true, true);
+
+    // IMPORTANTE: primero revelamos el nodo (y sus vecinos), y RECIÉN
+    // DESPUÉS centramos/zoomeamos la cámara sobre él. Muchos nodos
+    // (p.ej. Projects, cuando el ontology tiene Program y por eso el
+    // filtro por defecto solo muestra Program + vecinos) empiezan con
+    // display:none. Cytoscape EXCLUYE los elementos con display:none
+    // del cálculo del bounding box usado para centrar/zoom — así que si
+    // animábamos antes de revelar el nodo, la cámara se centraba sobre
+    // un bounding box vacío/erróneo y el resultado era una pantalla en
+    // blanco, aunque el nodo (ya visible) quedara fuera de la vista.
     highlightNode(node);
+    cy.animate({ center: { eles: node }, zoom: Math.max(cy.zoom(), 2.0) }, { duration: 350 });
     renderInfoPanel(node);
 }
 
@@ -2826,6 +2976,8 @@ document.getElementById('ttlUrl').addEventListener('keydown', e => {
 // ── AUTOMATIC INITIAL LOAD ────────────────────────────────────
 // Trigger the upload immediately when the DOM content has loaded
 document.addEventListener("DOMContentLoaded", () => {
+    loadExternalSynonyms(); // fetch synonyms.json in the background (non-blocking)
+
     const btnLoad = document.getElementById("btnLoad");
     const ttlUrlInput = document.getElementById("ttlUrl");
 
@@ -2865,21 +3017,30 @@ document.getElementById('layoutSelect').addEventListener('change', e => {
     applyLayout(e.target.value);
 });
 
-document.getElementById('btnSubclass').addEventListener('click', function() {
+// Nota: btnSubclass / btnProps / btnDatatypeProps están comentados en el HTML
+// (bloque <!--- ... -->) por lo que no existen en el DOM. Se protege cada
+// registro con un chequeo de null para que no interrumpan el resto del script
+// (esto era lo que rompía la búsqueda: un .addEventListener sobre null detiene
+// TODA la ejecución del script a partir de ese punto). Si algún día se
+// descomentan esos botones en el HTML, estos listeners vuelven a activarse solos.
+const elBtnSubclass = document.getElementById('btnSubclass');
+if (elBtnSubclass) elBtnSubclass.addEventListener('click', function() {
     showSubclass = !showSubclass;
     this.classList.toggle('on', showSubclass);
     if (cy) cy.edges('[edgeType="subClassOf"]')
         .style('display', showSubclass ? 'element' : 'none');
 });
 
-document.getElementById('btnProps').addEventListener('click', function() {
+const elBtnProps = document.getElementById('btnProps');
+if (elBtnProps) elBtnProps.addEventListener('click', function() {
     showPropEdges = !showPropEdges;
     this.classList.toggle('on-gold', showPropEdges);
     if (cy) cy.edges('[edgeType="objectProperty"]')
         .style('display', showPropEdges ? 'element' : 'none');
 });
 
-document.getElementById('btnDatatypeProps').addEventListener('click', function() {
+const elBtnDatatypeProps = document.getElementById('btnDatatypeProps');
+if (elBtnDatatypeProps) elBtnDatatypeProps.addEventListener('click', function() {
     showDatatypeProps = !showDatatypeProps;
     this.classList.toggle('on-gold', showDatatypeProps);
     if (cy) {
@@ -2918,48 +3079,194 @@ document.getElementById('btnInstances').addEventListener('click', function() {
 });
 
 
+// Rebuild the fuzzy search index whenever the graph changes.
+// (Cheap for graphs up to several thousand nodes; index build is O(n).)
+// searchFuse / searchFuseNodeCount are declared as globals near `let cy` above.
+function buildSearchIndex() {
+    if (!cy) { searchFuse = null; return; }
+    if (typeof Fuse === 'undefined') {
+        // Fuse.js didn't load (offline, CDN blocked, etc.) — exact/substring
+        // matching in the search handler still works fine without it.
+        console.warn('[search] Fuse.js not available: fuzzy matching disabled, falling back to exact/substring search only.');
+        searchFuse = null;
+        return;
+    }
+    const nodes = cy.nodes();
+    searchFuseNodeCount = nodes.length;
+    const records = nodes.map(n => ({
+        id: n.id(),
+        normLabel: normalizeForMatch(n.data('label') || ''),
+        normId: normalizeForMatch(localName(n.id()))
+    }));
+    try {
+        searchFuse = new Fuse(records, {
+            keys: ['normLabel', 'normId'],
+            // Bajado de 0.32 a 0.2: con 0.32, términos cortos (p.ej. "MLIP")
+            // podían dar falsos positivos con palabras/nombres que solo se
+            // "parecen" por casualidad (p.ej. "Philippe"), porque la
+            // tolerancia de fuzzy-matching es proporcionalmente muy laxa
+            // para strings cortos. 0.2 sigue tolerando typos reales
+            // (reserch→research, diadme→diadem, catherin→catherine) pero
+            // ya no matchea coincidencias espurias de pocas letras.
+            threshold: 0.2,
+            ignoreLocation: true,
+            includeScore: true,
+            useExtendedSearch: false
+        });
+    } catch (err) {
+        console.warn('[search] Failed to build Fuse index, falling back to exact/substring search only.', err);
+        searchFuse = null;
+    }
+}
+
+// Detecta si una arista de relación entre instancias corresponde a la
+// propiedad "hasCompetence" (proyecto → palabra clave de competencia),
+// sin asumir el namespace exacto: compara tanto el local-name de la URI
+// de la propiedad como su label normalizado, así funciona igual en
+// cualquiera de los 53 proyectos importados, tengan el prefijo que tengan.
+function isCompetenceEdge(edgeData) {
+    const propLocal = edgeData.propUri ? normalizeForMatch(localName(edgeData.propUri)) : '';
+    const labelNorm = normalizeForMatch(edgeData.label || '');
+    return propLocal === 'has competence' || labelNorm === 'has competence';
+}
+
 document.getElementById('searchInput').addEventListener('input', function() {
     if (!cy) return;
-    const q = this.value.trim().toLowerCase();
+    const raw = this.value.trim();
+    const q = normalizeForMatch(raw);
 
     if (!q) {
         // Importante: removemos ambas clases para volver al estado original
         // (no volvemos a ocultar nada: lo que la búsqueda reveló, queda revelado
         // hasta el próximo "↺ Reset")
         cy.elements().removeClass('hl dim');
+        resetInfoPanel();
         return;
     }
+
+    // (Re)build the index if the graph has changed since last search
+    if (!searchFuse || searchFuseNodeCount !== cy.nodes().length) {
+        buildSearchIndex();
+    }
+
+    let foundMatches = null;
 
     cy.batch(() => {
         // 1. Empezamos de cero: todos dimmed
         cy.elements().addClass('dim').removeClass('hl');
 
-        // 2. Filtramos los que coinciden (buscamos en TODO el grafo,
-        //    incluso en nodos ocultos por la vista por defecto)
-        const matches = cy.nodes().filter(n => {
-            const label = (n.data('label') || "").toLowerCase();
-            const id = n.id().toLowerCase();
-            return label.includes(q) || id.includes(q);
+        // 2. Expandimos la query con sinónimos conocidos, y para cada
+        //    variante buscamos: (a) coincidencia exacta/substring normalizada,
+        //    y (b) coincidencia difusa (typos, orden de palabras) vía Fuse.js.
+        //    Buscamos en TODO el grafo, incluso en nodos ocultos por la vista.
+        const queryTerms = expandQuery(q);
+        const matchIds = new Set();
+
+        cy.nodes().forEach(n => {
+            const normLabel = normalizeForMatch(n.data('label') || '');
+            const normId = normalizeForMatch(localName(n.id()));
+            for (const term of queryTerms) {
+                if (normLabel.includes(term) || normId.includes(term)) {
+                    matchIds.add(n.id());
+                    return;
+                }
+            }
         });
 
+        if (searchFuse) {
+            try {
+                for (const term of queryTerms) {
+                    searchFuse.search(term).forEach(r => matchIds.add(r.item.id));
+                }
+            } catch (err) {
+                console.warn('[search] Fuzzy search failed, continuing with exact matches only.', err);
+            }
+        }
+
+        // 2b. Competence keywords (hasCompetence): si una keyword coincide con
+        //     la búsqueda, el proyecto (u otra instancia) que la tiene asociada
+        //     vía hasCompetence también se considera un resultado — esto es
+        //     una relación semántica deliberada, no una expansión genérica de
+        //     vecinos.
+        cy.edges('[edgeType="instanceRelation"]').forEach(e => {
+            if (isCompetenceEdge(e.data()) && matchIds.has(e.target().id())) {
+                matchIds.add(e.source().id());
+            }
+        });
+
+        // 3. Solo resaltamos los nodos que realmente coinciden (o su proyecto
+        //    asociado vía hasCompetence) — SIN expandir a todo el vecindario.
+        const matches = cy.nodes().filter(n => matchIds.has(n.id()));
+
         if (matches.length > 0) {
-            // 3. Revelamos los que coinciden y su vecindario directo,
-            //    respetando los toggles maestros de TBox / ABox
-            const neighborhood = matches.neighborhood().add(matches);
-            neighborhood.forEach(n => {
-                if (!n.isNode()) return;
+            matches.forEach(n => {
                 const t = n.data('type');
                 if (t === 'instance' && showInstances) n.style('display', 'element');
                 if (t === 'class'    && showTBox)       n.style('display', 'element');
             });
-            neighborhood.removeClass('dim').addClass('hl');
+            matches.removeClass('dim').addClass('hl');
 
-            // 4. Aseguramos que las líneas conectadas también se vean
-            matches.connectedEdges(':visible').removeClass('dim').addClass('hl');
+            // 4. Resaltamos también las aristas que conectan DOS nodos que
+            //    hicieron match entre sí (p.ej. proyecto ↔ keyword), sin tocar
+            //    aristas hacia nodos que no coincidieron.
+            matches.edgesWith(matches).removeClass('dim').addClass('hl');
         }
+
+        foundMatches = matches;
     });
+
+    // Fuera del batch: el panel de detalles y la animación de encuadre
+    // (cy.animate necesita que el batch ya haya terminado para renderizar
+    // correctamente).
+    if (foundMatches && foundMatches.length > 0) {
+        // 5. Panel de detalles: en vez de dejarlo con la info del último
+        //    nodo clickeado (o vacío), mostramos la lista de resultados
+        //    encontrados — cada uno clickeable para saltar directo a él
+        //    (foco + zoom en el grafo).
+        renderSearchResultsPanel(foundMatches, raw);
+
+        // 6. Encuadramos la vista para que se vean TODOS los nodos
+        //    encontrados de una vez (en vez de quedar centrados en el
+        //    último punto donde estaba la cámara).
+        cy.animate({ fit: { eles: foundMatches, padding: 60 } }, { duration: 350 });
+    } else {
+        renderNoSearchResultsPanel(raw);
+    }
+
     updateExpandIndicators();
 });
+
+// Muestra, en el panel de detalles, la lista de nodos encontrados por la
+// búsqueda — cada entrada es clickeable y salta directo a ese nodo
+// (mismo comportamiento que hacer click en el nodo dentro del grafo).
+function renderSearchResultsPanel(matches, query) {
+    const body = document.getElementById('infoBody');
+    let html = `<div class="section-title">🔍 Search results for "${esc(query)}" (${matches.length})</div>`;
+    html += `<div style="display:flex;flex-direction:column;gap:4px;margin-top:4px;">`;
+    matches.forEach(n => {
+        const col = n.data('nodeColor') || '#7c3aed';
+        html += `
+            <div class="prop-target search-result-row"
+                 data-nid="${esc(n.id())}"
+                 style="cursor:pointer;padding:6px 8px;border-radius:6px;background:${col}14;
+                        border:1px solid ${col}40;font-weight:500;">
+                ${esc(n.data('label') || localName(n.id()))}
+            </div>`;
+    });
+    html += `</div>`;
+    body.innerHTML = html;
+
+    body.querySelectorAll('[data-nid]').forEach(el => {
+        el.addEventListener('click', () => focusNode(el.dataset.nid));
+        el.addEventListener('mouseenter', () => el.style.filter = 'brightness(0.95)');
+        el.addEventListener('mouseleave', () => el.style.filter = '');
+    });
+}
+
+function renderNoSearchResultsPanel(query) {
+    document.getElementById('infoBody').innerHTML =
+        `<div class="info-empty">No results for<br>"${esc(query)}".</div>`;
+}
 
 
 document.getElementById('btnFit').addEventListener('click', () => {
@@ -3072,7 +3379,10 @@ document.getElementById('importedModalClose').addEventListener('click', () => {
 document.getElementById('importedClear').addEventListener('click', () => {
     clearImportedConcepts();
     document.getElementById('importedModal').style.display = 'none';
-    document.getElementById('btnImportedConcepts').classList.remove('on-gold');
+    // btnImportedConcepts está comentado en el HTML (no existe en el DOM);
+    // se protege para no interrumpir el resto del script.
+    const elBtnImportedConceptsA = document.getElementById('btnImportedConcepts');
+    if (elBtnImportedConceptsA) elBtnImportedConceptsA.classList.remove('on-gold');
     importedConceptsActive = false;
 });
 
@@ -3084,11 +3394,13 @@ document.getElementById('importedLoad').addEventListener('click', async () => {
     document.getElementById('importedStatus').textContent = 'Loading…';
     await loadAndShowImportedConcepts(urls);
     document.getElementById('importedModal').style.display = 'none';
-    document.getElementById('btnImportedConcepts').classList.add('on-gold');
+    const elBtnImportedConceptsB = document.getElementById('btnImportedConcepts');
+    if (elBtnImportedConceptsB) elBtnImportedConceptsB.classList.add('on-gold');
     importedConceptsActive = true;
 });
 
-document.getElementById('btnImportedConcepts').addEventListener('click', () => {
+const elBtnImportedConcepts = document.getElementById('btnImportedConcepts');
+if (elBtnImportedConcepts) elBtnImportedConcepts.addEventListener('click', () => {
     if (!parsedData) { showToast('Load an ontology first.'); return; }
     openImportedModal();
 });
