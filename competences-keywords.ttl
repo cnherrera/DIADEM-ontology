@@ -5,107 +5,257 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-
 @prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
 
-
 <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> a owl:Ontology ;
-    rdfs:comment "Instances Competences and Keywords DIAMOND project" ;
+    rdfs:comment "Instances of Competences and Keywords for DIADEM project"@en ,
+                 "Instances de compétences et mots-clés pour le projet DIADEM"@fr ;
     owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ;
-    owl:versionInfo "0.1" .
+    owl:versionInfo "0.2" .
 
+# =========================================================================
+# DEFINITION OF KEYWORD CLASS
+# =========================================================================
+proj:Keyword a owl:Class ;
+    rdfs:label "Keyword"@en , "Mot-clé"@fr ;
+    rdfs:comment "A descriptive keyword or domain term used to categorize topics, materials, or applications."@en ,
+                 "Un mot-clé ou terme du domaine utilisé pour catégoriser des sujets, matériaux ou applications."@fr .
 
+# =========================================================================
+# 1. ORIGINAL COMPETENCES (From Source TTL)
+# =========================================================================
 :ContainerDeployment rdf:type proj:Computational ;
-    rdfs:comment "Packaging and deploying scientific software using container technologies such as Apptainer or Docker." ;
-    skos:prefLabel "Scientific Software Containerization" .
+    skos:prefLabel "Scientific Software Containerization"@en , "Conteneurisation de logiciels scientifiques"@fr ;
+    rdfs:comment "Packaging and deploying scientific software using container technologies such as Apptainer or Docker."@en ,
+                 "Empaquetage et déploiement de logiciels scientifiques via des conteneurs comme Apptainer ou Docker."@fr .
 
 :DatabaseInfrastructureDesign rdf:type proj:DataManagement ;
-    rdfs:comment "Designing the architecture and implementation of scalable and reliable database systems for scientific workflows." ;
-    skos:prefLabel "Database Infrastructure Design" .
-
+    skos:prefLabel "Database Infrastructure Design"@en , "Conception d'infrastructure de bases de données"@fr ;
+    rdfs:comment "Designing the architecture and implementation of scalable and reliable database systems for scientific workflows."@en ,
+                 "Conception de l'architecture de systèmes de bases de données fiables pour les flux scientifiques."@fr .
 
 :HighPerformanceComputing rdf:type proj:Computational ;
-    rdfs:comment "Using and optimizing scientific codes for execution on high-performance computing infrastructures, including GPU clusters and parallel systems." ;
-    skos:prefLabel "High-performance Computing" .
+    skos:prefLabel "High-performance Computing"@en , "Calcul haute performance"@fr ;
+    rdfs:comment "Using and optimizing scientific codes for execution on high-performance computing infrastructures, including GPU clusters and parallel systems."@en ,
+                 "Utilisation et optimisation de codes scientifiques pour l'exécution sur des infrastructures HPC et GPU."@fr .
 
 :WorkflowDesign rdf:type proj:Methodological ;
-    rdfs:comment "Structuring scientific and computational procedures into reproducible workflows." ;
-    skos:prefLabel "Workflow Design" .
+    skos:prefLabel "Workflow Design"@en , "Conception de flux de travail"@fr ;
+    rdfs:comment "Structuring scientific and computational procedures into reproducible workflows."@en ,
+                 "Structuration de procédures scientifiques en flux de travail reproductibles."@fr .
 
 :AIBasedModelling rdf:type proj:Methodological ;
-    rdfs:comment "Application of artificial intelligence techniques to accelerate and enhance materials modelling and discovery." ;
-    skos:prefLabel "AI-based Modelling" .
-
+    skos:prefLabel "AI-based Modelling"@en , "Modélisation basée sur l'IA"@fr ;
+    rdfs:comment "Application of artificial intelligence techniques to accelerate and enhance materials modelling and discovery."@en ,
+                 "Application de l'IA pour accélérer et améliorer la modélisation et la découverte de matériaux."@fr .
 
 :AtomicSimulation rdf:type proj:Computational ;
-    rdfs:comment "Developing and applying atomistic simulation techniques for materials modelling." ;
-    skos:prefLabel "Atomistic Simulation" .
+    skos:prefLabel "Atomistic Simulation"@en , "Simulation atomistique"@fr ;
+    rdfs:comment "Developing and applying atomistic simulation techniques for materials modelling."@en ,
+                 "Développement et application de techniques de simulation atomistique pour les matériaux."@fr .
 
 :Containerization rdf:type proj:Computational ;
-    rdfs:comment "Using container technologies to encapsulate, distribute, and execute scientific software in reproducible environments." ;
-    skos:prefLabel "Containerization" .
+    skos:prefLabel "Containerization"@en , "Conteneurisation"@fr ;
+    rdfs:comment "Using container technologies to encapsulate, distribute, and execute scientific software in reproducible environments."@en ,
+                 "Utilisation de conteneurs pour encapsuler et exécuter des logiciels scientifiques."@fr .
 
 :DatabaseInfrastructure rdf:type proj:DataManagement ;
-    rdfs:comment "Building and maintaining backend infrastructure for storing, querying, and scaling access to scientific simulation and experimental data." ;
-    skos:prefLabel "Database Infrastructure" .
+    skos:prefLabel "Database Infrastructure"@en , "Infrastructure de base de données"@fr ;
+    rdfs:comment "Building and maintaining backend infrastructure for storing, querying, and scaling access to scientific simulation and experimental data."@en ,
+                 "Création et maintenance d'infrastructures backend pour le stockage et l'accès aux données scientifiques."@fr .
 
 :FAIRDataHandling rdf:type proj:DataManagement ;
-    rdfs:comment "Applying FAIR principles to ensure that research data is Findable, Accessible, Interoperable, and Reusable." ;
-    skos:prefLabel "FAIR Data Handling" .
+    skos:prefLabel "FAIR Data Handling"@en , "Gestion des données FAIR"@fr ;
+    rdfs:comment "Applying FAIR principles to ensure that research data is Findable, Accessible, Interoperable, and Reusable."@en ,
+                 "Application des principes FAIR pour garantir des données trouvables, accessibles, interopérables et réutilisables."@fr .
 
 :GuixPackaging rdf:type proj:Computational ;
-    rdfs:comment "Creating and maintaining Guix packages to ensure reproducible software environments for scientific computing." ;
-    skos:prefLabel "Guix Packaging" .
-
+    skos:prefLabel "Guix Packaging"@en , "Empaquetage Guix"@fr ;
+    rdfs:comment "Creating and maintaining Guix packages to ensure reproducible software environments for scientific computing."@en ,
+                 "Création et maintenance de paquets Guix pour assurer des environnements logiciels reproductibles."@fr .
 
 :MLIP rdf:type proj:Computational ;
-    rdfs:comment "Using and developing ML-based interatomic potentials for atomistic simulations, including training, validation, and workflow integration." ;
-    skos:prefLabel "Machine Learning Interatomic Potentials" .
-
+    skos:prefLabel "Machine Learning Interatomic Potentials"@en , "Potentiels interatomiques par apprentissage automatique"@fr ;
+    rdfs:comment "Using and developing ML-based interatomic potentials for atomistic simulations, including training, validation, and workflow integration."@en ,
+                 "Utilisation et développement de potentiels interatomiques basés sur le ML pour les simulations."@fr .
 
 :MLPValidation rdf:type proj:Methodological ;
-    rdfs:comment "Expertise in validation methods for machine learning potentials, including biased molecular dynamics, phonon-based sampling, and benchmark testing." ;
-    skos:prefLabel "MLP Validation Methods" .
+    skos:prefLabel "MLP Validation Methods"@en , "Méthodes de validation MLP"@fr ;
+    rdfs:comment "Expertise in validation methods for machine learning potentials, including biased molecular dynamics, phonon-based sampling, and benchmark testing."@en ,
+                 "Expertise dans les méthodes de validation pour les potentiels d'apprentissage automatique."@fr .
 
 :MLWorkflowDesign rdf:type proj:Methodological ;
-    rdfs:comment "Designing ML workflows involving data preparation, feature engineering, training, validation, and deployment for scientific tasks." ;
-    skos:prefLabel "Machine Learning Workflow Design" .
-
-:MOF rdf:type proj:Competence ;
-    rdfs:comment "Expertise in the chemistry, structure, modelling, or application of metal-organic frameworks." ;
-    skos:prefLabel "Metal-Organic Frameworks" .
+    skos:prefLabel "Machine Learning Workflow Design"@en , "Conception de flux de travail d'apprentissage automatique"@fr ;
+    rdfs:comment "Designing ML workflows involving data preparation, feature engineering, training, validation, and deployment for scientific tasks."@en ,
+                 "Conception de flux de travail ML incluant la préparation des données et le déploiement."@fr .
 
 :NeuralNetworkPotentials rdf:type proj:Computational ;
-    rdfs:comment "Expertise in Behler-Parrinello neural network architectures and other neural network-based interatomic potentials for atomistic simulations." ;
-    skos:prefLabel "Neural Network Potentials" .
-
+    skos:prefLabel "Neural Network Potentials"@en , "Potentiels de réseaux de neurones"@fr ;
+    rdfs:comment "Expertise in Behler-Parrinello neural network architectures and other neural network-based interatomic potentials for atomistic simulations."@en ,
+                 "Expertise dans les architectures de réseaux de neurones pour potentiels interatomiques."@fr .
 
 :WebDevelopment rdf:type proj:Methodological ;
-    rdfs:comment "Design and implementation of user-facing web applications for presenting, accessing, or submitting scientific data and workflows." ;
-    skos:prefLabel "Web Application Development" .
+    skos:prefLabel "Web Application Development"@en , "Développement d'applications web"@fr ;
+    rdfs:comment "Design and implementation of user-facing web applications for presenting, accessing, or submitting scientific data and workflows."@en ,
+                 "Conception et implémentation d'applications web pour l'accès aux données scientifiques."@fr .
 
 :WorkflowOrchestration rdf:type proj:Methodological ;
-    rdfs:comment "Coordinating and managing computational workflows using orchestration tools such as CWL, Nextflow, or Airflow." ;
-    skos:prefLabel "Workflow Orchestration" .
-
+    skos:prefLabel "Workflow Orchestration"@en , "Orchestration de flux de travail"@fr ;
+    rdfs:comment "Coordinating and managing computational workflows using orchestration tools such as CWL, Nextflow, or Airflow."@en ,
+                 "Coordination et gestion de flux de calculs via des outils comme CWL ou Nextflow."@fr .
 
 :AiiDAPluginDevelopment rdf:type proj:Computational ;
-    rdfs:comment "Development of AiiDA plugins to interface scientific simulation codes with automated workflow engines." ;
-    skos:prefLabel "AiiDA Plugin Development" .
+    skos:prefLabel "AiiDA Plugin Development"@en , "Développement de plugins AiiDA"@fr ;
+    rdfs:comment "Development of AiiDA plugins to interface scientific simulation codes with automated workflow engines."@en ,
+                 "Développement de plugins AiiDA pour interfacer des codes de simulation avec des moteurs automatisés."@fr .
 
 :AiidaWorkflows rdf:type proj:Computational ;
-    rdfs:comment "Design and execution of automated and reproducible scientific workflows using the AiiDA computational framework." ;
-    skos:prefLabel "AiiDA Workflows" .
+    skos:prefLabel "AiiDA Workflows"@en , "Flux de travail AiiDA"@fr ;
+    rdfs:comment "Design and execution of automated and reproducible scientific workflows using the AiiDA computational framework."@en ,
+                 "Conception de flux scientifiques automatisés via le framework AiiDA."@fr .
 
 :LargeScaleWorkflows rdf:type proj:Computational ;
-    rdfs:comment "Design and execution of large-scale computational workflows running across distributed or HPC infrastructures." ;
-    skos:prefLabel "Large-scale Workflows" .
+    skos:prefLabel "Large-scale Workflows"@en , "Flux de travail à grande échelle"@fr ;
+    rdfs:comment "Design and execution of large-scale computational workflows running across distributed or HPC infrastructures."@en ,
+                 "Conception et exécution de flux de travail de grande échelle sur des infrastructures distribuées."@fr .
 
 :MetadataStandardization rdf:type proj:DataManagement ;
-    rdfs:comment "Defining, adopting, and applying metadata schemas to improve data interoperability and reusability." ;
-    skos:prefLabel "Metadata Standardization" .
+    skos:prefLabel "Metadata Standardization"@en , "Standardisation des métadonnées"@fr ;
+    rdfs:comment "Defining, adopting, and applying metadata schemas to improve data interoperability and reusability."@en ,
+                 "Définition et application de schémas de métadonnées pour améliorer l'interopérabilité."@fr .
 
 :AIApproaches rdf:type proj:Methodological ;
-    rdfs:comment "General methodological approaches based on artificial intelligence for analysis, prediction, or automation in scientific research." ;
-    skos:prefLabel "AI Approaches" .
+    skos:prefLabel "AI Approaches"@en , "Approches IA"@fr ;
+    rdfs:comment "General methodological approaches based on artificial intelligence for analysis, prediction, or automation in scientific research."@en ,
+                 "Approches méthodologiques basées sur l'intelligence artificielle pour la recherche."@fr .
 
+
+# =========================================================================
+# 2. AI METHODS 
+# =========================================================================
+:MachineLearning rdf:type proj:Methodological ;
+    skos:prefLabel "Machine Learning"@en , "Apprentissage automatique"@fr ;
+    rdfs:comment "Methods and algorithms that build models based on sample data to make predictions or decisions."@en ,
+                 "Méthodes et algorithmes construisant des modèles à partir de données d'apprentissage pour faire des prédictions ou des décisions."@fr .
+
+:DeepLearning rdf:type proj:Methodological ;
+    skos:prefLabel "Deep Learning"@en , "Apprentissage profond"@fr ;
+    rdfs:comment "Machine learning methods based on artificial neural networks with representation learning."@en ,
+                 "Méthodes d'apprentissage automatique basées sur des réseaux de neurones artificiels."@fr .
+
+:ActiveLearning rdf:type proj:Methodological ;
+    skos:prefLabel "Active Learning"@en , "Apprentissage actif"@fr ;
+    rdfs:comment "An interactive machine learning approach that queries user or simulations to label new data points dynamically."@en ,
+                 "Approche d'apprentissage automatique interactive interrogeant un utilisateur ou une simulation pour étiqueter de nouvelles données."@fr .
+
+:BayesianOptimization rdf:type proj:Methodological ;
+    skos:prefLabel "Bayesian Optimization"@en , "Optimisation bayésienne"@fr ;
+    rdfs:comment "Sequential design strategy for global optimization of black-box functions, heavily used in materials discovery."@en ,
+                 "Stratégie d'optimisation séquentielle pour des fonctions boîte noire, utilisée dans la découverte de matériaux."@fr .
+
+:GenerativeModels rdf:type proj:Methodological ;
+    skos:prefLabel "Generative Models"@en , "Modèles génératifs"@fr ;
+    rdfs:comment "Generative AI approaches for predicting structural and molecular material designs."@en ,
+                 "Approches d'IA générative pour prédire la structure et le design moléculaire de matériaux."@fr .
+
+:ComputerVision rdf:type proj:Computational ;
+    skos:prefLabel "Computer Vision & Image Analysis"@en , "Vision par ordinateur et analyse d'images"@fr ;
+    rdfs:comment "Processing and analyzing digital images from characterization and microscopy techniques."@en ,
+                 "Traitement et analyse d'images numériques obtenues par des techniques de caractérisation et de microscopie."@fr .
+
+:NaturalLanguageProcessing rdf:type proj:Computational ;
+    skos:prefLabel "Natural Language Processing"@en , "Traitement automatique du langage naturel"@fr ;
+    rdfs:comment "Data mining of scientific literature and patents using natural language processing techniques."@en ,
+                 "Fouille de données dans la littérature scientifique et les brevets à l'aide de techniques de TALN."@fr .
+
+:DataEngineering rdf:type proj:DataManagement ;
+    skos:prefLabel "Data Engineering"@en , "Ingénierie des données"@fr ;
+    rdfs:comment "Building data pipelines, database systems, and infrastructure for FAIR data implementation."@en ,
+                 "Conception de pipelines de données, de systèmes de bases de données et d'infrastructures FAIR."@fr .
+
+:MachineLearningEngineering rdf:type proj:Computational ;
+    skos:prefLabel "Machine Learning Engineering"@en , "Ingénierie de l'apprentissage automatique"@fr ;
+    rdfs:comment "Designing, deploying, and optimizing operational ML models for scientific workloads."@en ,
+                 "Conception, déploiement et optimisation de modèles d'apprentissage automatique opérationnels."@fr .
+
+:ScientificSoftwareDevelopment rdf:type proj:Computational ;
+    skos:prefLabel "Scientific Software Development"@en , "Développement de logiciels scientifiques"@fr ;
+    rdfs:comment "Writing robust scientific software packages, APIs, or user interfaces."@en ,
+                 "Développement de paquets logiciels scientifiques, d'APIs ou d'interfaces utilisateur."@fr .
+
+
+# =========================================================================
+# 3. AUTOMATION, ROBOTICS & SYNTHESIS
+# =========================================================================
+:RobotProgrammingAndControl rdf:type proj:Computational ;
+    skos:prefLabel "Robot Programming and Control"@en , "Programmation et contrôle de robots"@fr ;
+    rdfs:comment "Programming robotic controllers and interfaces (e.g. ROS, PLC) for laboratory automation."@en ,
+                 "Programmation de contrôleurs et d'interfaces robotiques pour l'automatisation de laboratoire."@fr .
+
+:HardwareSoftwareIntegration rdf:type proj:Computational ;
+    skos:prefLabel "Hardware-Software Integration"@en , "Intégration matériel-logiciel"@fr ;
+    rdfs:comment "Interfacing physical laboratory instruments with computers using serial/API protocols."@en ,
+                 "Interfaçage d'instruments de laboratoire avec des ordinateurs via des protocoles série/API."@fr .
+
+:FluidicSystemDesign rdf:type proj:Methodological ;
+    skos:prefLabel "Liquid Handling & Fluidic System Design"@en , "Gestion des liquides et conception aéraulique/fluidique"@fr ;
+    rdfs:comment "Designing liquid handling workflows, microfluidics, and millifluidics devices."@en ,
+                 "Conception de flux de travail pour la manipulation de liquides et dispositifs micro/millifluidiques."@fr .
+
+:HighThroughputScreenDesign rdf:type proj:Methodological ;
+    skos:prefLabel "High-Throughput Screen Design"@en , "Conception de criblage à haut débit"@fr ;
+    rdfs:comment "Setting up combinatorial experimental workflows and library screening strategies."@en ,
+                 "Mise en place de flux expérimentaux combinatoires et stratégies de criblage de photothèques/banques."@fr .
+
+:CombinatorialSynthesis rdf:type proj:Methodological ;
+    skos:prefLabel "Combinatorial Synthesis"@en , "Synthèse combinatoire"@fr ;
+    rdfs:comment "Execution of combinatorial experiments for rapid exploration of compositional space."@en ,
+                 "Exécution d'expériences combinatoires pour une exploration rapide des espaces de composition."@fr .
+
+:SelfDrivingLab rdf:type proj:Methodological ;
+    skos:prefLabel "Self-Driving Laboratory"@en , "Laboratoire autonome"@fr ;
+    rdfs:comment "Autonomous laboratories operating under closed-loop AI and active learning orchestration."@en ,
+                 "Laboratoires autonomes fonctionnant en boucle fermée pilotés par l'IA et l'apprentissage actif."@fr .
+
+
+# =========================================================================
+# 4. ADVANCED CHARACTERIZATION
+# =========================================================================
+:SynchrotronBeamlineOperation rdf:type proj:Methodological ;
+    skos:prefLabel "Synchrotron Beamline Operation"@en , "Exploitation de lignes de lumière synchrotron"@fr ;
+    rdfs:comment "Operating beamlines for X-ray scattering and spectroscopy experiments (e.g. ESRF, SOLEIL)."@en ,
+                 "Exploitation de lignes de lumière pour des expériences de diffusion de rayons X et de spectroscopie."@fr .
+
+:AutomatedElectronMicroscopy rdf:type proj:Methodological ;
+    skos:prefLabel "Automated Electron Microscopy"@en , "Microscopie électronique automatisée"@fr ;
+    rdfs:comment "Automated mapping using Scanning and Transmission Electron Microscopy (SEM/TEM)."@en ,
+                 "Cartographie automatisée par microscopie électronique à balayage et à transmission (MEB/MET)."@fr .
+
+
+# =========================================================================
+# 5. MATERIAL CLASSES & APPLICATION KEYWORDS (proj:Keyword)
+# =========================================================================
+:MOF rdf:type proj:Keyword ;
+    skos:prefLabel "Metal-Organic Frameworks"@en , "Réseaux métallo-organiques"@fr ;
+    rdfs:comment "Expertise in the chemistry, structure, modelling, or application of metal-organic frameworks."@en ,
+                 "Expertise dans la chimie, la structure et la modélisation des réseaux métallo-organiques."@fr .
+
+:AdvancedAlloys rdf:type proj:Keyword ;
+    skos:prefLabel "Advanced Alloys"@en , "Alliages avancés"@fr ;
+    rdfs:comment "Advanced structural and functional metallic alloy systems."@en ,
+                 "Systèmes d'alliages métalliques structurels et fonctionnels avancés."@fr .
+
+:HighEntropyAlloys rdf:type proj:Keyword ;
+    skos:prefLabel "High-Entropy Alloys"@en , "Alliages à haute entropie"@fr ;
+    rdfs:comment "Multi-principal element alloys synthesized near equiatomic compositions."@en ,
+                 "Alliages à plusieurs éléments principaux synthétisés dans des compositions quasi-équiatomiques."@fr .
+
+:EnergyTransition rdf:type proj:Keyword ;
+    skos:prefLabel "Energy Transition"@en , "Transition énergétique"@fr ;
+    rdfs:comment "Materials research directly targeting clean energy harvesting, conversion, and storage."@en ,
+                 "Recherche sur les matériaux visant la collecte, la conversion et le stockage d'énergie propre."@fr .
+
+:Photovoltaics rdf:type proj:Keyword ;
+    skos:prefLabel "Photovoltaics"@en , "Photovoltaïque"@fr ;
+    rdfs:comment "Photovoltaic materials and next-generation solar energy devices."@en ,
+                 "Matériaux photovoltaïques et dispositifs d'énergie solaire de nouvelle génération."@fr .
