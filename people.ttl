@@ -324,3 +324,10 @@
     foaf:mbox <mailto:yaidel.toledogonzalez@cea.fr> ;
     foaf:name "Yaidel Toledo Gonzalez" ;
     proj:employedBy org:CEA-SGLS .
+
+:ALEXIS_DESCHAMPS rdf:type proj:ResearchPerson ;
+    foaf:givenName "Alexis" ;
+    foaf:familyName "DESCHAMPS" ;
+    foaf:name "Alexis DESCHAMPS" ;
+    proj:employedBy org:CNRS .
+

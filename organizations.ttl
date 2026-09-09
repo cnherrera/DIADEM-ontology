@@ -179,7 +179,6 @@ org:CEA-DM2S rdf:type proj:ResearchOrganization ;
     proj:country "France" ;
     proj:partOfOrganization org:CEA .
 
-
 org:LPENS rdf:type proj:ResearchOrganization ;
     rdfs:label "LPENS"@en ;
     skos:prefLabel "LPENS"@en ;
@@ -196,3 +195,74 @@ org:CEA-DSSI rdf:type proj:ResearchOrganization ;
     proj:organizationType "Research laboratory" ;
     proj:country "France" ;
     proj:partOfOrganization org:CEA .
+org:SIMaP rdf:type proj:ResearchOrganization ;
+    rdfs:label "SIMaP"@en ;
+    skos:prefLabel "SIMaP"@en ;
+    proj:acronym "SIMaP" ;
+    proj:fullName "Sciences et Ingénierie, Matériaux, Procédés (UMR 5266 CNRS/GrenobleINP/UGA)"@en ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+
+org:IJL rdf:type proj:ResearchOrganization ;
+    rdfs:label "IJL"@en ;
+    skos:prefLabel "IJL"@en ;
+    proj:acronym "IJL" ;
+    proj:fullName "Institut Jean Lamour (UMR 7198 Univ. Lorraine/CNRS)"@en ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+
+org:LEM3 rdf:type proj:ResearchOrganization ;
+    rdfs:label "LEM3"@en ;
+    skos:prefLabel "LEM3"@en ;
+    proj:acronym "LEM3" ;
+    proj:fullName "Laboratoire d'Etude des Microstructures et de Mécanique des Matériaux  (UMR 7239 CNRS/Univ Lorraine/Arts et Métiers Paris Tech)"@en ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+
+org:LGF rdf:type proj:ResearchOrganization ;
+    rdfs:label "LGF"@en ;
+    skos:prefLabel "LGF"@en ;
+    proj:acronym "LGF" ;
+    proj:fullName "laboratoire Georges Friedel (UMR 5307 CNRS/ENS Mines St Etienne)"@en ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+
+org:IMN rdf:type proj:ResearchOrganization ;
+    rdfs:label "IMN"@en ;
+    skos:prefLabel "IMN"@en ;
+    proj:acronym "IMN" ;
+    proj:fullName "Institut des Matériaux de Nantes Jean Rouxel (UMR 6502 CNRS/Univ Nantes)"@en ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+
+org:CEA-Saclay-SEARS-LISL-SAMANTA-Saclay-s-Additive-MANufacturing-surface-TreAtment rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA-Saclay-SEARS-LISL-SAMANTA-Saclay-s-Additive-MANufacturing-surface-TreAtment"@en ;
+    skos:prefLabel "CEA-Saclay-SEARS-LISL-SAMANTA-Saclay-s-Additive-MANufacturing-surface-TreAtment"@en ;
+    proj:acronym "CEA-Saclay-SEARS-LISL-SAMANTA-Saclay-s-Additive-MANufacturing-surface-TreAtment" ;
+    proj:fullName "CEA Saclay SEARS / LISL SAMANTA (Saclay's Additive MANufacturing & surface TreAtment)"@en ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+
+org:ESRF rdf:type proj:ResearchOrganization ;
+    rdfs:label "ESRF"@en ;
+    skos:prefLabel "ESRF"@en ;
+    proj:acronym "ESRF" ;
+    proj:fullName "European Synchrotron Radiation Facility (Grenoble)"@en ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+
+org:SOLEIL rdf:type proj:ResearchOrganization ;
+    rdfs:label "SOLEIL"@en ;
+    skos:prefLabel "SOLEIL"@en ;
+    proj:acronym "SOLEIL" ;
+    proj:fullName "Synchrotron SOLEIL (Paris Saclay)"@en ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
