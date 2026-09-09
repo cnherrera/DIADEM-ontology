@@ -502,3 +502,135 @@ proj:Keyword rdf:type owl:Class ;
     skos:prefLabel "Database Mining"@en , "Exploration de bases de données"@fr ;
     rdfs:comment "Extracting useful information from scientific databases for materials discovery and analysis."@en ,
                  "Extraction d'informations utiles à partir de bases de données scientifiques pour la découverte et l'analyse de matériaux."@fr .
+
+
+#-----------------------------------------------------------------------------------------------
+:Metallurgy rdf:type proj:Keyword ;
+    skos:prefLabel "Metallurgy"@en, "Métallurgie"@fr ;
+    rdfs:comment "Study and application of metal extraction, processing, and alloy design."@en,
+                 "Étude et application de l'extraction, du traitement des métaux et de la conception d'alliages."@fr .
+
+:HighSpeedMetallurgy rdf:type proj:Keyword ;
+    skos:prefLabel "High-Speed Metallurgy"@en, "Métallurgie haut-débit"@fr ;
+    rdfs:comment "Rapid synthesis and processing of metallic materials using high-throughput methods."@en,
+                 "Synthèse et traitement rapide des matériaux métalliques à l'aide de méthodes à haut débit."@fr .
+
+:CombinatorialMetallurgy rdf:type proj:Keyword ;
+    skos:prefLabel "Combinatorial Metallurgy"@en, "Métallurgie combinatoire"@fr ;
+    rdfs:comment "Use of combinatorial approaches to explore alloy compositions and properties."@en,
+                 "Utilisation d'approches combinatoires pour explorer les compositions et propriétés des alliages."@fr .
+
+:Corrosion rdf:type proj:Keyword ;
+    skos:prefLabel "Corrosion"@en, "Corrosion"@fr ;
+    rdfs:comment "Study of the degradation of materials due to chemical or electrochemical reactions with their environment."@en,
+                 "Étude de la dégradation des matériaux due aux réactions chimiques ou électrochimiques avec leur environnement."@fr .
+
+:SurfaceEngineering rdf:type proj:Keyword ;
+    skos:prefLabel "Surface Engineering"@en, "Ingénierie des surfaces"@fr ;
+    rdfs:comment "Modification of the surface properties of materials to improve performance."@en,
+                 "Modification des propriétés de surface des matériaux pour améliorer leurs performances."@fr .
+
+:SurfaceScience rdf:type proj:Keyword ;
+    skos:prefLabel "Surface Science"@en, "Science des surfaces"@fr ;
+    rdfs:comment "Study of the physical and chemical properties of surfaces and interfaces."@en,
+                 "Étude des propriétés physiques et chimiques des surfaces et interfaces."@fr .
+
+:NuclearMaterials rdf:type proj:Keyword ;
+    skos:prefLabel "Nuclear Materials"@en, "Matériaux nucléaires"@fr ;
+    rdfs:comment "Materials used in nuclear energy applications, including fuels and structural components."@en,
+                 "Matériaux utilisés dans les applications d'énergie nucléaire, y compris les combustibles et les composants structurels."@fr .
+
+:PhaseTransformations rdf:type proj:Keyword ;
+    skos:prefLabel "Phase Transformations"@en, "Transformations de phase"@fr ;
+    rdfs:comment "Study of changes in the structure of materials, such as solid-state phase transitions."@en,
+                 "Étude des changements de structure des matériaux, comme les transitions de phase à l'état solide."@fr .
+
+:Thermodynamics rdf:type proj:Keyword ;
+    skos:prefLabel "Thermodynamics"@en, "Thermodynamique"@fr ;
+    rdfs:comment "Study of heat, work, temperature, and their relation to energy and entropy in materials."@en,
+                 "Étude de la chaleur, du travail, de la température et de leur relation avec l'énergie et l'entropie dans les matériaux."@fr .
+
+:ThermalProperties rdf:type proj:Keyword ;
+    skos:prefLabel "Thermal Properties"@en, "Propriétés thermiques"@fr ;
+    rdfs:comment "Study of how materials respond to changes in temperature, including conductivity and expansion."@en,
+                 "Étude de la réponse des matériaux aux changements de température, y compris la conductivité et la dilatation."@fr .
+
+:MechanicalProperties rdf:type proj:Keyword ;
+    skos:prefLabel "Mechanical Properties"@en, "Propriétés mécaniques"@fr ;
+    rdfs:comment "Study of how materials deform or break under applied forces."@en,
+                 "Étude de la manière dont les matériaux se déforment ou se brisent sous des forces appliquées."@fr .
+
+:Microstructure rdf:type proj:Keyword ;
+    skos:prefLabel "Microstructure"@en, "Microstructure"@fr ;
+    rdfs:comment "Study of the fine structure of materials at the microscopic or nanoscopic scale."@en,
+                 "Étude de la structure fine des matériaux à l'échelle microscopique ou nanoscopique."@fr .
+
+:ArchitecturedMaterials rdf:type proj:Keyword ;
+    skos:prefLabel "Architectured Materials"@en, "Matériaux architecturés"@fr ;
+    rdfs:comment "Materials designed with controlled architectures to achieve specific properties."@en,
+                 "Matériaux conçus avec des architectures contrôlées pour obtenir des propriétés spécifiques."@fr .
+
+:FunctionalMaterials rdf:type proj:Keyword ;
+    skos:prefLabel "Functional Materials"@en, "Matériaux fonctionnels"@fr ;
+    rdfs:comment "Materials with specific functions, such as electrical, magnetic, or optical properties."@en,
+                 "Matériaux dotés de fonctions spécifiques, comme des propriétés électriques, magnétiques ou optiques."@fr .
+
+:OpticalMaterials rdf:type proj:Keyword ;
+    skos:prefLabel "Optical Materials"@en, "Matériaux optiques"@fr ;
+    rdfs:comment "Materials designed to manipulate light, such as lenses, mirrors, or photonic structures."@en,
+                 "Matériaux conçus pour manipuler la lumière, comme des lentilles, des miroirs ou des structures photoniques."@fr .
+
+:MagneticMaterials rdf:type proj:Keyword ;
+    skos:prefLabel "Magnetic Materials"@en, "Matériaux magnétiques"@fr ;
+    rdfs:comment "Materials that exhibit magnetic properties, such as ferromagnetic or paramagnetic behavior."@en,
+                 "Matériaux présentant des propriétés magnétiques, comme un comportement ferromagnétique ou paramagnétique."@fr .
+
+:FerroelectricMaterials rdf:type proj:Keyword ;
+    skos:prefLabel "Ferroelectric Materials"@en, "Matériaux ferroélectriques"@fr ;
+    rdfs:comment "Materials that exhibit spontaneous electric polarization reversible by an electric field."@en,
+                 "Matériaux présentant une polarisation électrique spontanée réversible par un champ électrique."@fr .
+
+:Piezomaterials rdf:type proj:Keyword ;
+    skos:prefLabel "Piezoelectric Materials"@en, "Matériaux piézoélectriques"@fr ;
+    rdfs:comment "Materials that generate an electric charge when mechanical stress is applied."@en,
+                 "Matériaux qui génèrent une charge électrique lorsqu'une contrainte mécanique est appliquée."@fr .
+
+:Nanomaterials rdf:type proj:Keyword ;
+    skos:prefLabel "Nanomaterials"@en, "Nanomatériaux"@fr ;
+    rdfs:comment "Materials with structural components smaller than 100 nanometers."@en,
+                 "Matériaux dont les composants structurels sont inférieurs à 100 nanomètres."@fr .
+
+:BoronNitride rdf:type proj:Keyword ;
+    skos:prefLabel "Boron Nitride"@en, "Nitrure de bore"@fr ;
+    rdfs:comment "Chemical compound with high thermal and chemical stability, used in high-performance applications."@en,
+                 "Composé chimique doté d'une grande stabilité thermique et chimique, utilisé dans des applications haute performance."@fr .
+
+:CarbonMaterials rdf:type proj:Keyword ;
+    skos:prefLabel "Carbon Materials"@en, "Matériaux carbonés"@fr ;
+    rdfs:comment "Materials primarily composed of carbon, such as graphite, graphene, or carbon nanotubes."@en,
+                 "Matériaux principalement composés de carbone, comme le graphite, le graphène ou les nanotubes de carbone."@fr .
+
+:GlassMaterials rdf:type proj:Keyword ;
+    skos:prefLabel "Glass Materials"@en, "Matériaux vitreux"@fr ;
+    rdfs:comment "Amorphous materials typically made from silica, used in optical and structural applications."@en,
+                 "Matériaux amorphes généralement fabriqués à partir de silice, utilisés dans des applications optiques et structurelles."@fr .
+
+:HybridMaterials rdf:type proj:Keyword ;
+    skos:prefLabel "Hybrid Materials"@en, "Matériaux hybrides"@fr ;
+    rdfs:comment "Materials composed of two or more distinct phases, such as organic-inorganic hybrids."@en,
+                 "Matériaux composés de deux phases distinctes ou plus, comme les hybrides organiques-inorganiques."@fr .
+
+:InorganicMaterials rdf:type proj:Keyword ;
+    skos:prefLabel "Inorganic Materials"@en, "Matériaux inorganiques"@fr ;
+    rdfs:comment "Materials that do not contain carbon-hydrogen bonds, such as metals, ceramics, and semiconductors."@en,
+                 "Matériaux qui ne contiennent pas de liaisons carbone-hydrogène, comme les métaux, les céramiques et les semi-conducteurs."@fr .
+
+:PhaseChangeMaterials rdf:type proj:Keyword ;
+    skos:prefLabel "Phase Change Materials"@en, "Matériaux à changement de phase"@fr ;
+    rdfs:comment "Materials that change phase (e.g., solid to liquid) in response to temperature or other stimuli."@en,
+                 "Matériaux qui changent de phase (par exemple, solide à liquide) en réponse à la température ou à d'autres stimuli."@fr .
+
+:SemiconductorMaterials rdf:type proj:Keyword ;
+    skos:prefLabel "Semiconductor Materials"@en, "Matériaux semi-conducteurs"@fr ;
+    rdfs:comment "Materials with electrical conductivity between that of conductors and insulators, used in electronics."@en,
+                 "Matériaux dont la conductivité électrique se situe entre celle des conducteurs et des isolants, utilisés en électronique."@fr .
