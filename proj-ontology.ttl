@@ -597,7 +597,7 @@ proj:hasOrganization rdf:type owl:ObjectProperty ;
 
 # WorkPackage → deliverables, tasks, tools, products, people
 proj:hasDeliverable rdf:type owl:ObjectProperty ;
-    rdfs:domain  [ owl:unionOf ( proj:Task proj:WorkPackage ) ] ;
+    rdfs:domain  [ owl:unionOf ( proj:Task proj:WorkPackage proj:Project) ] ;
     rdfs:range   proj:Deliverable ;
     rdfs:label   "has deliverable"@en .
 
@@ -608,12 +608,12 @@ proj:hasTask rdf:type owl:ObjectProperty ;
     rdfs:label   "has task"@en .
 
 proj:usesResource rdf:type owl:ObjectProperty ;
-    rdfs:domain  [ owl:unionOf ( proj:Task proj:WorkPackage ) ]  ;
+    rdfs:domain  [ owl:unionOf ( proj:Task proj:WorkPackage proj:Project ) ]  ;
     rdfs:range   proj:Resource ;
     rdfs:label   "uses resource"@en .
 
 proj:producesOutput rdf:type owl:ObjectProperty ;
-    rdfs:domain  [ owl:unionOf ( proj:Task proj:WorkPackage ) ]  ;
+    rdfs:domain  [ owl:unionOf ( proj:Task proj:WorkPackage proj:Project ) ]  ;
     rdfs:range   proj:ProjectOutput ;
     rdfs:label   "produces output"@en .
     
