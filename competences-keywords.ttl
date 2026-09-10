@@ -11,23 +11,20 @@
     rdfs:comment "Instances of Competences and Keywords for DIADEM project"@en ,
                  "Instances de compétences et mots-clés pour le projet DIADEM"@fr ;
     owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ;
-    owl:versionInfo "0.3" .
+    owl:versionInfo "0.2" .
 
 # =========================================================================
 # DEFINITION OF KEYWORD CLASS
 # =========================================================================
-proj:Keyword rdf:type owl:Class ;
+proj:Keyword a owl:Class ;
     rdfs:label "Keyword"@en , "Mot-clé"@fr ;
     rdfs:comment "A descriptive keyword or domain term used to categorize topics, materials, or applications."@en ,
                  "Un mot-clé ou terme du domaine utilisé pour catégoriser des sujets, matériaux ou applications."@fr .
 
+
 # =========================================================================
-# 1. Main Competences
+# 1. ORIGINAL COMPETENCES (From Source TTL)
 # =========================================================================
-:ContainerDeployment rdf:type proj:Computational ;
-    skos:prefLabel "Scientific Software Containerization"@en , "Conteneurisation de logiciels scientifiques"@fr ;
-    rdfs:comment "Packaging and deploying scientific software using container technologies such as Apptainer or Docker."@en ,
-                 "Empaquetage et déploiement de logiciels scientifiques via des conteneurs comme Apptainer ou Docker."@fr .
 
 :DatabaseInfrastructureDesign rdf:type proj:DataManagement ;
     skos:prefLabel "Database Infrastructure Design"@en , "Conception d'infrastructure de bases de données"@fr ;
@@ -129,6 +126,12 @@ proj:Keyword rdf:type owl:Class ;
     rdfs:comment "General methodological approaches based on artificial intelligence for analysis, prediction, or automation in scientific research."@en ,
                  "Approches méthodologiques basées sur l'intelligence artificielle pour la recherche."@fr .
 
+
+
+# =========================================================================
+# 2. AI METHODS 
+# =========================================================================
+
 :MachineLearning rdf:type proj:Methodological ;
     skos:prefLabel "Machine Learning"@en , "Apprentissage automatique"@fr ;
     rdfs:comment "Methods and algorithms that build models based on sample data to make predictions or decisions."@en ,
@@ -139,60 +142,25 @@ proj:Keyword rdf:type owl:Class ;
     rdfs:comment "Machine learning methods based on artificial neural networks with representation learning."@en ,
                  "Méthodes d'apprentissage automatique basées sur des réseaux de neurones artificiels."@fr .
 
-:ActiveLearning rdf:type proj:Methodological ;
-    skos:prefLabel "Active Learning"@en , "Apprentissage actif"@fr ;
-    rdfs:comment "An interactive machine learning approach that queries user or simulations to label new data points dynamically."@en ,
-                 "Approche d'apprentissage automatique interactive interrogeant un utilisateur ou une simulation pour étiqueter de nouvelles données."@fr .
-
 :BayesianOptimization rdf:type proj:Methodological ;
     skos:prefLabel "Bayesian Optimization"@en , "Optimisation bayésienne"@fr ;
     rdfs:comment "Sequential design strategy for global optimization of black-box functions, heavily used in materials discovery."@en ,
                  "Stratégie d'optimisation séquentielle pour des fonctions boîte noire, utilisée dans la découverte de matériaux."@fr .
-
-:GenerativeModels rdf:type proj:Methodological ;
-    skos:prefLabel "Generative Models"@en , "Modèles génératifs"@fr ;
-    rdfs:comment "Generative AI approaches for predicting structural and molecular material designs."@en ,
-                 "Approches d'IA générative pour prédire la structure et le design moléculaire de matériaux."@fr .
-
-:ComputerVision rdf:type proj:Computational ;
-    skos:prefLabel "Computer Vision & Image Analysis"@en , "Vision par ordinateur et analyse d'images"@fr ;
-    rdfs:comment "Processing and analyzing digital images from characterization and microscopy techniques."@en ,
-                 "Traitement et analyse d'images numériques obtenues par des techniques de caractérisation et de microscopie."@fr .
-
-:NaturalLanguageProcessing rdf:type proj:Computational ;
-    skos:prefLabel "Natural Language Processing"@en , "Traitement automatique du langage naturel"@fr ;
-    rdfs:comment "Data mining of scientific literature and patents using natural language processing techniques."@en ,
-                 "Fouille de données dans la littérature scientifique et les brevets à l'aide de techniques de TALN."@fr .
 
 :DataEngineering rdf:type proj:DataManagement ;
     skos:prefLabel "Data Engineering"@en , "Ingénierie des données"@fr ;
     rdfs:comment "Building data pipelines, database systems, and infrastructure for FAIR data implementation."@en ,
                  "Conception de pipelines de données, de systèmes de bases de données et d'infrastructures FAIR."@fr .
 
-:MachineLearningEngineering rdf:type proj:Computational ;
-    skos:prefLabel "Machine Learning Engineering"@en , "Ingénierie de l'apprentissage automatique"@fr ;
-    rdfs:comment "Designing, deploying, and optimizing operational ML models for scientific workloads."@en ,
-                 "Conception, déploiement et optimisation de modèles d'apprentissage automatique opérationnels."@fr .
 
-:ScientificSoftwareDevelopment rdf:type proj:Computational ;
-    skos:prefLabel "Scientific Software Development"@en , "Développement de logiciels scientifiques"@fr ;
-    rdfs:comment "Writing robust scientific software packages, APIs, or user interfaces."@en ,
-                 "Développement de paquets logiciels scientifiques, d'APIs ou d'interfaces utilisateur."@fr .
+# =========================================================================
+# 3. AUTOMATION, ROBOTICS & SYNTHESIS
+# =========================================================================
 
 :RobotProgrammingAndControl rdf:type proj:Computational ;
     skos:prefLabel "Robot Programming and Control"@en , "Programmation et contrôle de robots"@fr ;
     rdfs:comment "Programming robotic controllers and interfaces (e.g. ROS, PLC) for laboratory automation."@en ,
                  "Programmation de contrôleurs et d'interfaces robotiques pour l'automatisation de laboratoire."@fr .
-
-:HardwareSoftwareIntegration rdf:type proj:Computational ;
-    skos:prefLabel "Hardware-Software Integration"@en , "Intégration matériel-logiciel"@fr ;
-    rdfs:comment "Interfacing physical laboratory instruments with computers using serial/API protocols."@en ,
-                 "Interfaçage d'instruments de laboratoire avec des ordinateurs via des protocoles série/API."@fr .
-
-:FluidicSystemDesign rdf:type proj:Methodological ;
-    skos:prefLabel "Liquid Handling & Fluidic System Design"@en , "Gestion des liquides et conception aéraulique/fluidique"@fr ;
-    rdfs:comment "Designing liquid handling workflows, microfluidics, and millifluidics devices."@en ,
-                 "Conception de flux de travail pour la manipulation de liquides et dispositifs micro/millifluidiques."@fr .
 
 :HighThroughputScreenDesign rdf:type proj:Methodological ;
     skos:prefLabel "High-Throughput Screen Design"@en , "Conception de criblage à haut débit"@fr ;
@@ -209,25 +177,26 @@ proj:Keyword rdf:type owl:Class ;
     rdfs:comment "Autonomous laboratories operating under closed-loop AI and active learning orchestration."@en ,
                  "Laboratoires autonomes fonctionnant en boucle fermée pilotés par l'IA et l'apprentissage actif."@fr .
 
+
+
+# =========================================================================
+# 4. ADVANCED CHARACTERIZATION
+# =========================================================================
+
 :SynchrotronBeamlineOperation rdf:type proj:Methodological ;
     skos:prefLabel "Synchrotron Beamline Operation"@en , "Exploitation de lignes de lumière synchrotron"@fr ;
     rdfs:comment "Operating beamlines for X-ray scattering and spectroscopy experiments (e.g. ESRF, SOLEIL)."@en ,
                  "Exploitation de lignes de lumière pour des expériences de diffusion de rayons X et de spectroscopie."@fr .
 
-:AutomatedElectronMicroscopy rdf:type proj:Methodological ;
-    skos:prefLabel "Automated Electron Microscopy"@en , "Microscopie électronique automatisée"@fr ;
-    rdfs:comment "Automated mapping using Scanning and Transmission Electron Microscopy (SEM/TEM)."@en ,
-                 "Cartographie automatisée par microscopie électronique à balayage et à transmission (MEB/MET)."@fr .
+
+# =========================================================================
+# 5. MATERIAL CLASSES & APPLICATION KEYWORDS (proj:Keyword)
+# =========================================================================
 
 :MOF rdf:type proj:Keyword ;
     skos:prefLabel "Metal-Organic Frameworks"@en , "Réseaux métallo-organiques"@fr ;
     rdfs:comment "Expertise in the chemistry, structure, modelling, or application of metal-organic frameworks."@en ,
                  "Expertise dans la chimie, la structure et la modélisation des réseaux métallo-organiques."@fr .
-
-:AdvancedAlloys rdf:type proj:Keyword ;
-    skos:prefLabel "Advanced Alloys"@en , "Alliages avancés"@fr ;
-    rdfs:comment "Advanced structural and functional metallic alloy systems."@en ,
-                 "Systèmes d'alliages métalliques structurels et fonctionnels avancés."@fr .
 
 :HighEntropyAlloys rdf:type proj:Keyword ;
     skos:prefLabel "High-Entropy Alloys"@en , "Alliages à haute entropie"@fr ;
@@ -244,393 +213,1252 @@ proj:Keyword rdf:type owl:Class ;
     rdfs:comment "Photovoltaic materials and next-generation solar energy devices."@en ,
                  "Matériaux photovoltaïques et dispositifs d'énergie solaire de nouvelle génération."@fr .
 
-# =========================================================================
-# New terms -  materials (proj:Keyword)
-# =========================================================================
-:2DMaterials rdf:type proj:Keyword ;
-    skos:prefLabel "2D Materials"@en , "Matériaux 2D"@fr ;
-    rdfs:comment "Materials with a single layer or few layers of atoms, such as graphene, boron nitride, or transition metal dichalcogenides."@en ,
-                 "Matériaux composés d'une seule couche ou de quelques couches d'atomes, comme le graphène ou le nitrure de bore."@fr .
-
-:3DMaterials rdf:type proj:Keyword ;
-    skos:prefLabel "3D Materials"@en , "Matériaux 3D"@fr ;
-    rdfs:comment "Materials structured in three dimensions, including bulk materials and 3D-printed structures."@en ,
-                 "Matériaux structurés en trois dimensions, y compris les matériaux massifs et les structures imprimées en 3D."@fr .
-
-:AdvancedCeramics rdf:type proj:Keyword ;
-    skos:prefLabel "Advanced Ceramics"@en , "Céramiques avancées"@fr ;
-    rdfs:comment "High-performance ceramic materials with tailored properties for structural, thermal, or electrical applications."@en ,
-                 "Matériaux céramiques haute performance avec des propriétés adaptées pour des applications structurelles, thermiques ou électriques."@fr .
-
-:Perovskites rdf:type proj:Keyword ;
-    skos:prefLabel "Perovskites"@en , "Pérovskites"@fr ;
-    rdfs:comment "Materials with the perovskite crystal structure, often used in photovoltaics, catalysis, and energy storage."@en ,
-                 "Matériaux avec une structure cristalline pérovskite, souvent utilisés dans le photovoltaïque, la catalyse et le stockage d'énergie."@fr .
-
-:HighEntropyCeramics rdf:type proj:Keyword ;
-    skos:prefLabel "High-Entropy Ceramics"@en , "Céramiques à haute entropie"@fr ;
-    rdfs:comment "Ceramic materials composed of multiple principal elements in near-equiatomic ratios, exhibiting unique properties."@en ,
-                 "Matériaux céramiques composés de plusieurs éléments principaux dans des rapports quasi-équiatomiques, présentant des propriétés uniques."@fr .
-
-:MetallicGlasses rdf:type proj:Keyword ;
-    skos:prefLabel "Metallic Glasses"@en , "Verres métalliques"@fr ;
-    rdfs:comment "Amorphous metallic alloys with high strength and unique mechanical properties."@en ,
-                 "Alliages métalliques amorphes avec une haute résistance et des propriétés mécaniques uniques."@fr .
-
-:NanostructuredMaterials rdf:type proj:Keyword ;
-    skos:prefLabel "Nanostructured Materials"@en , "Matériaux nanostructurés"@fr ;
-    rdfs:comment "Materials with structural features at the nanoscale, exhibiting enhanced mechanical, optical, or electrical properties."@en ,
-                 "Matériaux présentant des caractéristiques structurelles à l'échelle nanométrique, avec des propriétés mécaniques, optiques ou électriques améliorées."@fr .
-
-:Composites rdf:type proj:Keyword ;
-    skos:prefLabel "Composites"@en , "Composites"@fr ;
-    rdfs:comment "Materials composed of two or more distinct phases, combining properties of their constituent materials."@en ,
-                 "Matériaux composés de deux phases ou plus, combinant les propriétés de leurs matériaux constituants."@fr .
-
-:Polymers rdf:type proj:Keyword ;
-    skos:prefLabel "Polymers"@en , "Polymères"@fr ;
-    rdfs:comment "Macromolecular materials with diverse applications, including plastics, elastomers, and fibers."@en ,
-                 "Matériaux macromoléculaires avec des applications variées, y compris les plastiques, les élastomères et les fibres."@fr .
-
-:Biomaterials rdf:type proj:Keyword ;
-    skos:prefLabel "Biomaterials"@en , "Biomatériaux"@fr ;
-    rdfs:comment "Materials designed to interact with biological systems for medical or biomedical applications."@en ,
-                 "Matériaux conçus pour interagir avec les systèmes biologiques pour des applications médicales ou biomédicales."@fr .
 
 # =========================================================================
-# New term - Computational method (proj:Computational)
+# 6. ADDITIONAL COMPETENCES & KEYWORDS (merged from salida_keywords.txt)
 # =========================================================================
-:AbInitioCalculations rdf:type proj:Computational ;
-    skos:prefLabel "Ab Initio Calculations"@en , "Calculs ab initio"@fr ;
-    rdfs:comment "First-principles computational methods based on quantum mechanics to predict material properties."@en ,
-                 "Méthodes de calcul basées sur la mécanique quantique pour prédire les propriétés des matériaux."@fr .
 
-:DFT rdf:type proj:Computational ;
-    skos:prefLabel "Density Functional Theory"@en , "Théorie de la fonctionnelle de la densité"@fr ;
-    rdfs:comment "Computational quantum mechanical modeling method to investigate the electronic structure of materials."@en ,
-                 "Méthode de modélisation quantique pour étudier la structure électronique des matériaux."@fr .
+:AESEC rdf:type proj:Methodological ;
+    skos:prefLabel "AESEC (Atomic Emission Spectroelectrochemistry)"@en , "AESEC (spectroélectrochimie à émission atomique)"@fr ;
+    rdfs:comment "Real-time coupling of electrochemistry with atomic emission spectroscopy to monitor elemental dissolution during corrosion."@en ,
+                 "Couplage en temps réel de l'électrochimie et de la spectroscopie d'émission atomique pour suivre la dissolution élémentaire lors de la corrosion."@fr .
 
-:MolecularDynamics rdf:type proj:Computational ;
-    skos:prefLabel "Molecular Dynamics"@en , "Dynamique moléculaire"@fr ;
-    rdfs:comment "Computer simulation method for studying the physical movements of atoms and molecules."@en ,
-                 "Méthode de simulation informatique pour étudier les mouvements physiques des atomes et des molécules."@fr .
+:AIAssistedCharacterization rdf:type proj:Methodological ;
+    skos:prefLabel "AI-Assisted Characterization and Analysis"@en , "Caractérisation et analyse assistées par IA"@fr ;
+    rdfs:comment "Use of artificial-intelligence methods to support, accelerate or automate the analysis of materials characterization data."@en ,
+                 "Utilisation de méthodes d'intelligence artificielle pour soutenir, accélérer ou automatiser l'analyse des données de caractérisation des matériaux."@fr .
 
-:FiniteElementModeling rdf:type proj:Computational ;
-    skos:prefLabel "Finite Element Modeling"@en , "Modélisation par éléments finis"@fr ;
-    rdfs:comment "Numerical method for solving partial differential equations to model complex structures and materials."@en ,
-                 "Méthode numérique pour résoudre des équations différentielles partielles et modéliser des structures complexes."@fr .
+:AbInitioDFT rdf:type proj:Computational ;
+    skos:prefLabel "Ab Initio / DFT Calculations"@en , "Calculs ab initio / DFT"@fr ;
+    rdfs:comment "First-principles quantum-mechanical calculations, including Density Functional Theory, used to predict material properties from atomic structure."@en ,
+                 "Calculs quantiques de premiers principes, notamment la théorie de la fonctionnelle de la densité (DFT), utilisés pour prédire les propriétés des matériaux à partir de la structure atomique."@fr .
 
-:MultiScaleModeling rdf:type proj:Computational ;
-    skos:prefLabel "Multi-Scale Modeling"@en , "Modélisation multi-échelle"@fr ;
-    rdfs:comment "Computational approach that links atomic-scale simulations to macroscopic material behavior."@en ,
-                 "Approche computationnelle qui relie les simulations à l'échelle atomique au comportement macroscopique des matériaux."@fr .
+:AbradableCoating rdf:type proj:Keyword ;
+    skos:prefLabel "Abradable Coating Deposition"@en , "Dépôt de revêtements abradables"@fr ;
+    rdfs:comment "Deposition of sacrificial abradable coatings, typically used to reduce clearances in turbomachinery."@en ,
+                 "Dépôt de revêtements abradables sacrificiels, généralement utilisés pour réduire les jeux dans les turbomachines."@fr .
 
-:MonteCarloSimulations rdf:type proj:Computational ;
-    skos:prefLabel "Monte Carlo Simulations"@en , "Simulations Monte Carlo"@fr ;
-    rdfs:comment "Computational method using random sampling for statistical analysis of material properties and behaviors."@en ,
-                 "Méthode computationnelle utilisant un échantillonnage aléatoire pour l'analyse statistique des propriétés et comportements des matériaux."@fr .
+:AcceleratedAging rdf:type proj:Methodological ;
+    skos:prefLabel "Accelerated Aging"@en , "Vieillissement accéléré"@fr ;
+    rdfs:comment "Testing methodology that subjects materials to intensified environmental or mechanical stress to predict long-term durability."@en ,
+                 "Méthodologie d'essai soumettant les matériaux à des contraintes environnementales ou mécaniques intensifiées afin de prédire leur durabilité à long terme."@fr .
 
-:CALPHAD rdf:type proj:Computational ;
-    skos:prefLabel "CALPHAD"@en , "CALPHAD"@fr ;
-    rdfs:comment "Computational thermodynamics method for phase diagram calculations and material property predictions."@en ,
-                 "Méthode de thermodynamique computationnelle pour les calculs de diagrammes de phase et les prédictions de propriétés des matériaux."@fr .
+:AcceleratedSynthesis rdf:type proj:Methodological ;
+    skos:prefLabel "Accelerated Synthesis"@en , "Synthèse accélérée"@fr ;
+    rdfs:comment "Synthesis approaches designed to shorten reaction or processing time while maintaining product quality."@en ,
+                 "Approches de synthèse conçues pour raccourcir le temps de réaction ou de traitement tout en conservant la qualité du produit."@fr .
 
-# =========================================================================
-# New termns - characterization (proj:Methodological)
-# =========================================================================
-:XRayDiffraction rdf:type proj:Methodological ;
-    skos:prefLabel "X-ray Diffraction"@en , "Diffraction des rayons X"@fr ;
-    rdfs:comment "Technique for determining the atomic or molecular structure of a crystal."@en ,
-                 "Technique permettant de déterminer la structure atomique ou moléculaire d'un cristal."@fr .
+:AcidBaseCatalysis rdf:type proj:Keyword ;
+    skos:prefLabel "Acid-Base Catalysis"@en , "Catalyse acide-base"@fr ;
+    rdfs:comment "Catalytic reactions driven by acid or base sites on a catalyst surface."@en ,
+                 "Réactions catalytiques mises en œuvre par des sites acides ou basiques présents à la surface d'un catalyseur."@fr .
 
-:ElectronMicroscopy rdf:type proj:Methodological ;
-    skos:prefLabel "Electron Microscopy"@en , "Microscopie électronique"@fr ;
-    rdfs:comment "High-resolution imaging technique using electrons to visualize material structures at the nanoscale."@en ,
-                 "Technique d'imagerie à haute résolution utilisant des électrons pour visualiser les structures matérielles à l'échelle nanométrique."@fr .
+:ActiveMaterials rdf:type proj:Keyword ;
+    skos:prefLabel "Active Materials"@en , "Matériaux actifs"@fr ;
+    rdfs:comment "Materials whose functional properties change in a controlled way in response to an external stimulus."@en ,
+                 "Matériaux dont les propriétés fonctionnelles varient de façon contrôlée en réponse à un stimulus externe."@fr .
 
-:Spectroscopy rdf:type proj:Methodological ;
-    skos:prefLabel "Spectroscopy"@en , "Spectroscopie"@fr ;
-    rdfs:comment "Analytical technique for studying the interaction of materials with electromagnetic radiation."@en ,
-                 "Technique analytique pour étudier l'interaction des matériaux avec le rayonnement électromagnétique."@fr .
-
-:Tomography rdf:type proj:Methodological ;
-    skos:prefLabel "Tomography"@en , "Tomographie"@fr ;
-    rdfs:comment "Imaging technique for creating 3D representations of internal structures of materials."@en ,
-                 "Technique d'imagerie pour créer des représentations 3D des structures internes des matériaux."@fr .
-
-:ThermalAnalysis rdf:type proj:Methodological ;
-    skos:prefLabel "Thermal Analysis"@en , "Analyse thermique"@fr ;
-    rdfs:comment "Techniques for measuring thermal properties of materials, such as thermal conductivity and heat capacity."@en ,
-                 "Techniques de mesure des propriétés thermiques des matériaux, comme la conductivité thermique et la capacité thermique."@fr .
-
-:MechanicalTesting rdf:type proj:Methodological ;
-    skos:prefLabel "Mechanical Testing"@en , "Essais mécaniques"@fr ;
-    rdfs:comment "Experimental methods for evaluating mechanical properties of materials, such as strength, hardness, and ductility."@en ,
-                 "Méthodes expérimentales pour évaluer les propriétés mécaniques des matériaux, comme la résistance, la dureté et la ductilité."@fr .
-
-# =========================================================================
-# New terms - Processes (proj:Methodological)
-# =========================================================================
 :AdditiveManufacturing rdf:type proj:Methodological ;
     skos:prefLabel "Additive Manufacturing"@en , "Fabrication additive"@fr ;
-    rdfs:comment "Process of creating three-dimensional objects by adding material layer by layer."@en ,
-                 "Processus de création d'objets tridimensionnels en ajoutant du matériau couche par couche."@fr .
+    rdfs:comment "Layer-by-layer fabrication of parts, including 3D/4D printing and powder-bed laser fusion, directly from a digital model."@en ,
+                 "Fabrication de pièces couche par couche, incluant l'impression 3D/4D et la fusion laser sur lit de poudre, directement à partir d'un modèle numérique."@fr .
 
-:LaserRemelting rdf:type proj:Methodological ;
-    skos:prefLabel "Laser Remelting"@en , "Refusion laser"@fr ;
-    rdfs:comment "Technique using laser energy to melt and solidify materials for improved properties."@en ,
-                 "Technique utilisant l'énergie laser pour fondre et solidifier des matériaux afin d'améliorer leurs propriétés."@fr .
+:AdvancedCharacterization rdf:type proj:Methodological ;
+    skos:prefLabel "Advanced Materials Characterization"@en , "Caractérisation avancée des matériaux"@fr ;
+    rdfs:comment "In-depth, multi-technique analytical characterization of materials structure, composition and properties."@en ,
+                 "Caractérisation analytique approfondie et multi-technique de la structure, de la composition et des propriétés des matériaux."@fr .
 
-:ColdSpray rdf:type proj:Methodological ;
-    skos:prefLabel "Cold Spray"@en , "Projection à froid"@fr ;
-    rdfs:comment "Coating process where powder particles are accelerated to high velocities and deposited on a substrate."@en ,
-                 "Procédé de revêtement où des particules de poudre sont accélérées à haute vitesse et déposées sur un substrat."@fr .
+:AdvancedMaterials rdf:type proj:Keyword ;
+    skos:prefLabel "Advanced / Innovative Materials"@en , "Matériaux avancés / innovants"@fr ;
+    rdfs:comment "General category covering novel and high-performance materials developed for demanding applications."@en ,
+                 "Catégorie générale regroupant les matériaux nouveaux et à haute performance développés pour des applications exigeantes."@fr .
 
-:ThermalSpray rdf:type proj:Methodological ;
-    skos:prefLabel "Thermal Spray"@en , "Projection thermique"@fr ;
-    rdfs:comment "Process where melted or heated materials are sprayed onto a surface to form a coating."@en ,
-                 "Procédé où des matériaux fondus ou chauffés sont pulvérisés sur une surface pour former un revêtement."@fr .
+:AlcoholOxidation rdf:type proj:Keyword ;
+    skos:prefLabel "Alcohol Oxidation"@en , "Oxydation de l'alcool"@fr ;
+    rdfs:comment "Catalytic conversion of alcohols into aldehydes, ketones or carboxylic acids."@en ,
+                 "Conversion catalytique d'alcools en aldéhydes, cétones ou acides carboxyliques."@fr .
 
-:CombinatorialSynthesis rdf:type proj:Methodological ;
-    skos:prefLabel "Combinatorial Synthesis"@en , "Synthèse combinatoire"@fr ;
-    rdfs:comment "Execution of combinatorial experiments for rapid exploration of compositional space."@en ,
-                 "Exécution d'expériences combinatoires pour une exploration rapide des espaces de composition."@fr .
+:Algorithms rdf:type proj:Computational ;
+    skos:prefLabel "Algorithms"@en , "Algorithmes"@fr ;
+    rdfs:comment "Computational procedures and rule sets used to process data or drive automated decision-making."@en ,
+                 "Procédures et ensembles de règles informatiques utilisés pour traiter des données ou piloter une prise de décision automatisée."@fr .
 
-:HighThroughputSynthesis rdf:type proj:Methodological ;
-    skos:prefLabel "High-Throughput Synthesis"@en , "Synthèse à haut débit"@fr ;
-    rdfs:comment "Automated and parallelized synthesis methods for rapid production and screening of materials."@en ,
-                 "Méthodes de synthèse automatisées et parallélisées pour une production et un criblage rapides des matériaux."@fr .
+:AlloyDesignAndScreening rdf:type proj:Methodological ;
+    skos:prefLabel "Alloy Design and Screening"@en , "Conception et criblage d'alliages"@fr ;
+    rdfs:comment "Systematic design, composition selection and rapid screening of metallic alloys, including alloying-element effects."@en ,
+                 "Conception systématique, sélection de compositions et criblage rapide d'alliages métalliques, y compris les effets des éléments d'alliage."@fr .
 
-# =========================================================================
-# New terms - Applications (proj:Keyword)
-# =========================================================================
-:EnergyStorage rdf:type proj:Keyword ;
-    skos:prefLabel "Energy Storage"@en , "Stockage d'énergie"@fr ;
-    rdfs:comment "Technologies and materials for storing energy, including batteries, thermal storage, and hydrogen storage."@en ,
-                 "Technologies et matériaux pour stocker l'énergie, y compris les batteries, le stockage thermique et l'hydrogène."@fr .
+:AmmoniaSynthesis rdf:type proj:Keyword ;
+    skos:prefLabel "Ammonia Synthesis"@en , "Synthèse de l'ammoniac"@fr ;
+    rdfs:comment "Chemical or electrochemical production of ammonia, notably for green hydrogen carriers and fertilizers."@en ,
+                 "Production chimique ou électrochimique d'ammoniac, notamment comme vecteur d'hydrogène vert et pour les engrais."@fr .
 
-:HydrogenProduction rdf:type proj:Keyword ;
-    skos:prefLabel "Hydrogen Production"@en , "Production d'hydrogène"@fr ;
-    rdfs:comment "Materials and processes for producing hydrogen, including electrolysis, thermochemical, and biological methods."@en ,
-                 "Matériaux et procédés pour produire de l'hydrogène, y compris l'électrolyse, les méthodes thermochimiques et biologiques."@fr .
+:ArchitecturedMaterials rdf:type proj:Keyword ;
+    skos:prefLabel "Architectured Materials"@en , "Matériaux architecturés"@fr ;
+    rdfs:comment "Materials whose macroscopic properties are engineered through a designed internal architecture or topology."@en ,
+                 "Matériaux dont les propriétés macroscopiques sont obtenues grâce à une architecture ou une topologie interne conçue sur mesure."@fr .
+
+:AtomicScaleCharacterization rdf:type proj:Methodological ;
+    skos:prefLabel "Atomic-Scale Characterization"@en , "Caractérisation à l'échelle atomique"@fr ;
+    rdfs:comment "Characterization techniques resolving material structure and composition at the atomic scale."@en ,
+                 "Techniques de caractérisation permettant de résoudre la structure et la composition des matériaux à l'échelle atomique."@fr .
+
+:AutomatedExploration rdf:type proj:Methodological ;
+    skos:prefLabel "Automated Exploration"@en , "Exploration automatisée"@fr ;
+    rdfs:comment "Automated, often robot- or algorithm-driven, exploration of materials or process parameter spaces."@en ,
+                 "Exploration automatisée, souvent pilotée par des robots ou des algorithmes, des espaces de paramètres matériaux ou procédés."@fr .
+
+:AutonomousHumidityControl rdf:type proj:Keyword ;
+    skos:prefLabel "Autonomous Humidity Control"@en , "Contrôle autonome de l'humidité"@fr ;
+    rdfs:comment "Self-regulating systems and prototypes for controlling humidity, relevant to building physics and materials durability."@en ,
+                 "Systèmes et prototypes autorégulés de contrôle de l'humidité, pertinents pour la physique du bâtiment et la durabilité des matériaux."@fr .
+
+:BigDataAnalysis rdf:type proj:DataManagement ;
+    skos:prefLabel "Big Data Analysis"@en , "Analyse de données massives"@fr ;
+    rdfs:comment "Analysis of large-scale, heterogeneous scientific datasets to extract patterns and insights."@en ,
+                 "Analyse de jeux de données scientifiques volumineux et hétérogènes afin d'en extraire des tendances et des connaissances."@fr .
+
+:BimetallicNanoparticles rdf:type proj:Keyword ;
+    skos:prefLabel "Bimetallic Nanoparticles"@en , "Nanoparticules bimétalliques"@fr ;
+    rdfs:comment "Nanoparticles composed of two metallic elements, often used as tunable catalysts."@en ,
+                 "Nanoparticules composées de deux éléments métalliques, souvent utilisées comme catalyseurs ajustables."@fr .
+
+:BiobasedMaterials rdf:type proj:Keyword ;
+    skos:prefLabel "Biobased / Bio-sourced Materials"@en , "Matériaux biosourcés"@fr ;
+    rdfs:comment "Materials derived wholly or partly from biological/renewable feedstocks."@en ,
+                 "Matériaux issus totalement ou partiellement de ressources biologiques ou renouvelables."@fr .
+
+:Biofuel rdf:type proj:Keyword ;
+    skos:prefLabel "Biofuel"@en , "Biocarburant"@fr ;
+    rdfs:comment "Fuels produced from biomass or biological feedstocks."@en ,
+                 "Carburants produits à partir de biomasse ou de ressources biologiques."@fr .
+
+:Biomass rdf:type proj:Keyword ;
+    skos:prefLabel "Biomass"@en , "Biomasse"@fr ;
+    rdfs:comment "Organic material used as a feedstock for energy or chemical production."@en ,
+                 "Matière organique utilisée comme ressource pour la production d'énergie ou de produits chimiques."@fr .
+
+:Biomimicry rdf:type proj:Methodological ;
+    skos:prefLabel "Biomimicry"@en , "Biomimétisme"@fr ;
+    rdfs:comment "Design approach that draws inspiration from biological structures and processes to develop new materials or systems."@en ,
+                 "Approche de conception s'inspirant de structures et de processus biologiques pour développer de nouveaux matériaux ou systèmes."@fr .
+
+:BoronNitride rdf:type proj:Keyword ;
+    skos:prefLabel "Boron Nitride"@en , "Nitrure de bore"@fr ;
+    rdfs:comment "Ceramic compound of boron and nitrogen, used for its thermal, electrical and mechanical properties."@en ,
+                 "Composé céramique de bore et d'azote, utilisé pour ses propriétés thermiques, électriques et mécaniques."@fr .
+
+:BrazingAlloys rdf:type proj:Keyword ;
+    skos:prefLabel "Brazing Alloys"@en , "Alliages de brasage"@fr ;
+    rdfs:comment "Metal alloys designed to join materials by brazing, melting only the filler metal."@en ,
+                 "Alliages métalliques conçus pour assembler des matériaux par brasage, en ne faisant fondre que le métal d'apport."@fr .
+
+:CNN rdf:type proj:Computational ;
+    skos:prefLabel "Convolutional Neural Networks (CNN)"@en , "Réseaux de neurones convolutifs (CNN)"@fr ;
+    rdfs:comment "Deep-learning architectures specialized for processing grid-like data such as images and micrographs."@en ,
+                 "Architectures d'apprentissage profond spécialisées dans le traitement de données en grille, telles que les images et micrographies."@fr .
+
+:CO2Valorization rdf:type proj:Keyword ;
+    skos:prefLabel "CO2 Valorization (Reduction to Methanol)"@en , "Valorisation du CO2 (réduction en méthanol)"@fr ;
+    rdfs:comment "Catalytic or electrochemical conversion of CO2 into value-added products such as methanol."@en ,
+                 "Conversion catalytique ou électrochimique du CO2 en produits à valeur ajoutée tels que le méthanol."@fr .
+
+:CVD rdf:type proj:Methodological ;
+    skos:prefLabel "Chemical Vapor Deposition (CVD)"@en , "Dépôt chimique en phase vapeur (CVD)"@fr ;
+    rdfs:comment "Thin-film or coating deposition technique based on chemical reactions of gaseous precursors on a substrate."@en ,
+                 "Technique de dépôt de couches minces ou de revêtements basée sur des réactions chimiques de précurseurs gazeux sur un substrat."@fr .
 
 :Catalysis rdf:type proj:Keyword ;
     skos:prefLabel "Catalysis"@en , "Catalyse"@fr ;
-    rdfs:comment "Processes and materials that accelerate chemical reactions without being consumed."@en ,
-                 "Processus et matériaux qui accélèrent les réactions chimiques sans être consommés."@fr .
+    rdfs:comment "Study and application of catalysts to accelerate or steer chemical reactions."@en ,
+                 "Étude et application de catalyseurs pour accélérer ou orienter des réactions chimiques."@fr .
 
-:Electrocatalysis rdf:type proj:Keyword ;
-    skos:prefLabel "Electrocatalysis"@en , "Électrocatalyse"@fr ;
-    rdfs:comment "Catalytic processes driven by electrical energy, often used in energy conversion and storage."@en ,
-                 "Processus catalytiques pilotés par l'énergie électrique, souvent utilisés dans la conversion et le stockage d'énergie."@fr .
+:Cells rdf:type proj:Keyword ;
+    skos:prefLabel "Cells (Electrochemical / Photovoltaic)"@en , "Cellules (électrochimiques / photovoltaïques)"@fr ;
+    rdfs:comment "Generic devices such as electrochemical or photovoltaic cells that convert or store energy."@en ,
+                 "Dispositifs génériques, tels que les cellules électrochimiques ou photovoltaïques, qui convertissent ou stockent l'énergie."@fr .
 
-:Sensors rdf:type proj:Keyword ;
-    skos:prefLabel "Sensors"@en , "Capteurs"@fr ;
-    rdfs:comment "Devices and materials for detecting and measuring physical, chemical, or biological quantities."@en ,
-                 "Dispositifs et matériaux pour détecter et mesurer des quantités physiques, chimiques ou biologiques."@fr .
+:Ceramics rdf:type proj:Keyword ;
+    skos:prefLabel "Ceramics"@en , "Céramiques"@fr ;
+    rdfs:comment "Inorganic, non-metallic materials, including advanced ceramics and ceramic-matrix composites, valued for hardness and thermal stability."@en ,
+                 "Matériaux inorganiques non métalliques, incluant les céramiques avancées et les composites à matrice céramique, appréciés pour leur dureté et leur stabilité thermique."@fr .
 
-:RenewableEnergy rdf:type proj:Keyword ;
-    skos:prefLabel "Renewable Energy"@en , "Énergie renouvelable"@fr ;
-    rdfs:comment "Materials and technologies for harnessing energy from renewable sources such as solar, wind, and biomass."@en ,
-                 "Matériaux et technologies pour capter l'énergie à partir de sources renouvelables comme le solaire, l'éolien et la biomasse."@fr .
+:ChemicalPrecursors rdf:type proj:Keyword ;
+    skos:prefLabel "Chemical Precursors"@en , "Précurseurs chimiques"@fr ;
+    rdfs:comment "Starting chemical compounds used to synthesize a target material or coating."@en ,
+                 "Composés chimiques de départ utilisés pour synthétiser un matériau ou un revêtement cible."@fr .
 
-:Spintronics rdf:type proj:Keyword ;
-    skos:prefLabel "Spintronics"@en , "Spintronique"@fr ;
-    rdfs:comment "Materials and devices that exploit the spin of electrons for information storage and processing."@en ,
-                 "Matériaux et dispositifs qui exploitent le spin des électrons pour le stockage et le traitement de l'information."@fr .
+:ChemicalSpaceExploration rdf:type proj:Methodological ;
+    skos:prefLabel "Chemical Space Exploration"@en , "Exploration de l'espace chimique"@fr ;
+    rdfs:comment "Systematic exploration of the space of possible chemical compositions or structures to identify promising candidates."@en ,
+                 "Exploration systématique de l'espace des compositions ou structures chimiques possibles afin d'identifier des candidats prometteurs."@fr .
 
-:PhotonicMaterials rdf:type proj:Keyword ;
-    skos:prefLabel "Photonic Materials"@en , "Matériaux photoniques"@fr ;
-    rdfs:comment "Materials designed to manipulate light for applications in optics, telecommunications, and energy."@en ,
-                 "Matériaux conçus pour manipuler la lumière pour des applications en optique, télécommunications et énergie."@fr .
+:Chemistry rdf:type proj:Keyword ;
+    skos:prefLabel "Chemistry"@en , "Chimie"@fr ;
+    rdfs:comment "General chemical science and methods underlying materials synthesis and reactivity."@en ,
+                 "Science et méthodes chimiques générales sous-tendant la synthèse et la réactivité des matériaux."@fr .
 
-# =========================================================================
-# New terms - synthesis(proj:Methodological)
-# =========================================================================
-:ThinFilmDeposition rdf:type proj:Methodological ;
-    skos:prefLabel "Thin Film Deposition"@en , "Dépôt de couches minces"@fr ;
-    rdfs:comment "Techniques for depositing thin layers of material onto a substrate, such as PVD, CVD, or ALD."@en ,
-                 "Techniques pour déposer des couches minces de matériau sur un substrat, comme PVD, CVD ou ALD."@fr .
+:Coatings rdf:type proj:Keyword ;
+    skos:prefLabel "Materials Coatings"@en , "Revêtements de matériaux"@fr ;
+    rdfs:comment "Surface layers applied to a substrate to modify its protective, functional or aesthetic properties."@en ,
+                 "Couches superficielles appliquées sur un substrat pour en modifier les propriétés protectrices, fonctionnelles ou esthétiques."@fr .
 
-:MolecularBeamEpitaxy rdf:type proj:Methodological ;
-    skos:prefLabel "Molecular Beam Epitaxy"@en , "Épitaxie par faisceau moléculaire"@fr ;
-    rdfs:comment "Technique for growing high-quality crystalline thin films by depositing atomic or molecular beams onto a substrate."@en ,
-                 "Technique pour faire croître des couches minces cristallines de haute qualité en déposant des faisceaux atomiques ou moléculaires sur un substrat."@fr .
+:ColdSpray rdf:type proj:Methodological ;
+    skos:prefLabel "Cold Spray"@en , "Projection à froid"@fr ;
+    rdfs:comment "Solid-state coating deposition process in which powder particles are accelerated to high velocity and deposited without melting."@en ,
+                 "Procédé de dépôt de revêtement à l'état solide dans lequel des particules de poudre sont accélérées à grande vitesse et déposées sans fusion."@fr .
 
-:ChemicalVaporDeposition rdf:type proj:Methodological ;
-    skos:prefLabel "Chemical Vapor Deposition"@en , "Dépôt chimique en phase vapeur"@fr ;
-    rdfs:comment "Process where chemical precursors react on a substrate surface to form a solid thin film."@en ,
-                 "Procédé où des précurseurs chimiques réagissent sur une surface de substrat pour former une couche mince solide."@fr .
+:CombinatorialApproaches rdf:type proj:Methodological ;
+    skos:prefLabel "Combinatorial Approaches"@en , "Approches combinatoires"@fr ;
+    rdfs:comment "Methods that synthesize and evaluate many material variants in parallel to accelerate discovery."@en ,
+                 "Méthodes synthétisant et évaluant de nombreuses variantes de matériaux en parallèle afin d'accélérer la découverte."@fr .
 
-:PhysicalVaporDeposition rdf:type proj:Methodological ;
-    skos:prefLabel "Physical Vapor Deposition"@en , "Dépôt physique en phase vapeur"@fr ;
-    rdfs:comment "Process where material is vaporized and deposited onto a substrate to form a thin film."@en ,
-                 "Procédé où le matériau est vaporisé et déposé sur un substrat pour former une couche mince."@fr .
+:CombinatorialMetallurgy rdf:type proj:Methodological ;
+    skos:prefLabel "Combinatorial Metallurgy"@en , "Métallurgie combinatoire"@fr ;
+    rdfs:comment "Combinatorial synthesis and screening methods applied specifically to metallic systems."@en ,
+                 "Méthodes de synthèse et de criblage combinatoires appliquées spécifiquement aux systèmes métalliques."@fr .
 
-# =========================================================================
-# New terms - optimization and design (proj:Methodological)
-# =========================================================================
-:MultiObjectiveOptimization rdf:type proj:Methodological ;
-    skos:prefLabel "Multi-Objective Optimization"@en , "Optimisation multi-objectifs"@fr ;
-    rdfs:comment "Optimization methods that balance multiple conflicting objectives in material and process design."@en ,
-                 "Méthodes d'optimisation qui équilibrent plusieurs objectifs conflictuels dans la conception de matériaux et de procédés."@fr .
+:Composites rdf:type proj:Keyword ;
+    skos:prefLabel "Composite Materials"@en , "Matériaux composites"@fr ;
+    rdfs:comment "Materials made from two or more constituent materials with different properties, combined to achieve enhanced performance."@en ,
+                 "Matériaux constitués de deux ou plusieurs composants aux propriétés différentes, combinés pour obtenir des performances améliorées."@fr .
 
-:QualityDiversity rdf:type proj:Methodological ;
-    skos:prefLabel "Quality Diversity"@en , "Diversité de qualité"@fr ;
-    rdfs:comment "Approach for generating a diverse set of high-performing solutions in material design and optimization."@en ,
-                 "Approche pour générer un ensemble diversifié de solutions performantes dans la conception et l'optimisation de matériaux."@fr .
+:CompositionDesign rdf:type proj:Methodological ;
+    skos:prefLabel "Composition Design"@en , "Conception de compositions"@fr ;
+    rdfs:comment "Deliberate selection and tuning of material composition to achieve target properties."@en ,
+                 "Sélection et ajustement délibérés de la composition d'un matériau pour atteindre des propriétés cibles."@fr .
 
-:InverseDesign rdf:type proj:Methodological ;
-    skos:prefLabel "Inverse Design"@en , "Conception inverse"@fr ;
-    rdfs:comment "Design approach that starts with desired properties and works backward to identify materials or structures that meet those properties."@en ,
-                 "Approche de conception qui part des propriétés souhaitées pour identifier les matériaux ou structures qui les satisfont."@fr .
+:ConcentratedSolarPower rdf:type proj:Keyword ;
+    skos:prefLabel "Concentrated Solar Power"@en , "Énergie solaire concentrée"@fr ;
+    rdfs:comment "Technology that concentrates sunlight to generate thermal or electrical energy."@en ,
+                 "Technologie qui concentre le rayonnement solaire pour produire de l'énergie thermique ou électrique."@fr .
 
-# =========================================================================
-# New terms - Data Analysis (proj:DataManagement)
-# =========================================================================
-:BigDataAnalysis rdf:type proj:DataManagement ;
-    skos:prefLabel "Big Data Analysis"@en , "Analyse de grandes données"@fr ;
-    rdfs:comment "Techniques and tools for processing and analyzing large and complex datasets in materials science."@en ,
-                 "Techniques et outils pour traiter et analyser de grands ensembles de données complexes en science des matériaux."@fr .
+:CoordinationChemistry rdf:type proj:Keyword ;
+    skos:prefLabel "Coordination Chemistry"@en , "Chimie de coordination"@fr ;
+    rdfs:comment "Chemistry of compounds formed by coordination bonds between metal ions and ligands."@en ,
+                 "Chimie des composés formés par des liaisons de coordination entre ions métalliques et ligands."@fr .
 
-:DataMining rdf:type proj:DataManagement ;
-    skos:prefLabel "Data Mining"@en , "Fouille de données"@fr ;
-    rdfs:comment "Process of discovering patterns and knowledge from large datasets using computational techniques."@en ,
-                 "Processus de découverte de motifs et de connaissances à partir de grands ensembles de données à l'aide de techniques computationnelles."@fr .
+:Corrosion rdf:type proj:Keyword ;
+    skos:prefLabel "Corrosion"@en , "Corrosion"@fr ;
+    rdfs:comment "Degradation of materials, typically metals, through chemical or electrochemical reaction with their environment, including its mechanisms and databases."@en ,
+                 "Dégradation des matériaux, typiquement les métaux, par réaction chimique ou électrochimique avec leur environnement, y compris ses mécanismes et bases de données."@fr .
+
+:CriticalElementsSubstitution rdf:type proj:Methodological ;
+    skos:prefLabel "Substitution of Critical Elements"@en , "Substitution des éléments critiques"@fr ;
+    rdfs:comment "Development of materials that replace scarce or critical raw elements with more abundant alternatives."@en ,
+                 "Développement de matériaux permettant de remplacer des éléments bruts rares ou critiques par des alternatives plus abondantes."@fr .
+
+:CrystalGrowth rdf:type proj:Methodological ;
+    skos:prefLabel "Crystal Growth and Nucleation"@en , "Croissance cristalline et nucléation"@fr ;
+    rdfs:comment "Processes governing the nucleation and growth of crystals from a melt, solution or vapor phase."@en ,
+                 "Processus régissant la nucléation et la croissance des cristaux à partir d'une phase fondue, liquide ou vapeur."@fr .
+
+:CrystalPlasticity rdf:type proj:Computational ;
+    skos:prefLabel "Crystal Plasticity Modeling"@en , "Modélisation de la plasticité cristalline"@fr ;
+    rdfs:comment "Modeling of the plastic deformation behavior of crystalline materials at the grain and microstructural scale."@en ,
+                 "Modélisation du comportement de déformation plastique des matériaux cristallins à l'échelle du grain et de la microstructure."@fr .
+
+:CrystalStructurePrediction rdf:type proj:Computational ;
+    skos:prefLabel "Crystal Structure Prediction"@en , "Prédiction de la structure cristalline"@fr ;
+    rdfs:comment "Computational prediction of the most stable crystal structure(s) for a given chemical composition."@en ,
+                 "Prédiction computationnelle de la ou des structures cristallines les plus stables pour une composition chimique donnée."@fr .
+
+:CurrentCollectorLayer rdf:type proj:Keyword ;
+    skos:prefLabel "Current Collector Layer"@en , "Couche collectrice de courant"@fr ;
+    rdfs:comment "Conductive layer used in electrochemical devices to collect and transport electrical current."@en ,
+                 "Couche conductrice utilisée dans les dispositifs électrochimiques pour collecter et transporter le courant électrique."@fr .
+
+:DataReduction rdf:type proj:DataManagement ;
+    skos:prefLabel "Data Reduction"@en , "Réduction de données"@fr ;
+    rdfs:comment "Processing raw experimental or simulation data into a compact, interpretable form."@en ,
+                 "Traitement de données expérimentales ou de simulation brutes pour les transformer en une forme compacte et interprétable."@fr .
+
+:DataStorage rdf:type proj:DataManagement ;
+    skos:prefLabel "Data Storage"@en , "Stockage de données"@fr ;
+    rdfs:comment "Infrastructure and practices for storing scientific data."@en ,
+                 "Infrastructures et pratiques de stockage des données scientifiques."@fr .
 
 :DatabaseMining rdf:type proj:DataManagement ;
     skos:prefLabel "Database Mining"@en , "Exploration de bases de données"@fr ;
-    rdfs:comment "Extracting useful information from scientific databases for materials discovery and analysis."@en ,
-                 "Extraction d'informations utiles à partir de bases de données scientifiques pour la découverte et l'analyse de matériaux."@fr .
+    rdfs:comment "Extraction of patterns, trends or candidate materials from existing scientific databases."@en ,
+                 "Extraction de tendances, motifs ou matériaux candidats à partir de bases de données scientifiques existantes."@fr .
 
+:Decomposition rdf:type proj:Keyword ;
+    skos:prefLabel "Decomposition"@en , "Décomposition"@fr ;
+    rdfs:comment "Chemical or thermal breakdown of a compound into simpler substances."@en ,
+                 "Dégradation chimique ou thermique d'un composé en substances plus simples."@fr .
 
-#-----------------------------------------------------------------------------------------------
-:Metallurgy rdf:type proj:Keyword ;
-    skos:prefLabel "Metallurgy"@en, "Métallurgie"@fr ;
-    rdfs:comment "Study and application of metal extraction, processing, and alloy design."@en,
-                 "Étude et application de l'extraction, du traitement des métaux et de la conception d'alliages."@fr .
+:Descriptors rdf:type proj:Methodological ;
+    skos:prefLabel "Descriptors"@en , "Descripteurs"@fr ;
+    rdfs:comment "Quantitative features used to represent materials or molecules for modeling and machine learning."@en ,
+                 "Caractéristiques quantitatives utilisées pour représenter des matériaux ou des molécules en vue de la modélisation et de l'apprentissage automatique."@fr .
 
-:HighSpeedMetallurgy rdf:type proj:Keyword ;
-    skos:prefLabel "High-Speed Metallurgy"@en, "Métallurgie haut-débit"@fr ;
-    rdfs:comment "Rapid synthesis and processing of metallic materials using high-throughput methods."@en,
-                 "Synthèse et traitement rapide des matériaux métalliques à l'aide de méthodes à haut débit."@fr .
+:DigitalTwin rdf:type proj:Computational ;
+    skos:prefLabel "Digital Twin"@en , "Jumeau numérique"@fr ;
+    rdfs:comment "Virtual, continuously-updated representation of a physical material, process or system used for simulation and monitoring."@en ,
+                 "Représentation virtuelle, continuellement mise à jour, d'un matériau, d'un procédé ou d'un système physique, utilisée pour la simulation et le suivi."@fr .
 
-:CombinatorialMetallurgy rdf:type proj:Keyword ;
-    skos:prefLabel "Combinatorial Metallurgy"@en, "Métallurgie combinatoire"@fr ;
-    rdfs:comment "Use of combinatorial approaches to explore alloy compositions and properties."@en,
-                 "Utilisation d'approches combinatoires pour explorer les compositions et propriétés des alliages."@fr .
+:DirectedAssembly rdf:type proj:Methodological ;
+    skos:prefLabel "Directed Assembly"@en , "Assemblage dirigé"@fr ;
+    rdfs:comment "Techniques that guide the spontaneous organization of building blocks into targeted structures."@en ,
+                 "Techniques guidant l'organisation spontanée de briques élémentaires vers des structures ciblées."@fr .
 
-:Corrosion rdf:type proj:Keyword ;
-    skos:prefLabel "Corrosion"@en, "Corrosion"@fr ;
-    rdfs:comment "Study of the degradation of materials due to chemical or electrochemical reactions with their environment."@en,
-                 "Étude de la dégradation des matériaux due aux réactions chimiques ou électrochimiques avec leur environnement."@fr .
+:EBSD rdf:type proj:Methodological ;
+    skos:prefLabel "Electron Backscatter Diffraction (EBSD)"@en , "Diffraction des électrons rétrodiffusés (EBSD)"@fr ;
+    rdfs:comment "Scanning-electron-microscopy technique for mapping crystallographic orientation and microstructure."@en ,
+                 "Technique de microscopie électronique à balayage permettant de cartographier l'orientation cristallographique et la microstructure."@fr .
 
-:SurfaceEngineering rdf:type proj:Keyword ;
-    skos:prefLabel "Surface Engineering"@en, "Ingénierie des surfaces"@fr ;
-    rdfs:comment "Modification of the surface properties of materials to improve performance."@en,
-                 "Modification des propriétés de surface des matériaux pour améliorer leurs performances."@fr .
+:EcoDesign rdf:type proj:Methodological ;
+    skos:prefLabel "Eco-Design"@en , "Éco-conception"@fr ;
+    rdfs:comment "Design approach that integrates environmental considerations throughout the material or product life cycle."@en ,
+                 "Approche de conception intégrant les considérations environnementales tout au long du cycle de vie du matériau ou du produit."@fr .
 
-:SurfaceScience rdf:type proj:Keyword ;
-    skos:prefLabel "Surface Science"@en, "Science des surfaces"@fr ;
-    rdfs:comment "Study of the physical and chemical properties of surfaces and interfaces."@en,
-                 "Étude des propriétés physiques et chimiques des surfaces et interfaces."@fr .
+:ElaborationProcesses rdf:type proj:Methodological ;
+    skos:prefLabel "Elaboration / Processing Routes"@en , "Procédés d'élaboration"@fr ;
+    rdfs:comment "General synthesis and processing routes used to fabricate materials."@en ,
+                 "Voies générales de synthèse et de mise en œuvre utilisées pour fabriquer les matériaux."@fr .
 
-:NuclearMaterials rdf:type proj:Keyword ;
-    skos:prefLabel "Nuclear Materials"@en, "Matériaux nucléaires"@fr ;
-    rdfs:comment "Materials used in nuclear energy applications, including fuels and structural components."@en,
-                 "Matériaux utilisés dans les applications d'énergie nucléaire, y compris les combustibles et les composants structurels."@fr .
+:Electrocatalysis rdf:type proj:Keyword ;
+    skos:prefLabel "Electrocatalysis"@en , "Électrocatalyse"@fr ;
+    rdfs:comment "Catalysis of electrochemical reactions, e.g. at electrode surfaces."@en ,
+                 "Catalyse de réactions électrochimiques, par exemple à la surface d'électrodes."@fr .
 
-:PhaseTransformations rdf:type proj:Keyword ;
-    skos:prefLabel "Phase Transformations"@en, "Transformations de phase"@fr ;
-    rdfs:comment "Study of changes in the structure of materials, such as solid-state phase transitions."@en,
-                 "Étude des changements de structure des matériaux, comme les transitions de phase à l'état solide."@fr .
+:ElectrochemicalWaterSplitting rdf:type proj:Keyword ;
+    skos:prefLabel "Electrochemical Water Splitting"@en , "Séparation électrochimique de l'eau"@fr ;
+    rdfs:comment "Electrochemical decomposition of water into hydrogen and oxygen."@en ,
+                 "Décomposition électrochimique de l'eau en hydrogène et en oxygène."@fr .
 
-:Thermodynamics rdf:type proj:Keyword ;
-    skos:prefLabel "Thermodynamics"@en, "Thermodynamique"@fr ;
-    rdfs:comment "Study of heat, work, temperature, and their relation to energy and entropy in materials."@en,
-                 "Étude de la chaleur, du travail, de la température et de leur relation avec l'énergie et l'entropie dans les matériaux."@fr .
+:Electrochemistry rdf:type proj:Keyword ;
+    skos:prefLabel "Electrochemistry"@en , "Électrochimie"@fr ;
+    rdfs:comment "Study of chemical processes that involve electron transfer, including electrode and electrolyte phenomena."@en ,
+                 "Étude des processus chimiques impliquant un transfert d'électrons, y compris les phénomènes aux électrodes et dans les électrolytes."@fr .
 
-:ThermalProperties rdf:type proj:Keyword ;
-    skos:prefLabel "Thermal Properties"@en, "Propriétés thermiques"@fr ;
-    rdfs:comment "Study of how materials respond to changes in temperature, including conductivity and expansion."@en,
-                 "Étude de la réponse des matériaux aux changements de température, y compris la conductivité et la dilatation."@fr .
+:Electrode rdf:type proj:Keyword ;
+    skos:prefLabel "Electrode"@en , "Électrode"@fr ;
+    rdfs:comment "Conductive component through which current enters or leaves an electrochemical system."@en ,
+                 "Composant conducteur par lequel le courant entre ou sort d'un système électrochimique."@fr .
+
+:ElectronMicroscopy rdf:type proj:Methodological ;
+    skos:prefLabel "Electron Microscopy"@en , "Microscopie électronique"@fr ;
+    rdfs:comment "Imaging techniques (SEM, TEM) using electron beams to characterize materials at high resolution."@en ,
+                 "Techniques d'imagerie (MEB, MET) utilisant des faisceaux d'électrons pour caractériser les matériaux à haute résolution."@fr .
+
+:ElectronTomography rdf:type proj:Methodological ;
+    skos:prefLabel "Electron Tomography"@en , "Tomographie électronique"@fr ;
+    rdfs:comment "3D reconstruction of a specimen's structure from a tilt series of electron-microscopy images."@en ,
+                 "Reconstruction 3D de la structure d'un échantillon à partir d'une série d'images de microscopie électronique acquises sous différents angles."@fr .
+
+:ElectronicProperties rdf:type proj:Keyword ;
+    skos:prefLabel "Electronic Properties"@en , "Propriétés électroniques"@fr ;
+    rdfs:comment "Properties related to the behavior of electrons in a material, such as conductivity and band structure."@en ,
+                 "Propriétés liées au comportement des électrons dans un matériau, telles que la conductivité et la structure de bandes."@fr .
+
+:ElectronicSpectroscopy rdf:type proj:Methodological ;
+    skos:prefLabel "Electronic Spectroscopy"@en , "Spectroscopie électronique"@fr ;
+    rdfs:comment "Spectroscopic techniques probing electronic transitions and states in materials."@en ,
+                 "Techniques spectroscopiques sondant les transitions et états électroniques dans les matériaux."@fr .
+
+:EnergyEfficiency rdf:type proj:Keyword ;
+    skos:prefLabel "Energy Efficiency"@en , "Efficacité énergétique"@fr ;
+    rdfs:comment "Reduction of energy consumption for a given process or application while maintaining performance."@en ,
+                 "Réduction de la consommation d'énergie d'un procédé ou d'une application tout en conservant les performances."@fr .
+
+:EnergyStimulation rdf:type proj:Keyword ;
+    skos:prefLabel "Energy Stimulation"@en , "Stimulation énergétique"@fr ;
+    rdfs:comment "External energy input (thermal, mechanical, electromagnetic) applied to a material or process to modify its behavior."@en ,
+                 "Apport d'énergie externe (thermique, mécanique, électromagnétique) appliqué à un matériau ou un procédé pour en modifier le comportement."@fr .
+
+:EnvironmentalElectronMicroscopy rdf:type proj:Methodological ;
+    skos:prefLabel "Environmental Electron Microscopy"@en , "Microscopie électronique environnementale"@fr ;
+    rdfs:comment "Electron microscopy performed under controlled gas or humidity environments to observe dynamic processes."@en ,
+                 "Microscopie électronique réalisée sous atmosphère gazeuse ou humidité contrôlée pour observer des processus dynamiques."@fr .
+
+:EutecticAlloys rdf:type proj:Keyword ;
+    skos:prefLabel "Eutectic Alloys"@en , "Alliages eutectiques"@fr ;
+    rdfs:comment "Alloys with a composition that solidifies at a single temperature lower than that of the constituent phases."@en ,
+                 "Alliages dont la composition se solidifie à une température unique, inférieure à celle des phases constitutives."@fr .
+
+:ExperimentalAndSimulatedData rdf:type proj:DataManagement ;
+    skos:prefLabel "Experimental and Simulated Datasets"@en , "Jeux de données expérimentales et simulées"@fr ;
+    rdfs:comment "Combined datasets that integrate experimental measurements with simulation outputs."@en ,
+                 "Jeux de données combinant mesures expérimentales et résultats de simulation."@fr .
+
+:ExperimentalPlatforms rdf:type proj:Methodological ;
+    skos:prefLabel "Experimental Platforms"@en , "Plateformes expérimentales"@fr ;
+    rdfs:comment "Physical infrastructure and equipment platforms used to carry out materials experiments."@en ,
+                 "Infrastructures et équipements physiques utilisés pour mener des expériences sur les matériaux."@fr .
+
+:ExplorationModel rdf:type proj:Computational ;
+    skos:prefLabel "Exploration Model"@en , "Modèle d'exploration"@fr ;
+    rdfs:comment "Model that drives the exploration strategy of a materials or parameter space."@en ,
+                 "Modèle pilotant la stratégie d'exploration d'un espace de matériaux ou de paramètres."@fr .
+
+:ExtremeEnvironment rdf:type proj:Keyword ;
+    skos:prefLabel "Extreme Environment"@en , "Environnement extrême"@fr ;
+    rdfs:comment "Conditions of severe temperature, pressure, radiation or chemical aggressiveness under which materials must perform."@en ,
+                 "Conditions sévères de température, pression, radiation ou agressivité chimique dans lesquelles les matériaux doivent fonctionner."@fr .
+
+:FactoryOfTheFuture rdf:type proj:Keyword ;
+    skos:prefLabel "Factory of the Future"@en , "Usine du futur"@fr ;
+    rdfs:comment "Concept of highly digitalized, automated and flexible manufacturing facilities."@en ,
+                 "Concept d'usine fortement numérisée, automatisée et flexible."@fr .
+
+:FastDataCollection rdf:type proj:DataManagement ;
+    skos:prefLabel "Fast / Online Data Collection"@en , "Collecte de données rapide / en ligne"@fr ;
+    rdfs:comment "Rapid or continuous acquisition and analysis of experimental data."@en ,
+                 "Acquisition et analyse rapides ou continues de données expérimentales."@fr .
+
+:Ferroelectrics rdf:type proj:Keyword ;
+    skos:prefLabel "Ferroelectrics"@en , "Ferroélectriques"@fr ;
+    rdfs:comment "Materials exhibiting a spontaneous, switchable electric polarization, including ferroelectric memory applications."@en ,
+                 "Matériaux présentant une polarisation électrique spontanée et commutable, y compris pour des applications de mémoire ferroélectrique."@fr .
+
+:FiniteElementModeling rdf:type proj:Computational ;
+    skos:prefLabel "Finite Element Modeling"@en , "Modélisation par éléments finis"@fr ;
+    rdfs:comment "Numerical method that discretizes a structure or domain into finite elements to solve physical field equations."@en ,
+                 "Méthode numérique discrétisant une structure ou un domaine en éléments finis pour résoudre des équations de champs physiques."@fr .
+
+:FlowChemistry rdf:type proj:Methodological ;
+    skos:prefLabel "Flow Chemistry"@en , "Chimie en flux"@fr ;
+    rdfs:comment "Chemical synthesis performed in continuously flowing reaction streams rather than batch reactors."@en ,
+                 "Synthèse chimique réalisée dans des flux réactionnels continus plutôt que dans des réacteurs discontinus."@fr .
+
+:FunctionalOxides rdf:type proj:Keyword ;
+    skos:prefLabel "Functional Oxides"@en , "Oxydes fonctionnels"@fr ;
+    rdfs:comment "Oxide materials engineered for specific electronic, magnetic or optical functionalities."@en ,
+                 "Matériaux à base d'oxydes conçus pour des fonctionnalités électroniques, magnétiques ou optiques spécifiques."@fr .
+
+:FunctionalPerovskiteOxides rdf:type proj:Keyword ;
+    skos:prefLabel "Functional Perovskite Oxides"@en , "Oxydes de pérovskite fonctionnels"@fr ;
+    rdfs:comment "Perovskite-structured oxide materials, such as SrTiO3, engineered for specific functional properties."@en ,
+                 "Matériaux oxydes de structure pérovskite, tels que SrTiO3, conçus pour des propriétés fonctionnelles spécifiques."@fr .
+
+:Glasses rdf:type proj:Keyword ;
+    skos:prefLabel "Glasses"@en , "Verres"@fr ;
+    rdfs:comment "Amorphous, non-crystalline solid materials."@en ,
+                 "Matériaux solides amorphes, non cristallins."@fr .
+
+:GradientPlasticity rdf:type proj:Computational ;
+    skos:prefLabel "Gradient Plasticity"@en , "Plasticité à gradient"@fr ;
+    rdfs:comment "Continuum mechanics theory that incorporates strain-gradient effects into plastic deformation models."@en ,
+                 "Théorie de la mécanique des milieux continus intégrant les effets de gradient de déformation dans les modèles de déformation plastique."@fr .
+
+:GraphNeuralNetworks rdf:type proj:Computational ;
+    skos:prefLabel "Graph Neural Networks"@en , "Réseaux de neurones sur graphes"@fr ;
+    rdfs:comment "Neural-network architectures operating on graph-structured data, such as molecular or crystal graphs."@en ,
+                 "Architectures de réseaux de neurones opérant sur des données structurées en graphes, telles que des graphes moléculaires ou cristallins."@fr .
+
+:GreenDeal rdf:type proj:Keyword ;
+    skos:prefLabel "Green Deal"@en , "Pacte vert"@fr ;
+    rdfs:comment "European policy framework aiming for climate neutrality and sustainable growth."@en ,
+                 "Cadre politique européen visant la neutralité climatique et une croissance durable."@fr .
+
+:GreenTechnologies rdf:type proj:Keyword ;
+    skos:prefLabel "Green Technologies"@en , "Technologies vertes"@fr ;
+    rdfs:comment "Technologies designed to reduce environmental impact and support sustainability."@en ,
+                 "Technologies conçues pour réduire l'impact environnemental et favoriser la durabilité."@fr .
+
+:HAXPES rdf:type proj:Methodological ;
+    skos:prefLabel "Hard X-ray Photoelectron Spectroscopy (HAXPES)"@en , "Spectroscopie de photoélectrons induits par rayons X durs (HAXPES)"@fr ;
+    rdfs:comment "Photoelectron spectroscopy using hard X-rays to probe buried interfaces and bulk electronic structure."@en ,
+                 "Spectroscopie de photoélectrons utilisant des rayons X durs pour sonder les interfaces enfouies et la structure électronique en volume."@fr .
+
+:HalidePerovskites rdf:type proj:Keyword ;
+    skos:prefLabel "Halide Perovskites / Hybrid Metal Halides"@en , "Pérovskites halogénées / halogénures de métaux hybrides"@fr ;
+    rdfs:comment "Perovskite-structured semiconductor materials based on metal halides, notably used in photovoltaics."@en ,
+                 "Matériaux semi-conducteurs de structure pérovskite à base d'halogénures métalliques, notamment utilisés en photovoltaïque."@fr .
+
+:HeterogeneousCatalysis rdf:type proj:Keyword ;
+    skos:prefLabel "Heterogeneous Catalysis"@en , "Catalyse hétérogène"@fr ;
+    rdfs:comment "Catalysis in which the catalyst is in a different phase (usually solid) from the reactants."@en ,
+                 "Catalyse dans laquelle le catalyseur se trouve dans une phase différente (généralement solide) de celle des réactifs."@fr .
+
+:Heterostructures rdf:type proj:Keyword ;
+    skos:prefLabel "Heterostructures"@en , "Hétérostructures"@fr ;
+    rdfs:comment "Layered structures composed of different materials, engineered to obtain novel interfacial properties."@en ,
+                 "Structures multicouches composées de matériaux différents, conçues pour obtenir de nouvelles propriétés interfaciales."@fr .
+
+:HighEntropyCeramics rdf:type proj:Keyword ;
+    skos:prefLabel "High-Entropy Ceramics"@en , "Céramiques à haute entropie"@fr ;
+    rdfs:comment "Ceramic materials containing multiple principal elements in near-equal proportions, analogous to high-entropy alloys."@en ,
+                 "Matériaux céramiques contenant plusieurs éléments principaux en proportions quasi égales, par analogie avec les alliages à haute entropie."@fr .
+
+:HighThroughput rdf:type proj:Methodological ;
+    skos:prefLabel "High-Throughput Methods"@en , "Méthodes à haut débit"@fr ;
+    rdfs:comment "General methodologies for rapidly producing and evaluating large numbers of material samples or conditions."@en ,
+                 "Méthodologies générales permettant de produire et d'évaluer rapidement un grand nombre d'échantillons ou de conditions."@fr .
+
+:HighThroughputAlloyDesign rdf:type proj:Methodological ;
+    skos:prefLabel "High-Throughput Alloy Design"@en , "Conception d'alliages à haut débit"@fr ;
+    rdfs:comment "High-throughput screening applied specifically to the design of new alloy compositions."@en ,
+                 "Criblage à haut débit appliqué spécifiquement à la conception de nouvelles compositions d'alliages."@fr .
+
+:HighThroughputCatalysis rdf:type proj:Methodological ;
+    skos:prefLabel "High-Throughput / High-Performance Catalysis"@en , "Catalyse à haut débit / haute performance"@fr ;
+    rdfs:comment "Rapid, parallel synthesis and screening of catalyst candidates for improved activity or selectivity."@en ,
+                 "Synthèse et criblage rapides et parallèles de catalyseurs candidats pour améliorer l'activité ou la sélectivité."@fr .
+
+:HighThroughputCharacterization rdf:type proj:Methodological ;
+    skos:prefLabel "High-Throughput / Operando Characterization"@en , "Caractérisation à haut débit / operando"@fr ;
+    rdfs:comment "Rapid, often automated, characterization workflows applied to many samples, including multimodal and operando diagnostics."@en ,
+                 "Flux de caractérisation rapides, souvent automatisés, appliqués à de nombreux échantillons, incluant des diagnostics multimodaux et operando."@fr .
+
+:HighThroughputMetallurgy rdf:type proj:Methodological ;
+    skos:prefLabel "High-Throughput / High-Speed Metallurgy"@en , "Métallurgie à haut débit / haute vitesse"@fr ;
+    rdfs:comment "Rapid parallel synthesis and testing methods applied to metallurgical systems."@en ,
+                 "Méthodes de synthèse et d'essai rapides et parallèles appliquées aux systèmes métallurgiques."@fr .
+
+:HighThroughputSynthesis rdf:type proj:Methodological ;
+    skos:prefLabel "High-Throughput Synthesis"@en , "Synthèse à haut débit"@fr ;
+    rdfs:comment "Parallel or automated synthesis of many material samples, including thin-film libraries, for rapid screening."@en ,
+                 "Synthèse parallèle ou automatisée de nombreux échantillons de matériaux, y compris des bibliothèques de couches minces, pour un criblage rapide."@fr .
+
+:Homogenization rdf:type proj:Methodological ;
+    skos:prefLabel "Homogenization"@en , "Homogénéisation"@fr ;
+    rdfs:comment "Thermal or mechanical treatment aimed at reducing compositional or microstructural gradients in a material."@en ,
+                 "Traitement thermique ou mécanique visant à réduire les gradients de composition ou de microstructure d'un matériau."@fr .
+
+:HybridModeling rdf:type proj:Computational ;
+    skos:prefLabel "Hybrid Modeling"@en , "Modélisation hybride"@fr ;
+    rdfs:comment "Modeling approaches that combine physics-based and data-driven (e.g. machine-learning) methods."@en ,
+                 "Approches de modélisation combinant des méthodes basées sur la physique et des méthodes pilotées par les données (par ex. apprentissage automatique)."@fr .
+
+:Hydrogen rdf:type proj:Keyword ;
+    skos:prefLabel "Hydrogen (Production and Storage)"@en , "Hydrogène (production et stockage)"@fr ;
+    rdfs:comment "Technologies for the production, storage and use of hydrogen as an energy vector."@en ,
+                 "Technologies de production, de stockage et d'utilisation de l'hydrogène comme vecteur énergétique."@fr .
+
+:IIINitrideMaterials rdf:type proj:Keyword ;
+    skos:prefLabel "III-Nitride Materials"@en , "Matériaux à base de nitrure III"@fr ;
+    rdfs:comment "Semiconductor materials based on group III nitrides (e.g. GaN, AlN), used in optoelectronics and power electronics."@en ,
+                 "Matériaux semi-conducteurs à base de nitrures des éléments du groupe III (par ex. GaN, AlN), utilisés en optoélectronique et électronique de puissance."@fr .
+
+:Imaging rdf:type proj:Methodological ;
+    skos:prefLabel "Imaging (incl. 3D/4D)"@en , "Imagerie (incl. 3D/4D)"@fr ;
+    rdfs:comment "Techniques for producing spatial, including time-resolved 3D/4D, representations of a material's structure."@en ,
+                 "Techniques permettant de produire des représentations spatiales, y compris 3D/4D résolues en temps, de la structure d'un matériau."@fr .
+
+:ImpedanceSpectroscopy rdf:type proj:Methodological ;
+    skos:prefLabel "Impedance Spectroscopy"@en , "Spectroscopie d'impédance"@fr ;
+    rdfs:comment "Technique that measures a system's electrical impedance over a range of frequencies to probe electrochemical processes."@en ,
+                 "Technique mesurant l'impédance électrique d'un système sur une gamme de fréquences afin de sonder les processus électrochimiques."@fr .
+
+:InSituTesting rdf:type proj:Methodological ;
+    skos:prefLabel "In-Situ / Operando Testing and Monitoring"@en , "Essais et suivi in situ / operando"@fr ;
+    rdfs:comment "Testing, monitoring or instrumentation performed while a material or process is under its actual operating conditions, including real-time monitoring."@en ,
+                 "Essais, suivi ou instrumentation réalisés pendant qu'un matériau ou un procédé est dans ses conditions de fonctionnement réelles, y compris le suivi en temps réel."@fr .
+
+:InorganicPhosphates rdf:type proj:Keyword ;
+    skos:prefLabel "Inorganic Phosphates"@en , "Phosphates inorganiques"@fr ;
+    rdfs:comment "Inorganic compounds containing the phosphate group, used in a range of functional materials."@en ,
+                 "Composés inorganiques contenant le groupement phosphate, utilisés dans divers matériaux fonctionnels."@fr .
+
+:Instrumentation rdf:type proj:Methodological ;
+    skos:prefLabel "Instrumentation"@en , "Instrumentation"@fr ;
+    rdfs:comment "Design and use of scientific instruments for measurement, synthesis or process control."@en ,
+                 "Conception et utilisation d'instruments scientifiques pour la mesure, la synthèse ou le contrôle de procédés."@fr .
+
+:Interfaces rdf:type proj:Keyword ;
+    skos:prefLabel "Interfaces"@en , "Interfaces"@fr ;
+    rdfs:comment "Boundaries between distinct materials or phases, and their structural and functional properties."@en ,
+                 "Frontières entre matériaux ou phases distincts, et leurs propriétés structurales et fonctionnelles."@fr .
+
+:IntermetallicCompounds rdf:type proj:Keyword ;
+    skos:prefLabel "Intermetallic Compounds"@en , "Composés intermétalliques"@fr ;
+    rdfs:comment "Ordered solid-state compounds formed between two or more metallic elements."@en ,
+                 "Composés solides ordonnés formés entre deux éléments métalliques ou plus."@fr .
+
+:LIBS rdf:type proj:Methodological ;
+    skos:prefLabel "Laser-Induced Breakdown Spectroscopy (LIBS)"@en , "Spectroscopie sur plasma induit par laser (LIBS)"@fr ;
+    rdfs:comment "Atomic emission spectroscopy technique using a laser pulse to generate a plasma for elemental analysis, including imaging applications."@en ,
+                 "Technique de spectroscopie d'émission atomique utilisant une impulsion laser pour générer un plasma en vue d'une analyse élémentaire, y compris pour l'imagerie."@fr .
+
+:LaserProcessing rdf:type proj:Methodological ;
+    skos:prefLabel "Laser Processing (3D Fabrication, Remelting)"@en , "Traitement laser (fabrication 3D, refusion)"@fr ;
+    rdfs:comment "Materials processing techniques that use lasers for fabrication, remelting or surface modification."@en ,
+                 "Techniques de traitement des matériaux utilisant des lasers pour la fabrication, la refusion ou la modification de surface."@fr .
+
+:LightInducedProcesses rdf:type proj:Methodological ;
+    skos:prefLabel "Light-Induced Processes"@en , "Processus induits par la lumière"@fr ;
+    rdfs:comment "Chemical or physical processes triggered or driven by light irradiation."@en ,
+                 "Processus chimiques ou physiques déclenchés ou pilotés par une irradiation lumineuse."@fr .
+
+:LiquidPhaseSynthesis rdf:type proj:Methodological ;
+    skos:prefLabel "Liquid-Phase Synthesis"@en , "Synthèse en phase liquide"@fr ;
+    rdfs:comment "Synthesis of materials carried out in a liquid solution or medium."@en ,
+                 "Synthèse de matériaux réalisée en solution ou en milieu liquide."@fr .
+
+:LowCarbonEnergy rdf:type proj:Keyword ;
+    skos:prefLabel "Low-Carbon Energies"@en , "Énergies bas-carbone"@fr ;
+    rdfs:comment "Energy sources and technologies with reduced greenhouse-gas emissions."@en ,
+                 "Sources et technologies énergétiques à émissions de gaz à effet de serre réduites."@fr .
+
+:LowDimMaterials rdf:type proj:Keyword ;
+    skos:prefLabel "2D / 0D (Low-Dimensional) Materials"@en , "Matériaux 2D / 0D (basse dimensionnalité)"@fr ;
+    rdfs:comment "Materials confined to two or zero spatial dimensions, such as nanosheets and 2D crystals, exhibiting distinct physical properties."@en ,
+                 "Matériaux confinés à deux ou zéro dimensions spatiales, tels que les nanofeuillets et cristaux 2D, présentant des propriétés physiques distinctes."@fr .
+
+:LowPowerConsumption rdf:type proj:Keyword ;
+    skos:prefLabel "Low-Power Consumption"@en , "Faible consommation"@fr ;
+    rdfs:comment "Design of devices or processes to minimize electrical power consumption."@en ,
+                 "Conception de dispositifs ou de procédés visant à minimiser la consommation électrique."@fr .
+
+:MOCVD rdf:type proj:Methodological ;
+    skos:prefLabel "Metal-Organic Chemical Vapor Deposition (MOCVD)"@en , "Dépôt chimique en phase vapeur d'organométalliques (MOCVD)"@fr ;
+    rdfs:comment "CVD variant using metal-organic precursors, including DLI-MOCVD and ALD process optimization, to grow thin films."@en ,
+                 "Variante du dépôt CVD utilisant des précurseurs organométalliques, incluant le DLI-MOCVD et l'optimisation des procédés ALD, pour la croissance de couches minces."@fr .
+
+:MagnetFabrication rdf:type proj:Methodological ;
+    skos:prefLabel "Magnet Fabrication (Pilot/Bulk Line)"@en , "Fabrication d'aimants (ligne pilote / en volume)"@fr ;
+    rdfs:comment "Fabrication processes and pilot lines for producing bulk permanent magnets."@en ,
+                 "Procédés de fabrication et lignes pilotes pour la production d'aimants permanents en volume."@fr .
+
+:Magnetoelasticity rdf:type proj:Keyword ;
+    skos:prefLabel "Magnetoelasticity"@en , "Magnétoélasticité"@fr ;
+    rdfs:comment "Coupling between magnetic and elastic (mechanical) properties in a material."@en ,
+                 "Couplage entre les propriétés magnétiques et élastiques (mécaniques) d'un matériau."@fr .
+
+:Magnets rdf:type proj:Keyword ;
+    skos:prefLabel "Magnets and Magnetic Materials"@en , "Aimants et matériaux magnétiques"@fr ;
+    rdfs:comment "Materials and devices exhibiting magnetism, magnetization or response to magnetic fields."@en ,
+                 "Matériaux et dispositifs présentant du magnétisme, une aimantation ou une réponse à un champ magnétique."@fr .
+
+:MassSpectrometry rdf:type proj:Methodological ;
+    skos:prefLabel "Mass Spectrometry"@en , "Spectrométrie de masse"@fr ;
+    rdfs:comment "Analytical technique that measures the mass-to-charge ratio of ions to identify and quantify chemical species."@en ,
+                 "Technique analytique mesurant le rapport masse/charge des ions afin d'identifier et de quantifier des espèces chimiques."@fr .
+
+:MaterialsDiscovery rdf:type proj:Methodological ;
+    skos:prefLabel "Materials Discovery"@en , "Découverte de matériaux"@fr ;
+    rdfs:comment "Rapid identification of new materials with targeted properties, including accelerated/rapid-discovery approaches."@en ,
+                 "Identification rapide de nouveaux matériaux aux propriétés ciblées, y compris les approches de découverte accélérée."@fr .
+
+:MaterialsLibraries rdf:type proj:DataManagement ;
+    skos:prefLabel "Materials Libraries"@en , "Bibliothèques de matériaux"@fr ;
+    rdfs:comment "Curated collections of material samples or data used for screening and comparison."@en ,
+                 "Collections organisées d'échantillons ou de données de matériaux utilisées pour le criblage et la comparaison."@fr .
+
+:MaterialsProperties rdf:type proj:Keyword ;
+    skos:prefLabel "Materials Properties"@en , "Propriétés des matériaux"@fr ;
+    rdfs:comment "General physical, chemical or mechanical characteristics that define a material's behavior."@en ,
+                 "Caractéristiques physiques, chimiques ou mécaniques générales définissant le comportement d'un matériau."@fr .
+
+:MaterialsScience rdf:type proj:Keyword ;
+    skos:prefLabel "Materials Science"@en , "Science des matériaux"@fr ;
+    rdfs:comment "Interdisciplinary field studying the structure, properties, processing and performance of materials."@en ,
+                 "Domaine interdisciplinaire étudiant la structure, les propriétés, la mise en œuvre et les performances des matériaux."@fr .
+
+:MaterialsShaping rdf:type proj:Methodological ;
+    skos:prefLabel "Materials Shaping / Forming"@en , "Mise en forme des matériaux"@fr ;
+    rdfs:comment "Processes that shape materials, including 3D shaping and forming of solid particles, into a final geometry."@en ,
+                 "Procédés de mise en forme des matériaux, incluant le façonnage 3D et la mise en forme de particules solides, jusqu'à leur géométrie finale."@fr .
+
+:MaterialsSynthesis rdf:type proj:Methodological ;
+    skos:prefLabel "Materials Synthesis"@en , "Synthèse de matériaux"@fr ;
+    rdfs:comment "General methodologies for producing materials with a defined composition and structure."@en ,
+                 "Méthodologies générales de production de matériaux dotés d'une composition et d'une structure définies."@fr .
 
 :MechanicalProperties rdf:type proj:Keyword ;
-    skos:prefLabel "Mechanical Properties"@en, "Propriétés mécaniques"@fr ;
-    rdfs:comment "Study of how materials deform or break under applied forces."@en,
-                 "Étude de la manière dont les matériaux se déforment ou se brisent sous des forces appliquées."@fr .
+    skos:prefLabel "Mechanical Properties (incl. Microstructure Link)"@en , "Propriétés mécaniques (incl. lien microstructure)"@fr ;
+    rdfs:comment "Material response to applied forces, and its relationship to underlying microstructure."@en ,
+                 "Réponse d'un matériau aux forces appliquées, et sa relation avec la microstructure sous-jacente."@fr .
+
+:Mesostructures rdf:type proj:Keyword ;
+    skos:prefLabel "Mesostructures"@en , "Mésostructures"@fr ;
+    rdfs:comment "Structural features at the mesoscale, intermediate between atomic/nano and macroscopic scales."@en ,
+                 "Caractéristiques structurales à l'échelle mésoscopique, intermédiaire entre l'échelle atomique/nanométrique et l'échelle macroscopique."@fr .
+
+:MetallicAlloys rdf:type proj:Keyword ;
+    skos:prefLabel "Metallic Alloys / Materials"@en , "Alliages / matériaux métalliques"@fr ;
+    rdfs:comment "Metallic materials and alloys engineered for structural or functional applications."@en ,
+                 "Matériaux et alliages métalliques conçus pour des applications structurales ou fonctionnelles."@fr .
+
+:MetallicGlasses rdf:type proj:Keyword ;
+    skos:prefLabel "Metallic Glasses"@en , "Verres métalliques"@fr ;
+    rdfs:comment "Amorphous metallic alloys lacking long-range crystalline order."@en ,
+                 "Alliages métalliques amorphes dépourvus d'ordre cristallin à longue distance."@fr .
+
+:Metallurgy rdf:type proj:Keyword ;
+    skos:prefLabel "Metallurgy"@en , "Métallurgie"@fr ;
+    rdfs:comment "Science and technology of producing and processing metals and their alloys."@en ,
+                 "Science et technologie de la production et de la transformation des métaux et de leurs alliages."@fr .
+
+:Microfluidics rdf:type proj:Methodological ;
+    skos:prefLabel "Microfluidics"@en , "Microfluidique"@fr ;
+    rdfs:comment "Manipulation of small volumes of fluids in microfabricated channels and platforms."@en ,
+                 "Manipulation de petits volumes de fluides dans des canaux et plateformes microfabriqués."@fr .
+
+:MicromagneticSimulations rdf:type proj:Computational ;
+    skos:prefLabel "Micromagnetic Simulations"@en , "Simulations micromagnétiques"@fr ;
+    rdfs:comment "Numerical simulation of magnetization dynamics at the micro/nano scale."@en ,
+                 "Simulation numérique de la dynamique d'aimantation à l'échelle micro/nanométrique."@fr .
+
+:Micromechanics rdf:type proj:Computational ;
+    skos:prefLabel "Micromechanics"@en , "Micromécanique"@fr ;
+    rdfs:comment "Mechanical modeling of materials at the microstructural scale, linking microstructure to macroscopic behavior."@en ,
+                 "Modélisation mécanique des matériaux à l'échelle microstructurale, reliant la microstructure au comportement macroscopique."@fr .
+
+:Microoptics rdf:type proj:Keyword ;
+    skos:prefLabel "Micro-Optics"@en , "Micro-optique"@fr ;
+    rdfs:comment "Miniaturized optical components and systems."@en ,
+                 "Composants et systèmes optiques miniaturisés."@fr .
+
+:Microscopy rdf:type proj:Methodological ;
+    skos:prefLabel "Microscopy"@en , "Microscopie"@fr ;
+    rdfs:comment "General imaging techniques used to visualize material structure at small scales."@en ,
+                 "Techniques d'imagerie générales utilisées pour visualiser la structure des matériaux à petite échelle."@fr .
 
 :Microstructure rdf:type proj:Keyword ;
-    skos:prefLabel "Microstructure"@en, "Microstructure"@fr ;
-    rdfs:comment "Study of the fine structure of materials at the microscopic or nanoscopic scale."@en,
-                 "Étude de la structure fine des matériaux à l'échelle microscopique ou nanoscopique."@fr .
+    skos:prefLabel "Microstructure"@en , "Microstructure"@fr ;
+    rdfs:comment "Fine-scale internal structure of a material that governs its macroscopic properties."@en ,
+                 "Structure interne à petite échelle d'un matériau, qui gouverne ses propriétés macroscopiques."@fr .
 
-:ArchitecturedMaterials rdf:type proj:Keyword ;
-    skos:prefLabel "Architectured Materials"@en, "Matériaux architecturés"@fr ;
-    rdfs:comment "Materials designed with controlled architectures to achieve specific properties."@en,
-                 "Matériaux conçus avec des architectures contrôlées pour obtenir des propriétés spécifiques."@fr .
+:Modeling rdf:type proj:Computational ;
+    skos:prefLabel "Modeling / Simulation (General)"@en , "Modélisation / simulation (générale)"@fr ;
+    rdfs:comment "General computational modeling approaches used to predict or explain material behavior."@en ,
+                 "Approches générales de modélisation computationnelle utilisées pour prédire ou expliquer le comportement des matériaux."@fr .
 
-:FunctionalMaterials rdf:type proj:Keyword ;
-    skos:prefLabel "Functional Materials"@en, "Matériaux fonctionnels"@fr ;
-    rdfs:comment "Materials with specific functions, such as electrical, magnetic, or optical properties."@en,
-                 "Matériaux dotés de fonctions spécifiques, comme des propriétés électriques, magnétiques ou optiques."@fr .
+:MolecularBeamEpitaxy rdf:type proj:Methodological ;
+    skos:prefLabel "Molecular Beam Epitaxy (MBE)"@en , "Épitaxie par jets moléculaires (MBE)"@fr ;
+    rdfs:comment "Ultra-high-vacuum thin-film growth technique using molecular or atomic beams."@en ,
+                 "Technique de croissance de couches minces sous ultravide utilisant des jets moléculaires ou atomiques."@fr .
 
-:OpticalMaterials rdf:type proj:Keyword ;
-    skos:prefLabel "Optical Materials"@en, "Matériaux optiques"@fr ;
-    rdfs:comment "Materials designed to manipulate light, such as lenses, mirrors, or photonic structures."@en,
-                 "Matériaux conçus pour manipuler la lumière, comme des lentilles, des miroirs ou des structures photoniques."@fr .
+:MolecularChemistry rdf:type proj:Keyword ;
+    skos:prefLabel "Molecular Chemistry"@en , "Chimie moléculaire"@fr ;
+    rdfs:comment "Study of the structure, synthesis and reactivity of molecules."@en ,
+                 "Étude de la structure, de la synthèse et de la réactivité des molécules."@fr .
 
-:MagneticMaterials rdf:type proj:Keyword ;
-    skos:prefLabel "Magnetic Materials"@en, "Matériaux magnétiques"@fr ;
-    rdfs:comment "Materials that exhibit magnetic properties, such as ferromagnetic or paramagnetic behavior."@en,
-                 "Matériaux présentant des propriétés magnétiques, comme un comportement ferromagnétique ou paramagnétique."@fr .
+:MolecularMaterials rdf:type proj:Keyword ;
+    skos:prefLabel "Molecular / Molecule-Based Materials"@en , "Matériaux moléculaires"@fr ;
+    rdfs:comment "Functional materials built from discrete molecular building blocks."@en ,
+                 "Matériaux fonctionnels construits à partir de briques moléculaires discrètes."@fr .
 
-:FerroelectricMaterials rdf:type proj:Keyword ;
-    skos:prefLabel "Ferroelectric Materials"@en, "Matériaux ferroélectriques"@fr ;
-    rdfs:comment "Materials that exhibit spontaneous electric polarization reversible by an electric field."@en,
-                 "Matériaux présentant une polarisation électrique spontanée réversible par un champ électrique."@fr .
+:MolecularSimulations rdf:type proj:Computational ;
+    skos:prefLabel "Molecular Simulations (Monte Carlo / Molecular Dynamics)"@en , "Simulations moléculaires (Monte Carlo / dynamique moléculaire)"@fr ;
+    rdfs:comment "High-throughput molecular-scale simulation methods, including Monte Carlo and molecular dynamics, often assisted by machine learning."@en ,
+                 "Méthodes de simulation à l'échelle moléculaire à haut débit, incluant Monte Carlo et la dynamique moléculaire, souvent assistées par apprentissage automatique."@fr .
 
-:Piezomaterials rdf:type proj:Keyword ;
-    skos:prefLabel "Piezoelectric Materials"@en, "Matériaux piézoélectriques"@fr ;
-    rdfs:comment "Materials that generate an electric charge when mechanical stress is applied."@en,
-                 "Matériaux qui génèrent une charge électrique lorsqu'une contrainte mécanique est appliquée."@fr .
+:MoltenSalts rdf:type proj:Keyword ;
+    skos:prefLabel "Molten Salts"@en , "Sels fondus"@fr ;
+    rdfs:comment "Ionic liquids in a molten state, used as reaction media, electrolytes or heat-transfer fluids."@en ,
+                 "Liquides ioniques à l'état fondu, utilisés comme milieux réactionnels, électrolytes ou fluides caloporteurs."@fr .
+
+:MultiObjectiveOptimization rdf:type proj:Computational ;
+    skos:prefLabel "Multi-Objective Optimization"@en , "Optimisation multi-objectifs"@fr ;
+    rdfs:comment "Optimization methods that simultaneously balance several, potentially conflicting, objectives."@en ,
+                 "Méthodes d'optimisation équilibrant simultanément plusieurs objectifs, potentiellement contradictoires."@fr .
+
+:MultiphysicsSimulation rdf:type proj:Computational ;
+    skos:prefLabel "Multiphysics Simulation"@en , "Simulation multiphysique"@fr ;
+    rdfs:comment "Simulation coupling several physical phenomena (e.g. thermal, mechanical, electromagnetic) in a single model."@en ,
+                 "Simulation couplant plusieurs phénomènes physiques (par ex. thermique, mécanique, électromagnétique) au sein d'un même modèle."@fr .
+
+:MultiscaleModeling rdf:type proj:Computational ;
+    skos:prefLabel "Multiscale Modeling / Analysis"@en , "Modélisation / analyse multi-échelle"@fr ;
+    rdfs:comment "Modeling approaches that link phenomena occurring at different length or time scales."@en ,
+                 "Approches de modélisation reliant des phénomènes se produisant à différentes échelles de longueur ou de temps."@fr .
+
+:NIPU rdf:type proj:Keyword ;
+    skos:prefLabel "Non-Isocyanate Polyurethanes (NIPU/PHU)"@en , "Polyuréthanes sans isocyanate (NIPU/PHU)"@fr ;
+    rdfs:comment "Polyurethane materials, including polyhydroxyurethanes, synthesized without isocyanate chemistry for improved sustainability."@en ,
+                 "Matériaux polyuréthanes, incluant les polyhydroxyuréthanes, synthétisés sans chimie des isocyanates pour une meilleure durabilité."@fr .
+
+:NMRSpectroscopy rdf:type proj:Methodological ;
+    skos:prefLabel "Nuclear Magnetic Resonance (NMR) Spectroscopy"@en , "Spectroscopie de résonance magnétique nucléaire (RMN)"@fr ;
+    rdfs:comment "Spectroscopic technique exploiting nuclear spin resonance to determine molecular or material structure."@en ,
+                 "Technique spectroscopique exploitant la résonance de spin nucléaire pour déterminer la structure moléculaire ou du matériau."@fr .
+
+:Nanocomposites rdf:type proj:Keyword ;
+    skos:prefLabel "Nanocomposites"@en , "Nanocomposites"@fr ;
+    rdfs:comment "Composite materials incorporating nanoscale fillers or reinforcements."@en ,
+                 "Matériaux composites intégrant des charges ou renforts à l'échelle nanométrique."@fr .
+
+:Nanoindentation rdf:type proj:Methodological ;
+    skos:prefLabel "Nanoindentation"@en , "Nanoindentation"@fr ;
+    rdfs:comment "Technique for measuring mechanical properties, such as hardness and modulus, at very small scales."@en ,
+                 "Technique de mesure des propriétés mécaniques, telles que la dureté et le module, à très petite échelle."@fr .
 
 :Nanomaterials rdf:type proj:Keyword ;
-    skos:prefLabel "Nanomaterials"@en, "Nanomatériaux"@fr ;
-    rdfs:comment "Materials with structural components smaller than 100 nanometers."@en,
-                 "Matériaux dont les composants structurels sont inférieurs à 100 nanomètres."@fr .
+    skos:prefLabel "Nanomaterials"@en , "Nanomatériaux"@fr ;
+    rdfs:comment "Materials with structural features at the nanometer scale."@en ,
+                 "Matériaux présentant des caractéristiques structurales à l'échelle nanométrique."@fr .
 
-:BoronNitride rdf:type proj:Keyword ;
-    skos:prefLabel "Boron Nitride"@en, "Nitrure de bore"@fr ;
-    rdfs:comment "Chemical compound with high thermal and chemical stability, used in high-performance applications."@en,
-                 "Composé chimique doté d'une grande stabilité thermique et chimique, utilisé dans des applications haute performance."@fr .
+:Nanoparticles rdf:type proj:Keyword ;
+    skos:prefLabel "Nanoparticles"@en , "Nanoparticules"@fr ;
+    rdfs:comment "Particles with dimensions in the nanometer range, synthesized for catalytic, optical or biomedical applications."@en ,
+                 "Particules dont les dimensions se situent à l'échelle nanométrique, synthétisées pour des applications catalytiques, optiques ou biomédicales."@fr .
 
-:CarbonMaterials rdf:type proj:Keyword ;
-    skos:prefLabel "Carbon Materials"@en, "Matériaux carbonés"@fr ;
-    rdfs:comment "Materials primarily composed of carbon, such as graphite, graphene, or carbon nanotubes."@en,
-                 "Matériaux principalement composés de carbone, comme le graphite, le graphène ou les nanotubes de carbone."@fr .
+:NanostructuredMaterials rdf:type proj:Keyword ;
+    skos:prefLabel "Nanostructured Materials"@en , "Matériaux nanostructurés"@fr ;
+    rdfs:comment "Materials engineered with controlled structural features at the nanoscale."@en ,
+                 "Matériaux conçus avec des caractéristiques structurales contrôlées à l'échelle nanométrique."@fr .
 
-:GlassMaterials rdf:type proj:Keyword ;
-    skos:prefLabel "Glass Materials"@en, "Matériaux vitreux"@fr ;
-    rdfs:comment "Amorphous materials typically made from silica, used in optical and structural applications."@en,
-                 "Matériaux amorphes généralement fabriqués à partir de silice, utilisés dans des applications optiques et structurelles."@fr .
+:NeuralNetworks rdf:type proj:Computational ;
+    skos:prefLabel "Neural Networks"@en , "Réseaux de neurones"@fr ;
+    rdfs:comment "Machine-learning models inspired by biological neural networks, used for prediction and pattern recognition."@en ,
+                 "Modèles d'apprentissage automatique inspirés des réseaux de neurones biologiques, utilisés pour la prédiction et la reconnaissance de motifs."@fr .
 
-:HybridMaterials rdf:type proj:Keyword ;
-    skos:prefLabel "Hybrid Materials"@en, "Matériaux hybrides"@fr ;
-    rdfs:comment "Materials composed of two or more distinct phases, such as organic-inorganic hybrids."@en,
-                 "Matériaux composés de deux phases distinctes ou plus, comme les hybrides organiques-inorganiques."@fr .
+:Neuromorphic rdf:type proj:Keyword ;
+    skos:prefLabel "Neuromorphic Materials/Devices"@en , "Matériaux / dispositifs neuromorphiques"@fr ;
+    rdfs:comment "Materials and devices designed to emulate the structure and function of biological neural systems."@en ,
+                 "Matériaux et dispositifs conçus pour reproduire la structure et le fonctionnement des systèmes neuronaux biologiques."@fr .
 
-:InorganicMaterials rdf:type proj:Keyword ;
-    skos:prefLabel "Inorganic Materials"@en, "Matériaux inorganiques"@fr ;
-    rdfs:comment "Materials that do not contain carbon-hydrogen bonds, such as metals, ceramics, and semiconductors."@en,
-                 "Matériaux qui ne contiennent pas de liaisons carbone-hydrogène, comme les métaux, les céramiques et les semi-conducteurs."@fr .
+:NiBasedAlloys rdf:type proj:Keyword ;
+    skos:prefLabel "Ni-Based Complex Alloys"@en , "Alliages complexes à base de nickel"@fr ;
+    rdfs:comment "Complex alloy systems based on nickel, often used in high-temperature structural applications."@en ,
+                 "Systèmes d'alliages complexes à base de nickel, souvent utilisés dans des applications structurales à haute température."@fr .
+
+:NuclearFuel rdf:type proj:Keyword ;
+    skos:prefLabel "Nuclear Fuel and Fuel Cladding"@en , "Combustible nucléaire et gainage"@fr ;
+    rdfs:comment "Materials used as nuclear reactor fuel and its protective cladding."@en ,
+                 "Matériaux utilisés comme combustible de réacteur nucléaire et son gainage protecteur."@fr .
+
+:NuclearReactorCoolants rdf:type proj:Keyword ;
+    skos:prefLabel "Nuclear Reactor Coolants"@en , "Liquides de refroidissement de réacteurs nucléaires"@fr ;
+    rdfs:comment "Fluids used to remove heat from a nuclear reactor core."@en ,
+                 "Fluides utilisés pour évacuer la chaleur du cœur d'un réacteur nucléaire."@fr .
+
+:NumericalDesign rdf:type proj:Computational ;
+    skos:prefLabel "Numerical Design (incl. Constrained)"@en , "Conception numérique (incl. sous contrainte)"@fr ;
+    rdfs:comment "Computer-assisted design of materials or components, including optimization under constraints."@en ,
+                 "Conception assistée par ordinateur de matériaux ou de composants, incluant l'optimisation sous contraintes."@fr .
+
+:NumericalSimulation rdf:type proj:Computational ;
+    skos:prefLabel "Numerical Simulation"@en , "Simulation numérique"@fr ;
+    rdfs:comment "General computational simulation of physical or chemical processes."@en ,
+                 "Simulation computationnelle générale de processus physiques ou chimiques."@fr .
+
+:OnlineInstrumentation rdf:type proj:Methodological ;
+    skos:prefLabel "Online Instrumentation"@en , "Instrumentation en ligne"@fr ;
+    rdfs:comment "Instrumentation providing continuous, real-time measurement during a process."@en ,
+                 "Instrumentation fournissant une mesure continue et en temps réel au cours d'un procédé."@fr .
+
+:OperandoCharacterization rdf:type proj:Methodological ;
+    skos:prefLabel "Operando Characterization"@en , "Caractérisation operando"@fr ;
+    rdfs:comment "Characterization of a material or device while it is actively operating under realistic conditions."@en ,
+                 "Caractérisation d'un matériau ou d'un dispositif pendant son fonctionnement réel, dans des conditions réalistes."@fr .
+
+:OpticalMaterials rdf:type proj:Keyword ;
+    skos:prefLabel "Optical Materials"@en , "Matériaux optiques"@fr ;
+    rdfs:comment "Materials engineered for their interaction with light, e.g. transparency, refraction or emission."@en ,
+                 "Matériaux conçus pour leur interaction avec la lumière, par ex. transparence, réfraction ou émission."@fr .
+
+:OpticalProperties rdf:type proj:Keyword ;
+    skos:prefLabel "Optical Properties"@en , "Propriétés optiques"@fr ;
+    rdfs:comment "Properties describing how a material interacts with electromagnetic radiation in the optical range."@en ,
+                 "Propriétés décrivant l'interaction d'un matériau avec le rayonnement électromagnétique dans le domaine optique."@fr .
+
+:Optimization rdf:type proj:Computational ;
+    skos:prefLabel "Optimization"@en , "Optimisation"@fr ;
+    rdfs:comment "General mathematical methods for finding the best solution or parameter set for a given objective."@en ,
+                 "Méthodes mathématiques générales permettant de trouver la meilleure solution ou le meilleur jeu de paramètres pour un objectif donné."@fr .
+
+:OrganometallicChemistry rdf:type proj:Keyword ;
+    skos:prefLabel "Organometallic Chemistry"@en , "Chimie organométallique"@fr ;
+    rdfs:comment "Chemistry of compounds containing bonds between carbon and metal atoms."@en ,
+                 "Chimie des composés contenant des liaisons entre le carbone et des atomes métalliques."@fr .
+
+:OrientationalOrderParameter rdf:type proj:Methodological ;
+    skos:prefLabel "Orientational Order Parameter"@en , "Paramètre d'ordre orientationnel"@fr ;
+    rdfs:comment "Quantitative measure describing the degree of orientational alignment in a material."@en ,
+                 "Mesure quantitative décrivant le degré d'alignement orientationnel dans un matériau."@fr .
+
+:Oxides rdf:type proj:Keyword ;
+    skos:prefLabel "Oxides"@en , "Oxydes"@fr ;
+    rdfs:comment "Compounds formed by the combination of oxygen with another element, widely used as functional materials."@en ,
+                 "Composés formés par la combinaison de l'oxygène avec un autre élément, largement utilisés comme matériaux fonctionnels."@fr .
+
+:PEEM rdf:type proj:Methodological ;
+    skos:prefLabel "Photoemission Electron Microscopy (PEEM)"@en , "Microscopie électronique à photoémission (PEEM)"@fr ;
+    rdfs:comment "Surface-sensitive imaging technique using photoemitted electrons to map electronic and magnetic structure."@en ,
+                 "Technique d'imagerie sensible à la surface utilisant les électrons photoémis pour cartographier la structure électronique et magnétique."@fr .
+
+:PHU rdf:type proj:Keyword ;
+    skos:prefLabel "Polyhydroxyurethanes (PHU)"@en , "Polyhydroxyuréthanes (PHU)"@fr ;
+    rdfs:comment "Class of non-isocyanate polyurethanes formed via hydroxyurethane linkages."@en ,
+                 "Classe de polyuréthanes sans isocyanate formés par des liaisons hydroxyuréthane."@fr .
+
+:PTypeOxides rdf:type proj:Keyword ;
+    skos:prefLabel "p-Type Oxides"@en , "Oxydes de type p"@fr ;
+    rdfs:comment "Oxide semiconductors in which the majority charge carriers are holes."@en ,
+                 "Semi-conducteurs à base d'oxydes dans lesquels les porteurs de charge majoritaires sont des trous."@fr .
+
+:PVDCoating rdf:type proj:Methodological ;
+    skos:prefLabel "Physical Vapor Deposition (PVD, incl. HiPIMS)"@en , "Dépôt physique en phase vapeur (PVD, incl. HiPIMS)"@fr ;
+    rdfs:comment "Thin-film deposition technique based on physical vaporization of a source material, including HiPIMS sputtering."@en ,
+                 "Technique de dépôt de couches minces basée sur la vaporisation physique d'un matériau source, incluant la pulvérisation HiPIMS."@fr .
+
+:PermanentMagnets rdf:type proj:Keyword ;
+    skos:prefLabel "Permanent Magnets"@en , "Aimants permanents"@fr ;
+    rdfs:comment "Magnetic materials that retain magnetization after an external field is removed, including their design."@en ,
+                 "Matériaux magnétiques conservant leur aimantation après suppression du champ externe, y compris leur conception."@fr .
+
+:Perovskites rdf:type proj:Keyword ;
+    skos:prefLabel "Perovskites (General)"@en , "Pérovskites (général)"@fr ;
+    rdfs:comment "General class of materials sharing the perovskite crystal structure (ABX3)."@en ,
+                 "Classe générale de matériaux partageant la structure cristalline pérovskite (ABX3)."@fr .
 
 :PhaseChangeMaterials rdf:type proj:Keyword ;
-    skos:prefLabel "Phase Change Materials"@en, "Matériaux à changement de phase"@fr ;
-    rdfs:comment "Materials that change phase (e.g., solid to liquid) in response to temperature or other stimuli."@en,
-                 "Matériaux qui changent de phase (par exemple, solide à liquide) en réponse à la température ou à d'autres stimuli."@fr .
+    skos:prefLabel "Phase-Change Materials"@en , "Matériaux à changement de phase"@fr ;
+    rdfs:comment "Materials that absorb or release energy through a reversible phase transition, used for thermal storage or memory applications."@en ,
+                 "Matériaux absorbant ou libérant de l'énergie par une transition de phase réversible, utilisés pour le stockage thermique ou les applications mémoire."@fr .
 
-:SemiconductorMaterials rdf:type proj:Keyword ;
-    skos:prefLabel "Semiconductor Materials"@en, "Matériaux semi-conducteurs"@fr ;
-    rdfs:comment "Materials with electrical conductivity between that of conductors and insulators, used in electronics."@en,
-                 "Matériaux dont la conductivité électrique se situe entre celle des conducteurs et des isolants, utilisés en électronique."@fr .
+:PhaseFieldModeling rdf:type proj:Computational ;
+    skos:prefLabel "Phase-Field Modeling"@en , "Modélisation par champ de phase"@fr ;
+    rdfs:comment "Continuum modeling method that describes microstructural evolution using a continuous order-parameter field."@en ,
+                 "Méthode de modélisation continue décrivant l'évolution de la microstructure à l'aide d'un champ de paramètre d'ordre continu."@fr .
+
+:PhaseTransformations rdf:type proj:Keyword ;
+    skos:prefLabel "Phase Transformations"@en , "Transformations de phase"@fr ;
+    rdfs:comment "Changes in the phase or crystal structure of a material as a function of conditions such as temperature or pressure."@en ,
+                 "Changements de phase ou de structure cristalline d'un matériau en fonction de conditions telles que la température ou la pression."@fr .
+
+:Photonics rdf:type proj:Keyword ;
+    skos:prefLabel "Photonics"@en , "Photonique"@fr ;
+    rdfs:comment "Science and technology of generating, controlling and detecting light, including all-optical systems."@en ,
+                 "Science et technologie de la génération, du contrôle et de la détection de la lumière, y compris les systèmes tout-optiques."@fr .
+
+:Photopolymerization rdf:type proj:Methodological ;
+    skos:prefLabel "Photopolymerization"@en , "Photopolymérisation"@fr ;
+    rdfs:comment "Polymerization reaction initiated or driven by light exposure, including frontal photopolymerization."@en ,
+                 "Réaction de polymérisation initiée ou pilotée par exposition à la lumière, incluant la photopolymérisation frontale."@fr .
+
+:PhysicalModeling rdf:type proj:Computational ;
+    skos:prefLabel "Physical Modeling"@en , "Modélisation physique"@fr ;
+    rdfs:comment "Modeling grounded in fundamental physical laws to describe material or system behavior."@en ,
+                 "Modélisation fondée sur les lois physiques fondamentales pour décrire le comportement d'un matériau ou d'un système."@fr .
+
+:PiezoMEMS rdf:type proj:Keyword ;
+    skos:prefLabel "Piezoelectric MEMS"@en , "MEMS piézoélectriques"@fr ;
+    rdfs:comment "Micro-electromechanical systems that exploit piezoelectric materials for actuation or sensing."@en ,
+                 "Systèmes micro-électromécaniques exploitant des matériaux piézoélectriques pour l'actionnement ou la détection."@fr .
+
+:PiezoforceMicroscopy rdf:type proj:Methodological ;
+    skos:prefLabel "Piezoresponse Force Microscopy"@en , "Microscopie à force piézoélectrique"@fr ;
+    rdfs:comment "Scanning-probe technique that maps piezoelectric or ferroelectric response at the nanoscale."@en ,
+                 "Technique de microscopie à sonde locale cartographiant la réponse piézoélectrique ou ferroélectrique à l'échelle nanométrique."@fr .
+
+:PolymerFoamMechanics rdf:type proj:Keyword ;
+    skos:prefLabel "Mechanics of Polymer Foams"@en , "Mécanique des mousses polymères"@fr ;
+    rdfs:comment "Study of the mechanical behavior of cellular polymer foam materials."@en ,
+                 "Étude du comportement mécanique des matériaux en mousse polymère cellulaire."@fr .
+
+:Polymers rdf:type proj:Keyword ;
+    skos:prefLabel "Polymers"@en , "Polymères"@fr ;
+    rdfs:comment "Macromolecular materials, including their synthesis, polymerization and processing."@en ,
+                 "Matériaux macromoléculaires, incluant leur synthèse, leur polymérisation et leur mise en œuvre."@fr .
+
+:PowerToX rdf:type proj:Keyword ;
+    skos:prefLabel "Power-to-X"@en , "Power-to-X"@fr ;
+    rdfs:comment "Technologies converting electrical power into storable chemical energy carriers or products (e.g. hydrogen, fuels)."@en ,
+                 "Technologies convertissant l'électricité en vecteurs ou produits énergétiques chimiques stockables (par ex. hydrogène, carburants)."@fr .
+
+:PredictiveModeling rdf:type proj:Computational ;
+    skos:prefLabel "Predictive Modeling"@en , "Modélisation prédictive"@fr ;
+    rdfs:comment "Modeling approaches used to forecast material properties or behavior before experimental validation."@en ,
+                 "Approches de modélisation utilisées pour prédire les propriétés ou le comportement d'un matériau avant validation expérimentale."@fr .
+
+:ProcessControl rdf:type proj:Methodological ;
+    skos:prefLabel "Process Control"@en , "Contrôle de procédé"@fr ;
+    rdfs:comment "Monitoring and regulation of process parameters to ensure consistent product quality."@en ,
+                 "Surveillance et régulation des paramètres de procédé afin d'assurer une qualité de produit constante."@fr .
+
+:QualityDiversity rdf:type proj:Computational ;
+    skos:prefLabel "Quality-Diversity Optimization"@en , "Optimisation qualité-diversité"@fr ;
+    rdfs:comment "Optimization algorithms that seek a diverse set of high-performing solutions rather than a single optimum."@en ,
+                 "Algorithmes d'optimisation recherchant un ensemble diversifié de solutions performantes plutôt qu'un optimum unique."@fr .
+
+:ROMP rdf:type proj:Keyword ;
+    skos:prefLabel "Ring-Opening Metathesis Polymerization (ROMP)"@en , "Polymérisation par métathèse d'ouverture de cycle (ROMP)"@fr ;
+    rdfs:comment "Polymerization technique based on ring-opening metathesis of cyclic olefins."@en ,
+                 "Technique de polymérisation basée sur la métathèse d'ouverture de cycle d'oléfines cycliques."@fr .
+
+:RamanSpectroscopy rdf:type proj:Methodological ;
+    skos:prefLabel "Raman Spectroscopy"@en , "Spectroscopie Raman"@fr ;
+    rdfs:comment "Vibrational spectroscopy technique based on inelastic scattering of light, used to probe molecular and crystal structure."@en ,
+                 "Technique de spectroscopie vibrationnelle basée sur la diffusion inélastique de la lumière, utilisée pour sonder la structure moléculaire et cristalline."@fr .
+
+:RareEarthFreeMagnets rdf:type proj:Keyword ;
+    skos:prefLabel "Rare-Earth-Free / Rare-Earth-Lean Magnets"@en , "Aimants sans / pauvres en terres rares"@fr ;
+    rdfs:comment "Permanent magnet materials designed to reduce or eliminate the use of critical rare-earth elements."@en ,
+                 "Matériaux pour aimants permanents conçus pour réduire ou éliminer l'utilisation d'éléments critiques de terres rares."@fr .
+
+:Recycling rdf:type proj:Keyword ;
+    skos:prefLabel "Recycling"@en , "Recyclage"@fr ;
+    rdfs:comment "Processes for recovering and reprocessing materials from scrap or end-of-life products, including thermoset recyclability."@en ,
+                 "Procédés de récupération et de retraitement des matériaux issus de rebuts ou de produits en fin de vie, incluant la recyclabilité des thermodurcissables."@fr .
+
+:ReducedOrderModels rdf:type proj:Computational ;
+    skos:prefLabel "Reduced-Order Models"@en , "Modèles réduits"@fr ;
+    rdfs:comment "Simplified models that approximate a complex system at lower computational cost."@en ,
+                 "Modèles simplifiés approchant un système complexe à moindre coût de calcul."@fr .
+
+:Regression rdf:type proj:Computational ;
+    skos:prefLabel "Regression"@en , "Régression"@fr ;
+    rdfs:comment "Statistical/machine-learning methods for modeling the relationship between input variables and a continuous output."@en ,
+                 "Méthodes statistiques/d'apprentissage automatique pour modéliser la relation entre variables d'entrée et une sortie continue."@fr .
+
+:ReinforcementLearning rdf:type proj:Computational ;
+    skos:prefLabel "Reinforcement Learning"@en , "Apprentissage par renforcement"@fr ;
+    rdfs:comment "Machine-learning paradigm in which an agent learns to make decisions by receiving rewards from its environment."@en ,
+                 "Paradigme d'apprentissage automatique dans lequel un agent apprend à prendre des décisions en recevant des récompenses de son environnement."@fr .
+
+:RelaxorFerroelectric rdf:type proj:Keyword ;
+    skos:prefLabel "Relaxor Ferroelectrics"@en , "Ferroélectriques relaxeurs"@fr ;
+    rdfs:comment "Ferroelectric materials exhibiting broad, frequency-dependent dielectric response due to compositional disorder."@en ,
+                 "Matériaux ferroélectriques présentant une réponse diélectrique large et dépendante de la fréquence, due au désordre compositionnel."@fr .
+
+:RenewableEnergy rdf:type proj:Keyword ;
+    skos:prefLabel "Renewable Energy"@en , "Énergie renouvelable"@fr ;
+    rdfs:comment "Energy derived from naturally replenishing sources such as sun, wind or biomass."@en ,
+                 "Énergie issue de sources naturellement renouvelables telles que le soleil, le vent ou la biomasse."@fr .
+
+:ResearchInfrastructure rdf:type proj:DataManagement ;
+    skos:prefLabel "Research Infrastructure"@en , "Infrastructure de recherche"@fr ;
+    rdfs:comment "General scientific infrastructure supporting experimental or computational research."@en ,
+                 "Infrastructure scientifique générale soutenant la recherche expérimentale ou computationnelle."@fr .
+
+:ResearchInfrastructureEquipex rdf:type proj:DataManagement ;
+    skos:prefLabel "Equipex Research Infrastructure Program"@en , "Programme d'infrastructure de recherche Equipex"@fr ;
+    rdfs:comment "French national programme funding large-scale scientific equipment infrastructures."@en ,
+                 "Programme national français de financement d'infrastructures scientifiques de grande envergure."@fr .
+
+:SAXSWAXS rdf:type proj:Methodological ;
+    skos:prefLabel "SAXS/WAXS (Small/Wide-Angle X-ray Scattering)"@en , "SAXS/WAXS (diffusion des rayons X aux petits/grands angles)"@fr ;
+    rdfs:comment "X-ray scattering techniques, including online setups, used to probe nano- and atomic-scale structure."@en ,
+                 "Techniques de diffusion des rayons X, incluant des dispositifs en ligne, utilisées pour sonder la structure à l'échelle nano- et atomique."@fr .
+
+:STEMAnalysis rdf:type proj:Methodological ;
+    skos:prefLabel "STEM-EDX / STEM-EELS Analysis"@en , "Analyse STEM-EDX / STEM-EELS"@fr ;
+    rdfs:comment "Scanning transmission electron microscopy combined with energy-dispersive X-ray or electron energy-loss spectroscopy for compositional analysis."@en ,
+                 "Microscopie électronique à balayage en transmission couplée à la spectroscopie de rayons X en dispersion d'énergie ou de perte d'énergie des électrons pour l'analyse compositionnelle."@fr .
+
+:ScientificCodes rdf:type proj:Methodological ;
+    skos:prefLabel "Scientific Codes"@en , "Codes scientifiques"@fr ;
+    rdfs:comment "Software codes implementing scientific algorithms or simulations."@en ,
+                 "Codes logiciels mettant en œuvre des algorithmes ou des simulations scientifiques."@fr .
+
+:SeedMediatedGrowth rdf:type proj:Methodological ;
+    skos:prefLabel "Seed-Mediated Growth"@en , "Croissance médiée par des graines"@fr ;
+    rdfs:comment "Nanoparticle growth method that uses pre-formed seed particles to control size and shape."@en ,
+                 "Méthode de croissance de nanoparticules utilisant des germes préformés pour contrôler la taille et la forme."@fr .
+
+:Segregation rdf:type proj:Keyword ;
+    skos:prefLabel "Segregation"@en , "Ségrégation"@fr ;
+    rdfs:comment "Non-uniform distribution of elements or phases within a material, often at grain boundaries or surfaces."@en ,
+                 "Répartition non uniforme d'éléments ou de phases au sein d'un matériau, souvent aux joints de grains ou en surface."@fr .
+
+:SelfFoamingDegradablePolymer rdf:type proj:Keyword ;
+    skos:prefLabel "Self-Foaming and Degradable Polymers"@en , "Polymères auto-moussants et dégradables"@fr ;
+    rdfs:comment "Polymer materials that foam spontaneously and degrade under defined conditions."@en ,
+                 "Matériaux polymères moussant spontanément et se dégradant dans des conditions définies."@fr .
+
+:Sensors rdf:type proj:Keyword ;
+    skos:prefLabel "Sensors"@en , "Capteurs"@fr ;
+    rdfs:comment "Devices that detect and respond to physical or chemical stimuli."@en ,
+                 "Dispositifs détectant et répondant à des stimuli physiques ou chimiques."@fr .
+
+:SimulationExperimentCoupling rdf:type proj:Computational ;
+    skos:prefLabel "Simulation-Experiment Coupling"@en , "Couplage simulation-expérience"@fr ;
+    rdfs:comment "Methodologies that integrate simulation results with experimental data in a feedback loop."@en ,
+                 "Méthodologies intégrant les résultats de simulation aux données expérimentales dans une boucle de rétroaction."@fr .
+
+:Skyrmions rdf:type proj:Keyword ;
+    skos:prefLabel "Skyrmions"@en , "Skyrmions"@fr ;
+    rdfs:comment "Topologically stable, particle-like magnetic spin textures."@en ,
+                 "Textures de spin magnétiques de type particule, topologiquement stables."@fr .
+
+:SmartControl rdf:type proj:Methodological ;
+    skos:prefLabel "Smart Control"@en , "Contrôle intelligent"@fr ;
+    rdfs:comment "Intelligent, often adaptive, control strategies for processes or systems."@en ,
+                 "Stratégies de contrôle intelligentes, souvent adaptatives, pour des procédés ou des systèmes."@fr .
+
+:SmartGrowth rdf:type proj:Methodological ;
+    skos:prefLabel "Smart / Intelligent Growth"@en , "Croissance intelligente"@fr ;
+    rdfs:comment "Materials growth processes guided by real-time feedback or intelligent control."@en ,
+                 "Procédés de croissance de matériaux guidés par une rétroaction en temps réel ou un contrôle intelligent."@fr .
+
+:SmartMaterials rdf:type proj:Keyword ;
+    skos:prefLabel "Smart Materials"@en , "Matériaux intelligents"@fr ;
+    rdfs:comment "Materials that respond adaptively and reversibly to external stimuli."@en ,
+                 "Matériaux répondant de façon adaptative et réversible à des stimuli externes."@fr .
+
+:SoftChemistry rdf:type proj:Methodological ;
+    skos:prefLabel "Soft Chemistry (Chimie Douce)"@en , "Chimie douce"@fr ;
+    rdfs:comment "Low-temperature, mild synthesis routes for producing materials, avoiding harsh chemical conditions."@en ,
+                 "Voies de synthèse à basse température et douces pour produire des matériaux, évitant des conditions chimiques sévères."@fr .
+
+:SolidOxideElectrolysis rdf:type proj:Keyword ;
+    skos:prefLabel "Solid Oxide Electrolysis"@en , "Électrolyse à oxyde solide"@fr ;
+    rdfs:comment "High-temperature electrolysis technology using a solid oxide electrolyte, notably for hydrogen production."@en ,
+                 "Technologie d'électrolyse à haute température utilisant un électrolyte à oxyde solide, notamment pour la production d'hydrogène."@fr .
+
+:SolidStateLighting rdf:type proj:Keyword ;
+    skos:prefLabel "Solid-State Lighting (LED)"@en , "Éclairage à l'état solide (LED)"@fr ;
+    rdfs:comment "Lighting technology based on solid-state light sources such as LEDs."@en ,
+                 "Technologie d'éclairage basée sur des sources lumineuses à l'état solide telles que les LED."@fr .
+
+:Solidification rdf:type proj:Keyword ;
+    skos:prefLabel "Solidification"@en , "Solidification"@fr ;
+    rdfs:comment "Transformation of a material from liquid to solid state, relevant to casting and additive manufacturing."@en ,
+                 "Transformation d'un matériau de l'état liquide à l'état solide, pertinente pour la fonderie et la fabrication additive."@fr .
+
+:Spectroscopy rdf:type proj:Methodological ;
+    skos:prefLabel "Spectroscopy (General)"@en , "Spectroscopie (générale)"@fr ;
+    rdfs:comment "General analytical techniques that study the interaction between matter and electromagnetic radiation."@en ,
+                 "Techniques analytiques générales étudiant l'interaction entre la matière et le rayonnement électromagnétique."@fr .
+
+:Spintronics rdf:type proj:Keyword ;
+    skos:prefLabel "Spintronics"@en , "Spintronique"@fr ;
+    rdfs:comment "Electronics that exploit electron spin, in addition to charge, for information storage and processing."@en ,
+                 "Électronique exploitant le spin de l'électron, en plus de sa charge, pour le stockage et le traitement de l'information."@fr .
+
+:Steel rdf:type proj:Keyword ;
+    skos:prefLabel "Steel (incl. Stainless)"@en , "Acier (incl. inoxydable)"@fr ;
+    rdfs:comment "Iron-carbon alloys, including stainless steels, widely used as structural materials."@en ,
+                 "Alliages fer-carbone, incluant les aciers inoxydables, largement utilisés comme matériaux structuraux."@fr .
+
+:StructuralMaterials rdf:type proj:Keyword ;
+    skos:prefLabel "Structural Materials"@en , "Matériaux structuraux"@fr ;
+    rdfs:comment "Materials and structures selected or designed for their load-bearing mechanical performance."@en ,
+                 "Matériaux et structures sélectionnés ou conçus pour leurs performances mécaniques porteuses."@fr .
+
+:StructureDatabase rdf:type proj:DataManagement ;
+    skos:prefLabel "Structure Database Construction and Analysis"@en , "Construction et analyse de bases de données de structures"@fr ;
+    rdfs:comment "Building and analyzing databases of material or molecular structures."@en ,
+                 "Construction et analyse de bases de données de structures de matériaux ou de molécules."@fr .
+
+:Sulfides rdf:type proj:Keyword ;
+    skos:prefLabel "Sulfides"@en , "Sulfures"@fr ;
+    rdfs:comment "Compounds formed by the combination of sulfur with another element, used in a range of functional materials."@en ,
+                 "Composés formés par la combinaison du soufre avec un autre élément, utilisés dans divers matériaux fonctionnels."@fr .
+
+:SupervisedMachineLearning rdf:type proj:Computational ;
+    skos:prefLabel "Supervised Machine Learning"@en , "Apprentissage automatique supervisé"@fr ;
+    rdfs:comment "Machine-learning paradigm in which models are trained on labeled input-output data."@en ,
+                 "Paradigme d'apprentissage automatique dans lequel les modèles sont entraînés sur des données d'entrée-sortie étiquetées."@fr .
+
+:SurfaceAcousticWaves rdf:type proj:Methodological ;
+    skos:prefLabel "Surface Acoustic Waves"@en , "Ondes acoustiques de surface"@fr ;
+    rdfs:comment "Mechanical waves that travel along the surface of a material, used in sensing and signal-processing devices."@en ,
+                 "Ondes mécaniques se propageant à la surface d'un matériau, utilisées dans des dispositifs de détection et de traitement du signal."@fr .
+
+:SurfaceEngineering rdf:type proj:Methodological ;
+    skos:prefLabel "Surface Engineering"@en , "Ingénierie des surfaces"@fr ;
+    rdfs:comment "Modification of a material's surface to achieve desired properties distinct from the bulk."@en ,
+                 "Modification de la surface d'un matériau afin d'obtenir des propriétés souhaitées, distinctes de celles du volume."@fr .
+
+:SurfaceReactivity rdf:type proj:Keyword ;
+    skos:prefLabel "Surface Reactivity"@en , "Réactivité de surface"@fr ;
+    rdfs:comment "Chemical reactivity occurring at the surface of a material, including enhanced or engineered reactivity."@en ,
+                 "Réactivité chimique se produisant à la surface d'un matériau, y compris une réactivité renforcée ou modifiée."@fr .
+
+:SurfaceScience rdf:type proj:Keyword ;
+    skos:prefLabel "Surface Science"@en , "Science des surfaces"@fr ;
+    rdfs:comment "Study of physical and chemical phenomena occurring at material surfaces and interfaces."@en ,
+                 "Étude des phénomènes physiques et chimiques se produisant aux surfaces et interfaces des matériaux."@fr .
+
+:Sustainability rdf:type proj:Keyword ;
+    skos:prefLabel "Sustainability"@en , "Durabilité"@fr ;
+    rdfs:comment "Consideration of environmental, economic and social durability in materials and process development."@en ,
+                 "Prise en compte de la durabilité environnementale, économique et sociale dans le développement des matériaux et des procédés."@fr .
+
+:SymbolicAI rdf:type proj:Computational ;
+    skos:prefLabel "Symbolic / Symbolic Machine Learning AI"@en , "IA symbolique / apprentissage automatique symbolique"@fr ;
+    rdfs:comment "Artificial-intelligence approaches based on explicit symbolic representations and rules, as opposed to purely statistical learning."@en ,
+                 "Approches d'intelligence artificielle fondées sur des représentations et des règles symboliques explicites, par opposition à un apprentissage purement statistique."@fr .
+
+:TechnologicalSovereignty rdf:type proj:Keyword ;
+    skos:prefLabel "Technological Sovereignty"@en , "Souveraineté technologique"@fr ;
+    rdfs:comment "Strategic capacity of a country or region to independently control key technologies and supply chains."@en ,
+                 "Capacité stratégique d'un pays ou d'une région à maîtriser de façon autonome des technologies et chaînes d'approvisionnement clés."@fr .
+
+:ThermalBarrierCoating rdf:type proj:Keyword ;
+    skos:prefLabel "Thermal Barrier Coating"@en , "Barrière thermique"@fr ;
+    rdfs:comment "Coating applied to protect a component from excessive heat, typically in turbine applications."@en ,
+                 "Revêtement appliqué pour protéger un composant d'une chaleur excessive, typiquement dans les applications de turbines."@fr .
+
+:ThermalEnergyStorage rdf:type proj:Keyword ;
+    skos:prefLabel "Thermal Energy Storage"@en , "Stockage d'énergie thermique"@fr ;
+    rdfs:comment "Technologies for storing energy in the form of heat for later use."@en ,
+                 "Technologies de stockage de l'énergie sous forme de chaleur en vue d'une utilisation ultérieure."@fr .
+
+:ThermalMechanicalProperties rdf:type proj:Keyword ;
+    skos:prefLabel "Thermal and (Hygro-)Mechanical Properties"@en , "Propriétés thermiques et (hygro-)mécaniques"@fr ;
+    rdfs:comment "Combined thermal and mechanical (including moisture-related) response characteristics of a material."@en ,
+                 "Caractéristiques combinées de réponse thermique et mécanique (y compris liées à l'humidité) d'un matériau."@fr .
+
+:ThermalProperties rdf:type proj:Keyword ;
+    skos:prefLabel "Thermal Properties (incl. Conductivity)"@en , "Propriétés thermiques (incl. conductivité)"@fr ;
+    rdfs:comment "Properties describing a material's response to heat, such as thermal conductivity."@en ,
+                 "Propriétés décrivant la réponse d'un matériau à la chaleur, telle que la conductivité thermique."@fr .
+
+:ThermalSpray rdf:type proj:Methodological ;
+    skos:prefLabel "Thermal Spray"@en , "Projection thermique"@fr ;
+    rdfs:comment "Coating deposition process in which molten or semi-molten material is sprayed onto a substrate."@en ,
+                 "Procédé de dépôt de revêtement dans lequel un matériau fondu ou semi-fondu est projeté sur un substrat."@fr .
+
+:ThermalTreatment rdf:type proj:Methodological ;
+    skos:prefLabel "Thermal Treatment"@en , "Traitement thermique"@fr ;
+    rdfs:comment "Controlled heating and cooling processes used to alter a material's microstructure and properties."@en ,
+                 "Procédés de chauffage et de refroidissement contrôlés utilisés pour modifier la microstructure et les propriétés d'un matériau."@fr .
+
+:ThermodynamicCalculations rdf:type proj:Computational ;
+    skos:prefLabel "Thermodynamic Calculations (incl. CALPHAD)"@en , "Calculs thermodynamiques (incl. CALPHAD)"@fr ;
+    rdfs:comment "Computation of thermodynamic quantities and phase equilibria, including high-throughput and CALPHAD-based approaches."@en ,
+                 "Calcul de grandeurs thermodynamiques et d'équilibres de phases, incluant les approches à haut débit et basées sur le CALPHAD."@fr .
+
+:Thermoelectricity rdf:type proj:Keyword ;
+    skos:prefLabel "Thermoelectricity"@en , "Thermoélectricité"@fr ;
+    rdfs:comment "Direct conversion between temperature differences and electric voltage in a material."@en ,
+                 "Conversion directe entre différences de température et tension électrique dans un matériau."@fr .
+
+:ThinFilm rdf:type proj:Keyword ;
+    skos:prefLabel "Thin Film"@en , "Couche mince"@fr ;
+    rdfs:comment "Layer of material with thickness ranging from fractions of a nanometer to several micrometers."@en ,
+                 "Couche de matériau dont l'épaisseur varie de fractions de nanomètre à plusieurs micromètres."@fr .
+
+:ThinFilmDeposition rdf:type proj:Methodological ;
+    skos:prefLabel "Automated Thin-Film Deposition"@en , "Dépôt automatisé de couches minces"@fr ;
+    rdfs:comment "Automated processes for depositing thin films with controlled thickness and composition."@en ,
+                 "Procédés automatisés de dépôt de couches minces avec épaisseur et composition contrôlées."@fr .
+
+:Tomography rdf:type proj:Methodological ;
+    skos:prefLabel "Tomography (incl. Electron / X-ray)"@en , "Tomographie (incl. électronique / rayons X)"@fr ;
+    rdfs:comment "Imaging technique that reconstructs the 3D internal structure of a sample from a series of 2D projections."@en ,
+                 "Technique d'imagerie reconstruisant la structure interne 3D d'un échantillon à partir d'une série de projections 2D."@fr .
+
+:UnsupervisedMachineLearning rdf:type proj:Computational ;
+    skos:prefLabel "Unsupervised / (Un)Supervised Machine Learning"@en , "Apprentissage automatique non supervisé / (non) supervisé"@fr ;
+    rdfs:comment "Machine-learning paradigm that identifies patterns in data without labeled outputs."@en ,
+                 "Paradigme d'apprentissage automatique identifiant des motifs dans les données sans sorties étiquetées."@fr .
+
+:WaterAdsorptionMOF rdf:type proj:Keyword ;
+    skos:prefLabel "Water Adsorption/Desorption (MOFs)"@en , "Adsorption/désorption d'eau (MOFs)"@fr ;
+    rdfs:comment "Study of water adsorption and desorption thermodynamics and kinetics, notably in metal-organic frameworks."@en ,
+                 "Étude de la thermodynamique et de la cinétique d'adsorption et de désorption de l'eau, notamment dans les réseaux métallo-organiques."@fr .
+
+:WhitePhotoluminescence rdf:type proj:Keyword ;
+    skos:prefLabel "White Photoluminescence"@en , "Photoluminescence blanche"@fr ;
+    rdfs:comment "Emission of white light by a material following optical excitation."@en ,
+                 "Émission de lumière blanche par un matériau suite à une excitation optique."@fr .
+
+:XRayAbsorptionSpectroscopy rdf:type proj:Methodological ;
+    skos:prefLabel "X-ray Absorption Spectroscopy"@en , "Spectroscopie d'absorption des rayons X"@fr ;
+    rdfs:comment "Spectroscopic technique that probes local atomic structure and electronic state via X-ray absorption."@en ,
+                 "Technique spectroscopique sondant la structure atomique locale et l'état électronique via l'absorption de rayons X."@fr .
+
+:XRayDiffraction rdf:type proj:Methodological ;
+    skos:prefLabel "X-ray Diffraction (XRD)"@en , "Diffraction des rayons X (DRX)"@fr ;
+    rdfs:comment "Technique that uses X-ray diffraction patterns to determine crystal structure."@en ,
+                 "Technique utilisant les diagrammes de diffraction des rayons X pour déterminer la structure cristalline."@fr .
+
+:XRayReflectivity rdf:type proj:Methodological ;
+    skos:prefLabel "X-ray Reflectivity"@en , "Réflectivité des rayons X"@fr ;
+    rdfs:comment "Technique that analyzes reflected X-rays to determine thin-film thickness, density and roughness."@en ,
+                 "Technique analysant les rayons X réfléchis pour déterminer l'épaisseur, la densité et la rugosité de couches minces."@fr .
+
+:XRayScattering rdf:type proj:Methodological ;
+    skos:prefLabel "X-ray Scattering"@en , "Diffusion des rayons X"@fr ;
+    rdfs:comment "General techniques that analyze scattered X-rays to probe material structure."@en ,
+                 "Techniques générales analysant les rayons X diffusés pour sonder la structure des matériaux."@fr .
