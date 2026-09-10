@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_grenat rdf:type proj:TargetedProject ;
+:Project_grenat rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the GRENAT project" ;
     skos:prefLabel "GRENAT" ;
     proj:fullName "data-auGmented mAterial engineeRing for advaNced surfacE functTionalization" ;

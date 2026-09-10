@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_syneart rdf:type proj:TargetedProject ;
+:Project_syneart rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the SYNEART project" ;
     skos:prefLabel "SYNEART" ;
     proj:fullName "Artificial synapses and neurons based on ferroelectric relaxors: towards lower-power AI" ;

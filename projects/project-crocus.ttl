@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_crocus rdf:type proj:TargetedProject ;
+:Project_crocus rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the CROCUS project" ;
     skos:prefLabel "CROCUS" ;
     proj:fullName "miCro laboRatory fOr antiCorrosion solUtion deSign" ;

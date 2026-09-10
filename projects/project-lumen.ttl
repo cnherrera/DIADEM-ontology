@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_lumen rdf:type proj:TargetedProject ;
+:Project_lumen rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the LUMEN project" ;
     skos:prefLabel "LUMEN" ;
     proj:fullName "Liquid structure Understanding for Microstructure Engineering with Novel upscaling assisted by artificial intelligence" ;

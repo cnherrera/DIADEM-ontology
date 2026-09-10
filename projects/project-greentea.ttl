@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_greentea rdf:type proj:TargetedProject ;
+:Project_greentea rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the GREENTEA project" ;
     skos:prefLabel "GREENTEA" ;
     proj:fullName "high-throughput GeneRation via machinE lEarning of New ThErmoelectric sulfide alloys composed of Abundant elements" ;

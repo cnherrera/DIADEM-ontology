@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_catana-2 rdf:type proj:TargetedProject ;
+:Project_catana-2 rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the CATANA-2 project" ;
     skos:prefLabel "CATANA-2" ;
     proj:fullName "Cooperative modeling – experimental learning for the identification of low temperature catalysts for the synthesis and decomposition of NH3" ;

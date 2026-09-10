@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_simoics rdf:type proj:TargetedProject ;
+:Project_simoics rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the SIMOICS project" ;
     skos:prefLabel "SIMOICS" ;
     proj:fullName "Simulation and Instrumentation for Multi-Objective Optimization by Artificial Intelligence – Cold Spray" ;

@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_miam rdf:type proj:TargetedProject ;
+:Project_miam rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the MIAM project" ;
     skos:prefLabel "MIAM" ;
     proj:fullName "Accelerating the discovery of innovative permanent magnets with reduced content of critical rare earths" ;

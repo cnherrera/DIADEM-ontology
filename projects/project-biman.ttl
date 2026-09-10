@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_biman rdf:type proj:TargetedProject ;
+:Project_biman rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the BiMAn project" ;
     skos:prefLabel "BiMAn" ;
     proj:fullName "Bimetallic magnetic nanoparticles with controlled anisotropy : from the chemical synthesis to the fabrication of optimized materials. Machine learning assistance" ;

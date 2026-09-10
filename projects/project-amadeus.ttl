@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_amadeus rdf:type proj:TargetedProject ;
+:Project_amadeus rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the AMADEUS project" ;
     skos:prefLabel "AMADEUS" ;
     proj:fullName "Automated and machine learning driven design and discovery of high entropy ceramics perovskite oxides for energy applications" ;

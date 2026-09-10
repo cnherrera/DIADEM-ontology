@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_optiscraps rdf:type proj:TargetedProject ;
+:Project_optiscraps rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the OPTISCRAPS project" ;
     skos:prefLabel "OPTISCRAPS" ;
     proj:fullName "Lifting the locks of the green steel industry through the optimized use of scraps and their residuals and the dynamic design of alloys" ;

@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_cinderella rdf:type proj:TargetedProject ;
+:Project_cinderella rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the CINDERELLA project" ;
     skos:prefLabel "CINDERELLA" ;
     proj:fullName "3D metal printing control using innovative laser sources, digital augmented models and artificial intelligence" ;

@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_ai-mahc rdf:type proj:TargetedProject ;
+:Project_ai-mahc rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the AI-MAHC project" ;
     skos:prefLabel "AI-MAHC" ;
     proj:fullName "Artificial Intelligence-Driven MOF Materials Discovery for Autonomous Humidity Control" ;

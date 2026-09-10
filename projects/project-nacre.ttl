@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_nacre rdf:type proj:TargetedProject ;
+:Project_nacre rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the NACRE project" ;
     skos:prefLabel "NACRE" ;
     proj:fullName "bimetallic NAnoparticles, Chemical ordeR and machinE learning" ;

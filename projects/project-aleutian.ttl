@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_aleutian rdf:type proj:TargetedProject ;
+:Project_aleutian rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the ALEUTIAN project" ;
     skos:prefLabel "ALEUTIAN" ;
     proj:fullName "Eutectic alloys developed by artificial intelligence and numerical computations" ;

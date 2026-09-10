@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_phurious rdf:type proj:TargetedProject ;
+:Project_phurious rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the PHURIOUS project" ;
     skos:prefLabel "PHURIOUS" ;
     proj:fullName "Highly reactive PolyHydroxyURethanes from bIobased resOUrceS" ;

@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_advance rdf:type proj:TargetedProject ;
+:Project_advance rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the ADVANCE project" ;
     skos:prefLabel "ADVANCE" ;
     proj:fullName "AI-Driven Valuation and Novel Creation of Energy-efficient, Low-Dimensional, High-Entropy Alloys with Superior Catalytic Performance for Hydrogen Production" ;

@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_mistral rdf:type proj:TargetedProject ;
+:Project_mistral rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the MISTRAL project" ;
     skos:prefLabel "MISTRAL" ;
     proj:fullName "Molecular chemistry for the nexT geneRAtion of ferroeLectrics" ;

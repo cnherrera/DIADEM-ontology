@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_madness rdf:type proj:TargetedProject ;
+:Project_madness rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the MADNESS project" ;
     skos:prefLabel "MADNESS" ;
     proj:fullName "Artificial intelligence-assisted methodology for the discovery of new materials in molten salts" ;

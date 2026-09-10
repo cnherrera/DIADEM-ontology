@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_match-up rdf:type proj:TargetedProject ;
+:Project_match-up rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the MATCH-UP project" ;
     skos:prefLabel "MATCH-UP" ;
     proj:fullName "MATerials disCovery for next generation pHotovoltaics via highthroUghPut synthesis, characterization and ai-based analysis" ;

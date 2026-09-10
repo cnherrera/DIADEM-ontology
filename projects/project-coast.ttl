@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_coast rdf:type proj:TargetedProject ;
+:Project_coast rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the COAST project" ;
     skos:prefLabel "COAST" ;
     proj:fullName "Catalysts for a sustainable future" ;

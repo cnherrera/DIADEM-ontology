@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_cinema rdf:type proj:TargetedProject ;
+:Project_cinema rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the CINEMA project" ;
     skos:prefLabel "CINEMA" ;
     proj:fullName "Smart growth of novel thin films of enhanced functional oxides" ;

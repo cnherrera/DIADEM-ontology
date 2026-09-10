@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_dream-bio rdf:type proj:TargetedProject ;
+:Project_dream-bio rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the DREAM-BIO project" ;
     skos:prefLabel "DREAM-BIO" ;
     proj:fullName "Accelerated Discovery of new catalyst Materials for production of Bio-fuel" ;

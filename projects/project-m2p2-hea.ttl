@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_m2p2-hea rdf:type proj:TargetedProject ;
+:Project_m2p2-hea rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the M2P2-HEA project" ;
     skos:prefLabel "M2P2-HEA" ;
     proj:fullName "Multi-scale methodology for predicting the properties of high entropy alloys" ;

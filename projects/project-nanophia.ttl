@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_nanophia rdf:type proj:TargetedProject ;
+:Project_nanophia rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the NanoPhia project" ;
     skos:prefLabel "NanoPhia" ;
     proj:fullName "Understanding nanoparticle formation in physical synthesis: Using AI to couple characterization, in-situ measurement and simulations" ;

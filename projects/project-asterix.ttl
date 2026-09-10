@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_asterix rdf:type proj:TargetedProject ;
+:Project_asterix rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the ASTERIX project" ;
     skos:prefLabel "ASTERIX" ;
     proj:fullName "Advanced Surface Technologies for Resilient and Innovative materials in eXtreme environment" ;

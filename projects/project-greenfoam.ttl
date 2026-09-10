@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_greenfoam rdf:type proj:TargetedProject ;
+:Project_greenfoam rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the GreenFOAM project" ;
     skos:prefLabel "GreenFOAM" ;
     proj:fullName "Accelerated discovery and optimization of high-performance green foams with controlled hierarchical architecture by light-driven processes" ;

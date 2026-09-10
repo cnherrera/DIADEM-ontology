@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_explormat rdf:type proj:TargetedProject ;
+:Project_explormat rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the ExplorMat project" ;
     skos:prefLabel "ExplorMat" ;
     proj:fullName "Accelerated Exploration of a Chemical System for the Discovery of New Materials for Photovoltaics and Solid-state Lighting" ;

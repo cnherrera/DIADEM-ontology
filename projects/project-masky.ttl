@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_masky rdf:type proj:TargetedProject ;
+:Project_masky rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the MASKY project" ;
     skos:prefLabel "MASKY" ;
     proj:fullName "Advanced MAterials for SKYrmion based Spintronics" ;

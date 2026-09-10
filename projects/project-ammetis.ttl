@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_ammetis rdf:type proj:TargetedProject ;
+:Project_ammetis rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the AMMETIS project" ;
     skos:prefLabel "AMMETIS" ;
     proj:fullName "AI-assisted Simulations of Microstructure driven Mechanical properties from high Throughput and multiscale analysIS" ;

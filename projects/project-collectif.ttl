@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_collectif rdf:type proj:TargetedProject ;
+:Project_collectif rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the COLLECTIF project" ;
     skos:prefLabel "COLLECTIF" ;
     proj:fullName "Development of current-collecting materials for electrolysis cells using high-throughput and AI methods Discovery of new catalyst Materials for production of Bio-fuel" ;

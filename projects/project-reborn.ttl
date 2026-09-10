@@ -22,7 +22,7 @@
 
 ## ------->> Project << --------------
 
-:Project_reborn rdf:type proj:TargetedProject ;
+:Project_reborn rdf:type proj:AAPProject ;
     rdfs:comment "Ontology representing all entities of the REBORN project" ;
     skos:prefLabel "REBORN" ;
     proj:fullName "Optimization and modeling of 2D h-BN epitaxy and its high-quality layered heterostructures using artificial intelligence." ;
