@@ -1,0 +1,69 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-diams.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-diams.ttl> a owl:Ontology ;
+    rdfs:comment "Instances DIAMS project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_diams rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the DIAMS project" ;
+    skos:prefLabel "DIAMS" ;
+    proj:fullName "Design by artificial Intelligence and high throughput data of advanced Alloys and innovative Metallurgical concepts for Structural applications" ;
+    proj:description """Le projet ciblé DIAMS vise à mettre en place des infrastructures permettant la conception accélérée d’alliages métalliques pour applications structurales, à élaborer une méthodologie permettant la mise en œuvre de ces plateformes pour l’ensemble de la communauté de la métallurgie française, et à en démontrer les possibilités à travers trois projets démonstrateurs menés en partenariat entre les acteurs du projet. La synthèse accélérée d’alliages métalliques sera mise en œuvre au travers de plateformes de criblage d’alliages à haut débit. Ce criblage pourra se faire au travers de plateformes de fabrication additive à mélange de poudre / fil mises à disposition et développées dans le cadre du projet au CEA, à l’IJL et au SIMAP, ainsi que par la fabrication d’alliages à gradient de composition. Une plateforme de caractérisation à haut débit, permettant l’étude structurale et microstructurale in-situ lors de traitements thermo-mécaniques représentatifs des procédés d’élaboration industriels, sera déployée sur un ensemble de lignes haute énergie du synchrotron européen ESRF. Cet outil permettra la création de banques de données métallurgiques uniques sur les alliages élaborés dans le projet. Cette plateforme sera complémentée sur les autres lignes synchrotron dédiées au programme DIADEME, et en particulier pour le projet DIAMS avec les moyens de la ligne MARS de SOLEIL. En parallèle de ces fabrications d’alliages et acquisitions de données, l’intelligence artificielle, couplée à la modélisation physique, sera mise en œuvre à tous les niveaux du processus, depuis la proposition des compositions d’alliages, jusqu’à l’aide à la caractérisation et à la modélisation à haut débit des évolutions microstructurales et l’optimisation des alliages. Les trois projets démonstrateurs du projet ciblé DIAMS impliqueront chacun une collaboration entre plusieurs acteurs du projet, mettant chacun en œuvre des plateformes ou des compétences propres sur la démarche : * Le premier projet mettra en œuvre une méthodologie avancée de conception d’alliages à haute entropie et d’alliages complexes concentrés, pour applications en milieu sévère (irradiation / corrosion). Celle-ci suivra une démarche de proposition d’alliages par calculs et IA, suivie de criblage et de caractérisation haut débit de la microstructure, puis de caractérisation haut débit du comportement en milieu sévère (en partenariat avec le projet ciblé A-DREAM) * Le deuxième projet mettra en œuvre la fabrication d’alliages à gradient de composition pour évaluer les effets d’alliages sur la conception d’aciers à haute résistance de 3ème génération (medium manganèse), et leur caractérisation à haut débit couplée à une modélisation IA grâce à la plateforme thermo-mécanique sur ligne de lumière synchrotron à haute énergie. * Le troisième projet mettra en œuvre la conception d’alliages légers base aluminium spécifiques pour la fabrication additive, grâce aux plateformes de mélange de poudres du projet. Les alliages criblés par ces méthodes de synthèses pourront également être caractérisés à haut débit et les données ainsi obtenues être incluses dans une démarche IA de conception d’alliages.
+""" ;
+    proj:startDate "2022-09-01"^^xsd:date ;
+    proj:endDate "2027-08-31"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/diams/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:ALEXIS_DESCHAMPS ;
+    proj:hasLeadOrganization org:CNRS ;
+    proj:hasPartner org:SIMAP,
+        org:IJL,
+        org:LEM3,
+        org:LGF,
+        org:IMN,
+        org:SAMANTA,
+        org:ESRF,
+        org:SOLEIL ;
+    proj:gathersCompetence ckey:Metallurgy,
+        ckey:AlloyDesignAndScreening,
+        ckey:HighThroughputAlloyDesign,
+        ckey:HighThroughputCharacterization,
+        ckey:AIBasedModelling,
+        ckey:Microstructure,
+        ckey:MachineLearning,
+        ckey:Modeling,
+        ckey:CompositionDesign,
+        ckey:HighEntropyAlloys .
+
+plat:3DSaclayPowderBedCladdingWireExtrusion proj:hasPlatformAssociatedProject :Project_diams .
+
+plat:ConventionalMetallurgy proj:hasPlatformAssociatedProject :Project_diams .
+
+plat:HighThroughput3DMetallurgyINSSTEK3D proj:hasPlatformAssociatedProject :Project_diams .
+
+plat:PlastoDilatometerForSynchrotronBeamline proj:hasPlatformAssociatedProject :Project_diams .
+
+plat:UltraFastHighEnergyXRayDetector proj:hasPlatformAssociatedProject :Project_diams .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

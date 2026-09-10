@@ -1,0 +1,64 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-fast-in-fuels.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-fast-in-fuels.ttl> a owl:Ontology ;
+    rdfs:comment "Instances FAST-IN-FUELS project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_fast-in-fuels rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the FAST-IN-FUELS project" ;
+    skos:prefLabel "FAST-IN-FUELS" ;
+    proj:fullName "Fresh Acceleration Strategies of characterization, manufacturing and simulation Techniques for Innovative Nuclear Fuels" ;
+    proj:description """La production d’énergie bas carbone est une priorité pour limiter l’impact du dérèglement climatique et notre société doit s’appuyer sur un mix énergétique compétitif associant énergies renouvelables et nucléaire. L’accélération de la découverte de matériaux innovants et durables pour les combustibles nucléaires est au coeur de cette stratégie. Les enjeux sont de découvrir des matériaux offrant i) une flexibilité accrue des réacteurs, ii) une performance/sureté accrue iii) l’optimisation de l’utilisation des ressources et la valorisation des matières par le recyclage, iv) la réponse aux cahiers des charges des réacteurs nucléaires avancés. Le projet FAST-IN-FUELS a l’ambition de contribuer à répondre à ces enjeux et s’inscrit pleinement dans les objectifs du PEPR DIADEM pour une découverte accélérée de matériaux combustibles nucléaires innovants. Son caractère novateur réside dans la mise en oeuvre, aux différentes étapes de la R&D combustible (conception, fabrication, caractérisation, qualification), de démonstrations d’approches d’accélération qui ont très peu, voire jamais été déployées sur ces matériaux d’importance majeure pour le nucléaire et devraient à terme permettre d’augmenter notre capacité d’innovation. FAST-IN-FUELS embarquera un consortium interdisciplinaire (CEA/DES, CEA/DRF, CNRS-IRCER, ECM-IF, CS-LGPM) autour de l’innovation sur les matériaux combustibles et de méthodes d’accélération. Le projet est articulé autour de 5 briques techniques interconnectées et complétées d’une 6ème brique Management –Transversalité - Dissémination assurant la bonne interaction entre les briques ainsi que la communication et valorisation des résultats du projet.  •WP1: Accélération de l’exploration de concepts de matériaux combustibles innovants via la conception numérique  •WP2: Accélération de la fabrication de prototypes innovants via la fabrication additive céramique  •WP3: Accélération de la découverte de précurseurs d’oxydes via des solvants nanostructurés et une approche millifluidique •WP4: Accélération de la validation de proposition de concepts innovants via la caractérisation accélérée de leur propriétés thermiques et mécaniques sur petits échantillons  •WP5: Accélération de l’évaluation des propriétés des combustibles innovants par des méthodes d’apprentissage automatique •WP6: Management, transversalité, dissémination, enseignement/formation
+""" ;
+    proj:startDate "2025-09-01"^^xsd:date ;
+    proj:endDate "2029-08-31"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/fast-in-fuels/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:CAROLE_VALOT ;
+    proj:hasLeadOrganization org:CEA ;
+    proj:hasPartner org:CEA-DES,
+        org:CEA-DRF,
+        org:LGPM,
+        org:Institut-Fresnel,
+        org:IRCER ;
+    proj:gathersCompetence ckey:MaterialsDiscovery,
+        ckey:AdvancedMaterials,
+        ckey:NuclearFuel,
+        ckey:Ceramics,
+        ckey:NumericalDesign,
+        ckey:AdditiveManufacturing,
+        ckey:AdvancedCharacterization,
+        ckey:Modeling,
+        ckey:SimulationExperimentCoupling,
+        ckey:MaterialsProperties,
+        ckey:MachineLearning,
+        ckey:CombinatorialApproaches,
+        ckey:ExperimentalPlatforms,
+        ckey:ThermalProperties,
+        ckey:Optimization,
+        ckey:NumericalSimulation,
+        ckey:MaterialsSynthesis,
+        ckey:CompositionDesign .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

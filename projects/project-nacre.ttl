@@ -1,0 +1,60 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-nacre.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-nacre.ttl> a owl:Ontology ;
+    rdfs:comment "Instances NACRE project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_nacre rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the NACRE project" ;
+    skos:prefLabel "NACRE" ;
+    proj:fullName "bimetallic NAnoparticles, Chemical ordeR and machinE learning" ;
+    proj:description """Les nanoparticules bimétalliques (BNPs), utilisées dans des domaines variés comme la catalyse, le stockage d’hydrogène, la technologie d’information, la plasmonique et autres, jouent un rôle clé dans la transition écologique de notre société. Leurs propriétés peuvent être contrôlées finement en combinant deux métaux, de plus, des métaux chers et polluants peuvent être remplacés par d’autres, plus abondants et respectueux de l’environnement sans perdre la spécificité recherchée. L’utilisation de catalyseurs bimétalliques permet, par exemple, une amélioration considérable de l’activité, la sélectivité et de la stabilité par rapport aux nanoparticules monométalliques. Prédire les propriétés physico-chimiques des telles BNPs reste pourtant extrêmement difficile car elles dépen-dent de nombreux paramètres comme la composition chimique, la taille, l’environnement, l’ordre chimique etc. De part de leur complexité, leur caractérisation peut être largement améliorée par des approches basées sur l’IA. Grâce à nos travaux récents sur la quantification chimique résolue spatialement de BNPs d’AgAu individuelles et à l’utilisation de différentes approches d’apprentissage automatique, nous pouvons aujourd’hui procéder à une caractérisation complète de telles BNPs. Elle concerne non seulement la taille, la forme et l’environnement, mais également l’ordre chimique, c’est-à-dire la distribution élémentaire à l’intérieur de BNPs de taille inférieure à 10 nm. Cette dernière propriété était jusqu’à présent extrêmement difficile à quantifier malgré son importance, notamment en catalyse où les BNPs changent souvent d’ordre chimique pendant un cycle catalytique. Nous proposons de développer des procédures standardisées pour la caractérisation de BNPs en relation avec la catalyse hétérogène et d’autres applications comme le stockage d’hydrogène. Nous travaillons avec des BNPs non-oxydées et sans surfactants, fabriquées en phase gazeuse dans une source d’agrégats qui permet le contrôle indépendant des paramètres les plus importants : composition chimique, taille et environnement. Différentes techniques de microscopie électronique à transmission (imagerie, spectroscopie avec sélectivité chimique EDX et EELS, in situ ou sous atmosphère et température contrôlées, en deux et trois dimensions) sont ensuite utilisées pour déterminer l’état fondamental des BNPs et leurs transformations chimiques durant des cycles re-dox. Des méthodes complémentaires d’apprentissage automatique sont utilisées pour (1) le traite-ment avancé des données, notamment concernant des corrélations spectrales et spatiales et pour (2) l’optimisation des potentiels interatomiques dans des simulations atomistiques. (3) Les données de référence ainsi obtenues alimenteront des bases de données combinant résultats expérimen-taux et théoriques pour le développement accéléré de nouveau matériaux par intelligence artificielle au sein du réseau DIADEM. Des systèmes de référence bien établis comme le
+""" ;
+    proj:startDate "2024-09-01"^^xsd:date ;
+    proj:endDate "2028-08-31"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/nacre/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:MATTHIAS_HILLENKAMP ;
+    proj:hasLeadOrganization org:CNRS ;
+    proj:hasPartner org:ILM,
+        org:LIPHY,
+        org:MATEIS,
+        org:CEA-LETI,
+        org:Unicamp ;
+    proj:gathersCompetence ckey:BimetallicNanoparticles,
+        ckey:EnvironmentalElectronMicroscopy,
+        ckey:ElectronicSpectroscopy,
+        ckey:STEMAnalysis,
+        ckey:Tomography,
+        ckey:UnsupervisedMachineLearning,
+        ckey:AtomicSimulation,
+        ckey:MLIP,
+        ckey:Chemistry,
+        ckey:MachineLearning,
+        ckey:ElectronMicroscopy,
+        ckey:StructuralMaterials,
+        ckey:Nanoparticles,
+        ckey:Spectroscopy .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

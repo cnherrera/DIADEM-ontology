@@ -1,0 +1,65 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-ammetis.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-ammetis.ttl> a owl:Ontology ;
+    rdfs:comment "Instances AMMETIS project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_ammetis rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the AMMETIS project" ;
+    skos:prefLabel "AMMETIS" ;
+    proj:fullName "AI-assisted Simulations of Microstructure driven Mechanical properties from high Throughput and multiscale analysIS" ;
+    proj:description """Le projet AMMETIS (AI-assisted Simulations of Microstructure driven MEchanical properties from high Throughput and multiscale analysIS) a pour objectif d’accélérer notre capacité à prédire de façon fiable le comportement en service des nouvelles innovations matériaux proposées pour répondre aux enjeux de la transition énergétique. Cet objectif implique : (1) Le développement d’une plateforme expérimentale de caractérisation haut débit à l’échelle mésoscopique (cartographies mécaniques par nanoindentation et corrélation d’images/EBSD haute résolution in-situ MEB) pour une meilleure compréhension des relations microstructures/mécanismes de déformation/comportements macroscopiques en service, (2) Le développement de modèles de plasticité cristalline innovants (intégrant la Mécanique de Champ de Dislocations et la Plasticité à Gradient de Déformations). Ces modèles seront enrichis par l'expérience pour améliorer leurs capacités prédictives et appliqués au polycristal via des calculs résolus par FFT massivement parallélisés, (3) Le développement de modèles réduits basés sur l’IA, capables de prédire en temps réel les propriétés mécaniques en connaissant la microstructure, adaptés à une intégration dans un calcul de structure. Ce projet ambitieux regroupe 4 partenaires nationaux et est soutenu financièrement par deux partenaires industriels (ArcelorMittal et SafranTech). De plus, il sera enrichi par des collaborations avec deux laboratoires étrangers engagés dans des défis semblables. Les méthodologies seront optimisées et validées sur l’INCONEL718 en tant que matériau modèle, puis mises en oeuvre pour mieux comprendre et prédire le comportement : (1) des aciers de 3ème génération issus des procédés décarbonés pour approfondir l'impact des éléments résiduels sur le comportement mécanique en lien avec la microstructure (ARCELORMITTAL Maizières Research), (2) des matériaux à gradient de composition chimique et/ou de microstructure en superalliage base nickel avec des applications à la réparation des pièces de structure, en particulier (SafranTech).
+""" ;
+    proj:startDate "2026-02-01"^^xsd:date ;
+    proj:endDate "2030-01-30"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/ammetis/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:NATHALIE_GEY ;
+    proj:hasLeadOrganization org:CNRS ;
+    proj:hasPartner org:LEM3,
+        org:ICA,
+        org:PIMM,
+        org:CEASaclay ;
+    proj:gathersCompetence ckey:Microstructure,
+        ckey:MechanicalProperties,
+        ckey:MetallicAlloys,
+        ckey:SurfaceScience,
+        ckey:Interfaces,
+        ckey:HighThroughputCharacterization,
+        ckey:InSituTesting,
+        ckey:Microscopy,
+        ckey:Nanoindentation,
+        ckey:Micromechanics,
+        ckey:CrystalPlasticity,
+        ckey:GradientPlasticity,
+        ckey:Homogenization,
+        ckey:ReducedOrderModels,
+        ckey:AIApproaches,
+        ckey:Modeling,
+        ckey:EBSD,
+        ckey:CrystalGrowth,
+        ckey:NumericalSimulation,
+        ckey:StructuralMaterials .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

@@ -1,0 +1,57 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-asterix.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-asterix.ttl> a owl:Ontology ;
+    rdfs:comment "Instances ASTERIX project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_asterix rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the ASTERIX project" ;
+    skos:prefLabel "ASTERIX" ;
+    proj:fullName "Advanced Surface Technologies for Resilient and Innovative materials in eXtreme environment" ;
+    proj:description """Le développement de l’ingénierie des couches minces revêt un caractère absolument stratégique dans le manufacturing avancé des composants devant fonctionner dans les milieux extrêmes (énergie nucléaire, énergies renouvelables, aéronautique en particulier). Ces milieux combinent souvent des sollicitations multiples nécessitant le développement de structures multi-couches, architecturées, pour répondre au mieux à la multi-fonctionnalité attendue in operando (barrière de diffusion, tenues à l’oxydation et l’irradiation, adhérence…). L’ingénierie des couches minces est un domaine technologique qui a énormément progressé ces dernières années, principalement challengée par les progrès effectifs exigés par les spécifications toujours plus intransigeantes de l’industrie de la microélectronique d’une part, des énergies décarbonées en plein essor (en particulier photovoltaïque, filière hydrogène mais également nucléaire du futur) et de la mécanique haute performance, d’autre part. Ces progrès concernent les technologies de dépôt physique en phase vapeur, PVD (Physical Vapor Deposition), avec en particulier l’avènement de systèmes de génération de plasmas fortement ionisés de type HiPIMS (High Power Impulse Magnetron Sputtering) qui permettent en particulier un bien meilleur pilotage de la construction des interfaces, ainsi qu’un meilleur contrôle des microstructures et in fine des propriétés des revêtements. Ces progrès concernent également les technologies de type CVD (Chemical Vapor Deposition) en particulier grâce à la richesse de la chimie des composés organométalliques pouvant être mise en œuvre via la grande flexibilité de la DLI-MOCVD (Direct Liquid Injection Metal Organic Chemical Vapor Deposition).  L’objectif ambitieux mais réaliste du projet ASTERIX (Accelerated developement of Surface TEchnologies for Resilient Innovative materials in eXtrem environments) est double. Centré sur le développement d’un objet technologique complexe et multi-fonctionnel, une gaine de combustible nucléaire, il vise à développer deux jumeaux numériques, l’un du procédé PVD HiPIMS, l’autre du procédé de DLI-MOCVD, grâce notamment à une étude instrumentée de chaque procédé, à une simulation numérique, et à l’entrainement d’un outil de Machine Learning, EXPRESSIF MATERIALS, développé à cet effet. Les équipes qui constituent le consortium de recherche sont au meilleur état de l’art mondial chacune dans sa spécialité pour développer une vision holistique qui va de la définition des architectures de revêtements, leur élaboration par les deux procédés instrumentés et
+""" ;
+    proj:startDate "2024-09-01"^^xsd:date ;
+    proj:endDate "2028-08-31"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/asterix/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:JEAN-PHILIPPE_POLI ;
+    proj:hasLeadOrganization org:CEA ;
+    proj:hasPartner org:CEA-LIST,
+        org:CEA-ISAS,
+        org:IMN,
+        org:LPGP,
+        org:SIMAP ;
+    proj:gathersCompetence ckey:PVDCoating,
+        ckey:CVD,
+        ckey:AIApproaches,
+        ckey:ExtremeEnvironment,
+        ckey:MOCVD,
+        ckey:DigitalTwin,
+        ckey:TechnologicalSovereignty,
+        ckey:MachineLearning,
+        ckey:NumericalSimulation,
+        ckey:NuclearFuel,
+        ckey:AdvancedMaterials .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

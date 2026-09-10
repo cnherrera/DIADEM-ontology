@@ -1,0 +1,61 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-lumen.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-lumen.ttl> a owl:Ontology ;
+    rdfs:comment "Instances LUMEN project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_lumen rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the LUMEN project" ;
+    skos:prefLabel "LUMEN" ;
+    proj:fullName "Liquid structure Understanding for Microstructure Engineering with Novel upscaling assisted by artificial intelligence" ;
+    proj:description """Le projet LUMEN propose de développer de nouveaux alliages d’aluminium à partir de la connaissance de la structure du liquide. L’objectif est d’explorer l'ajout d'éléments de transition et d’adjuvants éventuels dans les alliages d'aluminium pour optimiser leur microstructure dans le contexte d'intensification du recyclage, qui entraîne une augmentation inévitable d’impuretés altérant les propriétés mécaniques des alliages. Les calculs de dynamique moléculaire ab initio montrent que certaines microstructures plus favorables peuvent être obtenues en lien avec une structuration du liquide où domine la symétrie d’ordre 5. Certaines impuretés pourraient donc devenir des éléments bénéfiques : il s’agit de comprendre à quelles conditions. On sait par ailleurs qu’en fabrication additive l'ajout d'éléments diffusant lentement améliore les propriétés en sursaturant la matrice pendant la solidification et en ralentissant la précipitation à l’état solide. Le projet utilise la plateforme métallurgie haut débit DIAMS pour cribler les alliages et la plateforme DIAMOND pour développer une approche de modélisation multi-échelles. Les modélisations atomiques par dynamique moléculaire utilisent des potentiels interatomiques issus de l'apprentissage automatique sur des résultats de modélisation ab initio pour capturer l'influence des éléments d'alliages sur la structure du liquide et le comportement des interfaces solide-liquide. La modélisation de la microstructure par champ de phase prédit la dynamique des microstructures de solidification, en tenant compte de l'anisotropie de l'énergie interfaciale et de la cinétique d'attachement atomique. La modélisation à l'échelle du procédé par le modèle d’enveloppe de grain (GEM) simule la macrostructure de solidification et étudie la compétition de croissance intergranulaire. Le lien entre les différentes échelles est assuré par de nouveaux outils pour transférer les lois constitutives de l'échelle atomique vers le champ de phase puis vers le GEM. Les résultats expérimentaux serviront de base d’étalonnage et de validation des modélisations, avec un intérêt particulier pour les systèmes Al-Cr-Fe-Ti. Le projet comprend cinq work-packages (WP). Le WP1 se concentre sur les simulations à l’échelle atomique des liquides et des interfaces, réalisant des simulations de dynamique moléculaire de grande échelle pour obtenir une représentation précise des interfaces solide- liquide et de la diffusivité atomique dans le liquide. Le WP2 se concentre sur la modélisation par méthode de champ de phase, développant des codes pour prédire quantitativement la dynamique des microstructures de solidification. Le WP3, dédié à la modélisation par la méthode d’enveloppe de grains, vise à étendre le GEM aux alliages multi-constitués et à simuler les compétitions de croissance entre grains. Le WP4 utilise l'apprentissage machine pour relier les descriptions atomique et microstructurale et développer un modèle génératif fondé sur les graphes pour le coarse-graining.
+""" ;
+    proj:startDate "2025-10-01"^^xsd:date ;
+    proj:endDate "2029-09-30"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/lumen/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:JULIEN_ZOLLINGER ;
+    proj:hasLeadOrganization org:CNRS ;
+    proj:hasPartner org:IJL,
+        org:SIMAP,
+        org:LPMC-Polytechnique,
+        org:LAMBE,
+        org:Constellium ;
+    proj:gathersCompetence ckey:Microstructure,
+        ckey:ElaborationProcesses,
+        ckey:AtomicSimulation,
+        ckey:AIApproaches,
+        ckey:HighThroughputMetallurgy,
+        ckey:MetallicAlloys,
+        ckey:MultiscaleModeling,
+        ckey:HighPerformanceComputing,
+        ckey:Solidification,
+        ckey:AlloyDesignAndScreening,
+        ckey:NumericalSimulation,
+        ckey:Modeling,
+        ckey:StructuralMaterials,
+        ckey:MolecularMaterials,
+        ckey:PhaseFieldModeling .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

@@ -1,0 +1,59 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-nanophia.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-nanophia.ttl> a owl:Ontology ;
+    rdfs:comment "Instances NanoPhia project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_nanophia rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the NanoPhia project" ;
+    skos:prefLabel "NanoPhia" ;
+    proj:fullName "Understanding nanoparticle formation in physical synthesis: Using AI to couple characterization, in-situ measurement and simulations" ;
+    proj:description """La structure cristallographique des nanoparticules pilote directement leur propriété physico-chimique et a foritiori leur potentiel applicatif. Un défi majeur pour faire progresser les nanotechnologies par l’usage des nanoparticules demeure donc dans notre capacité à contrôler leur taille, la phase cristalline, la morphologie et la composition chimique. Une approche empirique est actuellement privilégiée et consiste en une objectivation de la relation entre les paramètres de synthèse et les caractéristiques morphologiques et structurales. Mais l’espace des paramètres est parfois trop grand pour qu’une approche purement empirique suffise. Pour aller au- delà, il devient crucial d'obtenir une meilleure compréhension des mécanismes impliqués durant la synthèse de nanoparticules et en particulier durant la nucléation du cristal. Dans notre projet, nous concentrons nos efforts sur les méthodes de synthèse par voie physique. Notre consortium mobilise trois équipes de recherche possédant chacune une méthode de synthèse par voie physique différente: chemical vapor synthesis (INSP-Paris), magnetron sputtering inert-gas condensation (CEMES-Toulouse) et Laser ablation in liquid (ILM-Lyon). Ces méthodes ont pour point commun le passage par une phase plasma au sein de laquelle les collisions entre les espèces chimiques permettent la nucléation des nanoparticules dans des conditions hautement hors équilibre. En travaillant sur un même matériau, l’étude permettra donc un benchmark des conditions de synthèse. En pratique, nous avons choisi de travailler sur des oxydes de complexité graduelle ie. ZnO, CuxOy et enfin ZnxCuyOz. Ces matériaux présentent des intérêts d’un point de vue application en catalyse et en biomédicale mais aussi une riche complexité structurale (polymorphisme avec une dépendance possible envers la taille) . Au-delà du regroupement inédit de ces trois méthodes de synthèse, notre projet vise à développer une expérience de spectroscopie mobile capable d’être déployée sur les différentes expériences de synthèse. En particulier, il s’agira de mesurer l’évolution temporelle des propriétés thermodynamiques du plasma aux temps courts en fonction des conditions expérimentales. La comparaison des méthodes permettra un mapping des caractéristiques thermodynamiques incluant une composante temporelle. Fort de ces résultats, nous construirons un modèle basé sur l’IA permettant d’établir une boucle de rétroaction entre les paramètres expérimentaux imposés en synthèse et les propriétés thermodynamiques. Dans la troisième partie de notre projet, nous utiliserons la dynamique moléculaire assistée par champs de force machine-learning afin d’obtenir un jumeau numérique des expériences de synthèse calqué sur les propriétés thermodynamiques mesurées.
+""" ;
+    proj:startDate "2026-03-01"^^xsd:date ;
+    proj:endDate "2030-02-28"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/nanophia/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:JULIEN_LAM ;
+    proj:hasLeadOrganization org:UniversiteLille ;
+    proj:hasPartner org:CEMES,
+        org:UMET,
+        org:INSP,
+        org:ILM ;
+    proj:gathersCompetence ckey:Nanoparticles,
+        ckey:CrystalGrowth,
+        ckey:InSituTesting,
+        ckey:DigitalTwin,
+        ckey:MolecularSimulations,
+        ckey:BigDataAnalysis,
+        ckey:MaterialsSynthesis,
+        ckey:Chemistry,
+        ckey:Oxides,
+        ckey:NumericalSimulation,
+        ckey:StructuralMaterials,
+        ckey:ThermodynamicCalculations,
+        ckey:CompositionDesign,
+        ckey:PhaseTransformations .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

@@ -1,0 +1,72 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-esrf.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-esrf.ttl> a owl:Ontology ;
+    rdfs:comment "Instances ESRF project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_esrf rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the ESRF project" ;
+    skos:prefLabel "ESRF" ;
+    proj:fullName "Accelerated X-ray Characterization of Materials at French CRG ESRF beamlines" ;
+    proj:description """Grâce à la profondeur de pénétration des rayons X de haute énergie de la nouvelle source EBS de l’ESRF, les lignes de lumières des CRG françaises offrent à 150 laboratoires français une caractérisation multi-échelle à haute résolution par diffraction, diffusion ou spectroscopie d’absorption. Elles développent des environnements échantillon pour les mesures in situ et operando. Les propositions d’expérience sont sélectionnées 2 fois par an par les comités scientifiques communs avec SOLEIL, et ceux de l’ESRF. Le temps de faisceau peut aussi être acheté par les entreprises privées. Le programme PEPR DIADEME vise à accélérer la découverte et l’optimisation des matériaux fonctionnels ou de structure en rendant les expériences plus rapides et en améliorant l’efficacité du traitement des données. Fortes de leur expérience en caractérisation de matériaux avancés, 4 des lignes CRG proposent de réaliser le projet DIADEM/ESRF : D2AM (BM02) et IF (BM32) en utilisant la diffraction et la diffusion des rayons X en chimie, physique, traitement des surfaces et des matériaux, y compris ceux du patrimoine ; FAME-UHD (BM16) et FAME- PIX (BM30) pour la spectroscopie et la spéciation en biologie, chimie, sciences de l’environnement et géosciences. Grâce aux performances renouvelées des équipements (projet Equipex+ MAGNIFIX), les temps de comptage vont se réduire avec l’amélioration du faisceau et de la détection. L’étape limitante deviendra alors la manipulation des échantillons. L’automatiser plus complètement, comme le criblage, la mesure et la gestion de données, permettrait d’augmenter le débit d’échantillons caractérisés. Des opportunités en ce sens ont été identifiées sur les 4 lignes, où des passeurs d’échantillons robotisés pourraient gérer des centaines d’échantillons (SAXS-WAXS et GISAXS-GIWAXS sur D2AM, instruments LaueMAX et GMT (XRR, GIXRD) sur IF). En parallèle, de nouveaux dispositifs operando (réacteurs ou microréacteurs HPHT, (électro)chimiques, four, champs électriques) utilisant des détecteurs plus rapides constituent une autre voie d’accélération des études, en particulier pour la caractérisation par XAS (FAME-UHD et FAME-PIX), ou le criblage des conditions d’élaboration par SAXS (D2AM). L’accélération résultera aussi de la mise en place d’une nouvelle génération de détecteurs 2D résolus en énergie, où chaque pixel enregistre un spectre : de tels détecteurs à pixels seront développés pour les spectres Laue (IF) ou XAS sur des échantillons ultra-dilués (sub ppm : FAME-UHD). Ainsi équipées, ces 4 lignes de lumière F-CRG rempliront les conditions de caractérisation rapide requises pour prendre part au « open discovery hub » proposé par le programme DIADEME. Avec l’arrivée de l’imagerie 3D à haute résolution et des détecteurs 2D rapides, les TGIR du monde entier subissent un “déluge de données”, et les outils numériques existants doivent être adaptés pour y faire face. Dans ce contexte, l’Intelligence Artificielle (IA) va permettre l’analyse en série de données massives et complexes, et la caractérisation des matériaux à l’échelle nanométrique. Ces tâches requièrent des compétences numériques spécifiques auxquelles les scientifiques de ligne devront être formés par des spécialistes d’IA. Les processus de traitement et d’analyse des grands jeux de données doivent interagir si l’on veut assurer l’interopérabilité demandée par les utilisateurs. Ces nouvelles compétences seront mutualisées entre les lignes de lumière et au sein du programme DIADEME afin de croiser les idées et les pratiques. Afin de répondre aux objectifs de caractérisation rapide de DIADEME, le mode d’accès actuel aux lignes, qui est semestriel, s’avèrera peut-être insuffisant. Un dernier objectif du projet DIADEM/ESRF sera de voir si d’autres modes, tel les BAG (expériences allouées par bloc en bio-cristallographie), pourraient être adaptés à la communauté des matériaux avancés tout en respectant les exigences de qualité scientifique.
+""" ;
+    proj:startDate "2023-01-01"^^xsd:date ;
+    proj:endDate "2030-12-31"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/esrf/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:NATHALIE_BOUDET ;
+    proj:hasLeadOrganization org:CNRS ;
+    proj:hasPartner org:CEA-IRIG,
+        org:NEEL ;
+    proj:gathersCompetence ckey:SynchrotronBeamlineOperation,
+        ckey:XRayDiffraction,
+        ckey:XRayScattering,
+        ckey:XRayAbsorptionSpectroscopy,
+        ckey:XRayReflectivity,
+        ckey:FastDataCollection,
+        ckey:AIApproaches,
+        ckey:EnergyTransition,
+        ckey:SAXSWAXS,
+        ckey:Spectroscopy,
+        ckey:MachineLearning,
+        ckey:StructuralMaterials,
+        ckey:ElectronicProperties,
+        ckey:AdvancedMaterials,
+        ckey:Chemistry .
+
+plat:GISAXSGIWAXSAtESRF proj:hasPlatformAssociatedProject :Project_esrf .
+
+plat:HERFDXASAtESRF proj:hasPlatformAssociatedProject :Project_esrf .
+
+plat:LaueMicrodiffractionAtESRF proj:hasPlatformAssociatedProject :Project_esrf .
+
+plat:MultiTechniqueGoniometerReflectivityAtESRF proj:hasPlatformAssociatedProject :Project_esrf .
+
+plat:SAXSWAXSAtESRF proj:hasPlatformAssociatedProject :Project_esrf .
+
+plat:XRayAbsorptionSpectroscopyAtESRF proj:hasPlatformAssociatedProject :Project_esrf .
+
+plat:XRayPtychographyImagingAtESRF proj:hasPlatformAssociatedProject :Project_esrf .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

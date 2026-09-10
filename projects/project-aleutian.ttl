@@ -1,0 +1,60 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-aleutian.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-aleutian.ttl> a owl:Ontology ;
+    rdfs:comment "Instances ALEUTIAN project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_aleutian rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the ALEUTIAN project" ;
+    skos:prefLabel "ALEUTIAN" ;
+    proj:fullName "Eutectic alloys developed by artificial intelligence and numerical computations" ;
+    proj:description """Le projet ALEUTIAN vise à développer une méthodologie pour accélérer la conception d’alliages métalliques liquides, comme des eutectiques. De tels alliages ont des applications dans de nombreux domaines comme le brasage ou la synthèse de verres métalliques, mais aussi comme matériaux pour l’énergie en tant que caloporteurs dans les réacteurs nucléaires à neutrons rapides ou que matériaux à changement de phase (MCPs) pour le stockage de la chaleur. Deux approches numériques complémentaires seront mises en oeuvre pour la conception d’alliages liquides par optimisation multicritère. La première repose sur le développement de modèles machine learning pour prédire les propriétés clés des alliages comme le point de fusion, l’intervalle de solidification et l’enthalpie de fusion. La seconde repose sur le criblage haut débit de bases de données thermodynamiques Calphad. Dans les deux cas, la recherche ne se limitera pas à une famille d’alliage en particulier, puisqu’une variété d’alliages sont susceptibles de répondre à chacune des applications des métaux liquides. Le projet vise principalement à développer une méthodologie applicable à tout type de métaux liquides, mais la découverte de nouveaux MCPs pour le stockage de la chaleur dans les centrales solaires à concentration est choisie comme application phare. Les MCPs prédits comme étant les plus prometteurs seront synthétisés, caractérisés, et leurs propriétés seront mesurées et comparées avec les prédictions. Les interactions et la réactivité des métaux liquides ainsi sélectionnés avec différents matériaux susceptibles de les contenir seront étudiées et mesurées et des solutions seront proposées. Enfin, un démonstrateur technologique sera réalisé afin de vérifier l’applicabilité des couples MCP/contenant sélectionnés pour le stockage de la chaleur dans les centrales solaires à concentration.
+""" ;
+    proj:startDate "2024-10-01"^^xsd:date ;
+    proj:endDate "2028-09-30"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/aleutian/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:GUILLAUME_DEFFRENNES ;
+    proj:hasLeadOrganization org:CNRS ;
+    proj:hasPartner org:LMI,
+        org:ICMPE,
+        org:SIMAP,
+        org:IM2NP,
+        org:PROMES ;
+    proj:gathersCompetence ckey:AlloyDesignAndScreening,
+        ckey:MachineLearning,
+        ckey:ThermodynamicCalculations,
+        ckey:EutecticAlloys,
+        ckey:PhaseChangeMaterials,
+        ckey:ThermalEnergyStorage,
+        ckey:ConcentratedSolarPower,
+        ckey:NuclearReactorCoolants,
+        ckey:MetallicGlasses,
+        ckey:BrazingAlloys,
+        ckey:ThermalProperties,
+        ckey:EnergyTransition,
+        ckey:MetallicAlloys,
+        ckey:PhaseTransformations .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

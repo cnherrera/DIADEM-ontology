@@ -1,0 +1,65 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-microelec.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-microelec.ttl> a owl:Ontology ;
+    rdfs:comment "Instances MicroElec project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_microelec rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the MicroElec project" ;
+    skos:prefLabel "MicroElec" ;
+    proj:fullName "High throughput heterostructures elaboration and characterization for microelectronic applications" ;
+    proj:description """L’innovation dans les matériaux fonctionnels est clé pour accroître la compétitivité d’une industrie de la microélectronique soutenable et plus efficace en Europe. Ces dernières années, une nouvelle approche visant la découverte accélérée de nouveaux matériaux a été développée avec l’élaboration et la caractérisation haut débit de bibliothèques de matériaux. Nous proposons d’étendre cette approche dite combinatoire haut débit aux dispositifs microélectroniques multicouches dont les propriétés fonctionnelles dépendent à la fois de la nature de chacune de leurs couches constitutives et des interactions entre ces couches. Améliorer les performances de ces dispositifs revient de fait à optimiser globalement l’empilement de couches. Comprendre et optimiser une telle complexité grâce à des procédés de synthèse, de caractérisation et d’analyse haut débit assistés par intelligence artificielle (IA) de bibliothèques d’hétérostructures présentant une variation systématique et simultanée de paramètres clés permettrait d’accélérer l’élaboration de dispositifs efficaces et d’approvisionner massivement des bases de données matériaux. Pour valider cette approche haut débit assistée par IA dans le cadre d’applications en microélectronique, des plateformes de synthèse et caractérisation combinatoires existantes seront renforcées et étendues puis utilisées pour définir le composé / l’hétérostructure sans plomb les plus adaptés pour leur intégration dans des actuateurs piézoélectriques micrométriques ainsi que dans des mémoires non- volatiles ferroélectriques nanométriques.
+""" ;
+    proj:startDate "2023-05-15"^^xsd:date ;
+    proj:endDate "2026-11-14"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/microelec/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:KEVIN_NADAUD ;
+    proj:hasLeadOrganization org:UniversiteTours ;
+    proj:hasPartner org:GREMAN,
+        org:CEA-SPEC,
+        org:CEA-LETI,
+        org:ISCR ;
+    proj:gathersCompetence ckey:CombinatorialApproaches,
+        ckey:Ferroelectrics,
+        ckey:PEEM,
+        ckey:HAXPES,
+        ckey:PiezoMEMS,
+        ckey:LowDimMaterials,
+        ckey:MaterialsSynthesis,
+        ckey:CompositionDesign,
+        ckey:CombinatorialSynthesis,
+        ckey:Heterostructures,
+        ckey:StructuralMaterials,
+        ckey:Optimization,
+        ckey:PhaseTransformations,
+        ckey:Oxides .
+
+plat:CombinatorialGrowthOfHeterostructuresByPLDPVD proj:hasPlatformAssociatedProject :Project_microelec .
+
+plat:OperandoCharacterizationOfElectronicStructureUnderElectricalStress proj:hasPlatformAssociatedProject :Project_microelec .
+
+plat:StructuralAndElectricalCharacterizationOf2DGradientLayers proj:hasPlatformAssociatedProject :Project_microelec .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

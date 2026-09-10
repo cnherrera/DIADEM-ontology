@@ -1,0 +1,58 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-ai-mahc.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-ai-mahc.ttl> a owl:Ontology ;
+    rdfs:comment "Instances AI-MAHC project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_ai-mahc rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the AI-MAHC project" ;
+    skos:prefLabel "AI-MAHC" ;
+    proj:fullName "Artificial Intelligence-Driven MOF Materials Discovery for Autonomous Humidity Control" ;
+    proj:description """Le marché mondial du contrôle de l’humidité de l’air devrait atteindre 15,1 milliards de dollars d'ici 2032, porté par des préoccupations croissantes quant à la qualité de l'air intérieur, des niveaux d'humidité en hausse et la fréquence accrue des événements météorologiques extrêmes. Les systèmes actuels de contrôle de l’humidité tels que les déshumidificateurs, les humidificateurs et les solutions basées sur le chauffage, la climatisation et la ventilation (HVAC), présentent des inconvénients notables, notamment une consommation énergétique élevée, des exigences de maintenance, l'utilisation de réfrigérants à fort potentiel de réchauffement global et une imprécision dans la régulation des niveaux d'humidité optimaux. Ces limitations soulignent la nécessité de trouver des solutions de contrôle de l’humidité plus performantes pour répondre durablement à la demande croissante. Les systèmes de contrôle autonome de l'humidité (AHC), intégrant des matériaux poreux avancés, devraient révolutionner les technologies HVAC, notamment dans le cadre des objectifs du Green Deal (économie neutre en carbone d'ici 2050). Les systèmes AHC visent à moduler de manière autonome les niveaux d'humidité de l'air intérieur grâce à un matériau poreux capable d’adsorber l'eau dès que le taux d'humidité relative (HR) atteint 60 % et de désorber rapidement l'eau lorsque HR atteint 40 %, sans intervention extérieure, pour préserver la santé et le confort des occupants. Aujourd’hui, aucun des adsorbants poreux conventionnels, tels que les gels de silice et les zéolithes, n’est optimal pour l’application visée car leur adsorption d’eau se produit en dehors de la plage de HR souhaitée et ils présentent des capacités d’adsorption d’eau insuffisantes et des cinétiques d’adsorption lentes. Il est donc indispensable de concevoir de nouveaux adsorbants poreux présentant des caractéristiques idéales d’adsorption de l'eau. Si certains matériaux hybrides poreux de type MOFs présentent des performances prometteuses, cependant nous sommes encore loin de pleinement exploiter le potentiel immense de cette famille de matériaux car leur sélection repose encore largement sur la sérendipité. Notre objectif est d’échafauder une stratégie sans précédent basée sur le criblage numérique à haut débit, des techniques d'apprentissage automatique (ML), des outils d’intelligence artificielle (IA), de la synthèse/caractérisation robotique à haut débit et des techniques d’adsorption avancées pour découvrir de nouveaux MOFs robustes, durables et non toxiques ayant des performances exceptionnelles en matière de contrôle de l'humidité.
+""" ;
+    proj:startDate "2025-11-01"^^xsd:date ;
+    proj:endDate "2029-10-31"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/ai-mahc/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:GUILLAUME_MAURIN ;
+    proj:hasLeadOrganization org:UniversiteMontpellier ;
+    proj:hasPartner org:ICGM,
+        org:IMAP,
+        org:ICB,
+        org:DTU ;
+    proj:gathersCompetence ckey:MOF,
+        ckey:WaterAdsorptionMOF,
+        ckey:AutonomousHumidityControl,
+        ckey:DatabaseInfrastructureDesign,
+        ckey:MolecularSimulations,
+        ckey:MachineLearning,
+        ckey:AIBasedModelling,
+        ckey:HighThroughputSynthesis,
+        ckey:MaterialsSynthesis,
+        ckey:EnergyTransition,
+        ckey:StructuralMaterials,
+        ckey:MolecularMaterials,
+        ckey:NumericalSimulation .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

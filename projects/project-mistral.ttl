@@ -1,0 +1,59 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-mistral.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-mistral.ttl> a owl:Ontology ;
+    rdfs:comment "Instances MISTRAL project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_mistral rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the MISTRAL project" ;
+    skos:prefLabel "MISTRAL" ;
+    proj:fullName "Molecular chemistry for the nexT geneRAtion of ferroeLectrics" ;
+    proj:description """La croissance exponentielle de la consommation de données, exacerbée par la pandémie de COVID-19, pose un défi sociétal majeur dans le domaine du stockage des données. Les matériaux ferroélectriques (FE) sont apparus comme des alternatives prometteuses, offrant des opérations rapides et une faible consommation d'énergie. Actuellement, les matériaux les plus étudiés sont les oxydes métalliques intégrant fréquemment des métaux critiques. En revanche, les FE moléculaires se distinguent par leur diversité structurelle, leur synthèse dans des conditions douces et leur potentiel de recyclage. Ils restent cependant relativement peu explorés en Europe et en France. Ce projet met en avant une approche de chimie moléculaire, basée sur l'utilisation de blocs de construction moléculaires chiraux, qui a déjà démontré des performances compétitives dans le cas des FE moléculaires à base de lanthanides. Cependant, l’obtention de monocristaux, qui nécessite un criblage des paramètres de synthèse par une approche empirique, et la caractérisation des propriétés FE sont des étapes critiques dans la découverte de nouveaux systèmes aux propriétés optimisées. De plus, la rationalisation et la prédiction à haut débit des propriétés FE de ces matériaux restent largement inexplorées. Ce projet exploratoire vise à utiliser, pour la première fois dans les FE moléculaires, une approche microfluidique continue à haut débit, permettant un criblage efficace des conditions de cristallisation optimales pour accélérer la découverte de nouveaux matériaux FE moléculaires. Nous nous concentrerons sur les matériaux moléculaires chiraux purement organiques ou non critiques incorporant des métaux (Zn, Fe, Al, Mg, Ca). La grande aptitude à la transformation de ces matériaux moléculaires sera exploitée pour les façonner en films minces. De plus, ce projet étudiera le couplage magnétoélectrique (ME) dans des systèmes spécifiques, explorant le potentiel du stockage de données à plusieurs niveaux et des applications en spintronique. L'un des aspects distinctifs de ce projet est le développement de techniques de caractérisation FE spécifiques adaptées aux matériaux FE moléculaires. Ces techniques engloberont des mesures FE macroscopiques et nanoscopiques complémentaires. Cette approche expérimentale sera complétée par des calculs théoriques pour rationaliser les propriétés des matériaux obtenus et guider la synthèse de nouveaux systèmes en modulant certains paramètres (substituants, centres métalliques, etc.). A terme, les concepts développés dans ce projet pourront être étendus à de nombreux autres matériaux à base moléculaires magnétiques et/ou optiques.
+""" ;
+    proj:startDate "2024-10-01"^^xsd:date ;
+    proj:endDate "2028-09-30"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/mistral/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:JEROME_LONG ;
+    proj:hasLeadOrganization org:UniversiteMontpellier ;
+    proj:hasPartner org:ICGM,
+        org:ICMCB,
+        org:GREMAN,
+        org:UCL ;
+    proj:gathersCompetence ckey:MolecularChemistry,
+        ckey:CoordinationChemistry,
+        ckey:Ferroelectrics,
+        ckey:Microfluidics,
+        ckey:DataStorage,
+        ckey:StructuralMaterials,
+        ckey:MaterialsShaping,
+        ckey:PiezoforceMicroscopy,
+        ckey:AbInitioDFT,
+        ckey:MolecularMaterials,
+        ckey:MaterialsSynthesis,
+        ckey:Magnets,
+        ckey:MetallicAlloys,
+        ckey:CrystalGrowth .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

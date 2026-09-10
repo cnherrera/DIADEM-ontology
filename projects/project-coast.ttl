@@ -1,0 +1,55 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-coast.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-coast.ttl> a owl:Ontology ;
+    rdfs:comment "Instances COAST project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_coast rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the COAST project" ;
+    skos:prefLabel "COAST" ;
+    proj:fullName "Catalysts for a sustainable future" ;
+    proj:description """Les enjeux liés aux problématiques environnementales et au changement climatique appellent à une accélération des innovations en faisant travailler ensemble, en synergie, les acteurs de plusieurs disciplines. Cela va de pair avec une évolution drastique des connaissances actuelles afin d’être plus efficace dans la recherche de solutions. Dans le domaine de l’énergie, les systèmes catalytiques sont un vecteur essentiel de transformation des procédés non renouvelables en processus durables. Ils sont indispensables pour la substitution des énergies fossiles, avec des coûts de production et un impact environnemental acceptables. Dans ce projet, nous proposons le développement d'intermétalliques des familles TM-sp (où TM est un élément de transition et sp un métal pauvre), éventuellement supportés sur oxydes, comme catalyseurs actifs et sélectifs, limitant le recours aux éléments critiques, pour un avenir durable. La réduction de CO2 en méthanol sera étudiée, pour son impact dans le domaine de l'énergie. Le projet combinera des réalisations numériques, expérimentales et méthodologiques : - développements « Machine learning » (ML) et numériques – Les approches ML visant la frugalité sont capables de réaliser des prédictions et des analyses suffisamment précises pour être exploitables avec un minimum de données. Le développement d'approches frugales est nécessaire pour réduire l'impact environnemental de l'intelligence artificielle. Cet objectif peut être atteint par le développement de modèles dédiés à des tâches précises plutôt que de grands modèles génériques nécessitant des bases de données gigantesques. D’une part, nous souhaitons accélérer les analyses de sciences de surfaces, en intégrant les données expérimentales (microscopie à effet tunnel, photoémission, spectroscopies, diffraction de surface) pour contraindre l’espace des paramètres numériques des modèles structuraux nécessaires aux interprétations (simulations d’images de microscopie à effet tunnel, calcul de structures électroniques). D’autre part, nous souhaitons poursuivre le développement de méthodes ML pour la prédiction de grandeurs (énergies d’adsorption, de barrières, etc) avec un minimum de données ab initio. Sur le plan des simulations numériques, nous utiliserons des méthodes d’optimisation globale, des approches basées sur la théorie de la fonctionnelle de la densité, ainsi que sur des approches basées sur des potentiels « machine learning » que nous raffinerons pour nos systèmes d’intérêt. Enfin, l’exploration de l’espace chimique permettra de sélectionner une ou plusieurs phases pour les tests catalytiques en conditions réelles, afin de concevoir des catalyseurs efficaces.
+""" ;
+    proj:startDate "2026-02-01"^^xsd:date ;
+    proj:endDate "2030-01-31"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/coast/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:EMILIE_GAUDRY ;
+    proj:hasLeadOrganization org:CNRS ;
+    proj:hasPartner org:IJL,
+        org:IRCELYON,
+        org:INSP,
+        org:SOLEIL,
+        org:LORIA ;
+    proj:gathersCompetence ckey:IntermetallicCompounds,
+        ckey:CO2Valorization,
+        ckey:HighThroughputCatalysis,
+        ckey:SurfaceScience,
+        ckey:Catalysis,
+        ckey:Oxides,
+        ckey:MachineLearning,
+        ckey:AtomicSimulation,
+        ckey:StructuralMaterials .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

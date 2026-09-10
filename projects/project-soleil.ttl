@@ -1,0 +1,59 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-soleil.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-soleil.ttl> a owl:Ontology ;
+    rdfs:comment "Instances SOLEIL project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_soleil rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the SOLEIL project" ;
+    skos:prefLabel "SOLEIL" ;
+    proj:fullName "Platform for High Throughput Accelerated Materials Characterization at SOLEIL" ;
+    proj:description """SOLEIL offre une grande variété de techniques expérimentales et d’environnements échantillons pour la caractérisation multimodale des matériaux. Dans le projet PEPR DIADEM, cet arsenal expérimental sera porté à un nouveau degré d’efficacité scientifique pour une caractérisation à haut débit. Les différentes lignes de lumière où cette stratégie semble la plus adaptée sont : ANATOMIX, ANTARES, CASSIOPEE, CRISTAL, DIFFABS, GALAXIES, HERMES, MARS, NANOSCOPIUM, PUMA, PX2, PSICHE, ROCK, SEXTANTS, SWING and TEMPO.  Vers la caractérisation à haut débit Différentes actions sont prévues à SOLEIL pour répondre aux besoins du projet DIADEM vers une caractérisation à haut débit : i) Un nouveau flux de travail (workflow) combinera différentes expériences sur une même classe d’échantillons aidées par une analyse de données en ligne et une stratégie de modélisation guidée par l’IA. Le flux de travail générera un identificateur digital unique (DOI) qui sera sauvegardé avec les données. ii) Des changeurs d’échantillons rapides utilisant notamment des bras robotiques seront progressivement déployés sur les stations expérimentales avec la possibilité dans un plus long terme d’automatiser le transfert d’échantillons sous ultra vide. iii) Une nouvelle génération de détecteur pixelisé 2D sera développée dans le projet avec une grande surface sensible, un traitement de données intégré rapide, et une synchronisation optimisée avec les équipements des lignes de lumière. iv) La réduction automatique des données sera implémentée directement à la sortie des détecteurs utilisant des logiciels embarqués sur des cartes GPU et assistés par l’IA. Par ailleurs, des outils puissants de réduction et analyse des données seront mis à la disposition des utilisateurs ainsi des codes avancés de simulation numérique. v) Le mode rapide d’acquisition continue des données (FLYSCAN) sera généralisé sur les différentes stations expérimentales. vi) De nouveau modes d’accès aux lignes de lumières sont prévus comme les BAG (Block allocation Group) afin de fournir du temps de faisceau fréquent et garanti à un consortium d’utilisateurs, ou des hubs d’accès spécifiques.
+""" ;
+    proj:startDate "2023-04-01"^^xsd:date ;
+    proj:endDate "2031-03-31"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/soleil/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:JULIEN_SOURICE ;
+    proj:hasLeadOrganization org:CEA ;
+    proj:hasPartner org:CEA-IRAMIS,
+        org:SOLEIL ;
+    proj:gathersCompetence ckey:SynchrotronBeamlineOperation,
+        ckey:XRayDiffraction,
+        ckey:Spectroscopy,
+        ckey:Imaging,
+        ckey:Microscopy,
+        ckey:XRayReflectivity,
+        ckey:RobotProgrammingAndControl,
+        ckey:AIApproaches .
+
+plat:DiffractionAtSynchrotronSOLEIL proj:hasPlatformAssociatedProject :Project_soleil .
+
+plat:ImagingAtSynchrotronSOLEIL proj:hasPlatformAssociatedProject :Project_soleil .
+
+plat:ReflectivityAtSynchrotronSOLEIL proj:hasPlatformAssociatedProject :Project_soleil .
+
+plat:SpectroscopyAtSynchrotronSOLEIL proj:hasPlatformAssociatedProject :Project_soleil .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

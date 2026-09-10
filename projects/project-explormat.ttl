@@ -1,0 +1,62 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-explormat.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-explormat.ttl> a owl:Ontology ;
+    rdfs:comment "Instances ExplorMat project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_explormat rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the ExplorMat project" ;
+    skos:prefLabel "ExplorMat" ;
+    proj:fullName "Accelerated Exploration of a Chemical System for the Discovery of New Materials for Photovoltaics and Solid-state Lighting" ;
+    proj:description """Les méthodes traditionnelles de découverte de nouveaux matériaux sont souvent longues et répétitives. Les récents progrès dans l'application d'algorithmes d'optimisation prêts à l'emploi au sein de cycles fermés synthèse-caractérisation- prédiction ont accéléré le processus de découverte. Cependant, les systèmes chimiques étudiés sont prédéfinis par les scientifiques et doivent se limiter à une faible dimension. Ainsi, les méthodes de type machine learning, couramment utilisées aujourd'hui dans les boucles fermées, conviennent à l'optimisation mais pas à la découverte de nouveaux matériaux exceptionnels, car ces algorithmes d'optimisation ne « pensent pas en dehors du cadre » créé par les scientifiques et, pour cette raison, ne peuvent pas faire de découvertes révolutionnaires. Dans le cadre du projet ExplorMat, une nouvelle méthodologie génératrice de nouvelles connaissances scientifiques sera développée pour explorer de manière exhaustive l'espace chimique et découvrir de nouveaux matériaux exceptionnels pour les technologies photovoltaïques et les LEDs. La stratégie principale consiste à concevoir un algorithme d'exploration qui se concentrera sur des régions inexplorées de l'espace chimique. Pour démontrer le potentiel de cet algorithme d'exploration, une boucle fermée entre (1) synthèse, (2) caractérisation et (3) prise de décision sera développée. Une prise de décision à haut débit intégrant ce nouvel algorithme d'exploration, basé sur des systèmes multi-agents et le data mining, générera de nouvelles hypothèses, décidera des systèmes chimiques à explorer et proposera efficacement un ensemble de nouvelles synthèses, qui seront exécutées en haut débit sur une plateforme robotique installée à l’IMN. Les résultats des nouvelles synthèses permettront d'améliorer les performances de l'algorithme d'exploration. Les itérations automatisées entre la prise de décision et l'expérimentation fonctionneront indépendamment de toute intervention humaine. La synergie entre la collecte de données expérimentales via une plateforme robotique et leur utilisation par une série de nouvelles techniques basées sur l'exploration de l'espace chimique sera initiée par une équipe interdisciplinaire de chimistes, spectroscopistes, spécialistes des matériaux computationnels, experts en machine learning et mathématiciens. Les propriétés optiques de la famille des halogénures de métaux hybrides seront étudiées. L'objectif sera de développer et de démontrer l'efficacité de cette nouvelle méthodologie en prouvant sa capacité à surpasser les les approches traditionnelles et celles basées sur les algorithmes d’optimisation dans la découverte de nouveaux matériaux photoluminescents blancs à base d’halogénures de métaux hybrides pour l'éclairage LED et les absorbeurs solaires pour le photovoltaïque
+""" ;
+    proj:startDate "2026-02-01"^^xsd:date ;
+    proj:endDate "2030-01-31"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/explormat/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:ROMAIN_GAUTIER ;
+    proj:hasLeadOrganization org:CNRS ;
+    proj:hasPartner org:IMN,
+        org:CMC,
+        org:IRCELYON,
+        org:ISCR,
+        org:Chalmers ;
+    proj:gathersCompetence ckey:RobotProgrammingAndControl,
+        ckey:AutomatedExploration,
+        ckey:HalidePerovskites,
+        ckey:Descriptors,
+        ckey:ExplorationModel,
+        ckey:WhitePhotoluminescence,
+        ckey:SolidStateLighting,
+        ckey:Photovoltaics,
+        ckey:AbInitioDFT,
+        ckey:Chemistry,
+        ckey:ChemicalSpaceExploration,
+        ckey:MaterialsSynthesis,
+        ckey:MetallicAlloys,
+        ckey:Optimization,
+        ckey:MachineLearning,
+        ckey:Algorithms .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

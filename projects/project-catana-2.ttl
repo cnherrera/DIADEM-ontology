@@ -1,0 +1,60 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-catana-2.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-catana-2.ttl> a owl:Ontology ;
+    rdfs:comment "Instances CATANA-2 project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_catana-2 rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the CATANA-2 project" ;
+    skos:prefLabel "CATANA-2" ;
+    proj:fullName "Cooperative modeling – experimental learning for the identification of low temperature catalysts for the synthesis and decomposition of NH3" ;
+    proj:description """L’hydrogène (H2) est aujourd’hui présenté comme un vecteur énergétique réaliste, mais il souffre du manque de solutions de stockage à long terme. L'ammoniac (NH3) présente des avantages intéressants en termes de densité énergétique et est considéré comme une alternative, mais sa production actuelle par le procédé thermocatalytique Haber-Bosch (H-B), énergivore, centralisé et contribuant de manière significative aux émissions de CO2, handicape son développement. Le déploiement d'une voie de synthèse décarbonée, compatible avec les énergies renouvelables (EnR), nécessite l'utilisation d'H2 issu de l'électrolyse de l'eau, et ne peut s'envisager que sur des unités décentralisées répondant à la problématique de l'intermittence des EnR. Ce changement de paradigme induit de nouvelles contraintes sur les conditions opératoires Température/Pression (T/P) de la synthèse, et par conséquent sur le développement des catalyseurs hétérogènes associés. Toujours dans l’optique de l’utilisation de NH3 comme média de stockage de H2, la réaction de craquage doit également être optimisée d’un point de vue catalytique, le procédé étant aujourd’hui inexistant, or la littérature montre clairement que les catalyseurs actifs pour la réaction de craquage ne sont pas nécessairement les meilleurs pour la synthèse. La constatation inverse est également valable.
+""" ;
+    proj:startDate "2026-01-05"^^xsd:date ;
+    proj:endDate "2030-01-04"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/catana-2/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:SEBASTIEN_ROYER ;
+    proj:hasLeadOrganization org:UniversiteLittoralCoteDOpale ;
+    proj:hasPartner org:UCEIV,
+        org:UCCS,
+        org:ICGM,
+        org:CEA-LITEN,
+        org:SOLEIL ;
+    proj:gathersCompetence ckey:HeterogeneousCatalysis,
+        ckey:PowerToX,
+        ckey:AmmoniaSynthesis,
+        ckey:Hydrogen,
+        ckey:MachineLearning,
+        ckey:AIApproaches,
+        ckey:AbInitioDFT,
+        ckey:OperandoCharacterization,
+        ckey:PredictiveModeling,
+        ckey:HighThroughputScreenDesign,
+        ckey:MaterialsSynthesis,
+        ckey:Catalysis,
+        ckey:EnergyTransition,
+        ckey:Chemistry .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

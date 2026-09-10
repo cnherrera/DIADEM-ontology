@@ -1,0 +1,58 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-syneart.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-syneart.ttl> a owl:Ontology ;
+    rdfs:comment "Instances SYNEART project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_syneart rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the SYNEART project" ;
+    skos:prefLabel "SYNEART" ;
+    proj:fullName "Artificial synapses and neurons based on ferroelectric relaxors: towards lower-power AI" ;
+    proj:description """Ce projet cherche à révéler le potentiel des matériaux ferroélectriques relaxeurs dont les caractéristiques sont très prometteuses pour la conception de dispositifs nanoélectroniques pour l’informatique neuromorphique. Contrairement aux matériaux ferroélectriques classiques, le domaine des couches minces à base de relaxeurs n'en est qu'à ses débuts. À travers une approche de synthèse combinatoire, des outils de caractérisations structurales, chimiques et électriques haut-débit couplés à des analyses et prédictions basées sur l’intelligence artificielle, nous souhaitons identifier les compositions/épaisseurs/électrodes les plus pertinentes et les utiliser comme briques élémentaires pour concevoir des neurones et des synapses artificiels. Au-delà des matériaux relaxeurs neuromorphiques d’intérêt dans le présent projet, les protocoles de synthèse, caractérisation et prédictions haut débit, et les outils de traitement et d’analyse des données par intelligence artificielle, seront développés ou consolidés pour être mis à disposition de la communauté afin de faciliter et d’accélérer la découverte de nouveaux matériaux dans d’autres domaines et leur mise sur le marché.
+""" ;
+    proj:startDate "2026-03-01"^^xsd:date ;
+    proj:endDate "2029-08-31"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/syneart/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:BRAHIM_DKHIL ;
+    proj:hasLeadOrganization org:CentraleSupelec ;
+    proj:hasPartner org:SPMS,
+        org:GREMAN,
+        org:LPMC,
+        org:IRCER ;
+    proj:gathersCompetence ckey:RelaxorFerroelectric,
+        ckey:ThinFilm,
+        ckey:Neuromorphic,
+        ckey:HighThroughputSynthesis,
+        ckey:AIApproaches,
+        ckey:Heterostructures,
+        ckey:CompositionDesign,
+        ckey:RamanSpectroscopy,
+        ckey:NeuralNetworks,
+        ckey:Spectroscopy,
+        ckey:PhaseTransformations,
+        ckey:MachineLearning,
+        ckey:XRayDiffraction .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

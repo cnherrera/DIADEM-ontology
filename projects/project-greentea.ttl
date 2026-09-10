@@ -1,0 +1,65 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-greentea.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-greentea.ttl> a owl:Ontology ;
+    rdfs:comment "Instances GREENTEA project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_greentea rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the GREENTEA project" ;
+    skos:prefLabel "GREENTEA" ;
+    proj:fullName "high-throughput GeneRation via machinE lEarning of New ThErmoelectric sulfide alloys composed of Abundant elements" ;
+    proj:description """Dans le cadre du projet GREENTEA, nous nous concentrerons sur la conversion de l'énergie thermique en énergie électrique ou inversement en appliquant une démarche d’éco-conception. En effet, i) la recherche de nouvelles sources d'énergie verte est l'un des défis les plus fondamentaux pour soutenir la croissance économique et réduire les émissions de gaz à effet de serre. ii) la recherche de nouvelles solutions de refroidissement peut améliorer la performance et la durabilité des systèmes électroniques ou industriels, tout en offrant des alternatives aux réfrigérants chimiques nocifs pour la couche d'ozone et le climat. L'utilisation de technologies plus efficaces ou écologiques peuvent ainsi réduire la consommation d'énergie. iii) les générateurs thermoélectriques et les dispositifs de refroidissement thermoélectriques ont l'avantage d'être de petite taille, fiables, silencieux, sans parties mobiles, capables de réguler la température en modulant le flux thermique, sans effet d'échelle (de la micro- à la macro- génération/refroidissement) et avoir une longue durée de vie. Ils peuvent fonctionner dans n'importe quelle position de travail et sont donc très adaptés aux systèmes embarqués. Pour continuer le développement de ce type de technologie, il est fondamental de réduire le coût des dispositifs et de rechercher des matériaux performants et composés d’éléments plus respectueux de l'environnement. Pour participer à cet effort, le projet GREENTEA s’inscrit dans une démarche d’écoconception. Il s’appuie sur une approche pluridisciplinaire qui a pour objectif d’identifier de nouveaux composés semi-conducteurs stables (ou légèrement métastables) au sein de systèmes plurinaires, tout en intégrant des principes d’écoconception pour minimiser l'impact environnemental dès la phase de conception. Pour y parvenir, il s’appuie sur une approche combinée s'appuyant sur des calculs DFT à haut débit à des techniques d'apprentissage automatique, permettant l'exploration de plusieurs millions de configurations. Les matériaux ciblés seront synthétisés par des procédés en solution et/ou par voie solide, en s’appuyant sur les plateformes de synthèse et de caractérisation du PEPR DIADEM, tout en optimisant les procédés pour réduire l'empreinte écologique. L’utilisation de l’IA, à chaque étape du projet permettra d’identifier et de sélectionner les phases les plus prometteuses pour les applications visées. Ce projet a également pour objectif de valider une approche méthodologique et conceptuelle pouvant être appliquée à d’autres familles de matériaux et/ou d’autres applications afin d’accélérer leur découverte.
+""" ;
+    proj:startDate "2026-03-01"^^xsd:date ;
+    proj:endDate "2030-02-28"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/greentea/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:MICKAEL_BEAUDHUIN ;
+    proj:hasLeadOrganization org:UniversiteMontpellier ;
+    proj:hasPartner org:ICGM,
+        org:ISCR,
+        org:ICMPE,
+        org:CRISMAT,
+        org:IMN,
+        org:LINK,
+        org:NEEL,
+        org:CEA-IRAMIS-NIMBE,
+        org:MMK ;
+    proj:gathersCompetence ckey:Thermoelectricity,
+        ckey:AIApproaches,
+        ckey:MachineLearning,
+        ckey:ReinforcementLearning,
+        ckey:HighThroughputSynthesis,
+        ckey:HighThroughputCharacterization,
+        ckey:SoftChemistry,
+        ckey:GreenDeal,
+        ckey:Sulfides,
+        ckey:EcoDesign,
+        ckey:MaterialsSynthesis,
+        ckey:ThermalProperties,
+        ckey:EnergyTransition,
+        ckey:StructuralMaterials,
+        ckey:AbInitioDFT .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

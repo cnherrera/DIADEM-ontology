@@ -1,0 +1,59 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-moflearning.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-moflearning.ttl> a owl:Ontology ;
+    rdfs:comment "Instances MOFlearning project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_moflearning rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the MOFlearning project" ;
+    skos:prefLabel "MOFlearning" ;
+    proj:fullName "Accelerating the design of MOFs through a Machine Learning assisted High-throughput methodology" ;
+    proj:description """Les solides hybrides poreux cristallins de type Metal Organic Frameworks (MOFs) sont d’intérêt pour une large gamme d’applications (séparation, catalyse, détection, biomédecine…). Cependant leur synthèse n’est le plus souvent pas contrôlée ce qui rend difficile leur élaboration ‘à façon’ selon la propriété visée. L’état de l’art s’appuie sur des approches ‘big data’ avec peu de garanties que les matériaux sélectionnés puissant être synthétisés. Cela a conduit à certains succès dans la prédiction à grande échelle de corrélations structure-activité mais pour un nombre très limité de propriétés (par ex en adsorption). De plus, la modélisation haut débit d’autres propriétés physiques ou chimiques (au niveau Classique ou quantique) n’est pas encore une méthodologie établie et nécessiterait d’autres développements pour accompagner l’expansion des bases de données comme outils d’apprentissages pour des approches de type intelligence artificielle. Ce projet de démonstration a pour but d’établir pour la 1ère fois, dans le domaine des MOFs, une approche méthodologique guidée par des méthodes de synthèse et caractérisation haut-débits. Nous nous appuierons sur une série de MOFs existants avec une diversité structurale et chimique adéquate et l’évaluation systématique de leurs propriétés d’adsorption/séparation de molécules de gaz modèles (CO2, CH4, N2, gaz nobles…), essentiellement des polycarboxylates ou phosphonates de métaux à haut degré d’oxydation, fonctionnalisés par des groupements polaires ou apolaires, pouvant être réalisés facilement et activés à l’échelle de quelques grammes. Cet effort expérimental sera complémenté par la prédiction haut-débit de leurs propriétés chimiques et physiques pour créer des bases de données enrichies, avec des indicateurs comme moyens d’apprentissages pour des algorithmes statistiques pour identifier les descripteurs clés, couplés avec des algorithmes génératifs pour explorer l’espace des phases nouvelles et guider de futures découvertes. Dans un second temps, s’appuyant sur une nouvelle plateforme de synthèse et de caractérisation haut-débit et les nouveaux modèles prédictifs, pour 1 ou 2 applications d’intérêt, nous identifierons et synthétiserons de nouveaux MOFs performants.
+""" ;
+    proj:startDate "2022-11-01"^^xsd:date ;
+    proj:endDate "2026-10-31"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/moflearning/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:CHRISTIAN_SERRE ;
+    proj:hasLeadOrganization org:CNRS ;
+    proj:hasPartner org:IMAP,
+        org:CEA-ISEC,
+        org:IRCP ;
+    proj:gathersCompetence ckey:MOF,
+        ckey:MaterialsSynthesis,
+        ckey:Chemistry,
+        ckey:MachineLearning,
+        ckey:StructuralMaterials,
+        ckey:NumericalSimulation,
+        ckey:MolecularMaterials .
+
+plat:GasAdsorptionInMOFs proj:hasPlatformAssociatedProject :Project_moflearning .
+
+plat:HighThroughputMOFsSynthesis proj:hasPlatformAssociatedProject :Project_moflearning .
+
+plat:HighThroughputPowderXRayDiffractometer proj:hasPlatformAssociatedProject :Project_moflearning .
+
+plat:HighThroughputThermogravimetricAnalysis proj:hasPlatformAssociatedProject :Project_moflearning .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

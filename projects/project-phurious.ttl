@@ -1,0 +1,60 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-phurious.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-phurious.ttl> a owl:Ontology ;
+    rdfs:comment "Instances PHURIOUS project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_phurious rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the PHURIOUS project" ;
+    skos:prefLabel "PHURIOUS" ;
+    proj:fullName "Highly reactive PolyHydroxyURethanes from bIobased resOUrceS" ;
+    proj:description """Porté par le CEA-LITEN, le projet PHURIOUS vise le développement de nouveaux polyhydroxyuréthanes (PHU) biosourcés et recyclables, à forte réactivité, pour substituer les polyuréthanes (PU), majoritairement utilisés dans les secteurs de l’ameublement, du transport et du BTP. Les PU sont des matériaux thermodurcissables fortement impactant sur le plan environnemental, et sont notamment synthétisés à partir d’isocyanates, substances très dangereuses (toxiques, sensibilisantes, voire CMR1 pour certaines) et visées par des restrictions REACH. Dans ce contexte, les PHU présentent plusieurs avantages : (i) plus facilement biosourçables que les PU conventionnels, (ii) leur synthèse ne fait pas intervenir d’isocyanate, mais (iii) permet au contraire la séquestration de CO2. Néanmoins, les précurseurs utilisés dans la synthèse des PHU (carbonates cycliques et amines) présentent des réactivités beaucoup plus faibles que les isocyanates, induisant des temps de réticulation actuellement incompatibles avec les températures et les cadences de production attendues pour ce type de matériau. Plusieurs axes de recherche ont été proposés pour optimiser les cinétiques de réticulation des PHU et concernent l’identification (i) de nouveaux précurseurs carbonates cycliques et amines chimiquement substitués en positions α ou β de la fonction réactive, et (ii) de nouveaux catalyseurs performants permettant d’activer les deux types de précurseurs utilisés dans la synthèse. Face à la multitude de combinaisons précurseurs/catalyseurs possibles, le projet PHURIOUS ambitionne de tirer profit de l’Intelligence Artificielle pour identifier rapidement les conditions les plus favorables permettant de développer de nouveaux matériaux PHU biosourcés hautement réactifs. PHURIOUS prévoit ainsi d’utiliser une approche innovante, reposant sur le couplage de méthodes expérimentales haut-débit en chimie des polymères, avec des outils numériques de prédiction (calculs ab initio, IA symbolique) permettant d’accélérer le développement de PHU à forte réactivité, tout en limitant le nombre de systèmes à tester. Sur le plan scientifique, le projet PHURIOUS permettra d’étudier de façon approfondie les phénomènes chimiques et physico-chimiques régissant la réactivité des PHU, mais également d’intégrer des structures chimiques dans les modèles de machine learning développés dans le cadre du PEPR DIADEM, et viendra ainsi étendre la portée de l’utilisation de l’Intelligence Artificielle en sciences des matériaux. PHURIOUS prévoit de mettre à profit les compétences complémentaires de 5 laboratoires, présentant une expertise reconnue en chimie des polymères (CEA-LITEN, ICGM) et en synthèse haut-débit de polymères (LCPO), en modélisation de la réactivité de molécules organiques (ICR), et en intelligence artificielle (CEA- LIST), pour identifier rapidement les systèmes PHU les plus réactifs. Pour mener à bien le projet, le consortium prévoit le recrutement de 2 doctorants et de 2 post- doctorants.
+""" ;
+    proj:startDate "2024-10-28"^^xsd:date ;
+    proj:endDate "2028-10-27"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/phurious/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:SEBASTIEN_ROLERE ;
+    proj:hasLeadOrganization org:CEA ;
+    proj:hasPartner org:CEA-LITEN,
+        org:CEA-LIST,
+        org:ICGM,
+        org:LCPO,
+        org:ICR ;
+    proj:gathersCompetence ckey:PHU,
+        ckey:NIPU,
+        ckey:BiobasedMaterials,
+        ckey:Recycling,
+        ckey:SurfaceReactivity,
+        ckey:AbInitioDFT,
+        ckey:HighThroughputSynthesis,
+        ckey:HighThroughputCharacterization,
+        ckey:AIApproaches,
+        ckey:MaterialsSynthesis,
+        ckey:Polymers,
+        ckey:Chemistry,
+        ckey:StructuralMaterials,
+        ckey:NMRSpectroscopy .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

@@ -1,0 +1,62 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-m2p2-hea.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-m2p2-hea.ttl> a owl:Ontology ;
+    rdfs:comment "Instances M2P2-HEA project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_m2p2-hea rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the M2P2-HEA project" ;
+    skos:prefLabel "M2P2-HEA" ;
+    proj:fullName "Multi-scale methodology for predicting the properties of high entropy alloys" ;
+    proj:description """Le projet concerne le développement d'une méthodologie multi-échelle visant à guider la recherche des nouveaux matériaux, avec des réseaux neuronaux, en fonction de propriétés catalytiques données. Les matériaux choisis pour le développement de la méthodologie sont des alliages multicomposants ou à haute entropie (HEAs, High Entropy Alloys). La mise en oeuvre de la méthodologie multi-échelle contribuera non seulement à optimiser les catalyseurs déjà existants, mais permettra également d'accélérer la recherche de nouveaux matériaux aux propriétés spécifiques, ciblées vers une application prédéfinie. Un des aspects innovants du projet réside dans le fait qu'à notre connaissance, il n'y a pas encore de méthodologie prédictive, utilisant des réseaux de neurones construits à partir des données expérimentales, permettant de définir directement la structure et la composition d'un matériau à partir d'une propriété visée. Pour atteindre l’objectif du projet, nous prendrons appui sur une approche reposant sur le couplage de méthodes d'intelligence artificielle (IA) basées sur des réseaux neuronaux avec des outils de simulations et de modélisation multi-échelles permettant de résoudre la structure et les propriétés thermodynamiques du système d’étude et de relier l’ensemble aux propriétés catalytiques d’intérêt.Le projet est structuré en deux étapes. Dans la première, nous développerons une procédure d’ajustement permettant d’obtenir la structure atomique 3D des matériaux à partir d’images de microscopie électronique en transmission (TEM) et des spectres d’absorption X (XAS). L'algorithme d'ajustement sera développé en utilisant des images TEM et de spectres d’absorption X de référence simulés au moyen de méthodes de la physique quantique à partir de matériaux in silico générés en utilisant des méthodes classiques (champs de force, Monte Carlo, Dynamique Moléculaire). Puis la procédure sera validée en confrontant les données calculées sur des matériaux dont on maîtrise l'élaboration, à des données expérimentales de microscopie et de spectroscopie afin d'obtenir un modèle atomistique des matériaux étudiés. Dans une seconde étape, la procédure d'ajustement du modèle atomistique sera utilisée pour déterminer la structure atomistique d’une collection d’échantillons réels à partir de leur caractérisation expérimentale XAS et TEM. Les propriétés catalytiques mesurées expérimentalement, associées à la structure atomistique des échantillons, seront utilisées pour instruire un réseau de neurones destiné in fine à la recherche de compositions et structures de matériaux a priori idéales à partir d’une application visée. Les HEAs sont particulièrement
+""" ;
+    proj:startDate "2024-10-01"^^xsd:date ;
+    proj:endDate "2028-09-30"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/m2p2-hea/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:OVIDIU_ERSEN ;
+    proj:hasLeadOrganization org:CNRS ;
+    proj:hasPartner org:IPCMS,
+        org:IFPEN,
+        org:LEM,
+        org:LCMCP,
+        org:SOLEIL ;
+    proj:gathersCompetence ckey:MachineLearning,
+        ckey:HighEntropyAlloys,
+        ckey:HeterogeneousCatalysis,
+        ckey:Nanomaterials,
+        ckey:AtomicSimulation,
+        ckey:OperandoCharacterization,
+        ckey:XRayAbsorptionSpectroscopy,
+        ckey:ElectronMicroscopy,
+        ckey:AlcoholOxidation,
+        ckey:SurfaceReactivity,
+        ckey:StructuralMaterials,
+        ckey:MaterialsSynthesis,
+        ckey:Catalysis,
+        ckey:Modeling,
+        ckey:Electrochemistry,
+        ckey:NeuralNetworks .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

@@ -1,0 +1,66 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-hiway-2-mat.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-hiway-2-mat.ttl> a owl:Ontology ;
+    rdfs:comment "Instances HIWAY-2-MAT project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_hiway-2-mat rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the HIWAY-2-MAT project" ;
+    skos:prefLabel "HIWAY-2-MAT" ;
+    proj:fullName "High-throughput combinatorial and autonomous pathways in Solid State Chemistry" ;
+    proj:description """Ces dernières années, des approches originales ont été développées pour accélérer la découverte de nouveaux matériaux : La voie combinatoire et la voie de recherche autonome. La voie combinatoire permet la production de librairie de matériaux contenant formellement plusieurs centaines voire milliers de compositions. La recherche autonome suppose l’emploi de robots de découverte de matériaux comprenant des modules de synthèse, de caractérisation des propriétés structurelles et fonctionnelles automatisés, et faisant appel à des modèles d'IA pour le choix des zones à explorer. Une telle combinaison permet d'explorer des espaces multidimensionnels complexes pour optimiser la composition des matériaux sans aucune intervention humaine. Dans ce domaine de recherche, l'Europe est loin derrière les États-Unis et la Chine. Notre ambition dans le cadre de ce projet ciblé est à la fois d'utiliser des approches combinatoires à haut débit et de développer des configurations autonomes pour explorer les espaces de composition des matériaux pour les applications à faible consommation d'énergie. Concrètement, nous appliquerons les approches proposées pour accélérer la découverte de matériaux d'oxyde pour les fenêtres intelligentes, les capteurs intelligents, l'éclairage à faible consommation et les systèmes électroniques. La voie combinatoire parallélisée sera mise en œuvre et bouclée avec des modèles d'IA. Des interactions avec d'autres projets ciblés permettront d'étendre cette stratégie autour des oxydes à d'autres catégories de matériaux. Enfin, en plus d'automatiser la découverte de nouveaux matériaux, cette stratégie devrait aider les chercheurs à acquérir une connaissance et une compréhension statistiquement fondées de la relation composition-(micro)structure- propriété.
+""" ;
+    proj:startDate "2022-07-01"^^xsd:date ;
+    proj:endDate "2026-12-31"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/hiway-2-mat/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:GUILHEM_DEZANNEAU ;
+    proj:hasLeadOrganization org:CNRS ;
+    proj:hasPartner org:SPMS,
+        org:ICMCB,
+        org:IMN,
+        org:L2S,
+        org:CEA-LM2T,
+        org:CEA-Tech-Nouvelle-Aquitaine ;
+    proj:gathersCompetence ckey:CombinatorialApproaches,
+        ckey:Oxides,
+        ckey:SelfDrivingLab,
+        ckey:LowPowerConsumption,
+        ckey:EnergyTransition,
+        ckey:MaterialsLibraries,
+        ckey:MaterialsSynthesis,
+        ckey:Chemistry,
+        ckey:CompositionDesign,
+        ckey:Modeling,
+        ckey:StructuralMaterials,
+        ckey:XRayDiffraction,
+        ckey:MaterialsScience .
+
+plat:AutomatedXRDSynthesisAndCharacterizationOfPowderLibraries proj:hasPlatformAssociatedProject :Project_hiway-2-mat .
+
+plat:AutonomousRoboticSynthesisOfPowdersAndThinFilms proj:hasPlatformAssociatedProject :Project_hiway-2-mat .
+
+plat:CombinatorialPVD proj:hasPlatformAssociatedProject :Project_hiway-2-mat .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

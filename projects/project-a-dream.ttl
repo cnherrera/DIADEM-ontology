@@ -1,0 +1,67 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-a-dream.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-a-dream.ttl> a owl:Ontology ;
+    rdfs:comment "Instances A-DREAM project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_a-dream rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the A-DREAM project" ;
+    skos:prefLabel "A-DREAM" ;
+    proj:fullName "Accelerated Development of corrosion REsistAnt Materials" ;
+    proj:description """L'objectif du projet A-DREAM est de développer une approche générique pour accélérer la découverte de matériaux et revêtements résistants à la corrosion dans des environnements sévères. Elle est appliquée dans cette étude au sel fondu LiCl-KCl à 450°C. Une base de données corrosion a d'abord été élaborée à partir de données de la littérature et un modèle de résistance des alliages métalliques à la corrosion par les sels fondus a été construit par une approche novatrice de fouille de données, associant un algorithme de classement par comparaison de paires à un outil de régression par apprentissage machine. Puis grâce à l'élaboration de matériaux massifs et matériaux revêtus par des voies de synthèse combinatoire (PVD, fabrication additive) ou par voies conventionnelles (Cold Spray, four de fusion) ainsi que l'apport d'alliages complexes concentrés et à haute entropie issus du projet ciblé DIAMS, des essais haut débit de corrosion ont été réalisés. Plus de 70 nuances différentes ont été testées, constituées de 19 éléments différents. Deux types d’essais haut débit ont été réalisés : (i) des essais d’immersion en mini- béchers pour les matériaux massifs, (ii) des essais sur des plaquettes avec des pastilles de sels fondus pour les films minces et revêtements. L'intégration de ces données a permis de donner lieu à de nouveaux classements de matériaux via l'algorithme SpringRank qui vont permettre l'établissement de deux autres modèles de corrosion pour relier le score à la composition élémentaire. Au total, trois modèles de corrosion seront utilisés et comparés pour la phase d’optimisation multicritères permettant de proposer des compositions de matériaux optimisées vis-à-vis de la corrosion et vis-à-vis de l’impact environnemental. Des avancées importantes ont également été réalisées pour l'acquisition de données in situ, notamment par spectroscopie Raman. Pour cela une cellule dédiée a été développée permattant l'acquisition de spectres Raman en chlorures fondus à 450°C pour le suivi de la corrosion. Des mesures électrochimiques en goutte de sels sont en cours développement, couplées à la spectroscopie Raman permettant l'acquisition de données à la fois sur le matériau corrodé et au sein du sel.
+""" ;
+    proj:startDate "2022-10-01"^^xsd:date ;
+    proj:endDate "2027-09-30"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/a-dream/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:FANNY_BALBAUD-CELERIER ;
+    proj:hasLeadOrganization org:CEA ;
+    proj:hasPartner org:CEA-S2CM,
+        org:MATEIS,
+        org:IMN,
+        org:ICMCB,
+        org:LRS,
+        org:IJC-Lab ;
+    proj:gathersCompetence ckey:Corrosion,
+        ckey:AdvancedMaterials,
+        ckey:Electrochemistry,
+        ckey:Coatings,
+        ckey:MoltenSalts,
+        ckey:ThermodynamicCalculations,
+        ckey:NumericalDesign,
+        ckey:AlloyDesignAndScreening,
+        ckey:SurfaceScience,
+        ckey:Spectroscopy,
+        ckey:ImpedanceSpectroscopy,
+        ckey:MachineLearning .
+
+plat:AtmPECVDEquipment proj:hasPlatformAssociatedProject :Project_a-dream .
+
+plat:DAMCOAcceleratedDevelopmentOfCorrosionMaterials proj:hasPlatformAssociatedProject :Project_a-dream .
+
+plat:DARMiColSAcceleratedDevelopmentOfCoatingsColdSpray proj:hasPlatformAssociatedProject :Project_a-dream .
+
+plat:HybridPVDReactor proj:hasPlatformAssociatedProject :Project_a-dream .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

@@ -1,0 +1,65 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-collectif.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-collectif.ttl> a owl:Ontology ;
+    rdfs:comment "Instances COLLECTIF project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_collectif rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the COLLECTIF project" ;
+    skos:prefLabel "COLLECTIF" ;
+    proj:fullName "Development of current-collecting materials for electrolysis cells using high-throughput and AI methods Discovery of new catalyst Materials for production of Bio-fuel" ;
+    proj:description """Le projet proposé, COLLECTIF, vise à étudier la couche de collecte de courant dans les cellules d'électrolyse à oxyde solide (SOEC) en utilisant des approches de recherche combinatoires et autonomes à haut débit. Cette étude est cruciale pour améliorer les performances et la durabilité des SOEC, qui sont des composants clés dans les technologies de production d'hydrogène vert et de conversion du CO2. En intégrant des méthodes avancées de découverte de matériaux avec un criblage à haut débit et l'intelligence artificielle, de nouveaux matériaux et structures pour la couche de collecte de courant seront identifiés et optimisés. Cette approche innovante permettra d'accélérer considérablement le développement de SOEC efficaces et durables, contribuant ainsi à des solutions énergétiques durables. Le projet réunit des experts de premier plan et des installations de pointe du CNRS du CEA et de CentraleSupélec, assurant un effort de recherche multidisciplinaire et complet. Les résultats attendus incluent des publications scientifiques de haut niveau, des découvertes de nouveaux matériaux, le développement d’outils scientifiques haut- débit, et des voies potentielles de commercialisation pour des technologies SOEC améliorées. Dans ce contexte, le CEA-Tech aura pour mission d’élaborer des matériaux conducteurs électronique sous forme de couches minces et de réaliser un « criblage » des compositions. Les matériaux obtenus seront ensuite caractérisés par plusieurs méthodes chez les différents partenaires et en particulier au Synchrotron SOLEIL pour des expériences in situ et combinées de diffraction des rayons X et de spectroscopie de fluorescence X. La mise en place de nouveaux outils de collecte automatisée des données et leur analyse systématique sera réalisée au laboratoire SPMS à l’Ecole CentraleSupélec. Les meilleurs matériaux de collectage seront ensuite testés dans ces cellules SOFC et SOEC à l’ICMCB pour des caractérisations électrochimiques en conditions réelles.
+""" ;
+    proj:startDate "2025-10-01"^^xsd:date ;
+    proj:endDate "2028-09-30"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/collectif/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:FABRICE_MAUVY ;
+    proj:hasLeadOrganization org:CNRS ;
+    proj:hasPartner org:ICMCB,
+        org:SPMS,
+        org:CEA-Tech-Nouvelle-Aquitaine,
+        org:SOLEIL ;
+    proj:gathersCompetence ckey:SolidOxideElectrolysis,
+        ckey:CurrentCollectorLayer,
+        ckey:AIApproaches,
+        ckey:CombinatorialApproaches,
+        ckey:SelfDrivingLab,
+        ckey:HighThroughput,
+        ckey:AdvancedMaterials,
+        ckey:EnergyEfficiency,
+        ckey:Sustainability,
+        ckey:AdvancedCharacterization,
+        ckey:MaterialsSynthesis,
+        ckey:XRayDiffraction,
+        ckey:Cells,
+        ckey:CompositionDesign,
+        ckey:Oxides,
+        ckey:Hydrogen,
+        ckey:Electrochemistry,
+        ckey:NuclearFuel,
+        ckey:ElectronicProperties,
+        ckey:PhaseTransformations .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

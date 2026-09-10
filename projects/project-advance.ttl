@@ -1,0 +1,60 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-advance.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-advance.ttl> a owl:Ontology ;
+    rdfs:comment "Instances ADVANCE project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_advance rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the ADVANCE project" ;
+    skos:prefLabel "ADVANCE" ;
+    proj:fullName "AI-Driven Valuation and Novel Creation of Energy-efficient, Low-Dimensional, High-Entropy Alloys with Superior Catalytic Performance for Hydrogen Production" ;
+    proj:description """La demande croissante de solutions d’énergie verte souligne l’impératif de méthodes de production d’hydrogène efficaces. Le fractionnement de l’eau s’avère être une technique prometteuse dans ce contexte. Même si les métaux nobles comme le platine et l’iridium présentent des prouesses catalytiques louables, leur disponibilité limitée et leurs coûts prohibitifs les rendent moins viables pour des applications à grande échelle. Le présent projet ADVANCE met en lumière les alliages de basse dimensionnalité et à haute entropie (LD-HEA) comme alternative révolutionnaire, ouvrant un vaste domaine de composition pour contourner les contraintes des catalyseurs traditionnels. Les HEA, qui se distinguent par leur composition multi- éléments dans des rapports quasi équimolaires, surpassent les alliages conventionnels en termes de performances et de stabilité. La faible dimensionnalité inhérente des LD-HEA amplifie la surface, optimise le transport de charges et accentue les traits de confinement quantique indispensables à la catalyse. Pourtant, naviguer dans le vaste espace de composition des LD-HEA n’est pas sans défis, englobant les subtilités de la détermination des compositions optimales, la complexité du traitement et la compréhension naissante de leur comportement nuancé. Pour relever ces défis, notre recherche associe des techniques d’intelligence artificielle (IA) à des méthodologies expérimentales et informatiques pratiques. Les objectifs de la proposition sont de trois ordres:  1. Utiliser l’IA pour la conception et la découverte de LD-HEA, en tirant parti de l’apprentissage automatique (Machine Learning –ML) pour prédire les performances catalytiques et concevoir des algorithmes pour une identification efficace.  2. Fabriquer et caractériser la structure des LD-HEA recommandés par l'IA.  3. Évaluer et étudier les performances électrocatalytiques de ces LD-HEA.
+""" ;
+    proj:startDate "2024-10-01"^^xsd:date ;
+    proj:endDate "2028-09-30"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/advance/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:ZHENG_LIU ;
+    proj:hasLeadOrganization org:CNRS ;
+    proj:hasPartner org:CINTRA,
+        org:ICMCB,
+        org:CEA-MEM ;
+    proj:gathersCompetence ckey:HighEntropyAlloys,
+        ckey:AIApproaches,
+        ckey:LowDimMaterials,
+        ckey:MaterialsSynthesis,
+        ckey:AdvancedCharacterization,
+        ckey:ThermodynamicCalculations,
+        ckey:HighThroughputCatalysis,
+        ckey:Hydrogen,
+        ckey:GreenDeal,
+        ckey:AIBasedModelling,
+        ckey:EnergyTransition,
+        ckey:Catalysis,
+        ckey:AlloyDesignAndScreening,
+        ckey:Modeling .
+
+plat:FabricationAndCharacterizationOfStandardizedMillifluidicChips proj:hasPlatformAssociatedProject :Project_advance .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

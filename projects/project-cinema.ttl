@@ -1,0 +1,60 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-cinema.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-cinema.ttl> a owl:Ontology ;
+    rdfs:comment "Instances CINEMA project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_cinema rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the CINEMA project" ;
+    skos:prefLabel "CINEMA" ;
+    proj:fullName "Smart growth of novel thin films of enhanced functional oxides" ;
+    proj:description """Le projet CINEMA est un projet de recherche académique ambitieux ayant pour objectif la croissance intelligente par épitaxie par jets moléculaires (MBE) de nouvelles couches minces d’oxydes fonctionnels améliorées. Concernant le premier objectif principal de croissance intelligente, deux approches seront étudiées en utilisant des solutions solides modèles d’oxydes thermoélectriques de structure pérovskite basées sur SrTiO3, déjà bien maîtrisées à l’INL. La première approche est basée sur des mesures operando pendant la croissance et de l’apprentissage profond par des algorithmes de l’intelligence artificielle (IA). Dans un premier temps, il inclura le couplage de nombreuses mesures in-situ et operando des propriétés structurales et physiques pendant la croissance en temps réel (INL). Dans un deuxième temps, il inclura le traitement de ces données par des algorithmes utilisant des réseaux de neuronaux convolutifs (IRCER, INL, plateforme DIADEM-DM). Dans un troisième temps, des boucles de rétroaction seront mises en place pour le contrôle de la croissance par les propriétés visées, mesurées et analysées en temps réel. La seconde approche consiste à créer un jumeau numérique de la croissance par des simulations (P’). Ces simulations seront effectuées par Monte Carlo cinétique (k-MC) et par des calculs DFT optimisés par des algorithmes de l’IA (Collab. Univ. Montreal & LAAS). Les résultats théoriques seront confrontés aux résultats expérimentaux de complexité croissante (oxydes binaires, ternaires et enfin quaternaires). Un deuxième objectif conjoint concerne la prédiction par IA et l’élaboration par MBE de nouvelles solutions solides d’oxydes thermoélectriques de type p performants (PF > 10 μW cm-1 K-2), stables et durables (contentant des éléments non/peu toxiques et abondants). Dans un premier temps, ces prédictions nécessiteront d’alimenter une base de données et de l’analyser (plateforme DIADEM-DM). Dans un deuxième temps, la stabilité structurale de ces nouveaux oxydes sera évaluée par calculs DFT (P’). Dans un troisième temps, les propriétés thermoélectriques des nouveaux oxydes les plus prometteurs seront estimées par calculs ab-initio (ILM). Enfin, les solutions solides les plus prometteuses seront élaborées en couches minces par MBE, assistée par IA, et l’ensemble de leurs propriétés thermoélectriques seront mesurées (INL, ILM). En plus de la plateforme DIADEM-DM, ce projet réunit quatre partenaires académiques reconnus et complémentaires ayant toutes les compétences et outils à disposition pour atteindre les objectifs visés. Ce projet permettrait d’accélérer la découverte et la maîtrise de nouveaux matériaux aux propriétés améliorées, dans différents champs d’applications, dans la recherche académique et l’industrie.
+""" ;
+    proj:startDate "2026-03-01"^^xsd:date ;
+    proj:endDate "2030-02-28"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/cinema/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:ROMAIN_BACHELET ;
+    proj:hasLeadOrganization org:CNRS ;
+    proj:hasPartner org:INL,
+        org:Pprime,
+        org:IRCER,
+        org:ILM ;
+    proj:gathersCompetence ckey:SmartGrowth,
+        ckey:DigitalTwin,
+        ckey:FunctionalPerovskiteOxides,
+        ckey:MolecularBeamEpitaxy,
+        ckey:OperandoCharacterization,
+        ckey:Thermoelectricity,
+        ckey:PTypeOxides,
+        ckey:DeepLearning,
+        ckey:CNN,
+        ckey:Oxides,
+        ckey:MachineLearning,
+        ckey:EnergyTransition,
+        ckey:FunctionalOxides,
+        ckey:Algorithms,
+        ckey:StructuralMaterials .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

@@ -1,0 +1,61 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-madness.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-madness.ttl> a owl:Ontology ;
+    rdfs:comment "Instances MADNESS project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_madness rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the MADNESS project" ;
+    skos:prefLabel "MADNESS" ;
+    proj:fullName "Artificial intelligence-assisted methodology for the discovery of new materials in molten salts" ;
+    proj:description """L’objectif du projet MADNESS est de combiner l’intelligence artificielle à la synthèse inorganique pour répondre à une question simple mais complexe : comment accélérer la recherche de matériaux avec des techniques de synthèse difficilement automatisables ? Nous prendrons comme cas d’école la synthèse en sels fondus, une méthode originale dont la capacité à ouvrir la voie vers de nouveaux matériaux émerge depuis quelques années, mais qui n’est pas adaptée à l’automatisation et au criblage à haut débit. Nous chercherons plus spécifiquement des matériaux capables de remplacer les métaux précieux pour l’électrocatalyse de la production de dihydrogène à partir de l’eau, en nous concentrant sur des composés prometteurs et dont l’espace chimique est en grande partie vierge, car ils sont difficiles à synthétiser : composés non-oxydes de métaux de transition et d’éléments non critiques du bloc p. Nous développerons une méthodologie de synthèse s’appuyant sur deux piliers principaux : Le premier pilier consiste à tirer le meilleur parti des expériences, en considérant chaque synthèse comme une grande source de données pour cribler certains des paramètres expérimentaux les plus importants. Nous utiliserons la diffraction des rayons X sous rayonnement synchrotron, dans le but de réaliser le suivi in situ des synthèses. Nous mobiliserons des méthodes d’apprentissage automatique (ML) pour développer un outil numérique capable de détecter, parmi les produits et intermédiaires réactionnels, les solides déjà répertoriés et ceux qui restent à identifier. Une analyse plus détaillée nous permettra de sélectionner les conditions de synthèse ex situ de ces matériaux. Le deuxième pilier est la prédiction de nouveaux composés et de diagrammes de phases pour des systèmes chimiques inexplorés ou mal connus. Au contraire d’autres approches classiques coûteuses en calcul, cette prédiction utilisera des techniques génératives afin d’accélérer la recherche de nouveaux composés et des calculs ab initio à haut débit pour cartographier les diagrammes de phase et identifier les solides stables et métastables. Cette méthode fournira aussi des caractéristiques relatives aux compositions chimiques, structures cristallines et structures électroniques. Nous utiliserons ainsi la fouille de données pour identifier des descripteurs simples afin d’anticiper les propriétés électrocatalytiques, qui seront mesurées a posteriori. Ces nouveaux matériaux prédits seront intégrés dans l’outil d’analyse des synthèses in situ, afin de les rechercher en priorité lors des expériences synchrotron.
+""" ;
+    proj:startDate "2024-11-01"^^xsd:date ;
+    proj:endDate "2028-10-31"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/madness/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:DAVID_PORTEHAULT ;
+    proj:hasLeadOrganization org:Sorbonne ;
+    proj:hasPartner org:LCMCP,
+        org:IMN,
+        org:LINK,
+        org:SOLEIL ;
+    proj:gathersCompetence ckey:AdvancedMaterials,
+        ckey:LiquidPhaseSynthesis,
+        ckey:MoltenSalts,
+        ckey:IntermetallicCompounds,
+        ckey:XRayDiffraction,
+        ckey:InSituTesting,
+        ckey:CrystalStructurePrediction,
+        ckey:SupervisedMachineLearning,
+        ckey:GraphNeuralNetworks,
+        ckey:Electrocatalysis,
+        ckey:MaterialsSynthesis,
+        ckey:PhaseTransformations,
+        ckey:StructuralMaterials,
+        ckey:CrystalGrowth,
+        ckey:PredictiveModeling,
+        ckey:Chemistry .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

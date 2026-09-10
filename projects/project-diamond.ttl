@@ -25,7 +25,7 @@
 :Project_diamond rdf:type proj:TargetedProject ;
     rdfs:comment "Ontology representing all entities of the DIAMOND project" ;
     skos:prefLabel "DIAMOND" ;
-    proj:fullName "Databases, Artificial Intelligence, Modeling and Optimization tools for the Digital Design of materials"@en ,
+    proj:fullName "Data management and Infrastructures for Artificial intelligence, Modelling, Optimization and Numerical Design"@en ,
     "Bases de Données, outils d’Intelligence Artificielle, de Modélisation et d’OptimisatioN pour le Design Numérique de matériaux"@fr ;
     proj:description """
     L’objectif principal de ce projet ciblé est de mettre en place une infrastructure
@@ -60,6 +60,11 @@
     platform will be developed and deployed at the GRICAD meso-centre for high-performance computing, 
     and the database infrastructure will be deployed at the TGCC.
     """@en ;
+    proj:startDate "2023-04-01"^^xsd:date ;
+    proj:endDate   "2029-03-31"^^xsd:date ;
+    proj:hasURL  "https://www.pepr-diadem.fr/projet/diamond/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:FRANCOIS_WILLAIME ;
+    proj:hasLeadOrganization org:CEA ;
     proj:hasWorkPackage :WP1 ,
         :WP2 ,
         :WP3 .
@@ -267,7 +272,7 @@ ppl:JOAOPAULO_ALMEIDADEMENDOCA proj:hasCompetence ckey:AIApproaches ;
     # proj:leftDate "December 2027" ;
     proj:worksOn :WP1 .
 
-ppl:JEANPHILIPPE_POLI proj:hasPersonnelType :Scientific ;
+ppl:JEAN-PHILIPPE_POLI proj:hasPersonnelType :Scientific ;
     proj:isCurrentMember true ;
     proj:worksOn :WP2 .
 
@@ -615,7 +620,7 @@ ppl:YAIDEL_TOLEDO proj:hasPersonnelType :Scientific ;
     rdfs:label "Diamond Gmsh Apptainer Container"@en ;
     proj:encapsulatesSoftware :Gmsh ;
     proj:usesContainerTechnology proj:Apptainer ;
-    proj:hasAssociatedProject :DiamondProject ;
+#    proj:hasAssociatedProject :DiamondProject ;
     proj:hasURL "https://diamond-diadem.github.io/codes/scientific-computing/gmsh/"^^xsd:anyURI .
 
 

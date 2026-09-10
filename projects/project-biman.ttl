@@ -1,0 +1,62 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-biman.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-biman.ttl> a owl:Ontology ;
+    rdfs:comment "Instances BiMAn project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_biman rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the BiMAn project" ;
+    skos:prefLabel "BiMAn" ;
+    proj:fullName "Bimetallic magnetic nanoparticles with controlled anisotropy : from the chemical synthesis to the fabrication of optimized materials. Machine learning assistance" ;
+    proj:description """Les matériaux magnétiques jouent un rôle majeur dans les transitions énergétiques et sociétales actuelles. Cependant, le développement de matériaux durables et performants, sans éléments critiques tels que les terres rares, reste un défi. Par conséquent, l'objectif du projet BiMAn est de développer une approche générique “bottom-up” pour la conception rationnelle de matériaux magnétiques efficaces sans terre rare, par l’ajustement des propriétés intrinsèques des particules individuelles, à travers leur anisotropie, et leur assemblage contrôlé résultant en des propriétés collectives optimisées. Dans cette perspective, le projet BiMAn combinera la caractérisation en ligne à haut débit et l'apprentissage automatique (ML) pour (i) bénéficier d'un criblage ultra-efficace pour synthétiser de NP anisotropes à base de Fe et (ii) contrôler l'ordre à l’échelle mésoscopique au sein des assemblages pour produire des matériaux magnétiques nanostructurés performants. Pour faire du projet BiMAn une réalité viable, un consortium multidisciplinaire est essentiel pour regrouper l'expertise en chimie, afin de synthétiser des nanoparticules bimétalliques avec une anisotropie contrôlée; en physique, pour la conception de modèles (micro)structurels in silico et l'étude multi-échelle des propriétés structurelles et magnétiques; en génie chimique, pour la conception de plateformes microfluidiques et millifluidiques ad hoc combinant haute température, atmosphère réductrice et facteurs de dilution élevés; et en intelligence artificielle et science des données pour l'élaboration d'algorithmes de prédiction des propriétés (micro)structurelles et l'identification des corrélations entre les propriétés des NPs et celles des matériaux. Les résultats attendus du projet BIMan sont en ligne avec les objectifs du PEPR DIADEM. Les différents partenaires (LPCNO, LGC, LPS, LIONS, ISEC) uniront leurs expertises pour développer des outils innovants pour la production de NPs magnétiques, incluant la génération de bases de données et d'IA. Les développements en microfluidiques et millifluidiques couplés à des caractérisations structurelles multi-échelles seront ouverts à la communauté. La conception et la fabrication d'une plateforme microfluidique polyvalente à haute température fonctionnant sous atmosphère réductrice et permettant une grande dilution des germes ouvrira de nouvelles perspectives pour l'étude de la nucléation et de la croissance des NP complexes. L’étude systématique de la nucléation hétérogène par ensemencement du milieu réactionnel et du rôle de la structure des germes et du
+""" ;
+    proj:startDate "2024-10-28"^^xsd:date ;
+    proj:endDate "2028-10-27"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/biman/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:LISE-MARIE_LACROIX ;
+    proj:hasLeadOrganization org:INSA-Toulouse ;
+    proj:hasPartner org:LPCNO,
+        org:LGC,
+        org:LPS,
+        org:LIONS,
+        org:CEA-ISEC ;
+    proj:gathersCompetence ckey:NanostructuredMaterials,
+        ckey:RareEarthFreeMagnets,
+        ckey:MultiscaleModeling,
+        ckey:SAXSWAXS,
+        ckey:OrientationalOrderParameter,
+        ckey:SeedMediatedGrowth,
+        ckey:DirectedAssembly,
+        ckey:Microfluidics,
+        ckey:UnsupervisedMachineLearning,
+        ckey:ExperimentalAndSimulatedData,
+        ckey:Magnets,
+        ckey:MaterialsSynthesis,
+        ckey:StructuralMaterials,
+        ckey:Chemistry,
+        ckey:MachineLearning,
+        ckey:Nanoparticles .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

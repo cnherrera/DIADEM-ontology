@@ -1,0 +1,60 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-masky.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-masky.ttl> a owl:Ontology ;
+    rdfs:comment "Instances MASKY project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_masky rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the MASKY project" ;
+    skos:prefLabel "MASKY" ;
+    proj:fullName "Advanced MAterials for SKYrmion based Spintronics" ;
+    proj:description """Les composants spintroniques, dont le fonctionnement est basé sur l'utilisation de skyrmions (textures magnétiques chirales de nature particulaire), présentent des caractéristiques prometteuses pour les technologies de logique et de mémoire magnétique au-delà du CMOS avec des caractéristiques qui permettraient une électronique plus frugale et plus agile. L'un des défis réside dans l'identification de multicouches ultraminces présentant les propriétés magnétiques permettant de créer et de stabiliser des skyrmions aux propriétés spécifiques et optimales en termes de taille, de stabilité et réponse fréquentielle pour les applications visées. Dans le projet MASKY, nous avons l'intention d'utiliser une approche basée sur l'intelligence artificielle prédictive et l'exploration de données pour considérablement accélérer la découverte des meilleurs candidats composés de matériaux hybrides multicouches. Le besoin élevé en données de l'IA sera satisfait à la fois par i) la fabrication d'échantillons à gradient multidirectionnel (par exemple, épaisseur et composition variant dans trois directions du plan) et par ii) leur caractérisation à haut débit. Enfin, le prototypage de composants permettra de vérifier la capacité prédictive de l'IA tout en établissant une boucle de rétroaction pour l'IA. Nous nous concentrerons en particulier sur les propriétés magnétostrictives des empilements déposés sur des substrats piézoélectriques, afin de trouver des skyrmions très sensibles aux ondes acoustiques de surface. Les recherches dans ce domaine à l'interface entre la skyrmionique et la straintronique, domaine très récents de la spintronique, bénéficieront ainsi des avancées permises par l'IA. À travers le projet MASKY, nous allons démontrer la nature transformatrice de l'approche proposée, qui est actuellement largement sous-utilisée dans le domaine de la spintronique. Outre la découverte accélérée de matériaux hybrides utiles dans le cadre des composants à base de skyrmions, la méthode utilisée dans MASKY pourrait être transposée à d'autres domaines de la spintronique et même plus largement à d'autres technologies émergentes.
+""" ;
+    proj:startDate "2026-02-02"^^xsd:date ;
+    proj:endDate "2030-02-01"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/masky/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:MICHEL_HEHN ;
+    proj:hasLeadOrganization org:UniversiteLorraine ;
+    proj:hasPartner org:IJL,
+        org:SPINTEC,
+        org:INSP,
+        org:TOM ;
+    proj:gathersCompetence ckey:AdvancedMaterials,
+        ckey:AIApproaches,
+        ckey:Spintronics,
+        ckey:Skyrmions,
+        ckey:SurfaceAcousticWaves,
+        ckey:Magnetoelasticity,
+        ckey:AbInitioDFT,
+        ckey:NeuralNetwork,
+        ckey:NeuralNetworks,
+        ckey:Magnets,
+        ckey:SurfaceScience,
+        ckey:AlloyDesignAndScreening,
+        ckey:CompositionDesign,
+        ckey:Imaging,
+        ckey:Photonics .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

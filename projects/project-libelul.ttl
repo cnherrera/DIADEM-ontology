@@ -1,0 +1,53 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-libelul.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-libelul.ttl> a owl:Ontology ;
+    rdfs:comment "Instances LIBELUL project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_libelul rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the LIBELUL project" ;
+    skos:prefLabel "LIBELUL" ;
+    proj:fullName "LIBS for ELemental high throughpUt anaLysis" ;
+    proj:description """Le développement accéléré des matériaux par l’usage de l’intelligence artificielle tel que proposé dans le projet PEPR DIADEME requiert le développement d’outils d’analyse haut débit afin d’alimenter les bases de données utilisées. Dans ce cadre, l’analyse élémentaire peut être effectuée à l’aide de la technologie LIBS (Laser Induced Breakdown Sprectroscopy) dont le principe consiste à analyser le spectre d’émission de fluorescence du plasma induit par l’ablation du matériau à analyser par une impulsion laser. Cette technique permet ainsi de détecter les différents constituants de matériaux très divers (métaux, isolants, polymères...) avec un très bon niveau de sensibilité pouvant descendre à quelques ppm pour certains éléments et est tout à fait adaptée à la stratégie du projet DIADEME. Le projet LIBELUL vise à développer deux expériences « plateformes » exploitant la technologie LIBS. La première plateforme consistera à la mise en place d’une cartographie élémentaire sur de très grandes surfaces avec un pas de mesure de 30 mm, nécessitant de viser la très haute cadence laser (jusqu’au kHz). L’imagerie sera couplée sur une unique expérience à de la spectroscopie RAMAN et de Luminescence. En effet, la spectroscopie RAMAN informe sur les aspects structuraux alors que la spectroscopie de Luminescence peut également informer sur les propriétés optiques d’un grand nombre d’impuretés dans leur environnement ainsi que certains défauts. L’usage de l’intelligence artificielle sera également exploité pour la détection automatique des éléments majeurs et l’amélioration du rapport signal à bruit afin d’accélérer également le traitement des données brutes. Si la première plateforme prévoit de recevoir les matériaux à analyser, la seconde plateforme LIBS prévoit au contraire d’aller sur le lieu de synthèse haut débit de matériaux. Il s’agit donc de développer une plateforme LIBS mobile et adaptable pouvant être opérée sur site. Cette seconde plateforme présentera les meilleures performances combinant sensibilité et reproductibilité et aura vocation à être facilement opérable. Ces deux plateformes viendront enrichir les outils d’analyse élémentaire haut débit du projet DIADEME.
+""" ;
+    proj:startDate "01/06/2022"^^xsd:date ;
+    proj:endDate "2026-02-28"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/libelul/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:CHRISTOPHE_DUJARDIN ;
+    proj:hasLeadOrganization org:UniversiteClaudeBernardLyon1 ;
+    proj:hasPartner org:ILM,
+        org:CEA-LANIE ;
+    proj:gathersCompetence ckey:LIBS,
+        ckey:RamanSpectroscopy,
+        ckey:Imaging,
+        ckey:Spectroscopy,
+        ckey:OpticalProperties,
+        ckey:Nanoparticles .
+
+plat:MobileLIBSPlatform proj:hasPlatformAssociatedProject :Project_libelul .
+
+plat:MultiCharacterizationByLIBSRamanPhotoluminescenceImaging proj:hasPlatformAssociatedProject :Project_libelul .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

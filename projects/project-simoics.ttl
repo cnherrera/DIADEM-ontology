@@ -1,0 +1,61 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-simoics.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-simoics.ttl> a owl:Ontology ;
+    rdfs:comment "Instances SIMOICS project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_simoics rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the SIMOICS project" ;
+    skos:prefLabel "SIMOICS" ;
+    proj:fullName "Simulation and Instrumentation for Multi-Objective Optimization by Artificial Intelligence – Cold Spray" ;
+    proj:description """Les procédés de synthèse de matériaux sont multi-paramétriques, multi-physiques et multi-échelles, et les modèles analytiques et numériques correspondant sont généralement incomplets. Leur Optimization est d’autant plus complexe que les objectifs peuvent être multiples et non explicitables par des lois mathématiques. Par exemple, comment optimiser simultanément les propriétés des matériaux et les performances énergétiques du procédé ? Le projet SIMOICS propose d’utiliser des modèles d’intelligence artificielle pour répondre à cette problématique, et l’appliquer aux procédés de ColdSpray et de post-traitement associés aux plateformes CorrIS de MATEIS (Projet A-DREAM) et du CEA (projet ARTEMIS). L’objectif est de combiner les outils afin de converger rapidement vers une solution en réalisant le minimum de simulations et/ou d’expériences sur le système réel. Pour cela, l’INRIA et le LORIA concentreront leurs efforts sur la construction de modèles de substitutions prenant en compte des données issues d’expérimentations et de simulations, la génération de multiples solutions performantes grâce à des algorithmes évolutonnaires « Quality-Diversity » et l’utilisation d’outils d’Optimization multi-objectif « boite noire ». Afin d’alimenter les modèles d’intelligence artificielle, les procédés de ColdSpray et les post-traitements seront instrumentés et simulés. Pour une meilleure compréhension, et optimiser les performances des modèles d’intelligence artificielle, les procédés d’élaboration de matériaux seront considérés en sous-systèmes, correspondant aux phases : 1. de projection (transport des particules dans le gaz vecteur [distributeur et source enthalpique]), 2. de dépôt (impact et adhésion des particules sur le subjectile) et 3. de post-traitement (refusion par laser, recuit de densification par traitement thermique non conventionnel). La caractérisation des échantillons en fin de ligne sera également nécessaire pour évaluer les propriétés et performandces des matériaux, qui sont nécessairement un des objectifs à optimiser. Les données expérimentales serviront à calibrer les modèles d’intelligence artificielle et algorithmes d’Optimization. Le projet SIMOICS repose donc sur 3 piliers interdépendants qui sont : l’instrumentation, la simulation numérique, la collecte et le traitement de données par intelligence artificielle pour résoudre des problèmes aux solutions et objectifs multiples. L’ambition de SIMOICS est d’une part de développer des outils online et offline pouvant être déployés sur d’autres plateformes de procédés et de projets de recherche accélérée de matériaux, et d’autre part d’ouvrir les plateformes de synthèse par Cold Spray haute et basse pression à d’autres applications que la corrosion et les alliages à mémoire de forme (PEPR A-DREAM et ARTEMIS), grâce à une recherche de paramètres optimaux assistée par IA.
+""" ;
+    proj:startDate "2026-03-01"^^xsd:date ;
+    proj:endDate "2030-02-28"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/simoics/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:NICOLAS_JOZEFOWIEZ ;
+    proj:hasLeadOrganization org:UniversiteLorraine ;
+    proj:hasPartner org:LORIA,
+        org:INRIA-Lorraine,
+        org:CEA-Tech-Metz,
+        org:MATEIS ;
+    proj:gathersCompetence ckey:AIApproaches,
+        ckey:BayesianOptimization,
+        ckey:QualityDiversity,
+        ckey:MultiObjectiveOptimization,
+        ckey:Instrumentation,
+        ckey:MultiphysicsSimulation,
+        ckey:ColdSpray,
+        ckey:LaserProcessing,
+        ckey:ThermalTreatment,
+        ckey:AdvancedCharacterization,
+        ckey:Optimization,
+        ckey:Algorithms,
+        ckey:MachineLearning,
+        ckey:NumericalSimulation,
+        ckey:Modeling,
+        ckey:ThermalProperties .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

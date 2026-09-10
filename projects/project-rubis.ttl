@@ -1,0 +1,57 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-rubis.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-rubis.ttl> a owl:Ontology ;
+    rdfs:comment "Instances RUBIS project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_rubis rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the RUBIS project" ;
+    skos:prefLabel "RUBIS" ;
+    proj:fullName "Data-driven development and fabrication of ceramics and thermostructural composites: Research platform on the Factory of the Future, the Big data, the Artificial Intelligence and the associated Information Systems." ;
+    proj:description """RUBIS se focalise sur les céramiques et les composites thermostructuraux capables de résister dans des environnements sévères. Le besoin de tels matériaux à haute température est en effet une nécessité urgente dans plusieurs domaines : énergie, transport, défense... Leur ténacité/caractère réfractaire leur permet d'être utilisés dans des applications aéronautiques, spatiales ou nucléaires par exemple. La science de ces matériaux modernes et des processus de fabrication associés oblige à considérer une approche multidisciplinaire incluant la chimie, la physique et l'ingénierie, étroitement liée à l'exploitation de la science des données via l'intelligence artificielle (IA) pour accélérer l'ensemble de la chaîne de valeur de fabrication. RUBIS couvre l’ensemble des problématiques de conception et de traitement des matériaux : mise en forme par fabrication additive, post-traitements de consolidation (par exemple séchage, déliantage/pyrolyse, frittage). Le projet RUBIS vise à transformer un ensemble d'outils de conception et de fabrication en une « usine intelligente intégrée » pour améliorer la productivité et le contrôle qualité offrant une traçabilité des pièces fabriquées. Avec la numérisation complète de toutes les étapes, RUBIS entend également optimiser les performances des pièces fabriquées, réduire leurs coûts ainsi que la consommation d'énergie et l'impact environnemental, et augmenter le degré de flexibilité de la production permettant la livraison de produits entièrement personnalisables et de haute qualité. Les deux livrables de RUBIS prévus à l'année 5 seront 2 plateformes : une plateforme d'outils de CAO pour la conception de structures céramiques et composites optimisées et une plateforme de fabrication entièrement numérisée intégrant les étapes de mise en forme par fabrication additive et de post-consolidation thermique avec des capacités de Machine Learning (ML) pour chacune desdites étapes de fabrication. Les 2 jalons associés sont prévus à l'année 3 et correspondent au cahier des charges des plateformes. Les matériaux à l'étude seront à la fois des matériaux oxydes et non oxydes adaptés aux environnements sévères envisagés. Dans le cas particulier du procédé de fabrication, des oxydes tels que l'alumine avec des lois de comportement bien documentées dans la littérature seront utilisés pour initier les développements.
+""" ;
+    proj:startDate "2023-01-01"^^xsd:date ;
+    proj:endDate "2028-12-31"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/rubis/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:FABRICE_ROSSIGNOL ;
+    proj:hasLeadOrganization org:CNRS ;
+    proj:hasPartner org:CEA-Le-Ripault,
+        org:LCTS,
+        org:IRCER ;
+    proj:gathersCompetence ckey:Ceramics,
+        ckey:AdditiveManufacturing,
+        ckey:FactoryOfTheFuture,
+        ckey:Composites,
+        ckey:StructuralMaterials,
+        ckey:EnergyTransition,
+        ckey:Modeling .
+
+plat:1600CSoCalledPixelatedSinteringOven proj:hasPlatformAssociatedProject :Project_rubis .
+
+plat:5AxisAdditiveAndSubtractiveManufacturingFrame proj:hasPlatformAssociatedProject :Project_rubis .
+
+plat:InstrumentedNanoindenter proj:hasPlatformAssociatedProject :Project_rubis .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

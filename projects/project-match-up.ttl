@@ -1,0 +1,64 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-match-up.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-match-up.ttl> a owl:Ontology ;
+    rdfs:comment "Instances MATCH-UP project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_match-up rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the MATCH-UP project" ;
+    skos:prefLabel "MATCH-UP" ;
+    proj:fullName "MATerials disCovery for next generation pHotovoltaics via highthroUghPut synthesis, characterization and ai-based analysis" ;
+    proj:description """Dans le contexte de transition énergétique, de transformation digitale, de crise climatique, et de souveraineté énergétique, la mise au point accélérée de matériaux et dispositifs pour le photovoltaïque qui sont à la fois fiables, sobres, non toxiques et performants est un élément clé. Ceci passe par une collaboration accrue entre les différentes expertises des laboratoires et les lignes pilotes R&D industrielles (alimentant les gigafactories françaises en projet), et une meilleure circulation des données expérimentales permise par l'automatisation et la robotisation des procédés, les caractérisations haut débit et les analyses par modélisation physique et intelligence artificielles associées. Pour répondre à cette nécessité et aux objectifs de l’AAP, le présent projet rassemble un consortium aux compétences équilibrées sur les aspects matériaux, procédés de synthèse et dépôt de couches minces, analyse par caractérisation in situ et dégradation avancées, analyse de dispositifs PV, automatisation et analyse par modélisation physique et IA. Cette complémentarité est un élément clé pour ce type de projet qui à la fois nécessite une forte collaboration mais également permet d’accélérer les collaborations grâce à la nouvelle plateforme développée localement, ainsi que les données générées et valorisées. L'automatisation des différentes étapes allant de la synthèse à l'analyse haut débit des dispositifs solaires permet d'accélérer le design de couches minces, multicouches et cellules solaires. Ceci en permettant la découverte accélérée de nouveaux matériaux, la prédiction de propriétés matériaux et de figures de mérites de dispositifs solaires tout en réduisant drastiquement les temps nécessaires pour l'exploration, l'analyse et la création de savoir. Pour résoudre les problèmes inhérents à la recherche de nouveaux matériaux et dispositifs solaires, les méthodes d'intelligence artificielle associées à l'automatisation des analyses de dépôt, caractérisation et dégradation permet d'augmenter la quantité/qualité, reproductibilité des échantillons et fiabilité des données crées. A ce jour une infime partie des données générées dans les laboratoires est utilisée, partagée et suffisamment fiable pour permettre une utilisation plus globale et permettre d'exploiter le plein potentiel des méthodes de data science. Pour ce faire nous proposons de rassembler en une seule plateforme automatisée : procédé de dépôt de couche mince, caractérisation et analyse de dégradations haut débit et pouvant alimenter des instruments nationaux plus sophistiquées comme par exemple les synchrotrons.
+""" ;
+    proj:startDate "2024-10-31"^^xsd:date ;
+    proj:endDate "2028-10-30"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/match-up/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:PHILIP_SCHULZ ;
+    proj:hasLeadOrganization org:CNRS ;
+    proj:hasPartner org:IPVF,
+        org:GeePs,
+        org:LUMIN,
+        org:ILV,
+        org:LPICM,
+        org:EDF ;
+    proj:gathersCompetence ckey:EnergyTransition,
+        ckey:GreenTechnologies,
+        ckey:Photovoltaics,
+        ckey:HalidePerovskites,
+        ckey:ThinFilmDeposition,
+        ckey:HighThroughput,
+        ckey:HighThroughputCharacterization,
+        ckey:AcceleratedAging,
+        ckey:DatabaseMining,
+        ckey:PhysicalModeling,
+        ckey:AIApproaches,
+        ckey:Modeling,
+        ckey:MaterialsSynthesis,
+        ckey:Chemistry,
+        ckey:Cells,
+        ckey:CompositionDesign,
+        ckey:MaterialsDiscovery .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+

@@ -1,0 +1,61 @@
+@prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-photonia.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix proj: <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#> .
+@prefix ppl: <https://cnherrera.github.io/DIADEM-ontology/people.ttl#> .
+@prefix org: <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl#> .
+@prefix plat: <https://cnherrera.github.io/DIADEM-ontology/platforms.ttl#> .
+@prefix ckey: <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl#> .
+@prefix allp: <https://cnherrera.github.io/DIADEM-ontology/projects/projects-pending.ttl#> .
+
+<https://cnherrera.github.io/DIADEM-ontology/projects/project-photonia.ttl> a owl:Ontology ;
+    rdfs:comment "Instances PHOTONIA project" ;
+    owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/people.ttl> ,
+                <https://cnherrera.github.io/DIADEM-ontology/competences-keywords.ttl> ;
+    owl:versionInfo "0.1" .
+
+
+## ------->> Project << --------------
+
+:Project_photonia rdf:type proj:TargetedProject ;
+    rdfs:comment "Ontology representing all entities of the PHOTONIA project" ;
+    skos:prefLabel "PHOTONIA" ;
+    proj:fullName "AI-based making of micro-photonics components by 3D laser printing." ;
+    proj:description """Ce projet d’IA en matériaux pour la photonique s’inscrit dans les défis sociétaux à relever notamment dans la transition énergétique, le développement de nouvelles technologies pour l'émergence de villes intelligentes et d'industries 4.0 mais aussi dans le domaine de la santé pour l’émergence de solutions durables dans des domaines tels que la qualité de l'eau et des aliments, la sécurité, le vieillissement des sociétés, la santé publique et les pandémies. Par exemple, les percées dans le domaine de la biophotonique déboucheront sur de nouvelles méthodes rentables pour améliorer le diagnostic et la thérapie, ainsi que sur la médecine personnalisée. La photonique s’applique aussi au domaine de la climatologie avec des systèmes LIDAR permettant de détecter à l’avance des épisodes extrêmes locaux (orages, micro- tempêtes, grêle, etc.). Enfin, en ce qui concerne l’énergie, on peut citer par exemple la surveillance en temps réel et in operando du stockage dans les batteries via des réseaux de micro-capteurs optiques distribués. Or, la fabrication de composants micro-optiques diélectriques ne peut hélas pas s’appuyer sur le savoir- faire issu des méthodes optiques conventionnelles. Elle repose sur de nombreuses étapes en amont et en aval du procédé de fabrication additive par laser, et donc, sur des dizaines de facteurs pouvant influer sur les propriétés finales des composants.  Le projet PHOTONIA a pour objectif de construire des modèles d’intelligence artificielle capables de prédire, pour chaque fonction optique spécifiquement visée, la meilleure recette de fabrication laser 3D, en optimisant ces différentes étapes. Il va sans dire que la procédure de fabrication choisie doit aussi garantir un ensemble de propriétés optiques de base permettant de qualifier chaque composant ainsi fabriqué de « qualité optique ». Conscient de la difficulté à construire directement un modèle d’IA capable de prédire des conditions de fabrication correspondant à chaque fonction optique ciblée, le consortium propose de traiter ce sujet dans une phase intermédiaire par une approche inverse. Celle-ci consiste, dans un premier temps, à considérer les paramètres de fabrication comme des données d’entrée du modèle d’IA et les propriétés/fonctions optiques d’un composant imprimé en 3D multi-matériaux comme des données de sortie. En pratique, nous proposons dans un premier temps de fabriquer et de caractériser des briques de matériaux diélectriques de dimensions de l’ordre de 100 à 500 micromètres selon les trois directions de l’espace afin de réaliser la phase d’apprentissage du modèle d’IA et d’en évaluer les performances. Ensuite, nous envisageons de fabriquer – avec l’aide de modèles d’IA – des composants optiques originaux à base de structures en silice telles que des piliers, des tubes, des lames et des pointes, pouvant être mono ou multimatériaux, et exerçant des fonctions de capteurs optiques. Enfin, nous étudierons la transférabilité de notre méthodologie développée pour la silice à d’autres types de verres ainsi qu’à des céramiques. Ce projet permet de connecter les moyens de fabrication/caractérisation de l’Equipex Add4P au hub de plateformes de DIADEM et s’appuie sur des collaborations très étroites avec la plateforme LIBELUL pour la caractérisation haut-débit et la plateforme DIAMOND pour la gestion des données et des modèles d’IA.
+""" ;
+    proj:startDate "2025-05-01"^^xsd:date ;
+    proj:endDate "2029-04-30"^^xsd:date ;
+    proj:hasURL "https://www.pepr-diadem.fr/projet/photonia/"^^xsd:anyURI ;
+    proj:hasLeadPerson ppl:BRUNO_BOUSQUET ;
+    proj:hasLeadOrganization org:CNRS ;
+    proj:hasPartner org:ICMCB,
+        org:PHLAM,
+        org:XLIM,
+        org:IRCER,
+        org:CEA-LIST ;
+    proj:gathersCompetence ckey:OpticalMaterials,
+        ckey:LaserProcessing,
+        ckey:Composites,
+        ckey:DatabaseInfrastructureDesign,
+        ckey:AIApproaches,
+        ckey:Microoptics,
+        ckey:AcceleratedSynthesis,
+        ckey:ElaborationProcesses,
+        ckey:Glasses,
+        ckey:ResearchInfrastructureEquipex,
+        ckey:OpticalProperties,
+        ckey:Modeling,
+        ckey:Photonics,
+        ckey:MachineLearning,
+        ckey:Ceramics .
+
+
+## ------->> Work Packages << --------------
+
+# --> People <--
+
