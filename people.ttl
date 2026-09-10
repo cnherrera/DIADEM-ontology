@@ -197,12 +197,13 @@
     foaf:name "Joao Paulo Almeida de Mendoca" ;
     proj:employedBy org:SIMAP .
 
-:JEANPHILIPPE_POLI rdf:type proj:ResearchPerson ;
+:JEAN-PHILIPPE_POLI rdf:type proj:ResearchPerson ;
     foaf:familyName "Poli" ;
     foaf:givenName "Jean-Philippe" ;
     foaf:mbox <mailto:jean-philippe.poli@cea.fr> ;
     foaf:name "Jean-Philippe Poli" ;
     proj:employedBy org:CEA-LIST .
+
 
 :KARIM_AITAMMAR rdf:type proj:ResearchPerson ;
     foaf:familyName "Aït Ammar" ;
@@ -325,9 +326,9 @@
     foaf:name "Yaidel Toledo Gonzalez" ;
     proj:employedBy org:CEA-SGLS .
 
-:ALEXIS_DESCHAMPS rdf:type proj:ResearchPerson ;
-    foaf:givenName "Alexis" ;
-    foaf:familyName "DESCHAMPS" ;
-    foaf:name "Alexis DESCHAMPS" ;
+:NATHALIE_GEY rdf:type proj:ResearchPerson ;
+    foaf:givenName "Nathalie" ;
+    foaf:familyName "GEY" ;
+    foaf:name "Nathalie GEY" ;
     proj:employedBy org:CNRS .
 

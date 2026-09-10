@@ -9,7 +9,7 @@
 <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl> rdf:type owl:Ontology ;
     rdfs:comment "DIADEM organization instances."@en ;
     owl:imports <https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl> ;
-    owl:versionInfo "0.1" .
+    owl:versionInfo "0.2" .
 
 
 #################################################################
@@ -53,6 +53,24 @@ org:CEA-MEM rdf:type proj:ResearchOrganization ;
         "Matter Exploration and Modeling Laboratory"@en ;
     proj:organizationType "Research laboratory" ;
     proj:country "France" ;
+    proj:partOfOrganization org:CEA-IRIG .
+
+org:CEA-DRT rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA/DRT"@en ;
+    skos:prefLabel "CEA/DRT"@en ;
+    proj:acronym "CEA/DRT" ;
+    proj:fullName "CEA/DRT"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA .
+
+org:CEA-DAM rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA/DAM"@en ;
+    skos:prefLabel "CEA/DAM"@en ;
+    proj:acronym "CEA/DAM" ;
+    proj:fullName "CEA/DAM"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" ;
     proj:partOfOrganization org:CEA .
 
 org:CEA-IRIG rdf:type proj:ResearchOrganization ;
@@ -64,7 +82,7 @@ org:CEA-IRIG rdf:type proj:ResearchOrganization ;
         "Interdisciplinary Research Institute of Grenoble"@en ;
     proj:organizationType "Research institute" ;
     proj:country "France" ;
-    proj:partOfOrganization org:CEA .
+    proj:partOfOrganization org:CEA-DRF .
 
 org:CEA-LIST rdf:type proj:ResearchOrganization ;
     rdfs:label "CEA-LIST"@en ;
@@ -73,7 +91,7 @@ org:CEA-LIST rdf:type proj:ResearchOrganization ;
     proj:fullName "Laboratoire d'Intégration de Systèmes et des Technologies"@fr ;
     proj:organizationType "Research laboratory" ;
     proj:country "France" ;
-    proj:partOfOrganization org:CEA .
+    proj:partOfOrganization org:CEA-DRT .
 
 org:CEASaclay rdf:type proj:ResearchOrganization ;
     rdfs:label "CEA Saclay"@en ;
@@ -92,7 +110,7 @@ org:CEA-SRMP rdf:type proj:ResearchOrganization ;
         "Service de Recherches de Métallurgie Physique"@fr ;
     proj:organizationType "Research laboratory" ;
     proj:country "France" ;
-    proj:partOfOrganization org:CEA .
+    proj:partOfOrganization org:CEA-S2CM .
 
 org:GrenobleINP rdf:type proj:ResearchOrganization ;
     rdfs:label "Grenoble INP"@en ;
@@ -168,7 +186,7 @@ org:CEA-SGLS rdf:type proj:ResearchOrganization ;
     proj:fullName "Service de Génie Logiciel pour la Simulation - CEA-Saclay" ;
     proj:organizationType "Research laboratory" ;
     proj:country "France" ;
-    proj:partOfOrganization org:CEA .
+    proj:partOfOrganization org:CEA-DM2S .
 
 org:CEA-DM2S rdf:type proj:ResearchOrganization ;
     rdfs:label "CEA/DES/ISAS/DM2S"@en ;
@@ -177,7 +195,7 @@ org:CEA-DM2S rdf:type proj:ResearchOrganization ;
     proj:fullName "Département de modélisation des systémes et structures - CEA-Saclay" ;
     proj:organizationType "Research laboratory" ;
     proj:country "France" ;
-    proj:partOfOrganization org:CEA .
+    proj:partOfOrganization org:CEA-ISAS .
 
 org:LPENS rdf:type proj:ResearchOrganization ;
     rdfs:label "LPENS"@en ;
@@ -194,75 +212,1068 @@ org:CEA-DSSI rdf:type proj:ResearchOrganization ;
     proj:fullName "Département des sciences de la simulation et de l'information - CEA-Bruyères-le-Châtel" ;
     proj:organizationType "Research laboratory" ;
     proj:country "France" ;
+    proj:partOfOrganization org:CEA-DAM .
+
+
+#################################################################
+#################################################################
+
+org:ASDL rdf:type proj:ResearchOrganization ;
+    rdfs:label "ASDL lab"@en ;
+    skos:prefLabel "ASDL lab"@en ;
+    proj:acronym "ASDL lab" ;
+    proj:fullName "ASDL lab"@en ;
+    proj:organizationType "Research organization" ;
+    proj:country "United States" .
+
+org:BIA rdf:type proj:ResearchOrganization ;
+    rdfs:label "BIA"@en ;
+    skos:prefLabel "BIA"@en ;
+    proj:acronym "BIA" ;
+    proj:fullName "Biopolymers, Interactions and Assemblies - Nantes"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+org:C2N rdf:type proj:ResearchOrganization ;
+    rdfs:label "C2N"@en ;
+    skos:prefLabel "C2N"@en ;
+    proj:acronym "C2N" ;
+    proj:fullName "Centre de Nanosciences et de Nanotechnologies"@fr ;
+    proj:organizationType "Research center" ;
+    proj:country "France" .
+
+org:CEA-DIN rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA-DIN"@en ;
+    skos:prefLabel "CEA-DIN"@en ;
+    proj:acronym "CEA-DIN" ;
+    proj:fullName "Département d'Instrumentation Numérique"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" ;
     proj:partOfOrganization org:CEA .
-org:SIMaP rdf:type proj:ResearchOrganization ;
-    rdfs:label "SIMaP"@en ;
-    skos:prefLabel "SIMaP"@en ;
-    proj:acronym "SIMaP" ;
-    proj:fullName "Sciences et Ingénierie, Matériaux, Procédés (UMR 5266 CNRS/GrenobleINP/UGA)"@en ;
+
+org:CEA-DRF rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA/DRF"@en ;
+    skos:prefLabel "CEA/DRF"@en ;
+    proj:acronym "CEA/DRF" ;
+    proj:fullName "CEA/DRF"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA .
+
+org:CEA-IRAMIS rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA-IRAMIS"@en ;
+    skos:prefLabel "CEA-IRAMIS"@en ;
+    proj:acronym "CEA-IRAMIS" ;
+    proj:fullName "Institut Rayonnement-Matière de Saclay"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA-DRF .
+
+org:CEA-IRAMIS-NIMBE rdf:type proj:ResearchOrganization ;
+    rdfs:label "NIMBE"@en ;
+    skos:prefLabel "NIMBE"@en ;
+    proj:acronym "NIMBE" ;
+    proj:fullName "Nanosciences et Innovation pour les Matériaux, la Biomédecine et l'Énergie"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA-IRAMIS .
+
+org:CEA-ISAS rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA-ISAS"@en ;
+    skos:prefLabel "CEA-ISAS"@en ;
+    proj:acronym "CEA-ISAS" ;
+    proj:fullName "Institut des Sciences Appliquées et de la Simulation pour les énergies bas carbone"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA-DES .
+
+org:CEA-ISEC rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA-ISEC"@en ;
+    skos:prefLabel "CEA-ISEC"@en ;
+    proj:acronym "CEA-ISEC" ;
+    proj:fullName "Institut des sciences et technologies pour une économie circulaire des énergies bas carbone"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA-DES .
+
+org:CEA-LANIE rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA-LANIE"@en ;
+    skos:prefLabel "CEA-LANIE"@en ;
+    proj:acronym "CEA-LANIE" ;
+    proj:fullName "Laboratoire de développement Analytique Nucléaire Isotopique et Elémentaire"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA-DES .
+
+org:CEA-LETI rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA-LETI"@en ;
+    skos:prefLabel "CEA-LETI"@en ;
+    proj:acronym "CEA-LETI" ;
+    proj:fullName "Laboratoire d'électronique et de technologie de l'information"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA-DRT .
+
+org:CEA-LITEN rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA-LITEN"@en ;
+    skos:prefLabel "CEA-LITEN"@en ;
+    proj:acronym "CEA-LITEN" ;
+    proj:fullName "Laboratoire d'Innovation pour les Technologies des Energies nouvelles et les Nanomatériaux"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA-DES .
+
+org:CEA-LM2T rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA-LM2T"@en ;
+    skos:prefLabel "CEA-LM2T"@en ;
+    proj:acronym "CEA-LM2T" ;
+    proj:fullName "Laboratoire de Modélisation, de Thermodynamique et de Thermochimie"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA-S2CM .
+
+org:CEA-LMCM rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA-LMCM"@en ;
+    skos:prefLabel "CEA-LMCM"@en ;
+    proj:acronym "CEA-LMCM" ;
+    proj:fullName "Laboratoire des Matériaux et Composants Magnétiques"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA-LITEN .
+
+org:CEA-Le-Ripault rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA Le Ripault"@en ;
+    skos:prefLabel "CEA Le Ripault"@en ;
+    proj:acronym "CEA Le Ripault" ;
+    proj:fullName "CEA Le Ripault"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA-DAM .
+
+org:CEA-S2CM rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA-S2CM"@en ;
+    skos:prefLabel "CEA-S2CM"@en ;
+    proj:acronym "CEA-S2CM" ;
+    proj:fullName "Service de recherche en corrosion et comportement des matériaux"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA-ISAS .
+
+org:CEA-SCCME rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA-SCCME"@en ;
+    skos:prefLabel "CEA-SCCME"@en ;
+    proj:acronym "CEA-SCCME" ;
+    proj:fullName "Service de la corrosion et du comportement des matériaux dans leur environnement"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA-ISAS .
+
+org:CEA-SPEC rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA-SPEC"@en ;
+    skos:prefLabel "CEA-SPEC"@en ;
+    proj:acronym "CEA-SPEC" ;
+    proj:fullName "Service de Physique de l'Etat Condensé"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA-IRAMIS .
+
+org:CEA-SRMA rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA-SRMA"@en ;
+    skos:prefLabel "CEA-SRMA"@en ;
+    proj:acronym "CEA-SRMA" ;
+    proj:fullName "Service de Recherche en Matériaux et procédés Avancés"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA-ISAS .
+
+org:CEA-Tech-Grand-Est rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA Tech Grand Est"@en ;
+    skos:prefLabel "CEA Tech Grand Est"@en ;
+    proj:acronym "CEA Tech Grand Est" ;
+    proj:fullName "CEA Tech Grand Est"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA .
+
+org:CEA-Tech-Metz rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA Tech Metz"@en ;
+    skos:prefLabel "CEA Tech Metz"@en ;
+    proj:acronym "CEA Tech Metz" ;
+    proj:fullName "CEA Tech Metz"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA .
+
+org:CEA-Tech-Nouvelle-Aquitaine rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA Tech Nouvelle Aquitaine"@en ;
+    skos:prefLabel "CEA Tech Nouvelle Aquitaine"@en ;
+    proj:acronym "CEA Tech Nouvelle Aquitaine" ;
+    proj:fullName "CEA Tech Nouvelle Aquitaine"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA-DRT .
+
+org:CEMEF rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEMEF"@en ;
+    skos:prefLabel "CEMEF"@en ;
+    proj:acronym "CEMEF" ;
+    proj:fullName "Centre de Mise en Forme des Matériaux"@fr ;
+    proj:organizationType "Research center" ;
+    proj:country "France" .
+
+org:CEMES rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEMES"@en ;
+    skos:prefLabel "CEMES"@en ;
+    proj:acronym "CEMES" ;
+    proj:fullName "Centre d'élaboration de matériaux et d'études structurales"@fr ;
+    proj:organizationType "Research center" ;
+    proj:country "France" .
+
+org:CINTRA rdf:type proj:ResearchOrganization ;
+    rdfs:label "CINTRA"@en ;
+    skos:prefLabel "CINTRA"@en ;
+    proj:acronym "CINTRA" ;
+    proj:fullName "IRL CNRS-International-NTU-Thales Research Alliance"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "Singapore" .
+
+org:CMAP rdf:type proj:ResearchOrganization ;
+    rdfs:label "CMAP"@en ;
+    skos:prefLabel "CMAP"@en ;
+    proj:acronym "CMAP" ;
+    proj:fullName "Centre de Mathématiques Appliquées"@fr ;
+    proj:organizationType "Research center" ;
+    proj:country "France" .
+
+org:CMC rdf:type proj:ResearchOrganization ;
+    rdfs:label "CMC"@en ;
+    skos:prefLabel "CMC"@en ;
+    proj:acronym "CMC" ;
+    proj:fullName "Chimie de la matière complexe"@fr ;
     proj:organizationType "Research organization" ;
     proj:country "France" .
 
+org:CMM rdf:type proj:ResearchOrganization ;
+    rdfs:label "CMM"@en ;
+    skos:prefLabel "CMM"@en ;
+    proj:acronym "CMM" ;
+    proj:fullName "Centre de Morphologie Mathématique"@fr ;
+    proj:organizationType "Research center" ;
+    proj:country "France" .
 
-org:IJL rdf:type proj:ResearchOrganization ;
-    rdfs:label "IJL"@en ;
-    skos:prefLabel "IJL"@en ;
-    proj:acronym "IJL" ;
-    proj:fullName "Institut Jean Lamour (UMR 7198 Univ. Lorraine/CNRS)"@en ;
+org:CRISMAT rdf:type proj:ResearchOrganization ;
+    rdfs:label "CRISMAT"@en ;
+    skos:prefLabel "CRISMAT"@en ;
+    proj:acronym "CRISMAT" ;
+    proj:fullName "Laboratoire de Cristallographie et Sciences des Matériaux"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:Center-Modelling-Simulation rdf:type proj:ResearchOrganization ;
+    rdfs:label "Center for Modelling and Simulation"@en ;
+    skos:prefLabel "Center for Modelling and Simulation"@en ;
+    proj:acronym "Center for Modelling and Simulation" ;
+    proj:fullName "Center for Modelling and Simulation"@en ;
+    proj:organizationType "Research center" ;
+    proj:country "Austria" .
+
+org:CentraleSupelec rdf:type proj:ResearchOrganization ;
+    rdfs:label "CentraleSupélec"@en ;
+    skos:prefLabel "CentraleSupélec"@en ;
+    proj:acronym "CentraleSupélec" ;
     proj:organizationType "Research organization" ;
     proj:country "France" .
 
-
-org:LEM3 rdf:type proj:ResearchOrganization ;
-    rdfs:label "LEM3"@en ;
-    skos:prefLabel "LEM3"@en ;
-    proj:acronym "LEM3" ;
-    proj:fullName "Laboratoire d'Etude des Microstructures et de Mécanique des Matériaux  (UMR 7239 CNRS/Univ Lorraine/Arts et Métiers Paris Tech)"@en ;
-    proj:organizationType "Research organization" ;
+org:CentreInriaLorraine rdf:type proj:ResearchOrganization ;
+    rdfs:label "Centre Inria de l'Université de Lorraine (INRIA)"@en ;
+    skos:prefLabel "Centre Inria de l'Université de Lorraine (INRIA)"@en ;
+    proj:acronym "Centre Inria de l'Université de Lorraine (INRIA)" ;
+    proj:fullName "Centre Inria de l'Université de Lorraine"@en ;
+    proj:organizationType "University" ;
     proj:country "France" .
 
+org:Chalmers rdf:type proj:ResearchOrganization ;
+    rdfs:label "Chalmers University"@en ;
+    skos:prefLabel "Chalmers University"@en ;
+    proj:acronym "Chalmers University" ;
+    proj:fullName "Chalmers University"@en ;
+    proj:organizationType "University" ;
+    proj:country "Sweden" .
 
-org:LGF rdf:type proj:ResearchOrganization ;
-    rdfs:label "LGF"@en ;
-    skos:prefLabel "LGF"@en ;
-    proj:acronym "LGF" ;
-    proj:fullName "laboratoire Georges Friedel (UMR 5307 CNRS/ENS Mines St Etienne)"@en ;
-    proj:organizationType "Research organization" ;
+org:ConstelliumCTEC rdf:type proj:ResearchOrganization ;
+    rdfs:label "Constellium C-TEC"@en ;
+    skos:prefLabel "Constellium C-TEC"@en ;
+    proj:acronym "Constellium C-TEC" ;
+    proj:fullName "Constellium C-TEC"@fr ;
+    proj:organizationType "Company" ;
     proj:country "France" .
 
+org:DTU rdf:type proj:ResearchOrganization ;
+    rdfs:label "DTU"@en ;
+    skos:prefLabel "DTU"@en ;
+    proj:acronym "DTU" ;
+    proj:fullName "Technical University of Denmark"@en ;
+    proj:organizationType "University" ;
+    proj:country "Denmark" .
 
-org:IMN rdf:type proj:ResearchOrganization ;
-    rdfs:label "IMN"@en ;
-    skos:prefLabel "IMN"@en ;
-    proj:acronym "IMN" ;
-    proj:fullName "Institut des Matériaux de Nantes Jean Rouxel (UMR 6502 CNRS/Univ Nantes)"@en ;
-    proj:organizationType "Research organization" ;
+org:EDF rdf:type proj:ResearchOrganization ;
+    rdfs:label "EDF"@en ;
+    skos:prefLabel "EDF"@en ;
+    proj:acronym "EDF" ;
+    proj:fullName "EDF"@fr ;
+    proj:organizationType "Company" ;
     proj:country "France" .
-
-
-org:CEA-Saclay-SEARS-LISL-SAMANTA-Saclay-s-Additive-MANufacturing-surface-TreAtment rdf:type proj:ResearchOrganization ;
-    rdfs:label "CEA-Saclay-SEARS-LISL-SAMANTA-Saclay-s-Additive-MANufacturing-surface-TreAtment"@en ;
-    skos:prefLabel "CEA-Saclay-SEARS-LISL-SAMANTA-Saclay-s-Additive-MANufacturing-surface-TreAtment"@en ;
-    proj:acronym "CEA-Saclay-SEARS-LISL-SAMANTA-Saclay-s-Additive-MANufacturing-surface-TreAtment" ;
-    proj:fullName "CEA Saclay SEARS / LISL SAMANTA (Saclay's Additive MANufacturing & surface TreAtment)"@en ;
-    proj:organizationType "Research organization" ;
-    proj:country "France" .
-
 
 org:ESRF rdf:type proj:ResearchOrganization ;
     rdfs:label "ESRF"@en ;
     skos:prefLabel "ESRF"@en ;
     proj:acronym "ESRF" ;
-    proj:fullName "European Synchrotron Radiation Facility (Grenoble)"@en ;
+    proj:fullName "European Synchrotron Radiation Facility"@fr ;
+    proj:organizationType "Research facility" ;
+    proj:country "France" .
+
+org:GPM rdf:type proj:ResearchOrganization ;
+    rdfs:label "GPM"@en ;
+    skos:prefLabel "GPM"@en ;
+    proj:acronym "GPM" ;
+    proj:fullName "Groupe de Physique des Matériaux"@fr ;
     proj:organizationType "Research organization" ;
     proj:country "France" .
 
+org:GREMAN rdf:type proj:ResearchOrganization ;
+    rdfs:label "GREMAN"@en ;
+    skos:prefLabel "GREMAN"@en ;
+    proj:acronym "GREMAN" ;
+    proj:fullName "Matériaux, Microélectronique, Acoustique, Nanotechnologies"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+org:GeePs rdf:type proj:ResearchOrganization ;
+    rdfs:label "GeePs"@en ;
+    skos:prefLabel "GeePs"@en ;
+    proj:acronym "GeePs" ;
+    proj:fullName "Laboratoire Génie électrique et électronique de Paris"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:IC2MP rdf:type proj:ResearchOrganization ;
+    rdfs:label "IC2MP"@en ;
+    skos:prefLabel "IC2MP"@en ;
+    proj:acronym "IC2MP" ;
+    proj:fullName "Institut de Chimie des milieux et Matériaux de Poitiers"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:ICA rdf:type proj:ResearchOrganization ;
+    rdfs:label "ICA"@en ;
+    skos:prefLabel "ICA"@en ;
+    proj:acronym "ICA" ;
+    proj:fullName "Institut Clément Ader"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:ICB rdf:type proj:ResearchOrganization ;
+    rdfs:label "ICB"@en ;
+    skos:prefLabel "ICB"@en ;
+    proj:acronym "ICB" ;
+    proj:fullName "Laboratoire Interdisciplinaire Carnot de Bourgogne"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:ICGM rdf:type proj:ResearchOrganization ;
+    rdfs:label "ICGM"@en ;
+    skos:prefLabel "ICGM"@en ;
+    proj:acronym "ICGM" ;
+    proj:fullName "Institut Charles Gerhardt Montpellier"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:ICMPE rdf:type proj:ResearchOrganization ;
+    rdfs:label "ICMPE"@en ;
+    skos:prefLabel "ICMPE"@en ;
+    proj:acronym "ICMPE" ;
+    proj:fullName "Institut de Chimie et des Matériaux Paris-Est"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:ICR rdf:type proj:ResearchOrganization ;
+    rdfs:label "ICR"@en ;
+    skos:prefLabel "ICR"@en ;
+    proj:acronym "ICR" ;
+    proj:fullName "Institut de Chimie Radicalaire"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:ICS rdf:type proj:ResearchOrganization ;
+    rdfs:label "ICS"@en ;
+    skos:prefLabel "ICS"@en ;
+    proj:acronym "ICS" ;
+    proj:fullName "Institut Charles Sadron"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:ICube rdf:type proj:ResearchOrganization ;
+    rdfs:label "ICube"@en ;
+    skos:prefLabel "ICube"@en ;
+    proj:acronym "ICube" ;
+    proj:fullName "Laboratoire des sciences de l'Ingénieur, de l'Informatique et de l'Imagerie"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:IFPEN rdf:type proj:ResearchOrganization ;
+    rdfs:label "IFPEN"@en ;
+    skos:prefLabel "IFPEN"@en ;
+    proj:acronym "IFPEN" ;
+    proj:fullName "IFP Energies nouvelles"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+org:IJC-Lab rdf:type proj:ResearchOrganization ;
+    rdfs:label "IJC Lab"@en ;
+    skos:prefLabel "IJC Lab"@en ;
+    proj:acronym "IJC Lab" ;
+    proj:fullName "Laboratoire de physique des deux infinis Irène Joliot-Curie"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:IJL rdf:type proj:ResearchOrganization ;
+    rdfs:label "IJL"@en ;
+    skos:prefLabel "IJL"@en ;
+    proj:acronym "IJL" ;
+    proj:fullName "Institut Jean Lamour"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:ILV rdf:type proj:ResearchOrganization ;
+    rdfs:label "ILV"@en ;
+    skos:prefLabel "ILV"@en ;
+    proj:acronym "ILV" ;
+    proj:fullName "Institut Lavoisier de Versailles"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:IM2NP rdf:type proj:ResearchOrganization ;
+    rdfs:label "IM2NP"@en ;
+    skos:prefLabel "IM2NP"@en ;
+    proj:acronym "IM2NP" ;
+    proj:fullName "Institut des Matériaux, de Microélectronique et des Nanosciences de Provence"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:IMAP rdf:type proj:ResearchOrganization ;
+    rdfs:label "IMAP"@en ;
+    skos:prefLabel "IMAP"@en ;
+    proj:acronym "IMAP" ;
+    proj:fullName "Institut des Matériaux Poreux de Paris"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:IMN rdf:type proj:ResearchOrganization ;
+    rdfs:label "IMN"@en ;
+    skos:prefLabel "IMN"@en ;
+    proj:acronym "IMN" ;
+    proj:fullName "Institut des Matériaux de Nantes Jean Rouxel"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:IMP rdf:type proj:ResearchOrganization ;
+    rdfs:label "IMP"@en ;
+    skos:prefLabel "IMP"@en ;
+    proj:acronym "IMP" ;
+    proj:fullName "Ingénierie des Matériaux Polymères"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+org:INL rdf:type proj:ResearchOrganization ;
+    rdfs:label "INL"@en ;
+    skos:prefLabel "INL"@en ;
+    proj:acronym "INL" ;
+    proj:fullName "Institut des Nanotechnologies de Lyon"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:INSA-Toulouse rdf:type proj:ResearchOrganization ;
+    rdfs:label "INSA Toulouse"@en ;
+    skos:prefLabel "INSA Toulouse"@en ;
+    proj:acronym "INSA Toulouse" ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+org:INSP rdf:type proj:ResearchOrganization ;
+    rdfs:label "INSP"@en ;
+    skos:prefLabel "INSP"@en ;
+    proj:acronym "INSP" ;
+    proj:fullName "Institut des nanosciences de Paris"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:IPCMS rdf:type proj:ResearchOrganization ;
+    rdfs:label "IPCMS"@en ;
+    skos:prefLabel "IPCMS"@en ;
+    proj:acronym "IPCMS" ;
+    proj:fullName "Institut de physique et chimie des matériaux de Strasbourg"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:IPVF rdf:type proj:ResearchOrganization ;
+    rdfs:label "IPVF"@en ;
+    skos:prefLabel "IPVF"@en ;
+    proj:acronym "IPVF" ;
+    proj:fullName "Institut Photovoltaïque d’Ile-de-France"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:IRCELYON rdf:type proj:ResearchOrganization ;
+    rdfs:label "IRCELYON"@en ;
+    skos:prefLabel "IRCELYON"@en ;
+    proj:acronym "IRCELYON" ;
+    proj:fullName "Institut de recherches sur la catalyse et l’environnement de Lyon"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:IRCER rdf:type proj:ResearchOrganization ;
+    rdfs:label "IRCER"@en ;
+    skos:prefLabel "IRCER"@en ;
+    proj:acronym "IRCER" ;
+    proj:fullName "institut de recherche sur les céramiques"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:IRCP rdf:type proj:ResearchOrganization ;
+    rdfs:label "IRCP"@en ;
+    skos:prefLabel "IRCP"@en ;
+    proj:acronym "IRCP" ;
+    proj:fullName "Institut de Recherche de Chimie Paris"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:IRIMAS rdf:type proj:ResearchOrganization ;
+    rdfs:label "IRIMAS"@en ;
+    skos:prefLabel "IRIMAS"@en ;
+    proj:acronym "IRIMAS" ;
+    proj:fullName "Institut de Recherche en Informatique Mathématiques Automatique Signal"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:IRL-GT-CNRS rdf:type proj:ResearchOrganization ;
+    rdfs:label "IRL GT-CNRS"@en ;
+    skos:prefLabel "IRL GT-CNRS"@en ;
+    proj:acronym "IRL GT-CNRS" ;
+    proj:fullName "IRL Georgia Tech/CNRS"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+org:IS2M rdf:type proj:ResearchOrganization ;
+    rdfs:label "IS2M"@en ;
+    skos:prefLabel "IS2M"@en ;
+    proj:acronym "IS2M" ;
+    proj:fullName "Institut de Science des Matériaux de Mulhouse"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:ISCR rdf:type proj:ResearchOrganization ;
+    rdfs:label "ISCR"@en ;
+    skos:prefLabel "ISCR"@en ;
+    proj:acronym "ISCR" ;
+    proj:fullName "Institut des Sciences Chimiques de Rennes"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:Institut-Fresnel rdf:type proj:ResearchOrganization ;
+    rdfs:label "Institut Fresnel"@en ;
+    skos:prefLabel "Institut Fresnel"@en ;
+    proj:acronym "Institut Fresnel" ;
+    proj:fullName "Institut Fresnel"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:L2S rdf:type proj:ResearchOrganization ;
+    rdfs:label "L2S"@en ;
+    skos:prefLabel "L2S"@en ;
+    proj:acronym "L2S" ;
+    proj:fullName "Laboratoire des Signaux et Systèmes"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LAMBE rdf:type proj:ResearchOrganization ;
+    rdfs:label "LAMBE"@en ;
+    skos:prefLabel "LAMBE"@en ;
+    proj:acronym "LAMBE" ;
+    proj:fullName "Laboratoire Analyse et Modélisation pour la Biologie et l'Environnement"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LCMCP rdf:type proj:ResearchOrganization ;
+    rdfs:label "LCMCP"@en ;
+    skos:prefLabel "LCMCP"@en ;
+    proj:acronym "LCMCP" ;
+    proj:fullName "Laboratoire de Chimie de la Matière Condensée de Paris"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LCPO rdf:type proj:ResearchOrganization ;
+    rdfs:label "LCPO"@en ;
+    skos:prefLabel "LCPO"@en ;
+    proj:acronym "LCPO" ;
+    proj:fullName "Laboratoire de chimie des polymères organiques"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LCTS rdf:type proj:ResearchOrganization ;
+    rdfs:label "LCTS"@en ;
+    skos:prefLabel "LCTS"@en ;
+    proj:acronym "LCTS" ;
+    proj:fullName "Laboratoire des Composites ThermoStructuraux"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LEM rdf:type proj:ResearchOrganization ;
+    rdfs:label "LEM"@en ;
+    skos:prefLabel "LEM"@en ;
+    proj:acronym "LEM" ;
+    proj:fullName "Laboratoire d'Electrochimie Moléculaire (UMR 7591 Univ. Paris Cité/CNRS) / ITODYS: laboratoire Interfaces Traitements Organisation et DYnamique des Systèmes (UMR7086 Univ. Paris Cité/CNRS )"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LEM3 rdf:type proj:ResearchOrganization ;
+    rdfs:label "LEM3"@en ;
+    skos:prefLabel "LEM3"@en ;
+    proj:acronym "LEM3" ;
+    proj:fullName "Laboratoire d'Etude des Microstructures et de Mécanique des Matériaux"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LEMTA rdf:type proj:ResearchOrganization ;
+    rdfs:label "LEMTA"@en ;
+    skos:prefLabel "LEMTA"@en ;
+    proj:acronym "LEMTA" ;
+    proj:fullName "Laboratoire Énergies & Mécanique Théorique et Appliquée"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LGC rdf:type proj:ResearchOrganization ;
+    rdfs:label "LGC"@en ;
+    skos:prefLabel "LGC"@en ;
+    proj:acronym "LGC" ;
+    proj:fullName "Laboratoire de Génie Chimique"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LGF rdf:type proj:ResearchOrganization ;
+    rdfs:label "LGF"@en ;
+    skos:prefLabel "LGF"@en ;
+    proj:acronym "LGF" ;
+    proj:fullName "laboratoire Georges Friedel"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LGP2 rdf:type proj:ResearchOrganization ;
+    rdfs:label "LGP2"@en ;
+    skos:prefLabel "LGP2"@en ;
+    proj:acronym "LGP2" ;
+    proj:fullName "Laboratoire de génie des procédés pour la bioraffinerie, les matériaux bio-sourcés et l'impression fonctionnelle"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LGPM rdf:type proj:ResearchOrganization ;
+    rdfs:label "LGPM"@en ;
+    skos:prefLabel "LGPM"@en ;
+    proj:acronym "LGPM" ;
+    proj:fullName "Laboratoire Génie des Procédés et Matériaux"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LINK rdf:type proj:ResearchOrganization ;
+    rdfs:label "LINK"@en ;
+    skos:prefLabel "LINK"@en ;
+    proj:acronym "LINK" ;
+    proj:fullName "Laboratory for Innovative Key Materials and Structures"@en ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LIONS rdf:type proj:ResearchOrganization ;
+    rdfs:label "LIONS"@en ;
+    skos:prefLabel "LIONS"@en ;
+    proj:acronym "LIONS" ;
+    proj:fullName "Laboratoire Interdisciplinaire sur l'Organisation Nanométrique et Supramoléculaire"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LIPHY rdf:type proj:ResearchOrganization ;
+    rdfs:label "LIPHY"@en ;
+    skos:prefLabel "LIPHY"@en ;
+    proj:acronym "LIPHY" ;
+    proj:fullName "Laboratoire Interdisciplinaire de Physique"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LIRIS rdf:type proj:ResearchOrganization ;
+    rdfs:label "LIRIS"@en ;
+    skos:prefLabel "LIRIS"@en ;
+    proj:acronym "LIRIS" ;
+    proj:fullName "Laboratoire d’InfoRmatique en Image et Systèmes d’information"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LISE rdf:type proj:ResearchOrganization ;
+    rdfs:label "LISE"@en ;
+    skos:prefLabel "LISE"@en ;
+    proj:acronym "LISE" ;
+    proj:fullName "Laboratoire Interfaces et Systèmes Electrochimiques"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LIST-Luxembourg rdf:type proj:ResearchOrganization ;
+    rdfs:label "LIST-Luxembourg"@en ;
+    skos:prefLabel "LIST-Luxembourg"@en ;
+    proj:acronym "LIST-Luxembourg" ;
+    proj:fullName "Luxembourg Institute of Science and Technology"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "Luxembourg" .
+
+org:LMGP rdf:type proj:ResearchOrganization ;
+    rdfs:label "LMGP"@en ;
+    skos:prefLabel "LMGP"@en ;
+    proj:acronym "LMGP" ;
+    proj:fullName "Laboratoire des Matériaux et du Génie Physique"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LMI rdf:type proj:ResearchOrganization ;
+    rdfs:label "LMI"@en ;
+    skos:prefLabel "LMI"@en ;
+    proj:acronym "LMI" ;
+    proj:fullName "Laboratoire des Multimatériaux et Interfaces"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LMPS rdf:type proj:ResearchOrganization ;
+    rdfs:label "LMPS"@en ;
+    skos:prefLabel "LMPS"@en ;
+    proj:acronym "LMPS" ;
+    proj:fullName "Laboratoire de Mécanique de Paris Saclay"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LOF rdf:type proj:ResearchOrganization ;
+    rdfs:label "LOF"@en ;
+    skos:prefLabel "LOF"@en ;
+    proj:acronym "LOF" ;
+    proj:fullName "Laboratory of Future - Bordeaux"@en ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LORIA rdf:type proj:ResearchOrganization ;
+    rdfs:label "LORIA"@en ;
+    skos:prefLabel "LORIA"@en ;
+    proj:acronym "LORIA" ;
+    proj:fullName "Laboratoire lorrain de recherche en informatique et ses applications"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LPCNO rdf:type proj:ResearchOrganization ;
+    rdfs:label "LPCNO"@en ;
+    skos:prefLabel "LPCNO"@en ;
+    proj:acronym "LPCNO" ;
+    proj:fullName "Laboratoire de Physique et Chimie des Nano Objets"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LPCT rdf:type proj:ResearchOrganization ;
+    rdfs:label "LPCT"@en ;
+    skos:prefLabel "LPCT"@en ;
+    proj:acronym "LPCT" ;
+    proj:fullName "Laboratoire de Physique et Chimie Théoriques"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LPGP rdf:type proj:ResearchOrganization ;
+    rdfs:label "LPGP"@en ;
+    skos:prefLabel "LPGP"@en ;
+    proj:acronym "LPGP" ;
+    proj:fullName "Laboratoire de physique des gaz et des plasmas"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LPICM rdf:type proj:ResearchOrganization ;
+    rdfs:label "LPICM"@en ;
+    skos:prefLabel "LPICM"@en ;
+    proj:acronym "LPICM" ;
+    proj:fullName "Laboratoire de physique des interfaces et des couches minces"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LPMC rdf:type proj:ResearchOrganization ;
+    rdfs:label "LPMC (Université de Picardie Jules Verne)"@en ;
+    skos:prefLabel "LPMC (Université de Picardie Jules Verne)"@en ;
+    proj:acronym "LPMC (Université de Picardie Jules Verne)" ;
+    proj:fullName "Laboratoire de Physique de la Matière Condensée"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LPMC-Polytechnique rdf:type proj:ResearchOrganization ;
+    rdfs:label "LPMC (École Polytechnique)"@en ;
+    skos:prefLabel "LPMC (École Polytechnique)"@en ;
+    proj:acronym "LPMC (École Polytechnique)" ;
+    proj:fullName "Laboratoire de Physique de la Matière Condensée"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LPS rdf:type proj:ResearchOrganization ;
+    rdfs:label "LPS"@en ;
+    skos:prefLabel "LPS"@en ;
+    proj:acronym "LPS" ;
+    proj:fullName "Laboratoire de Physique des Solides"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LRS rdf:type proj:ResearchOrganization ;
+    rdfs:label "LRS"@en ;
+    skos:prefLabel "LRS"@en ;
+    proj:acronym "LRS" ;
+    proj:fullName "Laboratoire de Réactivité de Surface - Sorbonne"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LSI rdf:type proj:ResearchOrganization ;
+    rdfs:label "LSI"@en ;
+    skos:prefLabel "LSI"@en ;
+    proj:acronym "LSI" ;
+    proj:fullName "Laboratoire des Solides Irradiés"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LUMIN rdf:type proj:ResearchOrganization ;
+    rdfs:label "LUMIN"@en ;
+    skos:prefLabel "LUMIN"@en ;
+    proj:acronym "LUMIN" ;
+    proj:fullName "Laboratoire Lumière-Matière aux Interfaces"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:LaMCoS rdf:type proj:ResearchOrganization ;
+    rdfs:label "LaMCoS"@en ;
+    skos:prefLabel "LaMCoS"@en ;
+    proj:acronym "LaMCoS" ;
+    proj:fullName "Laboratoire de Mécanique des Contacts et des Structures"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:MATEIS rdf:type proj:ResearchOrganization ;
+    rdfs:label "MATEIS"@en ;
+    skos:prefLabel "MATEIS"@en ;
+    proj:acronym "MATEIS" ;
+    proj:fullName "Matériaux : Ingénierie et Science"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+org:MMK rdf:type proj:ResearchOrganization ;
+    rdfs:label "MMK"@en ;
+    skos:prefLabel "MMK"@en ;
+    proj:acronym "MMK" ;
+    proj:fullName "MMK – Department of materials and environmental chemistry - Univ. Stockholm"@en ;
+    proj:organizationType "Research organization" ;
+    proj:country "Sweden" .
+
+org:NEEL rdf:type proj:ResearchOrganization ;
+    rdfs:label "NEEL"@en ;
+    skos:prefLabel "NEEL"@en ;
+    proj:acronym "NEEL" ;
+    proj:fullName "Institut Néel"@fr ;
+    proj:organizationType "Research institute" ;
+    proj:country "France" .
+
+org:OERLIKON rdf:type proj:ResearchOrganization ;
+    rdfs:label "OERLIKON"@en ;
+    skos:prefLabel "OERLIKON"@en ;
+    proj:acronym "OERLIKON" ;
+    proj:fullName "OERLIKON"@fr ;
+    proj:organizationType "Company" ;
+    proj:country "France" .
+
+org:Org-3SR rdf:type proj:ResearchOrganization ;
+    rdfs:label "3SR"@en ;
+    skos:prefLabel "3SR"@en ;
+    proj:acronym "3SR" ;
+    proj:fullName "Laboratoire SOLS, SOLIDES, STRUCTURES, RISQUES"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:PHLAM rdf:type proj:ResearchOrganization ;
+    rdfs:label "PHLAM"@en ;
+    skos:prefLabel "PHLAM"@en ;
+    proj:acronym "PHLAM" ;
+    proj:fullName "Physique des lasers, atomes et molécules"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+org:PIMM rdf:type proj:ResearchOrganization ;
+    rdfs:label "PIMM"@en ;
+    skos:prefLabel "PIMM"@en ;
+    proj:acronym "PIMM" ;
+    proj:fullName "Procédés et Ingénierie en Mécanique et Matériaux"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+org:PROMES rdf:type proj:ResearchOrganization ;
+    rdfs:label "PROMES"@en ;
+    skos:prefLabel "PROMES"@en ;
+    proj:acronym "PROMES" ;
+    proj:fullName "Laboratoire Procédés, Matériaux, Energie solaire"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:Pprime rdf:type proj:ResearchOrganization ;
+    rdfs:label "Pprime"@en ;
+    skos:prefLabel "Pprime"@en ;
+    proj:acronym "Pprime" ;
+    proj:fullName "Institut Pprime"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" .
+
+org:SAFRAN rdf:type proj:ResearchOrganization ;
+    rdfs:label "SAFRAN"@en ;
+    skos:prefLabel "SAFRAN"@en ;
+    proj:acronym "SAFRAN" ;
+    proj:fullName "SAFRAN"@fr ;
+    proj:organizationType "Company" ;
+    proj:country "France" .
+
+org:SAMANTA rdf:type proj:ResearchOrganization ;
+    rdfs:label "SAMANTA"@en ;
+    skos:prefLabel "SAMANTA"@en ;
+    proj:acronym "SAMANTA" ;
+    proj:fullName "CEA Saclay SEARS / LISL SAMANTA"@fr ;
+    proj:organizationType "Research laboratory" ;
+    proj:country "France" ;
+    proj:partOfOrganization org:CEA .
 
 org:SOLEIL rdf:type proj:ResearchOrganization ;
-    rdfs:label "SOLEIL"@en ;
-    skos:prefLabel "SOLEIL"@en ;
-    proj:acronym "SOLEIL" ;
-    proj:fullName "Synchrotron SOLEIL (Paris Saclay)"@en ;
+    rdfs:label "Synchrotron SOLEIL"@en ;
+    skos:prefLabel "Synchrotron SOLEIL"@en ;
+    proj:acronym "Synchrotron SOLEIL" ;
+    proj:fullName "Synchrotron SOLEIL"@fr ;
+    proj:organizationType "Research facility" ;
+    proj:country "France" .
+
+org:SPINTEC rdf:type proj:ResearchOrganization ;
+    rdfs:label "SPINTEC"@en ;
+    skos:prefLabel "SPINTEC"@en ;
+    proj:acronym "SPINTEC" ;
+    proj:fullName "Spintronique et Technologie des Composants"@fr ;
     proj:organizationType "Research organization" ;
     proj:country "France" .
 
+org:SPMS rdf:type proj:ResearchOrganization ;
+    rdfs:label "SPMS"@en ;
+    skos:prefLabel "SPMS"@en ;
+    proj:acronym "SPMS" ;
+    proj:fullName "Structures, Propriétés et Modélisation des Solides"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+org:TOM rdf:type proj:ResearchOrganization ;
+    rdfs:label "TOM"@en ;
+    skos:prefLabel "TOM"@en ;
+    proj:acronym "TOM" ;
+    proj:fullName "Topological orders in Matter"@en ;
+    proj:organizationType "Research organization" ;
+    proj:country "Belgium" .
+
+org:UCCS rdf:type proj:ResearchOrganization ;
+    rdfs:label "UCCS"@en ;
+    skos:prefLabel "UCCS"@en ;
+    proj:acronym "UCCS" ;
+    proj:fullName "Unité de Catalyse et Chimie du Solide"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+org:UCEIV rdf:type proj:ResearchOrganization ;
+    rdfs:label "UCEIV"@en ;
+    skos:prefLabel "UCEIV"@en ;
+    proj:acronym "UCEIV" ;
+    proj:fullName "Unité de Chimie environnementale et interactions sur le vivant"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+org:UCL rdf:type proj:ResearchOrganization ;
+    rdfs:label "UCL"@en ;
+    skos:prefLabel "UCL"@en ;
+    proj:acronym "UCL" ;
+    proj:fullName "Université Catholique de Louvain"@fr ;
+    proj:organizationType "University" ;
+    proj:country "Belgium" .
+
+org:UMET rdf:type proj:ResearchOrganization ;
+    rdfs:label "UMET"@en ;
+    skos:prefLabel "UMET"@en ;
+    proj:acronym "UMET" ;
+    proj:fullName "Unité Matériaux et Transformations"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+org:UTBM rdf:type proj:ResearchOrganization ;
+    rdfs:label "UTBM"@en ;
+    skos:prefLabel "UTBM"@en ;
+    proj:acronym "UTBM" ;
+    proj:fullName "Université de Technologie de Belfort-Montbéliard"@fr ;
+    proj:organizationType "University" ;
+    proj:country "France" .
+
+org:Unicamp rdf:type proj:ResearchOrganization ;
+    rdfs:label "Unicamp"@en ;
+    skos:prefLabel "Unicamp"@en ;
+    proj:acronym "Unicamp" ;
+    proj:fullName "Instituto de Fisica \"Gleb Wataghin\""@fr ;
+    proj:organizationType "University" ;
+    proj:country "Brazil" .
+
+org:UniversiteClaudeBernardLyon1 rdf:type proj:ResearchOrganization ;
+    rdfs:label "Université Claude Bernard Lyon 1"@en ;
+    skos:prefLabel "Université Claude Bernard Lyon 1"@en ;
+    proj:acronym "Université Claude Bernard Lyon 1" ;
+    proj:organizationType "University" ;
+    proj:country "France" .
+
+org:UniversiteLille rdf:type proj:ResearchOrganization ;
+    rdfs:label "Université de Lille"@en ;
+    skos:prefLabel "Université de Lille"@en ;
+    proj:acronym "Université de Lille" ;
+    proj:organizationType "University" ;
+    proj:country "France" .
+
+org:UniversiteLittoralCoteDOpale rdf:type proj:ResearchOrganization ;
+    rdfs:label "Université du Littoral Côte d'Opale"@en ;
+    skos:prefLabel "Université du Littoral Côte d'Opale"@en ;
+    proj:acronym "Université du Littoral Côte d'Opale" ;
+    proj:organizationType "University" ;
+    proj:country "France" .
+
+org:UniversiteLorraine rdf:type proj:ResearchOrganization ;
+    rdfs:label "Université de Lorraine"@en ;
+    skos:prefLabel "Université de Lorraine"@en ;
+    proj:acronym "Université de Lorraine" ;
+    proj:organizationType "University" ;
+    proj:country "France" .
+
+org:UniversiteMontpellier rdf:type proj:ResearchOrganization ;
+    rdfs:label "Université de Montpellier"@en ;
+    skos:prefLabel "Université de Montpellier"@en ;
+    proj:acronym "Université de Montpellier" ;
+    proj:organizationType "University" ;
+    proj:country "France" .
+
+org:UniversiteTours rdf:type proj:ResearchOrganization ;
+    rdfs:label "Université de Tours"@en ;
+    skos:prefLabel "Université de Tours"@en ;
+    proj:acronym "Université de Tours" ;
+    proj:organizationType "University" ;
+    proj:country "France" .
+
+org:XLIM rdf:type proj:ResearchOrganization ;
+    rdfs:label "XLIM"@en ;
+    skos:prefLabel "XLIM"@en ;
+    proj:acronym "XLIM" ;
+    proj:fullName "XLIM"@fr ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .

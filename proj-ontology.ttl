@@ -627,6 +627,19 @@ proj:hasContributor rdf:type owl:ObjectProperty ;
     rdfs:range   proj:ResearchPerson ;
     rdfs:label   "has contributor"@en .
 
+
+proj:hasPartner rdf:type owl:ObjectProperty ;
+    rdfs:domain  proj:Project ;
+    rdfs:range   proj:Organization ;
+    rdfs:label   "has partner organization"@en .
+
+
+proj:inPartnerIn rdf:type owl:ObjectProperty ;
+    rdfs:domain  proj:Organization ;
+    rdfs:range   proj:Project ;
+    rdfs:label   "is partner organization in project"@en .
+
+
 proj:hasLeadOrganization rdf:type owl:ObjectProperty ;
     rdfs:domain  proj:WorkPackage ;
     rdfs:range   proj:Organization ;
