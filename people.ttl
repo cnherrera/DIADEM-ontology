@@ -332,3 +332,343 @@
     foaf:name "Nathalie GEY" ;
     proj:employedBy org:CNRS .
 
+
+:PHILIP_SCHULZ rdf:type proj:ResearchPerson ;
+    foaf:givenName "Philip" ;
+    foaf:familyName "SCHULZ" ;
+    foaf:name "Philip SCHULZ" ;
+    proj:employedBy org:CNRS .
+
+
+:NICOLAS_JOZEFOWIEZ rdf:type proj:ResearchPerson ;
+    foaf:givenName "Nicolas" ;
+    foaf:familyName "JOZEFOWIEZ" ;
+    foaf:name "Nicolas JOZEFOWIEZ" ;
+    proj:employedBy org:UniversiteLorraine .
+
+
+:ARNAUD_SPANGENBERG rdf:type proj:ResearchPerson ;
+    foaf:givenName "Arnaud" ;
+    foaf:familyName "SPANGENBERG" ;
+    foaf:name "Arnaud SPANGENBERG" ;
+    proj:employedBy org:CNRS .
+
+
+:OVIDIU_ERSEN rdf:type proj:ResearchPerson ;
+    foaf:givenName "Ovidiu" ;
+    foaf:familyName "ERSEN" ;
+    foaf:name "Ovidiu ERSEN" ;
+    proj:employedBy org:CNRS .
+
+
+:SEBASTIEN_ROYER rdf:type proj:ResearchPerson ;
+    foaf:givenName "Sébastien" ;
+    foaf:familyName "ROYER" ;
+    foaf:name "Sébastien ROYER" ;
+    proj:employedBy org:UniversiteLittoralCoteDOpale .
+
+
+:ZINEB_SAGHI rdf:type proj:ResearchPerson ;
+    foaf:givenName "Zineb" ;
+    foaf:familyName "SAGHI" ;
+    foaf:name "Zineb SAGHI" ;
+    proj:employedBy org:CEA .
+
+
+:FABRICE_ROSSIGNOL rdf:type proj:ResearchPerson ;
+    foaf:givenName "Fabrice" ;
+    foaf:familyName "ROSSIGNOL" ;
+    foaf:name "Fabrice ROSSIGNOL" ;
+    proj:employedBy org:CNRS .
+
+
+:LISE-MARIE_LACROIX rdf:type proj:ResearchPerson ;
+    foaf:givenName "Lise-Marie" ;
+    foaf:familyName "LACROIX" ;
+    foaf:name "Lise-Marie LACROIX" ;
+    proj:employedBy org:INSA-Toulouse .
+
+
+:GUILLAUME_MAURIN rdf:type proj:ResearchPerson ;
+    foaf:givenName "Guillaume" ;
+    foaf:familyName "MAURIN" ;
+    foaf:name "Guillaume MAURIN" ;
+    proj:employedBy org:UniversiteMontpellier .
+
+
+:YANN_LECONTE rdf:type proj:ResearchPerson ;
+    foaf:givenName "Yann" ;
+    foaf:familyName "LECONTE" ;
+    foaf:name "Yann LECONTE" ;
+    proj:employedBy org:CEA .
+
+
+:FANNY_BALBAUD-CELERIER rdf:type proj:ResearchPerson ;
+    foaf:givenName "Fanny" ;
+    foaf:familyName "BALBAUD-CELERIER" ;
+    foaf:name "Fanny BALBAUD-CELERIER" ;
+    proj:employedBy org:CEA .
+
+
+:SEBASTIEN_ROLERE rdf:type proj:ResearchPerson ;
+    foaf:givenName "Sébastien" ;
+    foaf:familyName "ROLERE" ;
+    foaf:name "Sébastien ROLERE" ;
+    proj:employedBy org:CEA .
+
+
+:BRAHIM_DKHIL rdf:type proj:ResearchPerson ;
+    foaf:givenName "Brahim" ;
+    foaf:familyName "DKHIL" ;
+    foaf:name "Brahim DKHIL" ;
+    proj:employedBy org:CentraleSupelec .
+
+
+:FREDERIC_DEMOLY rdf:type proj:ResearchPerson ;
+    foaf:givenName "Frédéric" ;
+    foaf:familyName "DEMOLY" ;
+    foaf:name "Frédéric DEMOLY" ;
+    proj:employedBy org:CNRS .
+
+
+:ASSIL_BOUZID rdf:type proj:ResearchPerson ;
+    foaf:givenName "Assil" ;
+    foaf:familyName "BOUZID" ;
+    foaf:name "Assil BOUZID" ;
+    proj:employedBy org:CNRS .
+
+
+:JEAN-FRANCOIS_GERARD rdf:type proj:ResearchPerson ;
+    foaf:givenName "Jean-François" ;
+    foaf:familyName "GERARD" ;
+    foaf:name "Jean-François GERARD" ;
+    proj:employedBy org:CNRS .
+
+
+:MICKAEL_BEAUDHUIN rdf:type proj:ResearchPerson ;
+    foaf:givenName "Mickaël" ;
+    foaf:familyName "BEAUDHUIN" ;
+    foaf:name "Mickaël BEAUDHUIN" ;
+    proj:employedBy org:UniversiteMontpellier .
+
+
+:ALEXIS_DESCHAMPS rdf:type proj:ResearchPerson ;
+    foaf:givenName "Alexis" ;
+    foaf:familyName "DESCHAMPS" ;
+    foaf:name "Alexis DESCHAMPS" ;
+    proj:employedBy org:CNRS .
+
+
+:MICHEL_HEHN rdf:type proj:ResearchPerson ;
+    foaf:givenName "Michel" ;
+    foaf:familyName "HEHN" ;
+    foaf:name "Michel HEHN" ;
+    proj:employedBy org:UniversiteLorraine .
+
+
+:ROMAIN_GAUTIER rdf:type proj:ResearchPerson ;
+    foaf:givenName "Romain" ;
+    foaf:familyName "GAUTIER" ;
+    foaf:name "Romain GAUTIER" ;
+    proj:employedBy org:CNRS .
+
+
+:KEVIN_NADAUD rdf:type proj:ResearchPerson ;
+    foaf:givenName "Kévin" ;
+    foaf:familyName "NADAUD" ;
+    foaf:name "Kévin NADAUD" ;
+    proj:employedBy org:UniversiteTours .
+
+
+:JULIEN_SOURICE rdf:type proj:ResearchPerson ;
+    foaf:givenName "Julien" ;
+    foaf:familyName "SOURICE" ;
+    foaf:name "Julien SOURICE" ;
+    proj:employedBy org:CEA .
+
+
+:SEBASTIEN_ALLAIN rdf:type proj:ResearchPerson ;
+    foaf:givenName "Sébastien" ;
+    foaf:familyName "ALLAIN" ;
+    foaf:name "Sébastien ALLAIN" ;
+    proj:employedBy org:CNRS .
+
+
+:VINCENT_RAT rdf:type proj:ResearchPerson ;
+    foaf:givenName "Vincent" ;
+    foaf:familyName "RAT" ;
+    foaf:name "Vincent RAT" ;
+    proj:employedBy org:CNRS .
+
+
+:SOPHIE_CHARTON rdf:type proj:ResearchPerson ;
+    foaf:givenName "Sophie" ;
+    foaf:familyName "CHARTON" ;
+    foaf:name "Sophie CHARTON" ;
+    proj:employedBy org:CEA .
+
+
+:BRUNO_BOUSQUET rdf:type proj:ResearchPerson ;
+    foaf:givenName "Bruno" ;
+    foaf:familyName "BOUSQUET" ;
+    foaf:name "Bruno BOUSQUET" ;
+    proj:employedBy org:CNRS .
+
+
+:JULIEN_LAM rdf:type proj:ResearchPerson ;
+    foaf:givenName "Julien" ;
+    foaf:familyName "LAM" ;
+    foaf:name "Julien LAM" ;
+    proj:employedBy org:UniversiteLille .
+
+
+:JEROME_LONG rdf:type proj:ResearchPerson ;
+    foaf:givenName "Jérôme" ;
+    foaf:familyName "LONG" ;
+    foaf:name "Jérôme LONG" ;
+    proj:employedBy org:UniversiteMontpellier .
+
+
+:ROMAIN_BACHELET rdf:type proj:ResearchPerson ;
+    foaf:givenName "Romain" ;
+    foaf:familyName "BACHELET" ;
+    foaf:name "Romain BACHELET" ;
+    proj:employedBy org:CNRS .
+
+
+:ZHENG_LIU rdf:type proj:ResearchPerson ;
+    foaf:givenName "Zheng" ;
+    foaf:familyName "LIU" ;
+    foaf:name "Zheng LIU" ;
+    proj:employedBy org:CNRS .
+
+
+:GUILHEM_DEZANNEAU rdf:type proj:ResearchPerson ;
+    foaf:givenName "Guilhem" ;
+    foaf:familyName "DEZANNEAU" ;
+    foaf:name "Guilhem DEZANNEAU" ;
+    proj:employedBy org:CNRS .
+
+
+:NATHALIE_BOUDET rdf:type proj:ResearchPerson ;
+    foaf:givenName "Nathalie" ;
+    foaf:familyName "BOUDET" ;
+    foaf:name "Nathalie BOUDET" ;
+    proj:employedBy org:CNRS .
+
+
+:CAROLE_VALOT rdf:type proj:ResearchPerson ;
+    foaf:givenName "Carole" ;
+    foaf:familyName "Valot" ;
+    foaf:name "Carole Valot" ;
+    proj:employedBy org:CEA .
+
+
+:DAVID_PORTEHAULT rdf:type proj:ResearchPerson ;
+    foaf:givenName "David" ;
+    foaf:familyName "PORTEHAULT" ;
+    foaf:name "David PORTEHAULT" ;
+    proj:employedBy org:Sorbonne .
+
+
+:FABRICE_MAUVY rdf:type proj:ResearchPerson ;
+    foaf:givenName "Fabrice" ;
+    foaf:familyName "MAUVY" ;
+    foaf:name "Fabrice MAUVY" ;
+    proj:employedBy org:CNRS .
+
+
+:CHRISTIAN_SERRE rdf:type proj:ResearchPerson ;
+    foaf:givenName "Christian" ;
+    foaf:familyName "SERRE" ;
+    foaf:name "Christian SERRE" ;
+    proj:employedBy org:CNRS .
+
+
+:JULIEN_ZOLLINGER rdf:type proj:ResearchPerson ;
+    foaf:givenName "Julien" ;
+    foaf:familyName "ZOLLINGER" ;
+    foaf:name "Julien ZOLLINGER" ;
+    proj:employedBy org:CNRS .
+
+
+:LAURENT_ORGEAS rdf:type proj:ResearchPerson ;
+    foaf:givenName "Laurent" ;
+    foaf:familyName "ORGEAS" ;
+    foaf:name "Laurent ORGEAS" ;
+    proj:employedBy org:CNRS .
+
+
+:EMILIE_GAUDRY rdf:type proj:ResearchPerson ;
+    foaf:givenName "Emilie" ;
+    foaf:familyName "GAUDRY" ;
+    foaf:name "Emilie GAUDRY" ;
+    proj:employedBy org:CNRS .
+
+
+:MATTHIAS_HILLENKAMP rdf:type proj:ResearchPerson ;
+    foaf:givenName "Matthias" ;
+    foaf:familyName "HILLENKAMP" ;
+    foaf:name "Matthias HILLENKAMP" ;
+    proj:employedBy org:CNRS .
+
+
+:PASCAL_AUBRY rdf:type proj:ResearchPerson ;
+    foaf:givenName "Pascal" ;
+    foaf:familyName "AUBRY" ;
+    foaf:name "Pascal AUBRY" ;
+    proj:employedBy org:CEA .
+
+
+:JULIE_MAISONNEUVE rdf:type proj:ResearchPerson ;
+    foaf:givenName "Julie" ;
+    foaf:familyName "MAISONNEUVE" ;
+    foaf:name "Julie MAISONNEUVE" ;
+    proj:employedBy org:CEA .
+
+
+:CHRISTOPHE_DUJARDIN rdf:type proj:ResearchPerson ;
+    foaf:givenName "Christophe" ;
+    foaf:familyName "DUJARDIN" ;
+    foaf:name "Christophe DUJARDIN" ;
+    proj:employedBy org:UniversiteClaudeBernardLyon1 .
+
+
+:GUILLAUME_DEFFRENNES rdf:type proj:ResearchPerson ;
+    foaf:givenName "Guillaume" ;
+    foaf:familyName "DEFFRENNES" ;
+    foaf:name "Guillaume DEFFRENNES" ;
+    proj:employedBy org:CNRS .
+
+
+:ABDALLAH_OUGAZZADEN rdf:type proj:ResearchPerson ;
+    foaf:givenName "Abdallah" ;
+    foaf:familyName "OUGAZZADEN" ;
+    foaf:name "Abdallah OUGAZZADEN" ;
+    proj:employedBy org:CNRS .
+
+
+:IOANA_NUTA rdf:type proj:ResearchPerson ;
+    foaf:givenName "Ioana" ;
+    foaf:familyName "NUTA" ;
+    foaf:name "Ioana NUTA" ;
+    proj:employedBy org:SIMAP .
+
+
+:JUNSOO_HAN rdf:type proj:ResearchPerson ;
+    foaf:givenName "Junsoo" ;
+    foaf:familyName "HAN" ;
+    foaf:name "Junsoo HAN" ;
+    proj:employedBy org:CNRS .
+
+
+:NADINE_ESSAYEM rdf:type proj:ResearchPerson ;
+    foaf:givenName "Nadine" ;
+    foaf:familyName "ESSAYEM" ;
+    foaf:name "Nadine ESSAYEM" ;
+    proj:employedBy org:CNRS .
+
+
+:JEANPHILIPPE_POLI rdf:type proj:ResearchPerson ;
+    foaf:name "JEANPHILIPPE_POLI" .
+

@@ -246,7 +246,7 @@ plat:Platform_fabrication-and-characterization-of-standardized-millifluidic-chip
     proj:hasMaterialType plat:MaterialType_ceramics,
         plat:MaterialType_metals,
         plat:MaterialType_polymers ;
-    proj:hasPlatformAssociatedProject ppd:Project_advance ;
+#    proj:hasPlatformAssociatedProject ppd:Project_advance ;
     proj:identifier "fabrication-and-characterization-of-standardized-millifluidic-chips" .
 
 plat:Platform_gas-adsorption-in-mofs rdf:type proj:CharacterizationPlatform,

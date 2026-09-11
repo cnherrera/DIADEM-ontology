@@ -1277,3 +1277,21 @@ org:XLIM rdf:type proj:ResearchOrganization ;
     proj:fullName "XLIM"@fr ;
     proj:organizationType "Research organization" ;
     proj:country "France" .
+
+org:INRIA-Lorraine rdf:type proj:ResearchOrganization ;
+    rdfs:label "INRIA-Lorraine"@en ;
+    skos:prefLabel "INRIA-Lorraine"@en ;
+    proj:acronym "INRIA-Lorraine" ;
+    proj:fullName "Centre Inria de l'Université de Lorraine (INRIA)"@en ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+
+org:Constellium rdf:type proj:ResearchOrganization ;
+    rdfs:label "Constellium"@en ;
+    skos:prefLabel "Constellium"@en ;
+    proj:acronym "Constellium" ;
+    proj:fullName "Constellium C-TEC"@en ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
