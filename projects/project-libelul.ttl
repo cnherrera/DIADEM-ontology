@@ -42,9 +42,9 @@
         ckey:OpticalProperties,
         ckey:Nanoparticles .
 
-plat:MobileLIBSPlatform proj:hasPlatformAssociatedProject :Project_libelul .
+plat:Platform_mobile-libs-platform proj:hasPlatformAssociatedProject :Project_libelul .
 
-plat:MultiCharacterizationByLIBSRamanPhotoluminescenceImaging proj:hasPlatformAssociatedProject :Project_libelul .
+plat:Platform_multi-characterization-by-libs-raman-photoluminescence-imaging proj:hasPlatformAssociatedProject :Project_libelul .
 
 
 ## ------->> Work Packages << --------------

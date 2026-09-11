@@ -52,11 +52,11 @@
         ckey:PhaseTransformations,
         ckey:Oxides .
 
-plat:CombinatorialGrowthOfHeterostructuresByPLDPVD proj:hasPlatformAssociatedProject :Project_microelec .
+plat:Platform_combinatorial-growth-of-heterostructures-by-pld-pvd proj:hasPlatformAssociatedProject :Project_microelec .
 
-plat:OperandoCharacterizationOfElectronicStructureUnderElectricalStress proj:hasPlatformAssociatedProject :Project_microelec .
+plat:Platform_operando-characterization-of-electronic-structure-under-electrical-stress proj:hasPlatformAssociatedProject :Project_microelec .
 
-plat:StructuralAndElectricalCharacterizationOf2DGradientLayers proj:hasPlatformAssociatedProject :Project_microelec .
+plat:Platform_structural-and-electrical-characterization-of-2d-gradient-layers proj:hasPlatformAssociatedProject :Project_microelec .
 
 
 ## ------->> Work Packages << --------------

@@ -53,11 +53,11 @@
         ckey:XRayDiffraction,
         ckey:MaterialsScience .
 
-plat:AutomatedXRDSynthesisAndCharacterizationOfPowderLibraries proj:hasPlatformAssociatedProject :Project_hiway-2-mat .
+plat:Platform_automated-xrd-synthesis-and-characterization-of-powder-libraries proj:hasPlatformAssociatedProject :Project_hiway-2-mat .
 
-plat:AutonomousRoboticSynthesisOfPowdersAndThinFilms proj:hasPlatformAssociatedProject :Project_hiway-2-mat .
+plat:Platform_autonomous-robotic-synthesis-of-powders-and-thin-films proj:hasPlatformAssociatedProject :Project_hiway-2-mat .
 
-plat:CombinatorialPVD proj:hasPlatformAssociatedProject :Project_hiway-2-mat .
+plat:Platform_combinatorial-pvd proj:hasPlatformAssociatedProject :Project_hiway-2-mat .
 
 
 ## ------->> Work Packages << --------------

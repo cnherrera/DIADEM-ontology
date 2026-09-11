@@ -52,7 +52,7 @@
         ckey:OpticalProperties,
         ckey:Spectroscopy .
 
-plat:HighThroughputMillifluidicSynthesisInHydroSolvothermalConditions proj:hasPlatformAssociatedProject :Project_2fast .
+plat:Platform_high-throughput-millifluidic-synthesis-in-hydro-solvothermal-conditions proj:hasPlatformAssociatedProject :Project_2fast .
 
 
 ## ------->> Work Packages << --------------

@@ -44,13 +44,13 @@
         ckey:NumericalSimulation,
         ckey:MolecularMaterials .
 
-plat:GasAdsorptionInMOFs proj:hasPlatformAssociatedProject :Project_moflearning .
+plat:Platform_gas-adsorption-in-mofs proj:hasPlatformAssociatedProject :Project_moflearning .
 
-plat:HighThroughputMOFsSynthesis proj:hasPlatformAssociatedProject :Project_moflearning .
+plat:Platform_high-throughput-mofs-synthesis proj:hasPlatformAssociatedProject :Project_moflearning .
 
-plat:HighThroughputPowderXRayDiffractometer proj:hasPlatformAssociatedProject :Project_moflearning .
+plat:Platform_high-throughput-powder-x-ray-diffractometer proj:hasPlatformAssociatedProject :Project_moflearning .
 
-plat:HighThroughputThermogravimetricAnalysis proj:hasPlatformAssociatedProject :Project_moflearning .
+plat:Platform_high-throughput-thermogravimetric-analysis proj:hasPlatformAssociatedProject :Project_moflearning .
 
 
 ## ------->> Work Packages << --------------

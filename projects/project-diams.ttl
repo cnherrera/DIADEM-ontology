@@ -52,15 +52,15 @@
         ckey:CompositionDesign,
         ckey:HighEntropyAlloys .
 
-plat:3DSaclayPowderBedCladdingWireExtrusion proj:hasPlatformAssociatedProject :Project_diams .
+plat:Platform_3d-saclay-powder-bed-cladding-wire-extrusion proj:hasPlatformAssociatedProject :Project_diams .
 
-plat:ConventionalMetallurgy proj:hasPlatformAssociatedProject :Project_diams .
+plat:Platform_conventional-metallurgy proj:hasPlatformAssociatedProject :Project_diams .
 
-plat:HighThroughput3DMetallurgyINSSTEK3D proj:hasPlatformAssociatedProject :Project_diams .
+plat:Platform_high-throughput-3d-metallurgy-insstek-3d proj:hasPlatformAssociatedProject :Project_diams .
 
-plat:PlastoDilatometerForSynchrotronBeamline proj:hasPlatformAssociatedProject :Project_diams .
+plat:Platform_plasto-dilatometer-for-synchrotron-beamline proj:hasPlatformAssociatedProject :Project_diams .
 
-plat:UltraFastHighEnergyXRayDetector proj:hasPlatformAssociatedProject :Project_diams .
+plat:Platform_ultra-fast-high-energy-x-ray-detector proj:hasPlatformAssociatedProject :Project_diams .
 
 
 ## ------->> Work Packages << --------------

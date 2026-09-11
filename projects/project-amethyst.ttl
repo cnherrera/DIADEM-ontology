@@ -46,11 +46,11 @@
         ckey:MachineLearning,
         ckey:AIApproaches .
 
-plat:BioresourcesImagingBiochemistryStructure proj:hasPlatformAssociatedProject :Project_amethyst .
+plat:Platform_bioresources-imaging-biochemistry-structure proj:hasPlatformAssociatedProject :Project_amethyst .
 
-plat:HighThroughputPlatformForSynthesisOfPolymersByFlowChemistry proj:hasPlatformAssociatedProject :Project_amethyst .
+plat:Platform_high-throughput-platform-for-synthesis-of-polymers-by-flow-chemistry proj:hasPlatformAssociatedProject :Project_amethyst .
 
-plat:HighThroughputPlatformForTheImplementationPolymerMatrixComposites proj:hasPlatformAssociatedProject :Project_amethyst .
+plat:Platform_high-throughput-platform-for-the-implementation-polymer-matrix-composites proj:hasPlatformAssociatedProject :Project_amethyst .
 
 
 ## ------->> Work Packages << --------------

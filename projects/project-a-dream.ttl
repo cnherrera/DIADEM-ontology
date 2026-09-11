@@ -52,13 +52,13 @@
         ckey:ImpedanceSpectroscopy,
         ckey:MachineLearning .
 
-plat:AtmPECVDEquipment proj:hasPlatformAssociatedProject :Project_a-dream .
+plat:Platform_atm-pecvd-equipment proj:hasPlatformAssociatedProject :Project_a-dream .
 
-plat:DAMCOAcceleratedDevelopmentOfCorrosionMaterials proj:hasPlatformAssociatedProject :Project_a-dream .
+plat:Platform_damco-accelerated-development-of-corrosion-materials proj:hasPlatformAssociatedProject :Project_a-dream .
 
-plat:DARMiColSAcceleratedDevelopmentOfCoatingsColdSpray proj:hasPlatformAssociatedProject :Project_a-dream .
+plat:Platform_darmicols-accelerated-development-of-coatings-cold-spray proj:hasPlatformAssociatedProject :Project_a-dream .
 
-plat:HybridPVDReactor proj:hasPlatformAssociatedProject :Project_a-dream .
+plat:Platform_hybrid-pvd-reactor proj:hasPlatformAssociatedProject :Project_a-dream .
 
 
 ## ------->> Work Packages << --------------

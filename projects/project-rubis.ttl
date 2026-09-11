@@ -44,11 +44,11 @@
         ckey:EnergyTransition,
         ckey:Modeling .
 
-plat:1600CSoCalledPixelatedSinteringOven proj:hasPlatformAssociatedProject :Project_rubis .
+plat:Platform_1600-c-so-called-pixelated-sintering-oven proj:hasPlatformAssociatedProject :Project_rubis .
 
-plat:5AxisAdditiveAndSubtractiveManufacturingFrame proj:hasPlatformAssociatedProject :Project_rubis .
+plat:Platform_5-axis-additive-and-subtractive-manufacturing-frame proj:hasPlatformAssociatedProject :Project_rubis .
 
-plat:InstrumentedNanoindenter proj:hasPlatformAssociatedProject :Project_rubis .
+plat:Platform_instrumented-nanoindenter proj:hasPlatformAssociatedProject :Project_rubis .
 
 
 ## ------->> Work Packages << --------------

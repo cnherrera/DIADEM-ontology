@@ -51,7 +51,7 @@
         ckey:AlloyDesignAndScreening,
         ckey:Modeling .
 
-plat:FabricationAndCharacterizationOfStandardizedMillifluidicChips proj:hasPlatformAssociatedProject :Project_advance .
+plat:Platform_fabrication-and-characterization-of-standardized-millifluidic-chips proj:hasPlatformAssociatedProject :Project_advance .
 
 
 ## ------->> Work Packages << --------------

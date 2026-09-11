@@ -59,11 +59,11 @@
         ckey:EnergyTransition,
         ckey:BiobasedMaterials .
 
-plat:3DPrinter6AxisBiopolInOperando proj:hasPlatformAssociatedProject :Project_adam .
+plat:Platform_3d-printer-6-axis-biopol-in-operando proj:hasPlatformAssociatedProject :Project_adam .
 
-plat:3DPrintingLPBFInOperando proj:hasPlatformAssociatedProject :Project_adam .
+plat:Platform_3d-printing-l-pbf-in-operando proj:hasPlatformAssociatedProject :Project_adam .
 
-plat:AutomatedTractionTorsionBench proj:hasPlatformAssociatedProject :Project_adam .
+plat:Platform_automated-traction-torsion-bench proj:hasPlatformAssociatedProject :Project_adam .
 
 
 ## ------->> Work Packages << --------------

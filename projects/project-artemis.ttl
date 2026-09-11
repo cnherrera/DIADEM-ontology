@@ -53,11 +53,11 @@
         ckey:Biomimicry,
         ckey:Modeling .
 
-plat:3D4DPoudrinnovMetalPolymerAdditiveManufacturing proj:hasPlatformAssociatedProject :Project_artemis .
+plat:Platform_3d-4d-poudrinnov-metal-polymer-additive-manufacturing proj:hasPlatformAssociatedProject :Project_artemis .
 
-plat:CombinatorialLowPressureMicroColdSprayEquipment proj:hasPlatformAssociatedProject :Project_artemis .
+plat:Platform_combinatorial-low-pressure-micro-cold-spray-equipment proj:hasPlatformAssociatedProject :Project_artemis .
 
-plat:TwoPhotonLightPolymerization proj:hasPlatformAssociatedProject :Project_artemis .
+plat:Platform_two-photon-light-polymerization proj:hasPlatformAssociatedProject :Project_artemis .
 
 
 ## ------->> Work Packages << --------------

@@ -54,27 +54,27 @@
         ckey:Nanoparticles,
         ckey:Chemistry .
 
-plat:AFMMicroscope proj:hasPlatformAssociatedProject :Project_fastnano .
+plat:Platform_afm-microscope proj:hasPlatformAssociatedProject :Project_fastnano .
 
-plat:HighSpeedLabSWAXS proj:hasPlatformAssociatedProject :Project_fastnano .
+plat:Platform_high-speed-lab-swaxs proj:hasPlatformAssociatedProject :Project_fastnano .
 
-plat:InLineRamanSpectrometer proj:hasPlatformAssociatedProject :Project_fastnano .
+plat:Platform_in-line-raman-spectrometer proj:hasPlatformAssociatedProject :Project_fastnano .
 
-plat:NanoHybrid1D2DANAPURNA proj:hasPlatformAssociatedProject :Project_fastnano .
+plat:Platform_nano-hybrid-1d-2d-anapurna proj:hasPlatformAssociatedProject :Project_fastnano .
 
-plat:NanoparticlesGasRouteFSP proj:hasPlatformAssociatedProject :Project_fastnano .
+plat:Platform_nanoparticles-gas-route-fsp proj:hasPlatformAssociatedProject :Project_fastnano .
 
-plat:NanoparticlesLiquidRoute proj:hasPlatformAssociatedProject :Project_fastnano .
+plat:Platform_nanoparticles-liquid-route proj:hasPlatformAssociatedProject :Project_fastnano .
 
-plat:OpticalMultiCharacterizationPlatformForTwoDimensionalMaterials proj:hasPlatformAssociatedProject :Project_fastnano .
+plat:Platform_optical-multi-characterization-platform-for-two-dimensional-materials proj:hasPlatformAssociatedProject :Project_fastnano .
 
-plat:RoboticSynthesisOfVanDerWaalsHeterostructures proj:hasPlatformAssociatedProject :Project_fastnano .
+plat:Platform_robotic-synthesis-of-van-der-waals-heterostructures proj:hasPlatformAssociatedProject :Project_fastnano .
 
-plat:SpatialALD proj:hasPlatformAssociatedProject :Project_fastnano .
+plat:Platform_spatial-ald proj:hasPlatformAssociatedProject :Project_fastnano .
 
-plat:SprayDepositionAndLaserAnnealing proj:hasPlatformAssociatedProject :Project_fastnano .
+plat:Platform_spray-deposition-and-laser-annealing proj:hasPlatformAssociatedProject :Project_fastnano .
 
-plat:SynthesisOf2DMaterialsByCVD proj:hasPlatformAssociatedProject :Project_fastnano .
+plat:Platform_synthesis-of-2d-materials-by-cvd proj:hasPlatformAssociatedProject :Project_fastnano .
 
 
 ## ------->> Work Packages << --------------

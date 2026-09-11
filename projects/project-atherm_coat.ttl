@@ -49,11 +49,11 @@
         ckey:Oxides,
         ckey:Decomposition .
 
-plat:AtmPECVDEquipment proj:hasPlatformAssociatedProject :Project_atherm_coat .
+plat:Platform_atm-pecvd-equipment proj:hasPlatformAssociatedProject :Project_atherm_coat .
 
-plat:DLIMOCVDANTIDOTEEquipment proj:hasPlatformAssociatedProject :Project_atherm_coat .
+plat:Platform_dli-mocvd-antidote-equipment proj:hasPlatformAssociatedProject :Project_atherm_coat .
 
-plat:GasAnalyzerForExhaustsGazesOfTheCombustionCalorimetry proj:hasPlatformAssociatedProject :Project_atherm_coat .
+plat:Platform_gas-analyzer-for-exhausts-gazes-of-the-combustion-calorimetry proj:hasPlatformAssociatedProject :Project_atherm_coat .
 
 
 ## ------->> Work Packages << --------------

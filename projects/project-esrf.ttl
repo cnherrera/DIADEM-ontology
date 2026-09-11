@@ -51,19 +51,19 @@
         ckey:AdvancedMaterials,
         ckey:Chemistry .
 
-plat:GISAXSGIWAXSAtESRF proj:hasPlatformAssociatedProject :Project_esrf .
+plat:Platform_gisaxs-giwaxs-at-esrf proj:hasPlatformAssociatedProject :Project_esrf .
 
-plat:HERFDXASAtESRF proj:hasPlatformAssociatedProject :Project_esrf .
+plat:Platform_herfd-xas-at-esrf proj:hasPlatformAssociatedProject :Project_esrf .
 
-plat:LaueMicrodiffractionAtESRF proj:hasPlatformAssociatedProject :Project_esrf .
+plat:Platform_laue-microdiffraction-at-esrf proj:hasPlatformAssociatedProject :Project_esrf .
 
-plat:MultiTechniqueGoniometerReflectivityAtESRF proj:hasPlatformAssociatedProject :Project_esrf .
+plat:Platform_multi-technique-goniometer-reflectivity-at-esrf proj:hasPlatformAssociatedProject :Project_esrf .
 
-plat:SAXSWAXSAtESRF proj:hasPlatformAssociatedProject :Project_esrf .
+plat:Platform_saxs-waxs-at-esrf proj:hasPlatformAssociatedProject :Project_esrf .
 
-plat:XRayAbsorptionSpectroscopyAtESRF proj:hasPlatformAssociatedProject :Project_esrf .
+plat:Platform_x-ray-absorption-spectroscopy-at-esrf proj:hasPlatformAssociatedProject :Project_esrf .
 
-plat:XRayPtychographyImagingAtESRF proj:hasPlatformAssociatedProject :Project_esrf .
+plat:Platform_x-ray-ptychography-imaging-at-esrf proj:hasPlatformAssociatedProject :Project_esrf .
 
 
 ## ------->> Work Packages << --------------

@@ -53,7 +53,7 @@
         ckey:PhaseTransformations,
         ckey:Biomass .
 
-plat:REALCAT proj:hasPlatformAssociatedProject :Project_dream-bio .
+plat:Platform_realcat proj:hasPlatformAssociatedProject :Project_dream-bio .
 
 
 ## ------->> Work Packages << --------------

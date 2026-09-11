@@ -44,7 +44,7 @@
         ckey:Imaging,
         ckey:Algorithms .
 
-plat:3DTomographyReconstruction proj:hasPlatformAssociatedProject :Project_metsa-set-dia .
+plat:Platform_3d-tomography-reconstruction proj:hasPlatformAssociatedProject :Project_metsa-set-dia .
 
 
 ## ------->> Work Packages << --------------
