@@ -98,7 +98,7 @@ plat:Platform_atm-pecvd-equipment rdf:type proj:Platform,
     proj:hasDimension plat:DimensionType_2d ;
     proj:hasMaterialType plat:MaterialType_ceramics ;
 #    proj:hasPlatformAssociatedProject ppd:Project_a-dream,
-        ppd:Project_atherm-coat ;
+#        ppd:Project_atherm-coat ;
     proj:identifier "atm-pecvd-equipment" .
 
 plat:Platform_automated-traction-torsion-bench rdf:type proj:CharacterizationPlatform,
@@ -684,22 +684,6 @@ plat:Platform_x-ray-ptychography-imaging-at-esrf rdf:type proj:CharacterizationP
 plat:MaterialType_organometallic rdf:type proj:MaterialType ;
     rdfs:label "Organometallic"@en .
 
-ppd:Project_2fast rdf:type proj:TargetedProject ;
-    rdfs:label "2FAST"@en ;
-    proj:acronym "2FAST" .
-
-ppd:Project_advance rdf:type proj:TargetedProject ;
-    rdfs:label "ADVANCE"@en ;
-    proj:acronym "ADVANCE" .
-
-ppd:Project_dream-bio rdf:type proj:TargetedProject ;
-    rdfs:label "DREAM-BIO"@en ;
-    proj:acronym "DREAM-BIO" .
-
-ppd:Project_metsa-set-dia rdf:type proj:TargetedProject ;
-    rdfs:label "METSA-SET-DIA"@en ;
-    proj:acronym "METSA-SET-DIA" .
-
 plat:TechniqueType_analysis-and-specific-platforms rdf:type proj:TechniqueType ;
     rdfs:label "Analysis and specific platforms"@en .
 
@@ -714,10 +698,6 @@ plat:DimensionType_0d rdf:type proj:DimensionType ;
 
 plat:DimensionType_autres-d rdf:type proj:DimensionType ;
     rdfs:label "Autres > ∞ D"@en .
-
-ppd:Project_libelul rdf:type proj:TargetedProject ;
-    rdfs:label "LIBELUL"@en ;
-    proj:acronym "LIBELUL" .
 
 plat:TechniqueType_electrical-and-magnetic-characterization rdf:type proj:TechniqueType ;
     rdfs:label "Electrical and magnetic characterization"@en .
@@ -737,33 +717,6 @@ plat:DimensionType_1d rdf:type proj:DimensionType ;
 plat:DimensionType_4d rdf:type proj:DimensionType ;
     rdfs:label "4D"@en .
 
-ppd:Project_adam rdf:type proj:TargetedProject ;
-    rdfs:label "ADAM"@en ;
-    proj:acronym "ADAM" .
-
-ppd:Project_amethyst rdf:type proj:TargetedProject ;
-    rdfs:label "AMETHYST"@en ;
-    proj:acronym "AMETHYST" .
-
-ppd:Project_artemis rdf:type proj:TargetedProject ;
-    rdfs:label "ARTEMIS"@en ;
-    proj:acronym "ARTEMIS" .
-
-ppd:Project_atherm-coat rdf:type proj:TargetedProject ;
-    rdfs:label "ATHERM_COAT"@en ;
-    proj:acronym "ATHERM_COAT" .
-
-ppd:Project_hiway-2-mat rdf:type proj:TargetedProject ;
-    rdfs:label "HIWAY-2-MAT"@en ;
-    proj:acronym "HIWAY-2-MAT" .
-
-ppd:Project_microelec rdf:type proj:TargetedProject ;
-    rdfs:label "MicroElec"@en ;
-    proj:acronym "MicroElec" .
-
-ppd:Project_rubis rdf:type proj:TargetedProject ;
-    rdfs:label "RUBIS"@en ;
-    proj:acronym "RUBIS" .
 
 plat:TechniqueType_multi-tech rdf:type proj:TechniqueType ;
     rdfs:label "Multi-tech"@en .
@@ -774,31 +727,11 @@ plat:TechniqueType_spectroscopic rdf:type proj:TechniqueType ;
 plat:TechniqueType_thermal rdf:type proj:TechniqueType ;
     rdfs:label "Thermal"@en .
 
-ppd:Project_a-dream rdf:type proj:TargetedProject ;
-    rdfs:label "A-DREAM"@en ;
-    proj:acronym "A-DREAM" .
-
-ppd:Project_moflearning rdf:type proj:TargetedProject ;
-    rdfs:label "MOFlearning"@en ;
-    proj:acronym "MOFlearning" .
-
-ppd:Project_soleil rdf:type proj:TargetedProject ;
-    rdfs:label "SOLEIL"@en ;
-    proj:acronym "SOLEIL" .
-
 plat:TechniqueType_spectroscopic-characterization rdf:type proj:TechniqueType ;
     rdfs:label "Spectroscopic characterization"@en .
 
 plat:MaterialType_mofs rdf:type proj:MaterialType ;
     rdfs:label "MOFs"@en .
-
-ppd:Project_diams rdf:type proj:TargetedProject ;
-    rdfs:label "DIAMS"@en ;
-    proj:acronym "DIAMS" .
-
-ppd:Project_esrf rdf:type proj:TargetedProject ;
-    rdfs:label "ESRF"@en ;
-    proj:acronym "ESRF" .
 
 plat:TechniqueType_chemical rdf:type proj:TechniqueType ;
     rdfs:label "Chemical"@en .
@@ -811,10 +744,6 @@ plat:DimensionType_3d rdf:type proj:DimensionType ;
 
 plat:TechniqueType_imaging rdf:type proj:TechniqueType ;
     rdfs:label "Imaging"@en .
-
-ppd:Project_fastnano rdf:type proj:TargetedProject ;
-    rdfs:label "FastNano"@en ;
-    proj:acronym "FastNano" .
 
 plat:DimensionType_2d rdf:type proj:DimensionType ;
     rdfs:label "2D"@en .
