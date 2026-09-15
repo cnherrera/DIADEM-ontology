@@ -7,6 +7,36 @@
 
     <link rel="stylesheet" href="resources/style.css">
 
+    <!-- Inline styles for the new green Project/Platform graph-visibility
+         toggle buttons (kept separate from resources/style.css so they
+         don't depend on unknown existing rules there). -->
+    <style>
+        .toggle-btn-green {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 12px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            border-radius: 8px;
+            border: 1.5px solid #16a34a;
+            background: #ffffff;
+            color: #16a34a;
+            cursor: pointer;
+            transition: background 0.15s ease, color 0.15s ease;
+        }
+        .toggle-btn-green:hover {
+            background: #f0fdf4;
+        }
+        .toggle-btn-green.on-green {
+            background: #16a34a;
+            color: #ffffff;
+        }
+        .toggle-btn-green.on-green:hover {
+            background: #15803d;
+        }
+    </style>
+
     <!-- N3.js for Turtle parsing -->
     <script src="https://unpkg.com/n3@1.17.2/browser/n3.min.js"></script>
     <!-- Dagre layout engine (must load before cytoscape-dagre) -->
@@ -67,8 +97,8 @@
 
     <div class="tb-group">
         <span class="tb-label">View</span>
-        <button id="btnInstances"     class="toggle-btn on-rose">ABox (Instances)</button>
-        <button id="btnTBox"      class="toggle-btn">TBox (Classes)</button>
+        <button id="btnInstances"     class="toggle-btn on-rose">ABox</button>
+        <button id="btnTBox"      class="toggle-btn">TBox</button>
 <!---        <button id="btnTBox"      class="toggle-btn on-rose">TBox (Classes)</button> 
         <button id="btnSubclass" class="toggle-btn on">subClassOf</button>
         <button id="btnProps"    class="toggle-btn on-gold">Object Properties</button>
@@ -90,15 +120,18 @@
         <button id="btnFit"    class="icon-btn" title="Fit to screen">⊞ Fit</button>
         <button id="btnCenter" class="icon-btn" title="Reset view">↺ Reset</button>
         <button id="btnFullExtension" class="icon-btn" title="Show everything">⛶ Full Extension</button>
-    </div>
-    
-    <div class="tb-group">
-        <span class="tb-label">View par Project/Platform: </span>
-        <button id="btnProjectsToggle"  class="toggle-btn" title="Show a button for each Project instance">Projects</button>
-        <button id="btnPlatformsToggle" class="toggle-btn" title="Show a button for each Platform instance">Platforms</button>
+        <span class="tb-label" title="Show/hide the graph nodes and edges for Projects/Platforms">Show in graph: </span>
+        <button id="btnToggleProjectsGraph"  class="toggle-btn-green on-green" title="Toggle: show or hide Project nodes and edges in the graph below">📁 Projects</button>
+        <button id="btnTogglePlatformsGraph" class="toggle-btn-green" title="Toggle: show or hide Platform nodes and edges in the graph below">🖥️ Platforms</button>
     </div>
 
     <div class="stats-area" id="statsArea"></div>
+
+    <div class="tb-group" style="margin-left:auto;">
+        <span class="tb-label" title="Opens a side panel listing every Project/Platform instance as a clickable button">Open list panel: </span>
+        <button id="btnProjectsToggle"  class="toggle-btn" title="Open a side panel with a button for each Project instance">📁 Projects list</button>
+        <button id="btnPlatformsToggle" class="toggle-btn" title="Open a side panel with a button for each Platform instance">🖥️ Platforms list</button>
+    </div>
 </div>
 
 <!-- ── Main ─────────────────────────────────────────────────────── -->
@@ -123,6 +156,18 @@
         <div id="loadingOverlay" style="position:absolute;inset:0;z-index:20;">
             <div class="spinner"></div>
             <div class="loading-msg" id="loadingMsg">Uploading...</div>
+        </div>
+
+        <!-- Instance-type filter panel — floating overlay, top-left of the graph.
+             Auto-populated with one button per instance type (class) currently
+             shown in the KG. Clicking a button hides/shows that type's instances. -->
+        <div id="typeFilterPanel" style="position:absolute;top:12px;left:12px;z-index:15;width:190px;max-height:80%;overflow-y:auto;background:rgba(255,255,255,0.96);border:1px solid #e5e0f5;border-radius:10px;box-shadow:0 4px 18px rgba(124,58,237,0.15);padding:10px;display:none;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <span style="font-size:0.72rem;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:0.03em;">🏷️ Instance types</span>
+                <button id="btnTypeFilterReset" title="Show all instance types again" style="background:none;border:none;cursor:pointer;color:#94a3b8;font-size:0.9rem;line-height:1;">✕</button>
+            </div>
+            <div style="font-size:0.68rem;color:#94a3b8;margin-bottom:8px;">Click a type to hide/show its instances</div>
+            <div id="typeFilterButtonsList" style="display:flex;flex-direction:column;gap:5px;"></div>
         </div>
 
         <!-- Projects panel — floating overlay, top-right of the graph -->
@@ -1241,6 +1286,11 @@ let showSubclass      = true;
 let showPropEdges     = true;
 let showDatatypeProps = true;
 
+// Set of class URIs (instance "types") the user has toggled OFF via the
+// left-hand "Instance types" panel — instances of these types stay hidden
+// from the KG until toggled back on.
+let hiddenInstanceTypes = new Set();
+
 function initCytoscape(elements) {
     if (cy) { cy.destroy(); cy = null; }
 
@@ -1728,6 +1778,8 @@ function highlightNode(node) {
         edges.addClass('hl').removeClass('dim');
         edges.connectedNodes().addClass('hl').removeClass('dim');
     });
+    applyInstanceTypeFilter();
+    refreshTypeFilterPanel();
     updateExpandIndicators();
 }
 
@@ -2102,6 +2154,69 @@ function focusNode(id) {
 // ─────────────────────────────────────────────────────────────────
 const PROGRAM_ROOT_NAMES = new Set(['Program']);
 const PROJECT_ROOT_NAMES = new Set(['Project', 'TargetedProject', 'AAPProject']);
+const PLATFORM_ROOT_NAMES = new Set(['Platform']);
+
+// ─────────────────────────────────────────────────────────────────
+// Graph-level Project/Platform visibility toggles (green buttons,
+// next to "Full Extension"). Independent from the Projects/Platforms
+// floating LIST panels (which just show clickable buttons regardless
+// of what's currently drawn in the graph) - these two flags control
+// whether Project/Platform nodes (and their edges) are actually drawn
+// in the Cytoscape canvas at all. Defaults: Projects shown, Platforms
+// hidden - matches the default Program-mode view.
+// ─────────────────────────────────────────────────────────────────
+let showProjectsInGraph  = true;
+let showPlatformsInGraph = false;
+// Tracks which base view is currently active, so the two toggle
+// buttons above can refresh the right one (rather than always
+// forcing the user back to the default restricted view).
+let lastAppliedView = 'default'; // 'default' | 'full'
+
+// Hides (or lets remain visible) Project-typed / Platform-typed
+// instance nodes according to the two toggles above, on top of
+// whatever base view (default focus / full extension) is currently
+// applied. Also hides any now-dangling edge whose endpoint got
+// hidden this way, so no edges are left pointing at invisible nodes.
+function applyTypeToggles() {
+    if (!cy || !parsedData) return;
+
+    const platformUris = getInstanceUrisByRootNames(parsedData, PLATFORM_ROOT_NAMES);
+    const projectUris  = getInstanceUrisByRootNames(parsedData, PROJECT_ROOT_NAMES);
+
+    cy.batch(() => {
+        if (!showPlatformsInGraph) {
+            platformUris.forEach(uri => {
+                const n = cy.getElementById(uri);
+                if (n.length) n.style('display', 'none');
+            });
+        }
+        if (!showProjectsInGraph) {
+            projectUris.forEach(uri => {
+                const n = cy.getElementById(uri);
+                if (n.length) n.style('display', 'none');
+            });
+        }
+        cy.edges().forEach(e => {
+            if (e.source().style('display') === 'none' || e.target().style('display') === 'none') {
+                e.style('display', 'none');
+            }
+        });
+    });
+    refreshTypeFilterPanel();
+}
+
+// Re-applies whichever base view is currently active (default focus
+// or full extension), then re-applies the Project/Platform toggles on
+// top of it. Used both by the two green toggle buttons themselves and
+// can be reused anywhere visibility needs a full refresh.
+function refreshCurrentView() {
+    if (lastAppliedView === 'full') {
+        applyFullExtension();
+    } else {
+        applyDefaultFocusFilter();
+    }
+    applyTypeToggles();
+}
 
 // Reutilizable: dado un conjunto de nombres "raíz", devuelve el
 // conjunto de URIs de clase que son esas raíces o cualquiera de
@@ -2412,6 +2527,18 @@ function clearActiveConceptButtons() {
     platformPanelCtrl.clearActive();
 }
 
+// "✕" on the Instance types panel — turns every hidden type back on.
+const btnTypeFilterReset = document.getElementById('btnTypeFilterReset');
+if (btnTypeFilterReset) {
+    btnTypeFilterReset.addEventListener('click', () => {
+        if (hiddenInstanceTypes.size === 0) return;
+        // Restore every hidden type incrementally, on top of the current
+        // view, instead of forcing a full recompute (which would discard
+        // whatever focus/subset the user is currently looking at).
+        [...hiddenInstanceTypes].forEach(classType => toggleInstanceType(classType));
+    });
+}
+
 // Projects and Platforms are mutually exclusive: turning one on turns the other off.
 document.getElementById('btnProjectsToggle').addEventListener('click', () => {
     if (projectPanelCtrl.isActive()) {
@@ -2461,15 +2588,23 @@ const LAYOUTS = {
     name: 'cose',
     idealEdgeLength: 100,
     nodeOverlap: 20,
-    
-    nodeRepulsion: function(node) { return 800000; }, 
-    
-    componentSpacing: 100, 
-    
+
+    // Was 800000 - that high a repulsion force is what makes nodes fly
+    // apart violently right after upload. Lowered so nodes settle into
+    // place calmly instead of visibly "shooting" around.
+    nodeRepulsion: function(node) { return 200000; },
+
+    componentSpacing: 100,
+
     gravity: 0.2,
-    numIter: 1000,
+    // Was 1000 - fewer iterations means the physics simulation settles
+    // (stops moving) sooner after upload.
+    numIter: 300,
     padding: 30,
-    animationDuration: 700,
+    // Was 700 - a longer duration spreads the same movement over more
+    // time, so it visually reads as slower/calmer rather than a fast jolt.
+    animationDuration: 1200,
+    animationEasing: 'ease-out',
     randomize: true,
     fit: true
 },
@@ -2615,6 +2750,205 @@ function applyInstanceColoring() {
                 'line-style': 'solid'
             });
         }
+    });
+
+    // Hide instances belonging to types the user turned off, then rebuild
+    // the left-hand type panel to reflect what's currently in the KG.
+    applyInstanceTypeFilter();
+    refreshTypeFilterPanel();
+}
+
+// ─────────────────────────────────────────────────────────────────
+// Instance-type filter panel (left side of the graph)
+// ─────────────────────────────────────────────────────────────────
+// Hides instance nodes whose class (classType) is in hiddenInstanceTypes.
+// Must run AFTER the display flags for this render pass have already been
+// computed (i.e. from inside applyInstanceColoring, called at the end of
+// every visibility recompute), so it only ever *removes* nodes that were
+// otherwise going to be shown — it never re-shows something another filter
+// hid on purpose.
+// Called after ANY full recompute of node/edge display (default focus
+// filter, full extension, master-toggle changes, etc.) — i.e. from inside
+// applyInstanceColoring() and after highlightNode()'s node-click reveal.
+// That recompute already fully decided what SHOULD be visible; here we only
+// ever *remove* from that result, for whichever type(s) the user has
+// toggled off. Always starts from a clean slate of our own bookkeeping
+// classes, since a prior full recompute may have already reset display
+// values behind our back (e.g. focus changed to a different subset).
+function applyInstanceTypeFilter() {
+    if (!cy) return;
+    cy.batch(() => {
+        cy.elements('.type-filter-hidden-node, .type-filter-hidden-edge')
+          .removeClass('type-filter-hidden-node type-filter-hidden-edge');
+
+        if (hiddenInstanceTypes.size === 0) return;
+
+        cy.nodes('[type="instance"]').forEach(n => {
+            const classType = n.data('classType');
+            if (!classType || !hiddenInstanceTypes.has(classType)) return;
+            if (n.style('display') === 'none') return; // already hidden by something else
+            n.addClass('type-filter-hidden-node');
+            n.style('display', 'none');
+            n.connectedEdges().forEach(e => {
+                if (e.style('display') !== 'none') {
+                    e.addClass('type-filter-hidden-edge');
+                    e.style('display', 'none');
+                }
+            });
+        });
+    });
+}
+
+// Called directly when the user clicks a type button in the left-hand
+// panel. A pure, LOCAL toggle on top of whatever subset of the KG happens
+// to be on screen right now (default focus, an expanded node, a
+// Project/Platform selection, Full Extension, a search result...) — it
+// never recomputes or resets the base view, so the user's current context
+// is preserved exactly as-is, minus/plus this one type.
+function toggleInstanceType(classType) {
+    if (!cy) return;
+    const hiding = !hiddenInstanceTypes.has(classType);
+
+    cy.batch(() => {
+        if (hiding) {
+            hiddenInstanceTypes.add(classType);
+            cy.nodes('[type="instance"]').forEach(n => {
+                if (n.data('classType') !== classType) return;
+                if (n.style('display') === 'none') return;
+                n.addClass('type-filter-hidden-node');
+                n.style('display', 'none');
+                n.connectedEdges().forEach(e => {
+                    if (e.style('display') !== 'none') {
+                        e.addClass('type-filter-hidden-edge');
+                        e.style('display', 'none');
+                    }
+                });
+            });
+        } else {
+            hiddenInstanceTypes.delete(classType);
+            cy.nodes('[type="instance"].type-filter-hidden-node').forEach(n => {
+                if (n.data('classType') !== classType) return;
+                n.removeClass('type-filter-hidden-node');
+                n.style('display', 'element');
+            });
+            // Only restore an edge once BOTH its endpoints are visible again —
+            // the other endpoint might still be legitimately hidden (by this
+            // same filter for a different type, or by anything else).
+            cy.edges('.type-filter-hidden-edge').forEach(e => {
+                if (e.source().style('display') === 'element' && e.target().style('display') === 'element') {
+                    e.removeClass('type-filter-hidden-edge');
+                    e.style('display', 'element');
+                }
+            });
+        }
+    });
+
+    updateExpandIndicators();
+    refreshTypeFilterPanel();
+}
+
+// Rebuilds the "Instance types" panel buttons from whichever instance
+// nodes are currently eligible to be shown in the KG (i.e. before the
+// hiddenInstanceTypes exclusion above removes them). One button per
+// distinct class (instance type), styled like the actual node so it's
+// visually identifiable at a glance.
+function refreshTypeFilterPanel() {
+    const panel = document.getElementById('typeFilterPanel');
+    const list  = document.getElementById('typeFilterButtonsList');
+    if (!cy || !panel || !list) return;
+
+    // Collect distinct classTypes among instances that are candidates to
+    // be shown right now (display !== 'none' OR already hidden by us —
+    // both cases mean "this type belongs in the current KG view").
+    //
+    // When a node-focus highlight is active (user clicked a node, which
+    // dims everything except that node + its revealed neighbors), the
+    // rest of the graph is still technically display:'element' — just
+    // visually faded out — so we additionally restrict to the ".hl"
+    // (highlighted/focused) subset here. Otherwise the panel would keep
+    // listing types from the previous, now-faded-out view.
+    const inFocusMode = cy.$('.dim').length > 0;
+
+    const typeInfo = new Map(); // classType uri -> { label, count, active }
+    cy.nodes('[type="instance"]').forEach(n => {
+        const disp = n.style('display');
+        const classType = n.data('classType');
+        if (!classType) return;
+        const hiddenByType = hiddenInstanceTypes.has(classType);
+        // Eligible if visible right now, or hidden solely because of our
+        // own type filter (so the button doesn't disappear once toggled off).
+        if (disp === 'none' && !hiddenByType) return;
+        if (disp === 'element' && inFocusMode && !n.hasClass('hl')) return;
+
+        if (!typeInfo.has(classType)) {
+            const classNode = cy.getElementById(classType);
+            const label = classNode.length ? (classNode.data('label') || localName(classType)) : localName(classType);
+            const color = classNode.length ? (classNode.data('nodeColor') || '#94a3b8') : '#94a3b8';
+            typeInfo.set(classType, { label, color, count: 0 });
+        }
+        typeInfo.get(classType).count++;
+    });
+
+    if (typeInfo.size === 0) {
+        panel.style.display = 'none';
+        list.innerHTML = '';
+        return;
+    }
+
+    panel.style.display = 'block';
+    list.innerHTML = '';
+
+    // Sort alphabetically by label for a stable, scannable order.
+    const sorted = [...typeInfo.entries()].sort((a, b) => a[1].label.localeCompare(b[1].label));
+
+    sorted.forEach(([classType, info]) => {
+        const isHidden = hiddenInstanceTypes.has(classType);
+
+        // Swatch mimics the actual on-canvas instance style: round-rectangle
+        // + class color when TBox is hidden (ABox-only mode), or the
+        // standard pink ellipse when TBox is also shown — matching
+        // applyInstanceColoring()'s logic above.
+        const swatchColor  = showTBox ? '#ec4899' : info.color;
+        const swatchBorder = showTBox ? '#be185d' : info.color;
+        const swatchShape  = showTBox ? '50%' : '3px';
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.title = isHidden
+            ? `Click to show "${info.label}" instances again`
+            : `Click to hide "${info.label}" instances`;
+        btn.dataset.classType = classType;
+        btn.style.cssText =
+            'display:flex;align-items:center;gap:7px;width:100%;text-align:left;' +
+            'padding:5px 8px;border-radius:6px;cursor:pointer;' +
+            'font-family:"Segoe UI",system-ui,sans-serif;font-size:0.78rem;font-weight:500;' +
+            'transition:background 0.15s ease,opacity 0.15s ease;' +
+            (isHidden
+                ? 'background:#f8fafc;border:1px solid #e2e8f0;color:#94a3b8;opacity:0.6;'
+                : 'background:#ffffff;border:1px solid #ede9fe;color:#334155;opacity:1;');
+
+        const swatch = document.createElement('span');
+        swatch.style.cssText =
+            `flex:none;width:14px;height:14px;border-radius:${swatchShape};` +
+            `background:${swatchColor};opacity:${isHidden ? 0.25 : 0.5};` +
+            `border:1.5px solid ${swatchBorder};box-sizing:border-box;`;
+
+        const textSpan = document.createElement('span');
+        textSpan.style.cssText = 'flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;' +
+            (isHidden ? 'text-decoration:line-through;' : '');
+        textSpan.textContent = info.label;
+
+        const countSpan = document.createElement('span');
+        countSpan.style.cssText = 'flex:none;font-size:0.68rem;color:#94a3b8;font-weight:600;';
+        countSpan.textContent = info.count;
+
+        btn.appendChild(swatch);
+        btn.appendChild(textSpan);
+        btn.appendChild(countSpan);
+
+        btn.addEventListener('click', () => toggleInstanceType(classType));
+
+        list.appendChild(btn);
     });
 }
 
@@ -2780,6 +3114,7 @@ async function loadTTLWithImports(url, store, visited = new Set(), depth = 0) {
 async function processText(ttlText, sourceName) {
     setLoading(true, 'Parsing du fichier TTL…');
     document.getElementById('welcome').style.display = 'none';
+    hiddenInstanceTypes.clear();
 
     let quads;
     try {
@@ -2847,13 +3182,16 @@ async function processText(ttlText, sourceName) {
     document.getElementById('legend').style.display  = 'flex';
     setStatus(`${nClass} classes · ${nInst} instances · ${nPEdges} object props · ${nDTEdges} datatype props — ${sourceName}`);
     renderConceptPanels(ontology);
+    lastAppliedView = 'default';
     applyDefaultFocusFilter();
+    applyTypeToggles();
     setLoading(false);
 }
 
 async function processStore(store, sourceName) {
     setLoading(true, 'Extracting ontology…');
     document.getElementById('welcome').style.display = 'none';
+    hiddenInstanceTypes.clear();
     await new Promise(r => setTimeout(r, 20));
 
     const ontology = extractOntology(store);
@@ -2875,7 +3213,9 @@ async function processStore(store, sourceName) {
 
     setStatus('Loaded with imports → ' + sourceName);
     renderConceptPanels(ontology);
+    lastAppliedView = 'default';
     applyDefaultFocusFilter();
+    applyTypeToggles();
     setLoading(false);
 }
 // ─────────────────────────────────────────────────────────────────
@@ -3650,13 +3990,38 @@ function clearImportedConcepts() {
 
 document.getElementById('btnCenter').addEventListener('click', () => {
     if (cy) {
+        lastAppliedView = 'default';
         applyDefaultFocusFilter();
+        applyTypeToggles();
         cy.animate({ fit: { padding: 40 } }, { duration: 300 });
     }
 });
 
 document.getElementById('btnFullExtension').addEventListener('click', () => {
+    lastAppliedView = 'full';
     applyFullExtension();
+    applyTypeToggles();
+});
+
+// ── Green graph-visibility toggles: Projects (default ON) / Platforms
+//    (default OFF). Clicking either just flips its flag and re-applies
+//    whichever base view (default focus / full extension) is currently
+//    active, so the toggle behaves consistently no matter how the user
+//    got to the current view.
+function setToggleButtonState(btn, isOn) {
+    btn.classList.toggle('on-green', isOn);
+}
+
+document.getElementById('btnToggleProjectsGraph').addEventListener('click', function () {
+    showProjectsInGraph = !showProjectsInGraph;
+    setToggleButtonState(this, showProjectsInGraph);
+    refreshCurrentView();
+});
+
+document.getElementById('btnTogglePlatformsGraph').addEventListener('click', function () {
+    showPlatformsInGraph = !showPlatformsInGraph;
+    setToggleButtonState(this, showPlatformsInGraph);
+    refreshCurrentView();
 });
 
 // ─────────────────────────────────────────────────────────────────
@@ -3679,18 +4044,22 @@ const HELP_CONTENT = {
                 It's the actual "data".
             </p>
             <p class="help-p help-note">
-                By default only the ABox (instances) is shown — enable "TBox (Classes)" in the toolbar
+                By default only the ABox (instances) is shown — enable "TBox" in the toolbar
                 to also see the class schema.
             </p>
 
             <div class="help-section-title">🎛️ Toolbar buttons</div>
             <ul class="help-ul">
-                <li><strong>ABox (Instances)</strong> — shows/hides individuals (instances) and their links.</li>
-                <li><strong>TBox (Classes)</strong> — shows/hides the ontology's classes.</li>
-                <li><strong>subClassOf</strong> — shows/hides the class hierarchy links (solid lines).</li>
-                <li><strong>Object Properties</strong> — shows/hides relations between individuals/classes (dashed lines).</li>
-                <li><strong>Datatype Props</strong> — shows/hides literal-valued attributes (text, number — thin dotted lines).</li>
-                <li><strong>🔗 Imported Concepts</strong> — loads and shows concepts from external ontologies used by the instances.</li>
+                <li><strong>ABox</strong> — shows/hides individuals (instances) and their links.</li>
+                <li><strong>TBox</strong> — shows/hides the ontology's classes.</li>
+                <li><strong>🔍 General Search</strong> — searches and highlights matching nodes.</li>
+                <li><strong>⊞ Fit</strong> — fits the current graph view to the screen.</li>
+                <li><strong>↺ Reset</strong> — restores the default graph view.</li>
+                <li><strong>⛶ Full Extension</strong> — shows the complete graph, respecting the active visibility filters.</li>
+                <li><strong>Show in graph: 📁 Projects / 🖥️ Platforms</strong> (green) — show or hide, in the graph itself,
+                    all Project / Platform nodes and their edges. By default <strong>Projects are shown</strong> and
+                    <strong>Platforms are hidden</strong>, since a Program can be linked to a very large number of
+                    Platforms. Click either button at any time to add or remove that whole category from the current view.</li>
             </ul>
 
             <div class="help-section-title">🖱️ Interacting with the graph</div>
@@ -3700,12 +4069,18 @@ const HELP_CONTENT = {
                 <li>The <strong>search</strong> bar (🔍) filters and highlights matching nodes.</li>
             </ul>
 
-            <div class="help-section-title">📁 Projects panel</div>
+            <div class="help-section-title">📁 Projects / Platforms list panels</div>
             <p class="help-p">
-                A button appears top-right of the graph for every instance of <em>Project</em>
-                (<em>TargetedProject</em>, <em>AAPProject</em>, or any subclass). Clicking a button
-                does exactly the same as clicking that node in the graph: it gets highlighted along with its direct connections.
-                The "✕" button at the top of the panel clears the filter.
+                The <strong>"Open list panel: 📁 Projects list / 🖥️ Platforms list"</strong> buttons, on the right of the
+                toolbar, open a side panel listing every instance of <em>Project</em> (<em>TargetedProject</em>,
+                <em>AAPProject</em>, or any subclass) or <em>Platform</em>. Clicking a button in that panel does exactly
+                the same as clicking that node in the graph: it gets highlighted along with its direct connections. The
+                "✕" button at the top of the panel clears the selection.
+            </p>
+            <p class="help-p help-note">
+                Note this list panel is independent from the green "Show in graph" toggles above: a Project/Platform can
+                be listed here (and clickable) even while its category is currently hidden from the graph — clicking it
+                will simply have no visible effect until the corresponding green toggle is turned on.
             </p>
 
             <div class="help-section-title">🎨 Legend (bottom of screen)</div>
@@ -3731,18 +4106,23 @@ const HELP_CONTENT = {
                 C'est la "donnée" réelle.
             </p>
             <p class="help-p help-note">
-                Par défaut, seul l'ABox (instances) est affiché — activez "TBox (Classes)" dans la barre d'outils
+                Par défaut, seul l'ABox (instances) est affiché — activez "TBox" dans la barre d'outils
                 pour voir aussi le schéma des classes.
             </p>
 
             <div class="help-section-title">🎛️ Boutons de la barre d'outils</div>
             <ul class="help-ul">
-                <li><strong>ABox (Instances)</strong> — affiche/masque les individus (instances) et leurs liens.</li>
-                <li><strong>TBox (Classes)</strong> — affiche/masque les classes de l'ontologie.</li>
-                <li><strong>subClassOf</strong> — affiche/masque les liens de hiérarchie entre classes (traits pleins).</li>
-                <li><strong>Object Properties</strong> — affiche/masque les relations entre individus/classes (traits pointillés).</li>
-                <li><strong>Datatype Props</strong> — affiche/masque les attributs à valeur littérale (texte, nombre — traits en pointillés fins).</li>
-                <li><strong>🔗 Imported Concepts</strong> — charge et affiche les concepts d'ontologies externes utilisés par les instances.</li>
+                <li><strong>ABox</strong> — affiche/masque les individus (instances) et leurs liens.</li>
+                <li><strong>TBox</strong> — affiche/masque les classes de l'ontologie.</li>
+                <li><strong>🔍 General Search</strong> — recherche et met en évidence les nœuds correspondants.</li>
+                <li><strong>⊞ Fit</strong> — adapte la vue actuelle du graphe à l'écran.</li>
+                <li><strong>↺ Reset</strong> — rétablit la vue par défaut du graphe.</li>
+                <li><strong>⛶ Full Extension</strong> — affiche le graphe complet en respectant les filtres de visibilité actifs.</li>
+                <li><strong>Show in graph : 📁 Projects / 🖥️ Platforms</strong> (vert) — affiche ou masque, directement
+                    dans le graphe, tous les nœuds Project / Platform et leurs liens. Par défaut, les
+                    <strong>Projects sont affichés</strong> et les <strong>Platforms sont masquées</strong>, un
+                    Program pouvant être lié à un très grand nombre de Platforms. Cliquez sur l'un ou l'autre bouton
+                    à tout moment pour ajouter ou retirer toute cette catégorie de la vue actuelle.</li>
             </ul>
 
             <div class="help-section-title">🖱️ Interaction avec le graphe</div>
@@ -3752,12 +4132,19 @@ const HELP_CONTENT = {
                 <li>La barre de <strong>recherche</strong> (🔍) filtre et met en évidence les nœuds correspondants.</li>
             </ul>
 
-            <div class="help-section-title">📁 Panneau Projects</div>
+            <div class="help-section-title">📁 Panneaux de liste Projects / Platforms</div>
             <p class="help-p">
-                En haut à droite du graphe, un bouton apparaît pour chaque instance de <em>Project</em>
-                (<em>TargetedProject</em>, <em>AAPProject</em>, ou toute sous-classe). Cliquer sur un bouton
-                fait exactement comme cliquer sur ce nœud dans le graphe : il est mis en évidence avec ses connexions directes.
-                Le bouton "✕" en haut du panneau réinitialise le filtre.
+                Les boutons <strong>« Open list panel : 📁 Projects list / 🖥️ Platforms list »</strong>, à droite de la
+                barre d'outils, ouvrent un panneau latéral listant chaque instance de <em>Project</em>
+                (<em>TargetedProject</em>, <em>AAPProject</em>, ou toute sous-classe) ou de <em>Platform</em>. Cliquer
+                sur un bouton de ce panneau fait exactement comme cliquer sur ce nœud dans le graphe : il est mis en
+                évidence avec ses connexions directes. Le bouton « ✕ » en haut du panneau réinitialise la sélection.
+            </p>
+            <p class="help-p help-note">
+                Notez que ce panneau de liste est indépendant des interrupteurs verts « Show in graph » ci-dessus : un
+                Project/Platform peut apparaître ici (et être cliquable) même si sa catégorie est actuellement masquée
+                du graphe — cliquer dessus n'aura simplement aucun effet visible tant que l'interrupteur vert
+                correspondant n'est pas activé.
             </p>
 
             <div class="help-section-title">🎨 Légende (bas de l'écran)</div>
