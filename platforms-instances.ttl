@@ -189,7 +189,7 @@ plat:Platform_damco-accelerated-development-of-corrosion-materials rdf:type proj
     proj:hasTechnique plat:TechniqueType_chemical ;
     proj:identifier "damco-accelerated-development-of-corrosion-materials" .
 
-plat:Platform_darmicols-accelerated-development-of-coatings-and-microstructures-by-cold-spray rdf:type proj:Platform,
+plat:Platform_darmicols-accelerated-development-of-coatings-cold-spray rdf:type proj:Platform,
         proj:SynthesisPlatform ;
     rdfs:label "DARMiColS: Accelerated Development of Coatings... Cold Spray"@en ;
     proj:documentationURL "https://www.pepr-diadem.fr/platforms-2/darmicols-accelerated-development-of-coatings-and-microstructures-by-cold-spray/"^^xsd:anyURI ;
@@ -198,7 +198,7 @@ plat:Platform_darmicols-accelerated-development-of-coatings-and-microstructures-
         plat:MaterialType_composites,
         plat:MaterialType_metals ;
 #    proj:hasPlatformAssociatedProject ppd:Project_a-dream ;
-    proj:identifier "darmicols-accelerated-development-of-coatings-and-microstructures-by-cold-spray" .
+    proj:identifier "darmicols-accelerated-development-of-coatings-cold-spray" .
 
 plat:Platform_daum-tube rdf:type proj:CharacterizationPlatform,
         proj:Platform,

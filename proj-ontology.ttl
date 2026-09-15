@@ -516,10 +516,107 @@ proj:hasFunding rdf:type owl:ObjectProperty ;
     rdfs:range   proj:Funding ;
     rdfs:label   "has funding"@en .
 
+
+# ─────────────────────────────────────────────
+# Leadership / responsibility roles, one pair of properties per level of
+# the Program → Project/WorkPackage → Task hierarchy. Each relates the
+# entity to the ResearchPerson (and/or Organization, for Program) currently
+# holding that role — the assignment can change over time; we model the
+# person/org, not the role itself. All person-range properties are
+# sub-properties of proj:hasResponsiblePerson, so a single generic query
+# ("?x proj:hasResponsiblePerson ?p") retrieves "who's in charge of X"
+# across every level without knowing which specific property applies.
+# ─────────────────────────────────────────────
+proj:hasResponsiblePerson rdf:type owl:ObjectProperty ;
+    rdfs:range   proj:ResearchPerson ;
+    rdfs:label   "has responsible person"@en , "a pour responsable"@fr ;
+    rdfs:comment "Generic super-property for every role-specific leadership/responsibility relation below (hasPilot, hasCoordinator, hasCoCoordinator, hasTaskLeader). Query this directly to get 'who is responsible for X' regardless of X's level in the Program/Project/WorkPackage/Task hierarchy."@en .
+
+# Programme → Person (pilot) / Organisation (piloting institution)
+# "Piloté par" / "led by" — kept as two separate properties (not shared
+# between Person and Organization): the piloting institution is a fairly
+# stable fact about the Program, while the pilot (person) is a role that
+# can change hands over time; splitting them keeps queries and cardinality
+# constraints precise for each.
+proj:hasPilot rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf proj:hasResponsiblePerson ;
+    rdfs:domain  proj:Program ;
+    rdfs:range   proj:ResearchPerson ;
+    rdfs:label   "led by"@en , "piloté par"@fr ;
+    rdfs:comment "The person currently piloting/leading the Program."@en .
+
+proj:hasPilotOrganization rdf:type owl:ObjectProperty ;
+    rdfs:domain  proj:Program ;
+    rdfs:range   proj:Organization ;
+    rdfs:label   "led by"@en , "piloté par"@fr ;
+    rdfs:comment "The institution that pilots/leads the Program."@en .
+
+# Project / WorkPackage → Person (coordinator + co-coordinator)
+# "Coordinated by" — coordinator is the principal responsible; co-coordinator
+# is the (one or more) secondary responsible(s) below the coordinator. Same
+# pair of properties reused for both Project and WorkPackage.
+proj:hasCoordinator rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf proj:hasResponsiblePerson ;
+    rdfs:domain  proj:Project ;
+    rdfs:range   proj:ResearchPerson ;
+    rdfs:label   "coordinated by"@en , "coordonné par"@fr ;
+    rdfs:comment "The principal person responsible for coordinating a Project."@en .
+
+proj:hasCoCoordinator rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf proj:hasResponsiblePerson ;
+    rdfs:domain proj:Project  ;
+    rdfs:range   proj:ResearchPerson ;
+    rdfs:label   "co-coordinated by"@en , "co-coordonné par"@fr ;
+    rdfs:comment "One of the secondary person(s) assisting the coordinator (proj:hasCoordinator) of a Project."@en .
+
+proj:hasCoordinatingOrganization rdf:type owl:ObjectProperty ;
+    rdfs:domain  proj:Project ;
+    rdfs:range   proj:Organization ;
+    rdfs:label   "coordinated by"@en , "coordonné par"@fr ;
+    rdfs:comment "The institution that formally coordinates a Project."@en .
+
+# WorkPackage level
+proj:hasWorkPackageLeader rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf proj:hasResponsiblePerson ;
+    rdfs:domain  proj:WorkPackage ;
+    rdfs:range   proj:ResearchPerson ;
+    rdfs:label   "has work package leader"@en , "a pour responsable de lot de travaux"@fr ;
+    rdfs:comment "The principal person responsible for leading and managing a Work Package."@en .
+
+# WorkPackage → Organization (work package leading / piloting organization)
+proj:hasWorkPackagePilotingOrganization rdf:type owl:ObjectProperty ;
+    rdfs:domain  proj:WorkPackage ;
+    rdfs:range   proj:Organization ;
+    rdfs:label   "led by"@en , "piloté par"@fr ;
+    rdfs:comment "The institution that leads or pilots a Work Package."@en .
+
+proj:hasWorkPackageCoLeader rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf proj:hasResponsiblePerson ;
+    rdfs:domain  proj:WorkPackage ;
+    rdfs:range   proj:ResearchPerson ;
+    rdfs:label   "has work package co-leader"@en , "a pour co-responsable de lot de travaux"@fr ;
+    rdfs:comment "One of the secondary person(s) assisting or sharing the leadership of a Work Package with the Work Package leader."@en .
+
+# WorkPackage → Organization (work package co-leading / co-piloting organization)
+proj:hasWorkPackageCoPilotingOrganization rdf:type owl:ObjectProperty ;
+    rdfs:domain  proj:WorkPackage ;
+    rdfs:range   proj:Organization ;
+    rdfs:label   "co-led by"@en , "co-piloté par"@fr ;
+    rdfs:comment "The secondary institution that co-leads or co-pilots a Work Package alongside the main leading organization."@en .
+    
+# Task → Person (task leader)
+proj:hasTaskLeader rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf proj:hasResponsiblePerson ;
+    rdfs:domain  proj:Task ;
+    rdfs:range   proj:ResearchPerson ;
+    rdfs:label   "has task leader"@en , "a pour responsable de tâche"@fr ;
+    rdfs:comment "Relates a Task to the person responsible for leading it."@en .
+
+
 # Programme → Person / Organisation (lead & colead)
-proj:hasLeadPerson rdf:type owl:ObjectProperty ;
-     rdfs:label   "has co-lead"@en ;
-    rdfs:comment "Co-lead. Same domain range flexibility as proj:hasLead."@en .
+#proj:hasLeadPerson rdf:type owl:ObjectProperty ;
+#     rdfs:label   "has co-lead"@en ;
+#    rdfs:comment "Co-lead. Same domain range flexibility as proj:hasLead."@en .
 
 # Programme → Platform / Project
 proj:hasPlatform rdf:type owl:ObjectProperty ;
