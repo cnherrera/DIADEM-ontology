@@ -92,10 +92,16 @@ project:
 keywords:
 
   competences:
-  - "(1) Metal Organic Frameworks (MOFs); (2) Water Adsorption/Desorption"
-  - "(3) Autonomous Humidity Control; (4)\nConstruction and Analysis of Structure Database; (5) High-Throughput Screening by Molecular Simulations (Monte Carlo and Molecular Dynamics); (6) Machine Learning; (7) Artificial Intelligence aided Design of Novel Materials; (8) High-Throughput Synthesis and Characterization"
-  - "(9) Water adsorption (thermodynamics and kinetics); (10) Humidity Controller Prototype (Building physics)\n\n(1) Structures métallo-organiques (MOF) ; (2) Adsorption/désorption de l'eau ; (3) Contrôle autonome de l'humidité ; (4) Construction et analyse d'une base de données structurelles ; (5) Criblage à haut débit par simulations moléculaires (Monte Carlo et dynamique moléculaire) ; (6) Apprentissage automatique ; (7) Conception de nouveaux matériaux assistée par l'intelligence artificielle ; (8) Synthèse et caractérisation à haut débit"
-  - "(9) Adsorption de l'eau (thermodynamique et cinétique) ; (10) Prototype de contrôleur d'humidité (physique du bâtiment)"
+  - "Metal Organic Frameworks (MOFs)"
+  - "Water Adsorption/Desorption"
+  - "Autonomous Humidity Control"
+  - "Construction and Analysis of Structure Database"
+  - "High-Throughput Screening by Molecular Simulations (Monte Carlo and Molecular Dynamics)"
+  - "Machine Learning"
+  - "Artificial Intelligence aided Design of Novel Materials"
+  - "High-Throughput Synthesis and Characterization"
+  - "Water adsorption (thermodynamics and kinetics)"
+  - "Humidity Controller Prototype (Building physics)"
   - "mof"
   - "mofs"
   - "synthesis"
@@ -122,15 +128,28 @@ keywords:
   # if synthesis:
   synthesis_tools: []  # fill by hand (if synthesis)
 
+# ── Products at the level of the Project ──────────────────────────────────
+# List here any products or deliverables of the project that are not 
+# detailed at the level of each work package
+project_products:                     # products produced by the project: datasets, reports, algorithms, etc.
+- name: null
+  description: null
+  url: null                  # optional
+
 # ── Work packages ─────────────────────────────────────────────────────────
 # Example structure below. Duplicate this block once per work package,
 # fill it in, and remove any lines that don't apply.
-work_packages:
+work_packages:               # optional
 - number: null               # REQUIRED - integer
   acronym: null               # optional short label, e.g. "WP1"
   title: null                 # REQUIRED
   description: null           # REQUIRED
   lead_institution: null      # REQUIRED - must match an acronym in organizations
+  lead_person:                # REQUIRED
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
   deliverables:                # optional
   - title: null
     description: null

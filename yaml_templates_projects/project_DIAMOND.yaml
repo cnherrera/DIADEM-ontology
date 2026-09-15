@@ -1,161 +1,1263 @@
 # ─────────────────────────────────────────────────────────────────────────────
-#  DIADEM Project Description File  
-#  One file per project (targeted or AAP).
-#  Fill every field marked REQUIRED. Optional fields can be left blank or omitted.
-#  Dates must follow ISO 8601: YYYY-MM-DD
-#  Lists use the YAML dash-item syntax.
+#  DIADEM Project Description File — completed from project-diamond.ttl
+#  Project-specific entities are data only; the generator reads them from YAML.
+#  Shared people/orgs/ckey entities remain external references.
 # ─────────────────────────────────────────────────────────────────────────────
-
 project:
-  type: "Targeted"          # REQUIRED - "Targeted" or "AAP"
-  acronym: "DIAMOND"      # REQUIRED - short identifier, no spaces (used as RDF local name)
-  title: "Data management and Infrastructures for Artificial intelligence, Modelling, Optimization and Numerical Design"   # REQUIRED
-  description: >          # REQUIRED - free text, multiline OK
-    L’objectif principal de ce projet ciblé est de mettre en place une infrastructure
-    numérique pour accélérer le développement des matériaux. Elle est basée d’une part
-    sur une plateforme dédiée aux codes de simulation aux différentes échelles et aux
-    workflows pour l’automatisation de séries de calculs, dont les calculs à haut débit
-    et le traitement des résultats par intelligence artificielle (IA) et d’autre part
-    sur une infrastructure de bases de données venant à la fois des expériences et des
-    simulations. Pour chacune de ces infrastructures, des cas d’usage issus des projets
-    ciblés en coursont été identifiés pour servir d’exemple et s’assurer de l’adéquation
-    avec les besoins des utilisateurs, ils concernent les projets MOF-learning, ESRF et
-    FastNano. Un démonstrateur utilisant ces deux infrastructures sera également
-    développé, il sera consacré au développement par apprentissage machine de potentiels
-    interatomiques pour les simulations à l’échelle atomique. Les cahiers des charges de
-    ces infrastructures et ce démonstrateur seront établis en s’appuyant sur des groupes
-    de travail avec des représentants des principaux laboratoires concernés. La
-    plateforme codes et workflows sera développée et déployée au meso-centre de calcul
-    GRICAD et l’infrastructure de bases de données sera déployée au TGCC.
-  start_date: "2023-04-01"   # REQUIRED  YYYY-MM-DD
-  end_date:   "2029-03-31"   # REQUIRED  YYYY-MM-DD
-  documentation_url: "https://www.pepr-diadem.fr/projet/diamond/"   # optional
-  associated_platforms: []  # List the associated DIADEM platforms - optional
-
-  # ── Lead & co-lead ───────────────────────────────────────────────────────
+  type: Targeted
+  acronym: DIAMOND
+  title:
+    en: Data management and Infrastructures for Artificial intelligence, Modelling, Optimization and Numerical Design
+    fr: Bases de Données, outils d’Intelligence Artificielle, de Modélisation et d’OptimisatioN pour le Design Numérique de
+      matériaux
+  description:
+    fr: L’objectif principal de ce projet ciblé est de mettre en place une infrastructure numérique pour accélérer le développement
+      des matériaux. Elle est basée d’une part sur une plateforme dédiée aux codes de simulation aux différentes échelles
+      et aux workflows pour l’automatisation de séries de calculs, dont les calculs à haut débit et le traitement des résultats
+      par intelligence artificielle (IA) et d’autre part sur une infrastructure de bases de données venant à la fois des expériences
+      et des simulations. Pour chacune de ces infrastructures, des cas d’usage issus des projets ciblés en coursont été identifiés
+      pour servir d’exemple et s’assurer de l’adéquation avec les besoins des utilisateurs, ils concernent les projets MOF-learning,
+      ESRF et FastNano. Un démonstrateur utilisant ces deux infrastructures sera également développé, il sera consacré au
+      développement par apprentissage machine de potentiels interatomiques pour les simulations à l’échelle atomique. Les
+      cahiers des charges de ces infrastructures et ce démonstrateur seront établis en s’appuyant sur des groupes de travail
+      avec des représentants des principaux laboratoires concernés. La plateforme codes et workflows sera développée et déployée
+      au meso-centre de calcul GRICAD et l’infrastructure de bases de données sera déployée au TGCC.
+    en: The main objective of this targeted project is to establish a digital infrastructure to accelerate materials development.
+      It is based, on the one hand, on a platform dedicated to multi-scale simulation codes and workflows for automating series
+      of calculations—including high-throughput calculations and the processing of results using artificial intelligence (AI)—and,
+      on the other hand, on a database infrastructure fed by both experiments and simulations. For each of these infrastructures,
+      use cases from ongoing targeted projects have been identified to serve as examples and ensure alignment with user needs;
+      these relate to the MOF-learning, ESRF, and FastNano projects. A demonstrator utilizing both infrastructures will also
+      be developed, focusing on the machine learning development of interatomic potentials for atomic-scale simulations. The
+      specifications for these infrastructures and this demonstrator will be established based on working groups with representatives
+      from the main relevant laboratories. The codes and workflows platform will be developed and deployed at the GRICAD meso-centre
+      for high-performance computing, and the database infrastructure will be deployed at the TGCC.
+  start_date: '2023-04-01'
+  end_date: '2029-03-31'
+  documentation_url: https://www.pepr-diadem.fr/projet/diamond/
+  associated_platforms: []
   lead:
-    person:                # REQUIRED
-      first_name: "François"
-      last_name:  "WILLAIME"
-      email:      null    # optional
-      orcid:      null    # optional
-    institution:           # REQUIRED
-      acronym:   "CEA"
-      full_name: "CEA"
-      ror:       null  # optional
-
-  colead:                  # optional block - leave fields null if there is no co-lead
+    person:
+      first_name: François
+      last_name: WILLAIME
+      email: null
+      orcid: null
+      person_id: FRANCOIS_WILLAIME
+    institution:
+      acronym: CEA
+      full_name: CEA
+      ror: null
+  colead:
     person:
       first_name: null
-      last_name:  null
-      email:      null    # optional
-      orcid:      null    # optional
+      last_name: null
+      email: null
+      orcid: null
     institution:
-      acronym:   null
+      acronym: null
       full_name: null
-      ror:       null  # optional
-
-  # ── Partner organisations ─────────────────────────────────────────────────
-  organizations:           # REQUIRED - at least one
-    - acronym:   "SIMaP"
-      full_name: "Sciences et Ingénierie, Matériaux, Procédés (UMR 5266 CNRS/Grenoble INP/Univ. Grenoble Alpes)"
-      ror:       null  # optional
-    - acronym:   "CEA Irig/MEM"
-      full_name: "Laboratoire Modélisation et Exploration des Matériaux (CEA/Univ. Grenoble Alpes)"
-      ror:       null  # optional
-    - acronym:   "LPENS"
-      full_name: "Laboratoire de physique de l'ENS (UMR 8023 CNRS/ENS Paris/Sorbonne Univ./U Paris Cité/Univ. Paris Sciences et Lettres)"
-      ror:       null  # optional
-    - acronym:   "ILM"
-      full_name: "Institut Lumière Matière (UMR 5306 CNRS/UCBL)"
-      ror:       null  # optional
-    - acronym:   "GRICAD"
-      full_name: "Grenoble Alpes Recherche Infrastructure de Calcul Intensif et de Données (UAR 3758 CNRS/UGA/Grenoble-INP/INRIA)"
-      ror:       null  # optional
-    - acronym:   "CEA/DEN/DANS/DMN/SRMP"
-      full_name: "Section de Recherches de Métallurgie Physique - CEA-Saclay"
-      ror:       null  # optional
-    - acronym:   "CEA/DEN/DANS/DM2S/SGLS"
-      full_name: "Service de Génie Logiciel pour la Simulation - CEA-Saclay"
-      ror:       null  # optional
-    - acronym:   "CEA List - DIN"
-      full_name: "Département d'Instrumentation Numérique - CEA-Saclay"
-      ror:       null  # optional
-    - acronym:   "CEA/DES"
-      full_name: "Direction Scientifique des Energies - CEA-Saclay"
-      ror:       null  # optional
-    - acronym:   "CEA/DAM/DSSI"
-      full_name: "Département des sciences de la simulation et de l'information - CEA-Bruyères-le-Châtel"
-      ror:       null  # optional
-
-# ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
-# Please select/add terms from the DIADEM controlled vocabulary where possible.
+      ror: null
+  organizations:
+  - acronym: SIMaP
+    full_name: Sciences et Ingénierie, Matériaux, Procédés (UMR 5266 CNRS/Grenoble INP/Univ. Grenoble Alpes)
+    ror: null
+  - acronym: CEA Irig/MEM
+    full_name: Laboratoire Modélisation et Exploration des Matériaux (CEA/Univ. Grenoble Alpes)
+    ror: null
+  - acronym: LPENS
+    full_name: Laboratoire de physique de l'ENS (UMR 8023 CNRS/ENS Paris/Sorbonne Univ./U Paris Cité/Univ. Paris Sciences
+      et Lettres)
+    ror: null
+  - acronym: ILM
+    full_name: Institut Lumière Matière (UMR 5306 CNRS/UCBL)
+    ror: null
+  - acronym: GRICAD
+    full_name: Grenoble Alpes Recherche Infrastructure de Calcul Intensif et de Données (UAR 3758 CNRS/UGA/Grenoble-INP/INRIA)
+    ror: null
+  - acronym: CEA/DEN/DANS/DMN/SRMP
+    full_name: Section de Recherches de Métallurgie Physique - CEA-Saclay
+    ror: null
+  - acronym: CEA/DEN/DANS/DM2S/SGLS
+    full_name: Service de Génie Logiciel pour la Simulation - CEA-Saclay
+    ror: null
+  - acronym: CEA List - DIN
+    full_name: Département d'Instrumentation Numérique - CEA-Saclay
+    ror: null
+  - acronym: CEA/DES
+    full_name: Direction Scientifique des Energies - CEA-Saclay
+    ror: null
+  - acronym: CEA/DAM/DSSI
+    full_name: Département des sciences de la simulation et de l'information - CEA-Bruyères-le-Châtel
+    ror: null
+  - acronym: SIMAP
+    full_name: null
+    ror: null
+  - acronym: CEA-IRIG
+    full_name: null
+    ror: null
+  - acronym: CEA-LIST
+    full_name: null
+    ror: null
+  - acronym: IMPMC
+    full_name: null
+    ror: null
+  personnel:
+  - person_id: FRANCOIS_WILLAIME
+    first_name: François
+    last_name: WILLAIME
+    email: null
+    orcid: null
+    personnel_type_ref: :ProjectCoordinator
+    is_current_member: true
+    join_date: null
+    left_date: null
+    works_on:
+    - Project_diamond
+    competences: []
 keywords:
-
   competences:
-  - "Plateformes"
-  - "codes"
-  - "données"
-  - "intelligence artificielle"
-  - "workflows"
-  - "infrastructure"
-  - "simulation"
-  - "learning"
-  - "machine"
-  - "machine learning"
-  - "simulations"
-  - "artificial"
-  - "artificial intelligence"
-  - "regression"
-  - "database infrastructure"
+  - Plateformes
+  - codes
+  - données
+  - intelligence artificielle
+  - workflows
+  - infrastructure
+  - simulation
+  - learning
+  - machine
+  - machine learning
+  - simulations
+  - artificial
+  - artificial intelligence
+  - regression
+  - database infrastructure
+  scientific_domain: []
+  methodology: []
+  characterization_tools: []
+  simulation_tools: []
+  synthesis_tools: []
+personnel_types:
+- id: Engineer
+  label:
+    en: Engineer
+    fr: Ingénieur
+  description: An engineer contributing to the project.
+- id: ProjectCoordinator
+  label:
+    en: Project Coordinator
+    fr: Coordinateur de Projet
+  description: A coordinator overseeing project activities and organization.
+- id: Scientific
+  label:
+    en: Scientific
+    fr: Scientifique
+  description: A scientific contributor in the project.
+- id: ScientificResponsable
+  label:
+    en: Scientific Responsable
+    fr: Responsable Scientifique
+  description: A scientific lead or responsible person within the project.
+# ── Products at the level of the Project ──────────────────────────────────
+# List here any products or deliverables of the project that are not 
+# detailed at the level of each work package
+project_products:                     # products produced by the project: datasets, reports, algorithms, etc.
+- name: null
+  description: null
+  url: null                  # optional
 
-  scientific_domain: []  # fill by hand
-
-  methodology: []  # fill by hand
-
-  # Depending on the project's methodology (you can inspire from the list_keyword.yaml file):
-
-  #if characterization:
-  characterization_tools: []  # fill by hand (if characterization)
-
-  #if simulation:
-  simulation_tools: []  # fill by hand (if simulation)
-
-  # if synthesis:
-  synthesis_tools: []  # fill by hand (if synthesis)
-
-# ── Work packages ─────────────────────────────────────────────────────────
-# Example structure below. Duplicate this block once per work package,
-# fill it in, and remove any lines that don't apply.
 work_packages:
-- number: null               # REQUIRED - integer
-  acronym: null               # optional short label, e.g. "WP1"
-  title: null                 # REQUIRED
-  description: null           # REQUIRED
-  lead_institution: null      # REQUIRED - must match an acronym in organizations
-  deliverables:                # optional
+- number: 1
+  acronym: WP1-CW
+  title: Code and Workflows
+  pref_label: WP1 - Codes and Workflows
+  description: Development of the code and workflow platform for the DIAMOND project.
+  description_fr: Development de la platforme codes et workflows pour le projet DIAMOND.
+  lead_institution: org:SIMAP
+  co_lead_institutions:
+  - org:ILM
+  - org:IMPMC
+  scientific_responsable: null
+  deliverables:
   - title: null
     description: null
-    due_date: null             # optional
-    type: null                 # optional - e.g. report / software / dataset / other
-  tasks:                        # optional
+    due_date: null
+    type: null
+  tasks:
   - id: null
     title: null
     description: null
-  tools:                        # tools (software, algorithms, etc) used in this work package
-  - name: null
-    url: null                  # optional
-  products:                     # all products produced by the WP: datasets, reports, algorithms, etc.
-  - name: null
-    description: null
-    url: null                  # optional
-  competences:                  # list competences used/developed in this work package
-  - null
-  contributors:                 # people working on this WP
-  - first_name: null
+  tools:
+  - name: proj:Apptainer
+    url: null
+  - name: Guix
+    rdf_type: SoftwareSystem
+    label: GNU Guix
+    pref_label: Guix
+    description: GNU Guix is a functional package manager that facilitates the creation of reproducible and declarative software
+      environments. It allows users to define complete software environments that can be shared and replicated across different
+      systems, enhancing reproducibility in software deployment.
+  products:
+  - name: Abinit
+    rdf_type: SoftwareSystem
+    label: ABINIT
+    pref_label: ABINIT
+    description: A software suite for electronic structure calculations based on density functional theory, using pseudopotentials
+      and a plane wave or wavelet basis.
+    url: https://www.abinit.org/
+    category: proj:ScientificComputing
+    label_lang: en
+    pref_label_lang: en
+    description_lang: en
+  - name: CP2K
+    rdf_type: SoftwareSystem
+    label: CP2K
+    pref_label: CP2K
+    url: https://www.cp2k.org/
+    category: proj:ScientificComputing
+    label_lang: en
+    pref_label_lang: en
+  - name: DFTBPlus
+    rdf_type: SoftwareSystem
+    label: DFTB+
+    pref_label: DFTB+
+    url: https://dftbplus.org/
+    category: proj:ScientificComputing
+    label_lang: en
+    pref_label_lang: en
+  - name: FEniCS
+    rdf_type: SoftwareSystem
+    label: FEniCS
+    pref_label: FEniCS
+    url: https://fenicsproject.org/
+    category: proj:ScientificComputing
+    label_lang: en
+    pref_label_lang: en
+  - name: FreeFEM
+    rdf_type: SoftwareSystem
+    label: FreeFEM
+    pref_label: FreeFEM
+    url: https://freefem.org/
+    category: proj:ScientificComputing
+    label_lang: en
+    pref_label_lang: en
+  - name: GaTewAY
+    rdf_type: SoftwareSystem
+    label: GaTewAY
+    pref_label: GaTewAY
+    category: proj:ScientificComputing
+    label_lang: en
+    pref_label_lang: en
+  - name: Gmsh
+    rdf_type: SoftwareSystem
+    label: Gmsh
+    pref_label: Gmsh
+    url: https://gmsh.info/
+    category: proj:ScientificComputing
+    label_lang: en
+    pref_label_lang: en
+  - name: LAMMPS
+    rdf_type: SoftwareSystem
+    label: LAMMPS
+    pref_label: LAMMPS
+    url: https://www.lammps.org/
+    category: proj:ScientificComputing
+    label_lang: en
+    pref_label_lang: en
+  - name: NWChem
+    rdf_type: SoftwareSystem
+    label: NWChem
+    pref_label: NWChem
+    url: https://www.nwchem-se.org/
+    category: proj:ScientificComputing
+    label_lang: en
+    pref_label_lang: en
+  - name: Neper
+    rdf_type: SoftwareSystem
+    label: Neper
+    pref_label: Neper
+    url: https://neper.info/
+    category: proj:ScientificComputing
+    label_lang: en
+    pref_label_lang: en
+  - name: OpenCalphad
+    rdf_type: SoftwareSystem
+    label: OpenCalphad
+    pref_label: OpenCalphad
+    url: http://www.opencalphad.com/
+    category: proj:ScientificComputing
+    label_lang: en
+    pref_label_lang: en
+  - name: OpenDiS
+    rdf_type: SoftwareSystem
+    label: OpenDiS
+    pref_label: OpenDiS
+    category: proj:ScientificComputing
+    label_lang: en
+    pref_label_lang: en
+  - name: Ovito
+    rdf_type: SoftwareSystem
+    label: OVITO
+    pref_label: OVITO
+    url: https://www.ovito.org/
+    category: proj:Visualization
+    label_lang: en
+    pref_label_lang: en
+  - name: PLUMED
+    rdf_type: SoftwareSystem
+    label: PLUMED
+    pref_label: PLUMED
+    url: https://www.plumed.org/
+    category: proj:ScientificComputing
+    label_lang: en
+    pref_label_lang: en
+  - name: ParaView
+    rdf_type: SoftwareSystem
+    label: ParaView
+    pref_label: ParaView
+    url: https://www.paraview.org/
+    category: proj:Visualization
+    label_lang: en
+    pref_label_lang: en
+  - name: QuantumESPRESSO
+    rdf_type: SoftwareSystem
+    label: Quantum ESPRESSO
+    pref_label: Quantum ESPRESSO
+    url: https://www.quantum-espresso.org/
+    category: proj:ScientificComputing
+    label_lang: en
+    pref_label_lang: en
+  - name: RASPA2
+    rdf_type: SoftwareSystem
+    label: RASPA2
+    pref_label: RASPA2
+    category: proj:ScientificComputing
+    label_lang: en
+    pref_label_lang: en
+  - name: VESTA
+    rdf_type: SoftwareSystem
+    label: VESTA
+    pref_label: VESTA
+    url: https://jp-minerals.org/vesta/en/
+    category: proj:Visualization
+    label_lang: en
+    pref_label_lang: en
+  - name: VMD
+    rdf_type: SoftwareSystem
+    label: VMD
+    pref_label: VMD
+    url: https://www.ks.uiuc.edu/Research/vmd/
+    category: proj:Visualization
+    label_lang: en
+    pref_label_lang: en
+  - name: Wannier90
+    rdf_type: SoftwareSystem
+    label: Wannier90
+    pref_label: Wannier90
+    url: http://www.wannier.org/
+    license: :OpenSource
+    category: proj:ScientificComputing
+    label_lang: en
+    pref_label_lang: en
+  - name: XCrySDen
+    rdf_type: SoftwareSystem
+    label: XCrySDen
+    pref_label: XCrySDen
+    url: http://www.xcrysden.org/
+    category: proj:Visualization
+    label_lang: en
+    pref_label_lang: en
+  - name: XTB
+    rdf_type: SoftwareSystem
+    label: XTB
+    pref_label: XTB
+    url: https://github.com/grimme-lab/xtb
+    category: proj:ScientificComputing
+    label_lang: en
+    pref_label_lang: en
+  - name: ZeoPlusPlus
+    rdf_type: SoftwareSystem
+    label: Zeo++
+    pref_label: Zeo++
+    url: http://www.zeoplusplus.org/
+    category: proj:ScientificComputing
+    label_lang: en
+    pref_label_lang: en
+  - name: Zset
+    rdf_type: SoftwareSystem
+    label: Z-set
+    pref_label: Z-set
+    url: http://www.zset-software.com/
+    category: proj:ScientificComputing
+    label_lang: en
+    pref_label_lang: en
+  - name: n2p2
+    rdf_type: SoftwareSystem
+    label: n2p2
+    pref_label: n2p2
+    url: https://github.com/CompPhysAtm/n2p2
+    category: proj:ScientificComputing
+    label_lang: en
+    pref_label_lang: en
+  - name: DIAMONDWebpage
+    rdf_type: Webpage
+    pref_label: DIAMOND Project Webpage
+    description: DIAMOND Web page giving users access to all the containers of codes and workflows.
+    url: https://diamond-diadem.github.io/
+  competences:
+  - ckey:AIApproaches
+  - ckey:Containerization
+  - ckey:GuixPackaging
+  - ckey:MOF
+  - ckey:WebDevelopment
+  contributors:
+  - person_id: AADHITYAN_ARIVAZHAGAN
+    first_name: null
     last_name: null
-    email: null                # optional
-    orcid: null                # optional
-    competences:                # this contributor's competences within the WP
-    - domain: null
-      level: null              # optional
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: 2024-09
+    left_date: null
+    competences: []
+  - person_id: ADRIEN_BRUNETON
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: false
+    join_date: null
+    left_date: null
+    competences: []
+  - person_id: BENJAMIN_ARRONDEAU
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: false
+    join_date: 2024-02
+    left_date: 2026-01
+    competences: []
+  - person_id: DAVID_MARTIN_CALLE
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: false
+    join_date: 2023-11
+    left_date: 2025-11
+    competences: []
+  - person_id: DORIAN_ROLLAND
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: proj:Engineer
+    is_current_member: true
+    join_date: null
+    left_date: null
+    competences: []
+  - person_id: DAVID_RODNEY
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: null
+    left_date: null
+    competences: []
+  - person_id: DYLAN_BISSUEL
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: false
+    join_date: null
+    left_date: null
+    competences: []
+  - person_id: ETIENNE_POLACK
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: 2025-04
+    left_date: null
+    competences: []
+  - person_id: GABRIELE_CASSETTA
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: null
+    join_date: 2026-02
+    left_date: null
+    competences: []
+  - person_id: GEOFFREY_DANIEL
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: false
+    join_date: null
+    left_date: null
+    competences: []
+  - person_id: JONATHAN_DAUBIN
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: null
+    left_date: null
+    competences: []
+  - person_id: JOAOPAULO_ALMEIDADEMENDOCA
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: 2024-01
+    left_date: null
+    competences:
+    - domain: AIApproaches
+      level: null
+  - person_id: KARIM_AITAMMAR
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: 2025-12
+    left_date: null
+    competences: []
+  - person_id: LEO_ORVEILLON
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: 2025-04
+    left_date: 2027-03
+    competences: []
+  - person_id: LORENZO_PAULATTO
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: null
+    left_date: null
+    competences: []
+  - person_id: MARTIN_UHRIN
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: null
+    left_date: null
+    competences: &id001 []
+  - person_id: MAY_CHOUEIB
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: 2025-09
+    left_date: null
+    competences: []
+  - person_id: NICOLAS_CROUZET
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: null
+    left_date: null
+    competences: []
+  - person_id: NILS_KASCH
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: 2025-03
+    left_date: null
+    competences: []
+  - person_id: NOEL_JAKSE
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :ProjectCoordinator
+    is_current_member: true
+    join_date: null
+    left_date: null
+    competences: []
+  - person_id: PIERREANTOINE_BOUTTIER
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: null
+    left_date: null
+    competences: []
+  - person_id: YAIDEL_TOLEDO
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: 2025-11
+    left_date: null
+    competences: []
+  description_lang: en
+- number: 2
+  acronym: WP2-DM
+  title: Data Management
+  pref_label: WP2 - Data Management
+  description: Design and implementation of data management infrastructure for the DIAMOND project
+  lead_institution: org:CEA-IRIG
+  co_lead_institutions:
+  - org:CEA-LIST
+  scientific_responsable: THIERRY_DEUTSCH
+  deliverables:
+  - title: null
+    description: null
+    due_date: null
+    type: null
+  tasks:
+  - id: null
+    title: null
+    description: null
+  tools:
+  - name: MongoDB
+    rdf_type: DatabaseInfrastructure
+    label: MongoDB Engine
+    pref_label: MongoDB
+    description: MongoDB is a document-oriented NoSQL database that stores data in flexible, JSON-like documents. It offers
+      scalability and flexibility for handling large volumes of unstructured or semi-structured data, making it suitable for
+      modern application development.
+  products:
+  - name: DiamondDBInfrastructure
+    rdf_type:
+    - DatabaseInfrastructure
+    - ProjectOutput
+    pref_label:
+    - DIAMOND database infrastructure (TGCC-Cloud)
+    - DIAMOND database infrastructure hosted at the TGCC-Cloud
+    description: Core DIAMOND database and data lake infrastructure deployed at the TGCC-Cloud.
+    url: https:tbc
+    software_components:
+    - :DiamondDBConsultationUI
+    - :DiamondDBInjectionUI
+    - :GraphQLEndpoint
+    - :GrapheneAPI
+    - :KeycloakAuth
+    - :MinioDatalake
+    - :MongoDBService
+    pref_label_lang:
+    - null
+    - null
+  - name: AtomisticNumericalSimulationDB
+    rdf_type: Database
+    pref_label: Atomistic Numerical Simulations - BigDFT
+    description: Database for atomistic numerical simulations - based on BigDFT code simulation
+    hosted_on:
+    - :DiamondDBInfrastructure
+  - name: Fast2NanoDB
+    rdf_type: Database
+    description: Fast2Nano database
+    hosted_on:
+    - :DiamondDBInfrastructure
+    associated_projects:
+    - allp:Project_2fast
+    - allp:Project_fastnano
+  - name: MLIPDB
+    rdf_type: Database
+    pref_label: Machine Learning Interatomic Potentials database
+    description: An open-access web repository where external users can submit new MLP models and download MLP parameterizations.
+    hosted_on:
+    - :DiamondDBInfrastructure
+  competences:
+  - ckey:AIApproaches
+  - ckey:DatabaseInfrastructureDesign
+  - ckey:DatabaseInfrastructure
+  - ckey:FAIRDataHandling
+  - ckey:LargeScaleWorkflows
+  - ckey:MetadataStandardization
+  - ckey:WorkflowOrchestration
+  contributors:
+  - person_id: AHMED_AMRANI
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: proj:Engineer
+    is_current_member: true
+    join_date: null
+    left_date: null
+    competences: []
+  - person_id: ARAWINTH_CAMATCHY
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: null
+    left_date: null
+    competences: []
+  - person_id: CINTHYA_HERRERA
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: 2024-05
+    left_date: null
+    competences:
+    - domain: LargeScaleWorkflows
+      level: null
+    - domain: MetadataStandardization
+      level: null
+  - person_id: FEIROUZ_KSONTINI
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: null
+    left_date: null
+    competences: []
+  - person_id: IMANOL_SETOAIN
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Engineer
+    is_current_member: true
+    join_date: null
+    left_date: null
+    competences: []
+  - person_id: JEANPHILIPPE_POLI
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: null
+    left_date: null
+    competences: []
+  - person_id: NICOLA_VIGANO
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: null
+    left_date: null
+    competences: []
+  - person_id: OMAR_BENYAHYA
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Engineer
+    is_current_member: true
+    join_date: 2024-10
+    left_date: null
+    competences: []
+  - person_id: THIERRY_DEUTSCH
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: null
+    left_date: null
+    competences: []
+  - person_id: VINCENT_BERGEAUD
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: null
+    left_date: null
+    competences: []
+  description_lang: null
+- number: 3
+  acronym: WP3-MLIP
+  title: MLIP demonstrator
+  pref_label: WP3 - MLIP demonstrator
+  description: Machine-learning Interatomic-potential demonstrator. Delivers an open-access repository of MLPs, builds a platform
+    for MLP development including automated training dataset generation, common interface for MLP packages, and containerized
+    workflow solutions.
+  lead_institution: org:IMPMC
+  co_lead_institutions:
+  - org:SIMAP
+  scientific_responsable: MARCO_SAITTA
+  deliverables:
+  - title: null
+    description: null
+    due_date: null
+    type: null
+  tasks:
+  - id: null
+    title: null
+    description: null
+  tools:
+  - name: AiiDA
+    rdf_type: SoftwareSystem
+    label: AiiDA Framework
+    pref_label: AiiDA
+    description: AiiDA (Automated Interactive Infrastructure and Database for Computational Science) is an open-source Python
+      framework for managing, preserving, and disseminating computational scientific workflows. It provides automated provenance
+      tracking, data management, and workflow execution capabilities for high-throughput computational materials science.
+  - name: CP2K
+    rdf_type: SoftwareSystem
+    label: CP2K
+    pref_label: CP2K
+    url: https://www.cp2k.org/
+  - name: LAMMPS
+    rdf_type: SoftwareSystem
+    label: LAMMPS
+    pref_label: LAMMPS
+    url: https://www.lammps.org/
+  - name: n2p2
+    rdf_type: SoftwareSystem
+    label: n2p2
+    pref_label: n2p2
+    url: https://github.com/CompPhysAtm/n2p2
+  products:
+  - name: AiidaN2p2Plugin
+    rdf_type: SoftwareComponent
+    label: AiiDA-n2p2 Plugin
+    pref_label: AiiDA-n2p2 Plugin
+    description: An AiiDA plugin for automating the development of Behler-Parrinello neural network MLPs using n2p2, including
+      automated weight selection, validation through LAMMPS molecular dynamics, and semi-automated input generation.
+    is_software_component_of:
+    - :AiiDA
+  - name: MLIPDB
+    rdf_type: Database
+    pref_label: Machine Learning Interatomic Potentials database
+    description: An open-access web repository where external users can submit new MLP models and download MLP parameterizations.
+    hosted_on:
+    - :DiamondDBInfrastructure
+  - name: MLPWorkflowPlatform
+    rdf_type: Product
+    label: MLP Workflow Platform
+    pref_label: MLP Development Workflow Platform
+    description: A containerized workflow solution for MLP development, including automated generation of training, validation
+      and test datasets, and integration with ab initio calculation engines.
+    url: https://diamond-diadem.github.io/workflows/home
+  - name: MLPWebRepository
+    rdf_type: Webpage
+    label: MLP Web Repository
+    pref_label: Machine Learning Potential Repository
+    description: An open-access web repository where external users can submit new MLP models and download MLP parameterizations.
+  competences:
+  - ckey:AIApproaches
+  - ckey:AIBasedModelling
+  - ckey:AiiDAPluginDevelopment
+  - ckey:AiidaWorkflows
+  - ckey:AtomicSimulation
+  - ckey:MLIP
+  - ckey:MLPValidation
+  - ckey:MLWorkflowDesign
+  - ckey:NeuralNetworkPotentials
+  contributors:
+  - person_id: AKSHAY_AMMOTHUM_KANDY
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: 2023-11
+    left_date: null
+    competences: []
+  - person_id: ANRUO_ZHONG
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: 2025-03
+    left_date: 2028-03
+    competences: []
+  - person_id: ARTHUR_FRANCE_LANORD
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: null
+    left_date: null
+    competences: []
+  - person_id: IRINA_PIAZZA
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: 2024-12
+    left_date: null
+    competences: []
+  - person_id: MIHAI_COSMIN_MARINICA
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: null
+    left_date: null
+    competences: []
+  - person_id: MARCO_SAITTA
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: null
+    left_date: null
+    competences: []
+  - person_id: MARTIN_UHRIN
+    first_name: null
+    last_name: null
+    email: null
+    orcid: null
+    personnel_type_ref: :Scientific
+    is_current_member: true
+    join_date: null
+    left_date: null
+    competences: *id001
+  description_lang: null
+resources:
+- name: BigDFTsim
+  rdf_type: SoftwareSystem
+  label: BigDFT
+  pref_label: BigDFT
+  description: BigDFT is an open-source electronic structure code based on density functional theory (DFT) that utilizes Daubechies
+    wavelets as a computational basis. It is designed for ab initio simulations of materials and molecular systems, offering
+    high precision and scalability for large-scale simulations.
+  url: https://bigdft.org/index.html
+  used_for_development:
+  - AtomisticNumericalSimulationDB
+  license: proj:OpenSource
+  label_lang: en
+  pref_label_lang: en
+  description_lang: en
+- name: AiiDA
+  rdf_type: SoftwareSystem
+  label: AiiDA Framework
+  pref_label: AiiDA
+  description: AiiDA (Automated Interactive Infrastructure and Database for Computational Science) is an open-source Python
+    framework for managing, preserving, and disseminating computational scientific workflows. It provides automated provenance
+    tracking, data management, and workflow execution capabilities for high-throughput computational materials science.
+  used_for_development:
+  - ckey:AiiDAPluginDevelopment
+  - ckey:AiidaWorkflows
+  software_components:
+  - AiidaN2p2Plugin
+  license: proj:OpenSource
+  label_lang: en
+  pref_label_lang: en
+  description_lang: en
+- name: Guix
+  rdf_type: SoftwareSystem
+  label: GNU Guix
+  pref_label: Guix
+  description: GNU Guix is a functional package manager that facilitates the creation of reproducible and declarative software
+    environments. It allows users to define complete software environments that can be shared and replicated across different
+    systems, enhancing reproducibility in software deployment.
+  license: proj:OpenSource
+  label_lang: en
+  pref_label_lang: en
+  description_lang: en
+- name: MongoDB
+  rdf_type: DatabaseInfrastructure
+  label: MongoDB Engine
+  pref_label: MongoDB
+  description: MongoDB is a document-oriented NoSQL database that stores data in flexible, JSON-like documents. It offers
+    scalability and flexibility for handling large volumes of unstructured or semi-structured data, making it suitable for
+    modern application development.
+  used_for_development:
+  - proj:DiamondDBInfrastructure
+  license: proj:OpenSource
+  label_lang: en
+  pref_label_lang: en
+  description_lang: en
+software_components:
+- name: DiamondDBConsultationUI
+  rdf_type: UserInterface
+  pref_label: Consultation Interface
+  description: User interface for querying, browsing and visualizing contents of the Diamond database.
+- name: DiamondDBInjectionUI
+  rdf_type: UserInterface
+  pref_label: Data Injection Interface
+  description: Interface for uploading or inserting structured data into the DIAMOND database.
+- name: GraphQLEndpoint
+  rdf_type: BackendService
+  pref_label: GraphQL endpoint
+  description: GraphQL endpoint providing structured access to the DIAMOND data backend.
+- name: GrapheneAPI
+  rdf_type: BackendService
+  pref_label: Graphene API
+  description: Python GraphQL API implemented using Graphene.
+- name: KeycloakAuth
+  rdf_type: BackendService
+  pref_label: Keycloak authentication service
+  description: Identity and access management layer using Keycloak for authentication and authorization.
+- name: MinioDatalake
+  rdf_type: StorageService
+  pref_label: MinIO data lake
+  description: Object storage solution for experimental and computational datasets, used as DIAMOND's data lake.
+- name: MongoDBService
+  rdf_type: BackendService
+  pref_label: MongoDB backend
+  description: MongoDB instance used for DIAMOND's metadata store and backend infrastructure.
+  label_lang: null
+  pref_label_lang: null
+  description_lang: null
+containers:
+- name: AbinitContainer
+  rdf_type: ContainerImage
+  label: Diamond ABINIT Apptainer Container
+  description: Apptainer container image of ABINIT built and distributed by the Diamond/DIADEM project for reproducible scientific
+    computing.
+  url: https://diamond-diadem.github.io/codes/scientific-computing/abinit/
+  encapsulates: :Abinit
+  container_technology: proj:Apptainer
+  label_lang: en
+  description_lang: en
+- name: DFTBPlusContainer
+  rdf_type: ContainerImage
+  label: Diamond DFTB+ Apptainer Container
+  url: https://diamond-diadem.github.io/codes/scientific-computing/dftbplus/
+  encapsulates: :DFTBPlus
+  container_technology: proj:Apptainer
+  label_lang: en
+- name: FEniCSContainer
+  rdf_type: ContainerImage
+  label: Diamond FEniCS Apptainer Container
+  url: https://diamond-diadem.github.io/codes/scientific-computing/fenics/
+  encapsulates: :FEniCS
+  container_technology: proj:Apptainer
+  label_lang: en
+- name: FreeFEMContainer
+  rdf_type: ContainerImage
+  label: Diamond FreeFEM Apptainer Container
+  url: https://diamond-diadem.github.io/codes/scientific-computing/freefem/
+  encapsulates: :FreeFEM
+  container_technology: proj:Apptainer
+  label_lang: en
+- name: GaTewAYContainer
+  rdf_type: ContainerImage
+  label: Diamond GaTewAY Apptainer Container
+  url: https://diamond-diadem.github.io/codes/scientific-computing/gateway/
+  encapsulates: :GaTewAY
+  container_technology: proj:Apptainer
+  label_lang: en
+- name: GmshContainer
+  rdf_type: ContainerImage
+  label: Diamond Gmsh Apptainer Container
+  url: https://diamond-diadem.github.io/codes/scientific-computing/gmsh/
+  encapsulates: :Gmsh
+  container_technology: proj:Apptainer
+  label_lang: en
+- name: NWChemContainer
+  rdf_type: ContainerImage
+  label: Diamond NWChem Apptainer Container
+  url: https://diamond-diadem.github.io/codes/scientific-computing/nwchem/
+  encapsulates: :NWChem
+  container_technology: proj:Apptainer
+  label_lang: en
+- name: NeperContainer
+  rdf_type: ContainerImage
+  label: Diamond Neper Apptainer Container
+  url: https://diamond-diadem.github.io/codes/scientific-computing/neper/
+  encapsulates: :Neper
+  container_technology: proj:Apptainer
+  label_lang: en
+- name: OpenCalphadContainer
+  rdf_type: ContainerImage
+  label: Diamond OpenCalphad Apptainer Container
+  url: https://diamond-diadem.github.io/codes/scientific-computing/opencalphad/
+  encapsulates: :OpenCalphad
+  container_technology: proj:Apptainer
+  label_lang: en
+- name: OpenDiSContainer
+  rdf_type: ContainerImage
+  label: Diamond OpenDiS Apptainer Container
+  url: https://diamond-diadem.github.io/codes/scientific-computing/opendis/
+  encapsulates: :OpenDiS
+  container_technology: proj:Apptainer
+  label_lang: en
+- name: OvitoContainer
+  rdf_type: ContainerImage
+  label: Diamond OVITO Apptainer Container
+  url: https://diamond-diadem.github.io/codes/visualisation/ovito/
+  encapsulates: :Ovito
+  container_technology: proj:Apptainer
+  label_lang: en
+- name: PLUMEDContainer
+  rdf_type: ContainerImage
+  label: Diamond PLUMED Apptainer Container
+  url: https://diamond-diadem.github.io/codes/scientific-computing/plumed/
+  encapsulates: :PLUMED
+  container_technology: proj:Apptainer
+  label_lang: en
+- name: ParaViewContainer
+  rdf_type: ContainerImage
+  label: Diamond ParaView Apptainer Container
+  url: https://diamond-diadem.github.io/codes/visualisation/paraview/
+  encapsulates: :ParaView
+  container_technology: proj:Apptainer
+  label_lang: en
+- name: QuantumESPRESSOContainer
+  rdf_type: ContainerImage
+  label: Diamond Quantum ESPRESSO Apptainer Container
+  url: https://diamond-diadem.github.io/codes/scientific-computing/quantum-espresso/
+  encapsulates: :QuantumESPRESSO
+  container_technology: proj:Apptainer
+  label_lang: en
+- name: RASPA2Container
+  rdf_type: ContainerImage
+  label: Diamond RASPA2 Apptainer Container
+  url: https://diamond-diadem.github.io/codes/scientific-computing/raspa2/
+  encapsulates: :RASPA2
+  container_technology: proj:Apptainer
+  label_lang: en
+- name: VESTAContainer
+  rdf_type: ContainerImage
+  label: Diamond VESTA Apptainer Container
+  url: https://diamond-diadem.github.io/codes/visualisation/vesta/
+  encapsulates: :VESTA
+  container_technology: proj:Apptainer
+  label_lang: en
+- name: VMDContainer
+  rdf_type: ContainerImage
+  label: Diamond VMD Apptainer Container
+  url: https://diamond-diadem.github.io/codes/visualisation/vmd/
+  encapsulates: :VMD
+  container_technology: proj:Apptainer
+  label_lang: en
+- name: XCrySDenContainer
+  rdf_type: ContainerImage
+  label: Diamond XCrySDen Apptainer Container
+  url: https://diamond-diadem.github.io/codes/visualisation/xcrysden/
+  encapsulates: :XCrySDen
+  container_technology: proj:Apptainer
+  label_lang: en
+- name: Wannier90Container
+  rdf_type: ContainerImage
+  label: Diamond Wannier90 Apptainer Container
+  url: https://diamond-diadem.github.io/codes/scientific-computing/wannier90/
+  encapsulates: :Wannier90
+  container_technology: proj:Apptainer
+  label_lang: en
+- name: XTBContainer
+  rdf_type: ContainerImage
+  label: Diamond XTB Apptainer Container
+  url: https://diamond-diadem.github.io/codes/scientific-computing/xtb/
+  encapsulates: :XTB
+  container_technology: proj:Apptainer
+  label_lang: en
+- name: ZeoPlusPlusContainer
+  rdf_type: ContainerImage
+  label: Diamond Zeo++ Apptainer Container
+  url: https://diamond-diadem.github.io/codes/scientific-computing/zeoplusplus/
+  encapsulates: :ZeoPlusPlus
+  container_technology: proj:Apptainer
+  label_lang: en
+- name: ZsetContainer
+  rdf_type: ContainerImage
+  label: Diamond Z-set Apptainer Container
+  url: https://diamond-diadem.github.io/codes/scientific-computing/zset/
+  encapsulates: :Zset
+  container_technology: proj:Apptainer
+  label_lang: en
+- name: CP2KContainer
+  rdf_type: ContainerImage
+  label: Diamond CP2K Apptainer Container
+  url: https://diamond-diadem.github.io/codes/scientific-computing/cp2k/
+  encapsulates: :CP2K
+  container_technology: proj:Apptainer
+  label_lang: en
+- name: LAMMPSContainer
+  rdf_type: ContainerImage
+  label: Diamond LAMMPS Apptainer Container
+  url: https://diamond-diadem.github.io/codes/scientific-computing/lammps/
+  encapsulates: :LAMMPS
+  container_technology: proj:Apptainer
+  label_lang: en
+- name: N2p2Container
+  rdf_type: ContainerImage
+  label: Diamond n2p2 Apptainer Container
+  url: https://diamond-diadem.github.io/codes/scientific-computing/n2p2/
+  encapsulates: :n2p2
+  container_technology: proj:Apptainer
+  label_lang: en
+local_classes:
+- name: UserInterface
+  rdf_type: owl:Class
+  subclass_of: proj:SoftwareComponent
+  pref_label: User interface
+  pref_label_lang: en
+- name: BackendService
+  rdf_type: owl:Class
+  subclass_of: proj:SoftwareComponent
+  pref_label: Backend service
+  pref_label_lang: en
+- name: StorageService
+  rdf_type: owl:Class
+  subclass_of: proj:SoftwareComponent
+  pref_label: Storage service
+  pref_label_lang: en
+source_notes:
+- 'People, organizations and ckey terms are represented as references to the shared ppl:, org: and ckey: TTL files; they are
+  not defined locally here.'
+- The YAML template says dates must be ISO 8601, but the source TTL stores personnel join/left dates only as month-year strings
+  (and includes 'Mars'). These values are retained verbatim rather than inventing a day.
+- scientific_domain, methodology and characterization/synthesis/simulation facet lists are not defined in the supplied project
+  TTL and therefore remain empty.
+- The source TTL uses local project resources/classes for some relationships that would normally be shared refs (for example
+  proj:DiamondDBInfrastructure on MongoDB and local scientific-responsable nodes). The generator keeps the YAML representation
+  explicit so these can be reviewed rather than hidden.
+- 'For WP scientific responsables, the source TTL points to local :MARCO_SAITTA/:THIERRY_DEUTSCH nodes even though the people
+  are defined under ppl:. The generator deliberately normalizes these two links to the shared ppl: namespace, matching the
+  stated project-wide rule.'

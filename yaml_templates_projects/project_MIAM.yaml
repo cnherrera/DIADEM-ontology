@@ -88,7 +88,16 @@ project:
 keywords:
 
   competences:
-  - "Nouveaux aimants permanents à base de terres rares - Simulations thermodynamiques - Synthèse et caractérisation de couches minces à haut débit - Fabrication d'aimants massifs - Intelligence artificielle - Simulations micromagnétiques - Substitution d'éléments critiques - Énergies à faible teneur en carbone - Ligne pilote de fabrication d'aimants - Magnets by design\nNew Rare Earth Lean Permanent magnets - Thermodynamic simulations - High-throughput thin film synthesis and characterization – Bulk magnet fabrication - Artificial intelligence - Micro-magnetic simulations – substitution of critical elements – Low carbon energies – Pilot magnet fabrication line – Magnets by design"
+  - "New Rare Earth Lean Permanent magnets"
+  - "Thermodynamic simulations"
+  - "High-throughput thin film synthesis and characterization"
+  - "Bulk magnet fabrication"
+  - "Artificial intelligence"
+  - "Micro-magnetic simulations"
+  - "substitution of critical elements"
+  - "Low carbon energies"
+  - "Pilot magnet fabrication line"
+  - "Magnets by design"
   - "magnets"
   - "magnetic"
   - "thermodynamic"
@@ -115,15 +124,28 @@ keywords:
   # if synthesis:
   synthesis_tools: []  # fill by hand (if synthesis)
 
+# ── Products at the level of the Project ──────────────────────────────────
+# List here any products or deliverables of the project that are not 
+# detailed at the level of each work package
+project_products:                     # products produced by the project: datasets, reports, algorithms, etc.
+- name: null
+  description: null
+  url: null                  # optional
+
 # ── Work packages ─────────────────────────────────────────────────────────
 # Example structure below. Duplicate this block once per work package,
 # fill it in, and remove any lines that don't apply.
-work_packages:
+work_packages:               # optional
 - number: null               # REQUIRED - integer
   acronym: null               # optional short label, e.g. "WP1"
   title: null                 # REQUIRED
   description: null           # REQUIRED
   lead_institution: null      # REQUIRED - must match an acronym in organizations
+  lead_person:                # REQUIRED
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
   deliverables:                # optional
   - title: null
     description: null

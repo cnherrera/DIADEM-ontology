@@ -91,7 +91,16 @@ project:
 keywords:
 
   competences:
-  - "High-throughput alloy design; high-throughput electrochemical characterization; Ni-based complex alloys; stainless steels; artificial intelligence; AESEC; corrosion mechanism; elemental dissolution kinetics; spontaneous passivation; element-resolved corrosion database\nConception d'alliages à haut débit ; caractérisation électrochimique à haut débit ; alliages complexes à base de Ni ; aciers inoxydables ; intelligence artificielle ; AESEC ; mécanisme de corrosion ; cinétique de dissolution élémentaire ; passivation spontanée ; base de données de corrosion résolue par éléments"
+  - "High-throughput alloy design"
+  - "high-throughput electrochemical characterization"
+  - "Ni-based complex alloys"
+  - "stainless steels"
+  - "artificial intelligence"
+  - "AESEC"
+  - "corrosion mechanism"
+  - "elemental dissolution kinetics"
+  - "spontaneous passivation"
+  - "element-resolved corrosion database"
   - "alloys"
   - "electrochemical"
   - "alloy"
@@ -118,15 +127,28 @@ keywords:
   # if synthesis:
   synthesis_tools: []  # fill by hand (if synthesis)
 
+# ── Products at the level of the Project ──────────────────────────────────
+# List here any products or deliverables of the project that are not 
+# detailed at the level of each work package
+project_products:                     # products produced by the project: datasets, reports, algorithms, etc.
+- name: null
+  description: null
+  url: null                  # optional
+
 # ── Work packages ─────────────────────────────────────────────────────────
 # Example structure below. Duplicate this block once per work package,
 # fill it in, and remove any lines that don't apply.
-work_packages:
+work_packages:               # optional
 - number: null               # REQUIRED - integer
   acronym: null               # optional short label, e.g. "WP1"
   title: null                 # REQUIRED
   description: null           # REQUIRED
   lead_institution: null      # REQUIRED - must match an acronym in organizations
+  lead_person:                # REQUIRED
+      first_name: null
+      last_name:  null
+      email:      null    # optional
+      orcid:      null    # optional
   deliverables:                # optional
   - title: null
     description: null
