@@ -31,8 +31,8 @@
     proj:startDate "2022-09-01"^^xsd:date ;
     proj:endDate "2027-08-31"^^xsd:date ;
     proj:hasURL "https://www.pepr-diadem.fr/projet/diams/"^^xsd:anyURI ;
-    proj:hasLeadPerson ppl:ALEXIS_DESCHAMPS ;
-    proj:hasLeadOrganization org:CNRS ;
+    proj:hasCoordinator ppl:ALEXIS_DESCHAMPS ;
+    proj:hasCoordinatingOrganization org:CNRS ;
     proj:hasPartner org:SIMAP,
         org:IJL,
         org:LEM3,

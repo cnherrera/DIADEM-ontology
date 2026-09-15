@@ -31,8 +31,8 @@
     proj:startDate "2022-07-01"^^xsd:date ;
     proj:endDate "2026-12-31"^^xsd:date ;
     proj:hasURL "https://www.pepr-diadem.fr/projet/hiway-2-mat/"^^xsd:anyURI ;
-    proj:hasLeadPerson ppl:GUILHEM_DEZANNEAU ;
-    proj:hasLeadOrganization org:CNRS ;
+    proj:hasCoordinator ppl:GUILHEM_DEZANNEAU ;
+    proj:hasCoordinatingOrganization org:CNRS ;
     proj:hasPartner org:SPMS,
         org:ICMCB,
         org:IMN,

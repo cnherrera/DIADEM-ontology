@@ -31,8 +31,8 @@
     proj:startDate "2026-03-01"^^xsd:date ;
     proj:endDate "2030-02-28"^^xsd:date ;
     proj:hasURL "https://www.pepr-diadem.fr/projet/simoics/"^^xsd:anyURI ;
-    proj:hasLeadPerson ppl:NICOLAS_JOZEFOWIEZ ;
-    proj:hasLeadOrganization org:UniversiteLorraine ;
+    proj:hasCoordinator ppl:NICOLAS_JOZEFOWIEZ ;
+    proj:hasCoordinatingOrganization org:UniversiteLorraine ;
     proj:hasPartner org:LORIA,
         org:INRIA-Lorraine,
         org:CEA-Tech-Metz,

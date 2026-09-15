@@ -63,8 +63,8 @@
     proj:startDate "2023-04-01"^^xsd:date ;
     proj:endDate   "2029-03-31"^^xsd:date ;
     proj:hasURL  "https://www.pepr-diadem.fr/projet/diamond/"^^xsd:anyURI ;
-    proj:hasLeadPerson ppl:FRANCOIS_WILLAIME ;
-    proj:hasLeadOrganization org:CEA ;
+    proj:hasCoordinator ppl:FRANCOIS_WILLAIME ;
+    proj:hasCoordinatingOrganization org:CEA ;
     proj:hasWorkPackage :WP1 ,
         :WP2 ,
         :WP3 .
@@ -76,23 +76,22 @@
 :WP3 rdf:type proj:WorkPackage ;
     rdfs:comment "Machine-learning Interatomic-potential demonstrator. Delivers an open-access repository of MLPs, builds a platform for MLP development including automated training dataset generation, common interface for MLP packages, and containerized workflow solutions." ;
     skos:prefLabel "WP3 - MLIP demonstrator" ;
-    proj:coLedBy org:SIMAP ;
-    proj:gathersCompetence ckey:AIApproaches ,
-        ckey:AIBasedModelling ,
-        ckey:AiiDAPluginDevelopment ,
-        ckey:AiidaWorkflows ,
-        ckey:AtomicSimulation ,
-        ckey:MLIP ,
-        ckey:MLPValidation ,
-        ckey:MLWorkflowDesign ,
+    proj:hasWorkPackageCoPilotingOrganization org:SIMAP ;
+    proj:gathersCompetence ckey:AIApproaches,
+        ckey:AIBasedModelling,
+        ckey:AiiDAPluginDevelopment,
+        ckey:AiidaWorkflows,
+        ckey:AtomicSimulation,
+        ckey:MLIP,
+        ckey:MLPValidation,
+        ckey:MLWorkflowDesign,
         ckey:NeuralNetworkPotentials ;
-    proj:ledBy org:IMPMC ;
-    proj:hasScientificResponsable :MARCO_SAITTA ;
+    proj:hasWorkPackageLeader p_diamond:MARCO_SAITTA ;
+    proj:hasWorkPackagePilotingOrganization org:IMPMC ;
     proj:partOf :Project_diamond ;
     proj:producesOutput :AiidaN2p2Plugin ,
         :MLIPDB ,
         :MLPWorkflowPlatform ,
-        :WorkflowPlatform ,
         :MLPWebRepository ;
     proj:usesResource :AiiDA ,
         :CP2K ,
@@ -102,7 +101,7 @@
 :WP2 rdf:type proj:WorkPackage ;
     rdfs:comment "Design and implementation of data management infrastructure for the DIAMOND project" ;
     skos:prefLabel "WP2 - Data Management" ;
-    proj:coLedBy org:CEA-LIST ;
+    proj:hasWorkPackageCoPilotingOrganization org:CEA-LIST ;
     proj:gathersCompetence ckey:AIApproaches ,
         ckey:DatabaseInfrastructureDesign ,
         ckey:DatabaseInfrastructure ,
@@ -110,8 +109,8 @@
         ckey:LargeScaleWorkflows ,
         ckey:MetadataStandardization ,
         ckey:WorkflowOrchestration ;
-    proj:ledBy org:CEA-IRIG ;
-    proj:hasScientificResponsable :THIERRY_DEUTSCH ;
+    proj:hasWorkPackagePilotingOrganization org:CEA-IRIG ;
+    proj:hasWorkPackageLeader :THIERRY_DEUTSCH ;
     proj:partOf :Project_diamond ;
     proj:producesOutput :DiamondDBInfrastructure ,
                   :AtomisticNumericalSimulationDB ,
@@ -123,8 +122,9 @@
     rdfs:comment "Development of the code and workflow platform for the DIAMOND project."@en ,
                  "Development de la platforme codes et workflows pour le projet DIAMOND."@fr ;
     skos:prefLabel "WP1 - Codes and Workflows" ;
-    proj:ledBy org:SIMAP ;
-    proj:coLedBy org:ILM ,
+    proj:hasWorkPackageLeader :NOEL_JAKSE ;
+    proj:hasWorkPackagePilotingOrganization org:SIMAP ;
+    proj:hasWorkPackageCoPilotingOrganization org:ILM ,
         org:IMPMC ;
     proj:gathersCompetence ckey:AIApproaches ,
         ckey:Containerization ,

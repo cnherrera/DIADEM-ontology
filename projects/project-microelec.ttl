@@ -31,8 +31,8 @@
     proj:startDate "2023-05-15"^^xsd:date ;
     proj:endDate "2026-11-14"^^xsd:date ;
     proj:hasURL "https://www.pepr-diadem.fr/projet/microelec/"^^xsd:anyURI ;
-    proj:hasLeadPerson ppl:KEVIN_NADAUD ;
-    proj:hasLeadOrganization org:UniversiteTours ;
+    proj:hasCoordinator ppl:KEVIN_NADAUD ;
+    proj:hasCoordinatingOrganization org:UniversiteTours ;
     proj:hasPartner org:GREMAN,
         org:CEA-SPEC,
         org:CEA-LETI,
