@@ -2892,7 +2892,7 @@ p_diamond:WP3 a proj:WorkPackage ;
     proj:producesOutput p_diamond:AiidaN2p2Plugin,
         p_diamond:MLIPDB,
         p_diamond:MLPWebRepository,
-        p_diamond:MLPWorkflowPlatform .
+        p_diamond:MLPWorkflowPlatform ;
     proj:usesResource p_diamond:AiiDA,
         p_diamond:CP2K,
         p_diamond:LAMMPS,
