@@ -20,14 +20,15 @@ To ensure your project's data is correctly integrated into the Knowledge Graph, 
 
 ## Repository Structure
 
-Downl
+-> on going....
 ```text
 .
 ├── yaml_templates_projects/   # Project YAML templates folder
 │   ├── project_<your_project>.yaml  # Base template to fill out
-│   ├── list_keywords.yaml     # Reference list of valid keywords & competencies
 │   └── README.md              # Guidelines to fill YAML files
 ├── proj-ontology.ttl          # Main OWL/RDF ontology definitions
+├── list_keywords_EN.yaml      # Reference list of valid keywords & competencies
+├── list_keywords_FR.yaml   
 └── README.md                  # Main documentation
 
 
