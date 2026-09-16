@@ -603,7 +603,7 @@ proj:hasWorkPackageCoPilotingOrganization rdf:type owl:ObjectProperty ;
     rdfs:range   proj:Organization ;
     rdfs:label   "co-led by"@en , "co-piloté par"@fr ;
     rdfs:comment "The secondary institution that co-leads or co-pilots a Work Package alongside the main leading organization."@en .
-    
+
 # Task → Person (task leader)
 proj:hasTaskLeader rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf proj:hasResponsiblePerson ;
@@ -737,10 +737,10 @@ proj:inPartnerIn rdf:type owl:ObjectProperty ;
     rdfs:label   "is partner organization in project"@en .
 
 
-proj:hasLeadOrganization rdf:type owl:ObjectProperty ;
-    rdfs:domain  proj:WorkPackage ;
-    rdfs:range   proj:Organization ;
-    rdfs:label   "has lead organization"@en .
+#proj:hasLeadOrganization rdf:type owl:ObjectProperty ;
+#    rdfs:domain  proj:WorkPackage ;
+#    rdfs:range   proj:Organization ;
+#    rdfs:label   "has lead organization"@en .
 
 # Person → Competence / Membership
 proj:hasCompetence rdf:type owl:ObjectProperty ;

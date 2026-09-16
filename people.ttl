@@ -15,12 +15,23 @@
      <https://cnherrera.github.io/DIADEM-ontology/organizations.ttl> ;
     owl:versionInfo "0.1" .
 
+:ALINE_ROUGIER rdf:type proj:ResearchPerson ;
+    foaf:familyName "ROUGIER" ;
+    foaf:givenName "Aline" ;
+    foaf:mbox <mailto:aline.rougoer@icmcb.cnrs.fr> ;
+    foaf:name "Aline ROUGIER" ;
+    rdfs:comment "Assure depuis 01/09/2026 la fonction de do-directrice du PEPR pour le CNRS. "@fr ;
+    proj:employedBy org:CNRS  .
+
 :MARIO_MAGLIONE rdf:type proj:ResearchPerson ;
     foaf:familyName "Maglione" ;
     foaf:givenName "Mario" ;
     foaf:mbox <mailto:mario.maglione@icmcb.cnrs.fr> ;
     foaf:name "Mario Maglione" ;
+    proj:isCurrentMember false ;
+    rdfs:comment "Quite le pilotage du PEPR en 01/09/2026, et intégre le Scientific Advisory Board." ;
     proj:employedBy org:CNRS  .
+
 
 :FREDERIC_SCHUSTER rdf:type proj:ResearchPerson ;
     foaf:familyName "Schuster" ;

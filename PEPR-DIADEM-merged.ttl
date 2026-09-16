@@ -76,6 +76,7 @@
     proj:hasPilotOrganization org:CEA ;
     proj:hasPilot ppl:FREDERIC_SCHUSTER ;
     proj:hasPilot ppl:MARIO_MAGLIONE ;
+    proj:hasPilot ppl:ALINE_ROUGIER ;
     proj:hasFunding :Fund_DIADEM ;
     proj:hasPlatform plat:Platform_1600c-so-called-pixelated-sintering-oven ;
     proj:hasPlatform plat:Platform_3d-4d-poudrinnov-metal-polymer-additive-manufacturing ;
@@ -2876,7 +2877,7 @@ p_esrf:Project_esrf a proj:TargetedProject ;
 p_diamond:WP3 a proj:WorkPackage ;
     rdfs:comment "Machine-learning Interatomic-potential demonstrator. Delivers an open-access repository of MLPs, builds a platform for MLP development including automated training dataset generation, common interface for MLP packages, and containerized workflow solutions." ;
     skos:prefLabel "WP3 - MLIP demonstrator" ;
-    proj:coLedBy org:SIMAP ;
+    proj:hasWorkPackageCoPilotingOrganization org:SIMAP ;
     proj:gathersCompetence ckey:AIApproaches,
         ckey:AIBasedModelling,
         ckey:AiiDAPluginDevelopment,
@@ -2886,7 +2887,7 @@ p_diamond:WP3 a proj:WorkPackage ;
         ckey:MLPValidation,
         ckey:MLWorkflowDesign,
         ckey:NeuralNetworkPotentials ;
-    proj:hasWorkPackageLeader p_diamond:MARCO_SAITTA ;
+    proj:hasWorkPackageLeader ppl:MARCO_SAITTA ;
     proj:hasWorkPackagePilotingOrganization org:IMPMC ;
     proj:partOf p_diamond:Project_diamond ;
     proj:producesOutput p_diamond:AiidaN2p2Plugin,
@@ -2909,7 +2910,7 @@ p_diamond:WP2 a proj:WorkPackage ;
         ckey:LargeScaleWorkflows,
         ckey:MetadataStandardization,
         ckey:WorkflowOrchestration ;
-    proj:hasWorkPackageLeader p_diamond:THIERRY_DEUTSCH ;
+    proj:hasWorkPackageLeader ppl:THIERRY_DEUTSCH ;
     proj:hasWorkPackagePilotingOrganization org:CEA-IRIG ;
     proj:partOf p_diamond:Project_diamond ;
     proj:producesOutput p_diamond:AtomisticNumericalSimulationDB,
@@ -2962,6 +2963,7 @@ p_diamond:WP1 a proj:WorkPackage ;
         ckey:MOF,
         ckey:WebDevelopment ;
     proj:hasWorkPackagePilotingOrganization org:SIMAP ;
+    proj:hasWorkPackageLeader ppl:NOEL_JAKSE ;
     proj:partOf p_diamond:Project_diamond ;
     proj:producesOutput p_diamond:Abinit,
         p_diamond:CP2K,
