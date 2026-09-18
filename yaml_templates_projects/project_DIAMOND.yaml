@@ -204,7 +204,8 @@ work_packages:
     description: A software suite for electronic structure calculations based on density functional theory, using pseudopotentials
       and a plane wave or wavelet basis.
     url: https://www.abinit.org/
-    category: proj:ScientificComputing
+    category: proj:scientificComputing 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
     description_lang: en
@@ -213,7 +214,8 @@ work_packages:
     label: CP2K
     pref_label: CP2K
     url: https://www.cp2k.org/
-    category: proj:ScientificComputing
+    category: proj:scientificComputing 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
   - name: DFTBPlus
@@ -221,7 +223,8 @@ work_packages:
     label: DFTB+
     pref_label: DFTB+
     url: https://dftbplus.org/
-    category: proj:ScientificComputing
+    category: proj:scientificComputing 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
   - name: FEniCS
@@ -229,7 +232,8 @@ work_packages:
     label: FEniCS
     pref_label: FEniCS
     url: https://fenicsproject.org/
-    category: proj:ScientificComputing
+    category: proj:scientificComputing 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
   - name: FreeFEM
@@ -237,14 +241,16 @@ work_packages:
     label: FreeFEM
     pref_label: FreeFEM
     url: https://freefem.org/
-    category: proj:ScientificComputing
+    category: proj:scientificComputing 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
   - name: GaTewAY
     rdf_type: SoftwareSystem
     label: GaTewAY
     pref_label: GaTewAY
-    category: proj:ScientificComputing
+    category: proj:scientificComputing 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
   - name: Gmsh
@@ -252,7 +258,8 @@ work_packages:
     label: Gmsh
     pref_label: Gmsh
     url: https://gmsh.info/
-    category: proj:ScientificComputing
+    category: proj:scientificComputing 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
   - name: LAMMPS
@@ -260,7 +267,8 @@ work_packages:
     label: LAMMPS
     pref_label: LAMMPS
     url: https://www.lammps.org/
-    category: proj:ScientificComputing
+    category: proj:scientificComputing 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
   - name: NWChem
@@ -268,7 +276,8 @@ work_packages:
     label: NWChem
     pref_label: NWChem
     url: https://www.nwchem-se.org/
-    category: proj:ScientificComputing
+    category: proj:scientificComputing 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
   - name: Neper
@@ -276,7 +285,8 @@ work_packages:
     label: Neper
     pref_label: Neper
     url: https://neper.info/
-    category: proj:ScientificComputing
+    category: proj:scientificComputing 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
   - name: OpenCalphad
@@ -284,14 +294,16 @@ work_packages:
     label: OpenCalphad
     pref_label: OpenCalphad
     url: http://www.opencalphad.com/
-    category: proj:ScientificComputing
+    category: proj:scientificComputing 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
   - name: OpenDiS
     rdf_type: SoftwareSystem
     label: OpenDiS
     pref_label: OpenDiS
-    category: proj:ScientificComputing
+    category: proj:scientificComputing 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
   - name: Ovito
@@ -299,7 +311,8 @@ work_packages:
     label: OVITO
     pref_label: OVITO
     url: https://www.ovito.org/
-    category: proj:Visualization
+    category: proj:Visualization 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
   - name: PLUMED
@@ -307,7 +320,8 @@ work_packages:
     label: PLUMED
     pref_label: PLUMED
     url: https://www.plumed.org/
-    category: proj:ScientificComputing
+    category: proj:scientificComputing 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
   - name: ParaView
@@ -315,7 +329,8 @@ work_packages:
     label: ParaView
     pref_label: ParaView
     url: https://www.paraview.org/
-    category: proj:Visualization
+    category: proj:Visualization 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
   - name: QuantumESPRESSO
@@ -323,14 +338,16 @@ work_packages:
     label: Quantum ESPRESSO
     pref_label: Quantum ESPRESSO
     url: https://www.quantum-espresso.org/
-    category: proj:ScientificComputing
+    category: proj:scientificComputing 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
   - name: RASPA2
     rdf_type: SoftwareSystem
     label: RASPA2
     pref_label: RASPA2
-    category: proj:ScientificComputing
+    category: proj:scientificComputing 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
   - name: VESTA
@@ -338,7 +355,8 @@ work_packages:
     label: VESTA
     pref_label: VESTA
     url: https://jp-minerals.org/vesta/en/
-    category: proj:Visualization
+    category: proj:Visualization 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
   - name: VMD
@@ -346,7 +364,8 @@ work_packages:
     label: VMD
     pref_label: VMD
     url: https://www.ks.uiuc.edu/Research/vmd/
-    category: proj:Visualization
+    category: proj:Visualization 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
   - name: Wannier90
@@ -355,7 +374,8 @@ work_packages:
     pref_label: Wannier90
     url: http://www.wannier.org/
     license: :OpenSource
-    category: proj:ScientificComputing
+    category: proj:scientificComputing 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
   - name: XCrySDen
@@ -363,7 +383,8 @@ work_packages:
     label: XCrySDen
     pref_label: XCrySDen
     url: http://www.xcrysden.org/
-    category: proj:Visualization
+    category: proj:Visualization 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
   - name: XTB
@@ -371,7 +392,8 @@ work_packages:
     label: XTB
     pref_label: XTB
     url: https://github.com/grimme-lab/xtb
-    category: proj:ScientificComputing
+    category: proj:scientificComputing 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
   - name: ZeoPlusPlus
@@ -379,7 +401,8 @@ work_packages:
     label: Zeo++
     pref_label: Zeo++
     url: http://www.zeoplusplus.org/
-    category: proj:ScientificComputing
+    category: proj:scientificComputing 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
   - name: Zset
@@ -387,7 +410,8 @@ work_packages:
     label: Z-set
     pref_label: Z-set
     url: http://www.zset-software.com/
-    category: proj:ScientificComputing
+    category: proj:scientificComputing 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
   - name: n2p2
@@ -395,7 +419,8 @@ work_packages:
     label: n2p2
     pref_label: n2p2
     url: https://github.com/CompPhysAtm/n2p2
-    category: proj:ScientificComputing
+    category: proj:scientificComputing 
+    usedByProject: null
     label_lang: en
     pref_label_lang: en
   - name: DIAMONDWebpage
@@ -864,6 +889,7 @@ work_packages:
     pref_label: AiiDA-n2p2 Plugin
     description: An AiiDA plugin for automating the development of Behler-Parrinello neural network MLPs using n2p2, including
       automated weight selection, validation through LAMMPS molecular dynamics, and semi-automated input generation.
+    usedByProject: null
     is_software_component_of:
     - :AiiDA
   - name: MLIPDB

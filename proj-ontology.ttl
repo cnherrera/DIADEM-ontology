@@ -714,6 +714,12 @@ proj:producesOutput rdf:type owl:ObjectProperty ;
     rdfs:range   proj:ProjectOutput ;
     rdfs:label   "produces output"@en .
     
+
+proj:usesProjectOutput rdf:type owl:ObjectProperty ;
+    rdfs:domain  [ owl:unionOf ( proj:Task proj:WorkPackage proj:Project ) ]  ;
+    rdfs:range   proj:ProjectOutput ;
+    rdfs:label   "uses output from another project"@en .
+
 proj:containsOutput rdf:type owl:ObjectProperty ;
     rdfs:domain  proj:Deliverable  ;
     rdfs:range   proj:ProjectOutput ;
