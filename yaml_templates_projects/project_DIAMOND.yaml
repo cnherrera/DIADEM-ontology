@@ -165,6 +165,12 @@ project_products:                     # products produced by the project: datase
   description: null
   url: null                  # optional
 
+# ── If any collaboration is ongoing with another DIADEM project ──────────────────────────────────
+# Add here any resource used that was produced by a DIADEM project
+uses_project_output:
+- name: null
+  project: null
+
 work_packages:
 - number: 1
   acronym: WP1-CW

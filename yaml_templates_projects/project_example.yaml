@@ -7,56 +7,26 @@
 # ─────────────────────────────────────────────────────────────────────────────
 
 project:
-  type: "Targeted"          # REQUIRED - "Targeted" or "AAP"
-  acronym: "2FAST"      # REQUIRED - short identifier, no spaces (used as RDF local name)
-  title: "Federation of Fluidic Autonomous labs to Speed-up material Tailoring"   # REQUIRED
+  type: "AAP2023"          # REQUIRED - "Targeted" or "AAP"
+  acronym: "Acron"      # REQUIRED - short identifier, no spaces (used as RDF local name)
+  title: "Nice Title"   # REQUIRED
   description: >          # REQUIRED - free text, multiline OK
-    La mise en œuvre de synthèse chimique en conditions continue et miniaturisée
-    (microfluidique, chimie en flux, etc.) est la clé de l'intensification des procédés
-    et la promesse d'une maîtrise exceptionnelle des conditions opératoires. Associées
-    aux environnements maitrisés et parfaitement reproductibles offerts par les outils
-    fluidiques miniaturisés, la recherche et la découverte en chimie des matériaux
-    peuvent désormais largement bénéficier des développements numériques récents.
-    L'optimisation de la meilleure voie de synthèse peut s’appuyer sur des bases de
-    données et des mesures en ligne, ou in situ, qui à leur tour alimentent les bases de
-    données. Cependant, contrairement à la mesure de composition chimique, les méthodes
-    et instruments nécessaires à la caractérisation complète des nano/micro-matériaux
-    sont coûteux et fastidieux à mettre en œuvre, ce qui les limite à quelques
-    laboratoires de recherche. De plus, il n'existe pas de voie universelle pour
-    développer un procédé chimique continu. La R&D est souvent couteuse, les solvants et
-    matériaux pas toujours anodins pour l’environnement. L'agilité et la frugalité sont
-    donc primordiales. Dans ce projet, nous exploiterons pleinement le potentiel offert
-    par la numérisation dans des laboratoires microfluidiques dits orchestrés. Grâce à
-    la fédération d'acteurs majeurs dans le domaine de la fluidique miniaturisée, qui
-    possèdent un haut degré d'expertise dans i) la conception et la fabrication de
-    puces, ii) leur fonctionnement en conditions sévères, iii) la mise en œuvre de
-    techniques analytiques ; et grâce aux avancées récentes des méthodes d'apprentissage
-    automatique en science des matériaux, nous co-développerons et assemblerons des
-    puces microfluidiques interopérables pour la synthèse de matériaux à propriétés
-    contrôlées. La pertinence de ces plateformes automatisées sera démontrée avec la
-    synthèse de matériaux métalliques 0D (à chimie rapide), de matériaux minéraux 2D
-    (synthétisés à haute pression et température) et à terme de matériaux hybrides tels
-    que les MOFs, depuis les conditions ambiantes jusqu’aux conditions
-    solvo/hydrothermales, avec contrôle en temps réel et rétroaction intelligente. Le
-    projet fournira en outre des données de haute qualité, nécessaires pour modéliser
-    les propriétés de ces matériaux et pour fournir une compréhension du rôle joué par
-    l’environnement chimique et pour la recherche des conditions de synthèse optimales.
-  start_date: "2022-11-01"   # REQUIRED  YYYY-MM-DD
-  end_date:   "2026-10-31"   # REQUIRED  YYYY-MM-DD
-  documentation_url: "https://www.pepr-diadem.fr/projet/2fast/"   # optional
-  associated_platforms:  # List the associated DIADEM platforms - optional
-    - "High-throughput millifluidic synthesis in hydro-/solvothermal conditions"
+    The project description
+  start_date: "2024-10-01"   # REQUIRED  YYYY-MM-DD
+  end_date:   "2028-10-01"   # REQUIRED  YYYY-MM-DD
+  documentation_url: "https://www.towards_html.html"   # optional
+  associated_platforms: []  # List the associated DIADEM platforms - optional
 
   # ── Lead & co-lead ───────────────────────────────────────────────────────
   lead:
     person:                # REQUIRED
-      first_name: "Sophie"
-      last_name:  "CHARTON"
+      first_name: "Toto"
+      last_name:  "MyToto"
       email:      null    # optional
       orcid:      null    # optional
     institution:           # REQUIRED
-      acronym:   "CEA"
-      full_name: "CEA"
+      acronym:   "Sorbonne Université"
+      full_name: "Sorbonne Université"
       ror:       null  # optional
 
   colead:                  # optional block - leave fields null if there is no co-lead
@@ -72,20 +42,17 @@ project:
 
   # ── Partner organisations ─────────────────────────────────────────────────
   organizations:           # REQUIRED - at least one
-    - acronym:   "ICMCB"
-      full_name: "Institut de Chimie de la Matière condensée de Bordeaux (UMR 5026 CNRS/Bordeaux INP/Univ. Bordeaux)"
+    - acronym:   "LCMCP"
+      full_name: "Laboratoire de Chimie de la Matière Condensée de Paris (UMR 7574 Sorbonne Univ./CNRS)"
       ror:       null  # optional
-    - acronym:   "CEA/DES/ISEC"
-      full_name: "Institut des sciences et technologies pour une économie circulaire des énergies bas carbone (CEA-Marcoule)"
+    - acronym:   "IMN"
+      full_name: "Institut des Matériaux de Nantes Jean Rouxel (UMR 6502 CNRS/Univ Nantes)"
       ror:       null  # optional
-    - acronym:   "LGC"
-      full_name: "Laboratoire de Génie Chimique (UMR 5503 CNRS/Toulouse INP/Univ. Toulouse 3)"
+    - acronym:   "LINK"
+      full_name: "Laboratory for Innovative Key Materials and Structures (IRL 3629 CNRS/NIMS/STGOBAIN)"
       ror:       null  # optional
-    - acronym:   "LIONS"
-      full_name: "Laboratoire Interdisciplinaire sur l'Organisation Nanométrique et Supramoléculaire (UMR 3685 CEA/CNRS/Univ. Paris Saclay)"
-      ror:       null  # optional
-    - acronym:   "LOF"
-      full_name: "Laboratory of Future - Bordeaux (UMR 5258 CNRS/Syensqo/Univ. Bordeaux)"
+    - acronym:   "Synchrotron SOLEIL"
+      full_name: "Synchrotron SOLEIL"
       ror:       null  # optional
 
 # ── DIADEM Facets & Taxonomy ─────────────────────────────────────────────
@@ -93,21 +60,36 @@ project:
 keywords:
 
   competences:
-  - "Microfluidics"
-  - "Solid particles shaping"
-  - "Synthesis acceleration"
-  - "In line/In situ/Real time monitoring"
-  - "Smart control"
+  - "New materials"
+  - "Liquid-phase synthesis"
+  - "Molten salts"
+  - "Intermetallics and compounds"
+  - "X-ray diffraction"
+  - "in situ"
+  - "Crystal structure prediction"
+  - "Supervised machine learning"
+  - "Graph neural networks"
+  - "Electrocatalysis"
+  - "Nouveaux matériaux"
+  - "synthèse en phase liquide"
+  - "sels fondus"
+  - "intermétalliques et composés"
+  - "diffraction des rayons X"
+  - "in situ"
+  - "prédiction de la structure cristalline"
+  - "apprentissage automatique supervisé"
+  - "réseaux neuronaux graphiques"
+  - "électrocatalyse"
   - "synthesis"
+  - "xrd"
+  - "phase"
+  - "syntheses"
+  - "structures"
+  - "structure"
+  - "crystal"
+  - "prediction"
+  - "electrocatalysis"
   - "chemical"
-  - "saxs"
-  - "learning"
-  - "nanoparticles"
-  - "modelling"
-  - "waxs"
-  - "optical"
-  - "spectroscopy"
-  - "models"
 
   scientific_domain: []  # fill by hand
 

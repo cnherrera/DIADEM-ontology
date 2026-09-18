@@ -145,6 +145,12 @@ project_products:                     # products produced by the project: datase
   description: null
   url: null                  # optional
 
+# ── If any collaboration is ongoing with another DIADEM project ──────────────────────────────────
+# Add here any resource used that was produced by a DIADEM project
+uses_project_output:
+- name: null
+  project: null
+
 # ── Work packages ─────────────────────────────────────────────────────────
 # Example structure below. Duplicate this block once per work package,
 # fill it in, and remove any lines that don't apply.
