@@ -6,8 +6,15 @@ This repository centralizes the ontological models and structured data required 
 
 ---
 
-## Visualization
+## Visualization of the PEPR DIADEM Knowledge Graph:
 https://cnherrera.github.io/DIADEM-ontology/onto-viewer.html
+
+
+### Short video navigating the Knowledge Graph
+
+Click the link below to watch the video:
+
+[![Watch Video](https://img.shields.io/badge/Watch-Video-blue?style=for-the-badge&logo=youtube)](https://cnherrera.github.io/DIADEM-ontology/watch_video_KG.html)
 
 
 ## Overview
