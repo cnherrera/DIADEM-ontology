@@ -129,6 +129,7 @@ uses_project_output:
   project: null
 
 # ── Work packages ─────────────────────────────────────────────────────────
+# The Work Packages sections are optional. To be used if you want granularity in the description of your project.
 # Example structure below. Duplicate this block once per work package,
 # fill it in, and remove any lines that don't apply.
 work_packages:               # optional
