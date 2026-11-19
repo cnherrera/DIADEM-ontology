@@ -1,3 +1,15 @@
+# === DIADEM MANAGED CHANGELOG - DO NOT EDIT ===
+# version: 1
+# generated-at: 2026-11-19T15:06:12+00:00
+# previous-version: -
+# previous-generated-at: -
+# source-yaml: yaml_templates_projects/project_MicroElec.yaml
+# source-yaml-sha256: f8a0bc386b703aedaf6bb521e23921176006aecc2c8d82787b365a6ae8c89b87
+# status: created
+# changes:
+#   - initial generation
+# === END DIADEM MANAGED CHANGELOG ===
+
 @prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-microelec.ttl#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -45,12 +57,25 @@
         ckey:LowDimMaterials,
         ckey:MaterialsSynthesis,
         ckey:CompositionDesign,
-        ckey:CombinatorialSynthesis,
         ckey:Heterostructures,
-        ckey:StructuralMaterials,
         ckey:Optimization,
         ckey:PhaseTransformations,
-        ckey:Oxides .
+        ckey:Oxides,
+        ckey:LeadFreeMaterials,
+        ckey:AutomatedExploration,
+        ckey:BayesianOptimization,
+        ckey:HighThroughputSynthesis,
+        ckey:ThinFilmDeposition,
+        ckey:CombinatorialSynthesis,
+        ckey:HighThroughputCharacterization,
+        ckey:ElectronicProperties,
+        ckey:SurfaceAnalysisTechniques,
+        ckey:FunctionalMaterials,
+        ckey:ThinFilm,
+        ckey:AIAssistedCharacterization,
+        ckey:MaterialsLibraries,
+        ckey:MaterialsDiscovery,
+        ckey:MaterialsDataGeneration .
 
 plat:Platform_combinatorial-growth-of-heterostructures-by-pld-pvd proj:hasPlatformAssociatedProject :Project_microelec .
 
