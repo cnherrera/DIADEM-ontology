@@ -306,9 +306,9 @@ org:CEA-LANIE rdf:type proj:ResearchOrganization ;
     proj:partOfOrganization org:CEA-DES .
 
 org:CEA-LETI rdf:type proj:ResearchOrganization ;
-    rdfs:label "CEA-LETI"@en ;
-    skos:prefLabel "CEA-LETI"@en ;
-    proj:acronym "CEA-LETI" ;
+    rdfs:label "CEA-Leti"@en ;
+    skos:prefLabel "CEA-Leti"@en ;
+    proj:acronym "CEA/DRT/Leti" ;
     proj:fullName "Laboratoire d'électronique et de technologie de l'information"@fr ;
     proj:organizationType "Research laboratory" ;
     proj:country "France" ;
@@ -371,7 +371,7 @@ org:CEA-SCCME rdf:type proj:ResearchOrganization ;
 org:CEA-SPEC rdf:type proj:ResearchOrganization ;
     rdfs:label "CEA-SPEC"@en ;
     skos:prefLabel "CEA-SPEC"@en ;
-    proj:acronym "CEA-SPEC" ;
+    proj:acronym "CEA/DRF/Iramis/SPEC" ;
     proj:fullName "Service de Physique de l'Etat Condensé"@fr ;
     proj:organizationType "Research organization" ;
     proj:country "France" ;
@@ -1292,6 +1292,33 @@ org:Constellium rdf:type proj:ResearchOrganization ;
     skos:prefLabel "Constellium"@en ;
     proj:acronym "Constellium" ;
     proj:fullName "Constellium C-TEC"@en ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+
+org:UniversiteDeTours rdf:type proj:ResearchOrganization ;
+    rdfs:label "Universite-de-Tours"@en ;
+    skos:prefLabel "Universite-de-Tours"@en ;
+    proj:acronym "Universite-de-Tours" ;
+    proj:fullName "Universite-de-Tours"@en ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+
+org:CEASPEC rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA-SPEC"@en ;
+    skos:prefLabel "CEA-SPEC"@en ;
+    proj:acronym "CEA-SPEC" ;
+    proj:fullName "Service de Physique de l'Etat Condensé (UMR 3680 CEA/CNRS)"@en ;
+    proj:organizationType "Research organization" ;
+    proj:country "France" .
+
+
+org:CEALETI rdf:type proj:ResearchOrganization ;
+    rdfs:label "CEA-LETI"@en ;
+    skos:prefLabel "CEA-LETI"@en ;
+    proj:acronym "CEA-LETI" ;
+    proj:fullName "Laboratoire d'électronique et de technologie de l'information (Grenoble)"@en ;
     proj:organizationType "Research organization" ;
     proj:country "France" .
 

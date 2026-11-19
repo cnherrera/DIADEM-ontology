@@ -1,3 +1,15 @@
+# === DIADEM MANAGED CHANGELOG - DO NOT EDIT ===
+# version: 1
+# generated-at: 2026-11-19T17:59:43+00:00
+# previous-version: -
+# previous-generated-at: -
+# source-yaml: yaml_templates_projects/project_AMADEUS.yaml
+# source-yaml-sha256: 9e26527443c12df07e8d3d1e5cf23865b996e6ab6c444d04da6701c171a4a34d
+# status: created
+# changes:
+#   - initial generation
+# === END DIADEM MANAGED CHANGELOG ===
+
 @prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-amadeus.ttl#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -22,7 +34,7 @@
 
 ## ------->> Project << --------------
 
-:Project_amadeus rdf:type proj:AAPProject ;
+:Project_amadeus rdf:type proj:TargetedProject ;
     rdfs:comment "Ontology representing all entities of the AMADEUS project" ;
     skos:prefLabel "AMADEUS" ;
     proj:fullName "Automated and machine learning driven design and discovery of high entropy ceramics perovskite oxides for energy applications" ;
@@ -37,24 +49,61 @@
         org:IPCMS,
         org:LEMTA,
         org:IC2MP,
-        org:SIMAP ;
+        org:SIMaP ;
     proj:gathersCompetence ckey:Modeling,
         ckey:HighThroughput,
         ckey:MachineLearning,
+        ckey:MLIP,
+        ckey:NeuralNetworkPotentials,
+        ckey:MLPValidation,
         ckey:WorkflowDesign,
-        ckey:DatabaseInfrastructureDesign,
+        ckey:WorkflowOrchestration,
+        ckey:AiidaWorkflows,
+        ckey:DatabaseInfrastructure,
+        ckey:DatabaseMining,
+        ckey:StructureDatabase,
         ckey:Perovskites,
+        ckey:FunctionalPerovskiteOxides,
         ckey:HighEntropyCeramics,
         ckey:Hydrogen,
         ckey:ElectrochemicalWaterSplitting,
         ckey:MaterialsShaping,
+        ckey:AdditiveManufacturing,
         ckey:MaterialsSynthesis,
+        ckey:HighThroughputSynthesis,
         ckey:Electrochemistry,
+        ckey:Electrocatalysis,
         ckey:EnergyTransition,
+        ckey:GreenTechnologies,
+        ckey:PhysicalModeling,
+        ckey:PredictiveModeling,
+        ckey:MultiscaleModeling,
+        ckey:CrystalStructurePrediction,
         ckey:Chemistry,
-        ckey:StructuralMaterials,
+        ckey:MolecularChemistry,
         ckey:SurfaceScience,
-        ckey:Electrode .
+        ckey:SurfaceReactivity,
+        ckey:SurfaceEngineering,
+        ckey:Electrode,
+        ckey:DatabaseInfrastructureDesign,
+        ckey:StructuralMaterials,
+        ckey:AIApproaches,
+        ckey:VASP,
+        ckey:QuantumESPRESSO,
+        ckey:MaterialsScience,
+        ckey:ComputationalMaterialsScience,
+        ckey:Catalysis,
+        ckey:EnergyMaterials,
+        ckey:HighEntropyMaterials,
+        ckey:AbInitioDFT,
+        ckey:ChemicalSpaceExploration,
+        ckey:XRayDiffraction,
+        ckey:ElectronMicroscopy,
+        ckey:RamanSpectroscopy,
+        ckey:ImpedanceSpectroscopy,
+        ckey:SolidStateSynthesis,
+        ckey:LiquidPhaseSynthesis,
+        ckey:PolymerDerivedCeramics .
 
 
 ## ------->> Work Packages << --------------
