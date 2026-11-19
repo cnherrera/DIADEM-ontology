@@ -77,6 +77,7 @@
             <input type="file" id="fileInput" accept=".ttl,.turtle,.rdf,.owl,.n3" style="display:none">
         </label>
         <button id="btnLoad" class="btn btn-primary">Upload →</button>
+        <button id="btnCollab" class="btn btn-secondary" title="DIADEM collaboration finder" style="background:#203070;color:#fff;border-color:#203070;">🤝 Collaboration</button>
         <button id="btnHelp" class="btn btn-secondary" title="Help / Navigation guide">❓ Help</button>
     </div>
 </header>
@@ -95,15 +96,7 @@
         </select>
     </div>
 
-    <div class="tb-group">
-        <span class="tb-label">View</span>
-        <button id="btnInstances"     class="toggle-btn on-rose">ABox</button>
-        <button id="btnTBox"      class="toggle-btn">TBox</button>
-<!---        <button id="btnTBox"      class="toggle-btn on-rose">TBox (Classes)</button> 
-        <button id="btnSubclass" class="toggle-btn on">subClassOf</button>
-        <button id="btnProps"    class="toggle-btn on-gold">Object Properties</button>
-        <button id="btnDatatypeProps" class="toggle-btn on-gold">Datatype Props</button> -->
-    </div>
+    <!-- View toggles (ABox/TBox) are in the bottom-left graph controls overlay -->
 
     <div class="tb-group">
         <div class="search-wrap">
@@ -116,18 +109,14 @@
         <button id="btnImportedConcepts" class="toggle-btn" title="Load &amp; show concepts from external ontologies used by instances">🔗 Imported Concepts</button>
     </div>
 -->
-    <div class="tb-group">
-        <button id="btnFit"    class="icon-btn" title="Fit to screen">⊞ Fit</button>
-        <button id="btnCenter" class="icon-btn" title="Reset view">↺ Reset</button>
-        <button id="btnFullExtension" class="icon-btn" title="Show everything">⛶ Full Extension</button>
-        <span class="tb-label" title="Show/hide the graph nodes and edges for Projects/Platforms">Show in graph: </span>
-        <button id="btnToggleProjectsGraph"  class="toggle-btn-green on-green" title="Toggle: show or hide Project nodes and edges in the graph below">📁 Projects</button>
-        <button id="btnTogglePlatformsGraph" class="toggle-btn-green" title="Toggle: show or hide Platform nodes and edges in the graph below">🖥️ Platforms</button>
-    </div>
+
 
     <div class="stats-area" id="statsArea"></div>
 
     <div class="tb-group" style="margin-left:auto;">
+        <button id="btnFit"    class="icon-btn" title="Fit to screen">⊞ Fit</button>
+        <button id="btnCenter" class="icon-btn" title="Reset view">↺ Reset</button>
+        <button id="btnFullExtension" class="icon-btn" title="Show everything">⛶ Full Extension</button>
         <span class="tb-label" title="Opens a side panel listing every Project/Platform instance as a clickable button">Open list panel: </span>
         <button id="btnProjectsToggle"  class="toggle-btn" title="Open a side panel with a button for each Project instance">📁 Projects list</button>
         <button id="btnPlatformsToggle" class="toggle-btn" title="Open a side panel with a button for each Platform instance">🖥️ Platforms list</button>
@@ -158,7 +147,21 @@
             <div class="loading-msg" id="loadingMsg">Uploading...</div>
         </div>
 
-        <!-- Instance-type filter panel — floating overlay, top-left of the graph.
+        <!-- Graph display controls — floating overlay, bottom-left of the graph -->
+        <div id="graphControls" style="position:absolute;left:12px;bottom:16px;z-index:15;display:none;flex-direction:column;gap:6px;background:rgba(255,255,255,0.96);border:1px solid #b9d7ea;border-radius:10px;box-shadow:0 4px 18px rgba(59,130,196,0.15);padding:8px 10px;">
+            <div class="tb-group">
+                <span class="tb-label" title="Show/hide the graph nodes and edges for Projects/Platforms">Show in graph:</span>
+                <button id="btnToggleProjectsGraph"  class="toggle-btn-green" title="Toggle: show or hide Project nodes and edges in the graph below">📁 Projects</button>
+                <button id="btnTogglePlatformsGraph" class="toggle-btn-green" title="Toggle: show or hide Platform nodes and edges in the graph below">🖥️ Platforms</button>
+            </div>
+            <div class="tb-group">
+                <span class="tb-label">View</span>
+                <button id="btnInstances"     class="toggle-btn on-rose">ABox</button>
+                <button id="btnTBox"      class="toggle-btn">TBox</button>
+            </div>
+        </div>
+
+        <!-- Instance-type filter panel — floating overlay, top-left of the graph. -  on-green
              Auto-populated with one button per instance type (class) currently
              shown in the KG. Clicking a button hides/shows that type's instances. -->
         <div id="typeFilterPanel" style="position:absolute;top:12px;left:12px;z-index:15;width:190px;max-height:80%;overflow-y:auto;background:rgba(255,255,255,0.96);border:1px solid #e5e0f5;border-radius:10px;box-shadow:0 4px 18px rgba(124,58,237,0.15);padding:10px;display:none;">
@@ -282,6 +285,60 @@
   </div>
 </div>
 
+
+<!-- ── Collaboration Modal ──────────────────────────────────────── -->
+<style>
+  #collabModal .ctab{padding:7px 13px;border-radius:8px;border:1px solid #c7d0e8;background:#eef1f9;color:#203070;cursor:pointer;font-size:.85rem}
+  #collabModal .ctab.active{background:#203070;color:#fff;border-color:#203070}
+  #collabModal .chip.active{background:#eef1f9;border-color:#203070;color:#203070}
+  #collabModal .card{border:1px solid #e5e7eb;border-radius:10px;padding:12px;margin-bottom:10px}
+  #collabModal .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+  #collabModal .chip{background:#f1f5f9;border:1px solid #e2e8f0;border-radius:999px;padding:2px 9px;font-size:.72rem;color:#334155}
+  #collabModal .chip.ck{border-color:#b9c4e3;color:#203070}
+  #collabModal .chip.tech{border-color:#a5d8ea;color:#0e7490}
+  #collabModal .chip.mat{border-color:#bbf7d0;color:#15803d}
+  #collabModal .chip.org{border-color:#f0d9a8;color:#b97b12}
+  #collabModal .bar{height:6px;background:#eef1f9;border-radius:999px;overflow:hidden;margin:6px 0}
+  #collabModal .bar>div{height:100%;background:linear-gradient(90deg,#203070,#3d5a9e)}
+  #collabModal .muted{color:#64748b;font-size:.85rem}
+  #collabModal a{color:#203070}
+  #collabModal a:hover{color:#e00010}
+  #collabModal select{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:7px 10px;font-size:.85rem;color:#334155;max-width:340px}
+  #collabModal table{width:100%;border-collapse:collapse;font-size:.8rem}
+  #collabModal th,#collabModal td{border-bottom:1px solid #eef2f7;padding:5px 7px;text-align:left;vertical-align:top}
+  #collabModal .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  #collabModal .score{margin-left:auto;color:#64748b;font-size:.8rem}
+  #collabModal .who{font-weight:600;color:#203070;cursor:pointer}
+  #collabModal .who:hover{text-decoration:underline;color:#e00010}
+  #collabModal .mtx{border-collapse:collapse;font-size:.7rem}
+  #collabModal .mtx th,#collabModal .mtx td{border:1px solid #eef2f7;padding:2px 4px;white-space:nowrap}
+  #collabModal .mtx th.proj{writing-mode:vertical-rl;transform:rotate(180deg);height:110px;cursor:pointer}
+  #collabModal .barrow{display:flex;align-items:center;gap:8px;font-size:.8rem;margin:3px 0}
+  #collabModal .barrow .lbl{width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  #collabModal .barrow .b{height:8px;background:linear-gradient(90deg,#203070,#3d5a9e);border-radius:6px}
+</style>
+<div id="collabModal" style="display:none;position:fixed;inset:0;z-index:320;background:rgba(0,0,0,0.55);align-items:center;justify-content:center;">
+  <div style="background:#fff;border-radius:12px;width:min(1100px,94vw);height:88vh;display:flex;flex-direction:column;box-shadow:0 8px 40px rgba(0,0,0,0.25);position:relative;overflow:hidden;">
+    <button id="collabModalClose" style="position:absolute;top:12px;right:16px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#888;z-index:2;">✕</button>
+    <div style="padding:18px 24px 0;">
+      <div style="font-size:1.15rem;font-weight:700;color:#203070;">🤝 DIADEM Collaboration Finder</div>
+      <div class="muted" style="margin:2px 0 10px;">Inferred from shared competences, platforms, techniques, materials, software and partners.
+        <a id="collabStandalone" href="collab-finder.html" target="_blank" style="color:#203070;">Open the full standalone version ↗</a></div>
+      <div style="display:flex;align-items:center;gap:10px;margin:0 0 10px;">
+        <button id="collabRecompute" style="background:#203070;color:#fff;border:none;border-radius:8px;padding:7px 13px;cursor:pointer;font-size:.85rem;font-weight:600;">↻ Recompute from loaded graph</button>
+        <span id="collabLive" class="muted"></span>
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;">
+        <button class="ctab active" data-c="peers">Find peers</button>
+        <button class="ctab" data-c="experts">Expert finder</button>
+        <button class="ctab" data-c="platforms">Platform brokerage</button>
+        <button class="ctab" data-c="matrix">Capability matrix</button>
+        <button class="ctab" data-c="dashboard">Program dashboard</button>
+      </div>
+    </div>
+    <div id="collabBody" style="flex:1;overflow:auto;padding:16px 24px 24px;"></div>
+  </div>
+</div>
 
 <!-- ══════════════════════════════════════════════════════════════ -->
 <!--                        JAVASCRIPT                            -->
@@ -2165,7 +2222,7 @@ const PLATFORM_ROOT_NAMES = new Set(['Platform']);
 // in the Cytoscape canvas at all. Defaults: Projects shown, Platforms
 // hidden - matches the default Program-mode view.
 // ─────────────────────────────────────────────────────────────────
-let showProjectsInGraph  = true;
+let showProjectsInGraph  = false;
 let showPlatformsInGraph = false;
 // Tracks which base view is currently active, so the two toggle
 // buttons above can refresh the right one (rather than always
@@ -3131,6 +3188,8 @@ async function processText(ttlText, sourceName) {
     await new Promise(r => setTimeout(r, 20));  // let UI breathe
 
     const store = new N3.Store(quads);
+    window.__DIADEM_STORE__ = store;
+    document.dispatchEvent(new CustomEvent('diadem-store-ready', { detail: { store } }));
     const ontology = extractOntology(store);
     parsedData = ontology;
 
@@ -3180,6 +3239,7 @@ async function processText(ttlText, sourceName) {
 
     document.getElementById('toolbar').style.display = 'flex';
     document.getElementById('legend').style.display  = 'flex';
+    document.getElementById('graphControls').style.display = 'flex';
     setStatus(`${nClass} classes · ${nInst} instances · ${nPEdges} object props · ${nDTEdges} datatype props — ${sourceName}`);
     renderConceptPanels(ontology);
     lastAppliedView = 'default';
@@ -3189,6 +3249,8 @@ async function processText(ttlText, sourceName) {
 }
 
 async function processStore(store, sourceName) {
+    window.__DIADEM_STORE__ = store;
+    document.dispatchEvent(new CustomEvent('diadem-store-ready', { detail: { store } }));
     setLoading(true, 'Extracting ontology…');
     document.getElementById('welcome').style.display = 'none';
     hiddenInstanceTypes.clear();
@@ -3210,6 +3272,7 @@ async function processStore(store, sourceName) {
 
     document.getElementById('toolbar').style.display = 'flex';
     document.getElementById('legend').style.display  = 'flex';
+    document.getElementById('graphControls').style.display = 'flex';
 
     setStatus('Loaded with imports → ' + sourceName);
     renderConceptPanels(ontology);
@@ -4078,7 +4141,8 @@ const HELP_CONTENT = {
                 "✕" button at the top of the panel clears the selection.
             </p>
             <p class="help-p help-note">
-                Note this list panel is independent from the green "Show in graph" toggles above: a Project/Platform can
+                Note this list panel is independent from the green "Show in graph" toggles in the bottom-left
+                of the graph: a Project/Platform can
                 be listed here (and clickable) even while its category is currently hidden from the graph — clicking it
                 will simply have no visible effect until the corresponding green toggle is turned on.
             </p>
@@ -4141,8 +4205,8 @@ const HELP_CONTENT = {
                 évidence avec ses connexions directes. Le bouton « ✕ » en haut du panneau réinitialise la sélection.
             </p>
             <p class="help-p help-note">
-                Notez que ce panneau de liste est indépendant des interrupteurs verts « Show in graph » ci-dessus : un
-                Project/Platform peut apparaître ici (et être cliquable) même si sa catégorie est actuellement masquée
+                Notez que ce panneau de liste est indépendant des interrupteurs verts « Show in graph » en bas
+                à gauche du graphe : un Project/Platform peut apparaître ici (et être cliquable) même si sa catégorie est actuellement masquée
                 du graphe — cliquer dessus n'aura simplement aucun effet visible tant que l'interrupteur vert
                 correspondant n'est pas activé.
             </p>
@@ -4201,6 +4265,313 @@ document.querySelectorAll('.help-lang-btn').forEach(btn => {
         .help-note { margin:0 0 10px; color:#64748b; font-size:0.78rem; }
     `;
     document.head.appendChild(style);
+})();
+</script>
+<script>
+(function(){
+  const P='https://cnherrera.github.io/DIADEM-ontology/proj-ontology.ttl#';
+  const RDF='http://www.w3.org/1999/02/22-rdf-syntax-ns#';
+  const RDFS='http://www.w3.org/2000/01/rdf-schema#';
+  const SKOS='http://www.w3.org/2004/02/skos/core#';
+  const WEIGHTS={competences:3,techniques:2,materials:2,platformNames:2,software:2,partners:1};
+  const EDGE_MIN=0.10, TOP_MATCHES=12;
+  const stripAcc=s=>String(s==null?'':s).normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  function localName(uri){let t=String(uri); if(t.indexOf('#')>=0)t=t.slice(t.lastIndexOf('#')+1); else t=t.slice(t.lastIndexOf('/')+1); return t;}
+  function pretty(name){ if(!name) return name; if(name.indexOf('_')>=0) return name.split('_').filter(Boolean).map(x=>x.charAt(0).toUpperCase()+x.slice(1).toLowerCase()).join(' '); const s=stripAcc(name).replace(/([a-z0-9])([A-Z])/g,'$1 $2'); return s.charAt(0).toUpperCase()+s.slice(1);}
+  function objs(store,s,...preds){const out=[];for(const p of preds)for(const x of store.getQuads(s,p,null,null))if(out.indexOf(x.object.value)<0)out.push(x.object.value);return out;}
+  function firstLit(store,s,...preds){for(const p of preds)for(const x of store.getQuads(s,p,null,null))if(x.object.termType==='Literal')return x.object.value;return null;}
+  function firstObj(store,s,pred){const x=store.getQuads(s,pred,null,null)[0];return x?x.object.value:null;}
+  function labelOf(store,uri){return firstLit(store,uri,SKOS+'prefLabel',RDFS+'label',P+'fullName',P+'acronym')||localName(uri);}
+  function subjOfType(store,local){return store.getQuads(null,RDF+'type',P+local,null).map(x=>x.subject.value);}
+
+  function extract(store){
+    const projectUris=Array.from(new Set([...subjOfType(store,'TargetedProject'),...subjOfType(store,'AAPProject')])).sort((a,b)=>localName(a).localeCompare(localName(b)));
+    const wpToProject=new Map();
+    store.getQuads(null,P+'hasWorkPackage',null,null).forEach(q=>wpToProject.set(q.object.value,q.subject.value));
+    store.getQuads(null,P+'partOf',null,null).forEach(q=>{if(!wpToProject.has(q.subject.value))wpToProject.set(q.subject.value,q.object.value);});
+    const wpComp=new Map();
+    for(const [wp,pr] of wpToProject){ for(const c of objs(store,wp,P+'gathersCompetence',P+'hasCompetence')){ if(!wpComp.has(pr))wpComp.set(pr,new Set()); wpComp.get(pr).add(pretty(localName(c))); } }
+    const platByProject=new Map(), techByProject=new Map(), matByProject=new Map();
+    for(const plat of subjOfType(store,'Platform')){
+      const pmeta={id:localName(plat),label:labelOf(store,plat),url:firstLit(store,plat,P+'documentationURL',P+'hasURL')};
+      const techs=objs(store,plat,P+'hasTechnique').map(t=>labelOf(store,t));
+      const mats=objs(store,plat,P+'hasMaterialType').map(m=>labelOf(store,m));
+      pmeta.techniques=techs; pmeta.materials=mats;
+      for(const pr of objs(store,plat,P+'hasPlatformAssociatedProject')){
+        if(!platByProject.has(pr))platByProject.set(pr,[]); platByProject.get(pr).push(pmeta);
+        if(!techByProject.has(pr))techByProject.set(pr,new Set()); techs.forEach(t=>techByProject.get(pr).add(t));
+        if(!matByProject.has(pr))matByProject.set(pr,new Set()); mats.forEach(m=>matByProject.get(pr).add(m));
+      }
+    }
+    const records=projectUris.map(pr=>{
+      const rec={
+        id:localName(pr), acronym:labelOf(store,pr),
+        title:firstLit(store,pr,P+'fullName')||'',
+        description:(firstLit(store,pr,P+'description')||'').trim(),
+        url:firstLit(store,pr,P+'documentationURL',P+'hasURL'),
+        type:store.getQuads(pr,RDF+'type',P+'AAPProject',null).length?'AAPProject':'TargetedProject',
+        start:firstLit(store,pr,P+'startDate'), end:firstLit(store,pr,P+'endDate'),
+        call:firstLit(store,pr,P+'callYear'),
+        coordinator:firstObj(store,pr,P+'hasCoordinator')?pretty(localName(firstObj(store,pr,P+'hasCoordinator'))):null,
+        coordinatingOrg:firstObj(store,pr,P+'hasCoordinatingOrganization')?localName(firstObj(store,pr,P+'hasCoordinatingOrganization')):null,
+        partners:Array.from(new Set(objs(store,pr,P+'hasPartner').map(localName))).sort(),
+        competences:Array.from(new Set([...objs(store,pr,P+'gathersCompetence',P+'hasCompetence').map(c=>pretty(localName(c))),...(wpComp.get(pr)||[])])).sort(),
+        platforms:(platByProject.get(pr)||[]).slice().sort((a,b)=>a.label.localeCompare(b.label)),
+        platformNames:Array.from(new Set((platByProject.get(pr)||[]).map(x=>x.label))).sort(),
+        techniques:Array.from(techByProject.get(pr)||[]).sort(),
+        materials:Array.from(matByProject.get(pr)||[]).sort()
+      };
+      const software=new Set(), used=new Set();
+      const scopes=[pr]; for(const [wp,p] of wpToProject) if(p===pr) scopes.push(wp);
+      for(const scope of scopes){
+        objs(store,scope,P+'producesOutput',P+'hasSoftwareComponent').forEach(o=>software.add(pretty(localName(o))));
+        objs(store,scope,P+'usesResource',P+'usesProjectOutput').forEach(o=>used.add(pretty(localName(o))));
+      }
+      rec.software=Array.from(software).sort(); rec.usedResources=Array.from(used).sort();
+      const people=new Set();
+      objs(store,pr,P+'hasCoordinator',P+'hasCoCoordinator').forEach(o=>people.add(pretty(localName(o))));
+      store.getQuads(null,P+'worksOn',null,null).forEach(q=>{const obj=q.object.value; if(obj===pr||wpToProject.get(obj)===pr) people.add(pretty(localName(q.subject.value)));});
+      rec.people=Array.from(people).sort();
+      return rec;
+    });
+    return {records,wpToProject,projectUris};
+  }
+
+  function weightedJaccard(a,b){let num=0,den=0;const shared={};for(const k in WEIGHTS){const w=WEIGHTS[k];const sa=new Set(a[k]||[]),sb=new Set(b[k]||[]);let common=0,uni=0;sa.forEach(x=>{uni++; if(sb.has(x))common++;});sb.forEach(x=>{if(!sa.has(x))uni++;});num+=w*common;den+=w*uni;if(common)shared[k]=Array.from(sa).filter(x=>sb.has(x)).sort();}return {score:den?num/den:0,shared};}
+  function buildMatches(records){const m={};for(const a of records){const scored=[];for(const b of records){if(a.id===b.id)continue;const r=weightedJaccard(a,b);if(r.score<=0)continue;scored.push({id:b.id,acronym:b.acronym,type:b.type,score:Math.round(r.score*10000)/10000,shared:r.shared});}scored.sort((x,y)=>y.score-x.score);m[a.id]=scored.slice(0,TOP_MATCHES);}return m;}
+
+  function detectCommunities(ids,edges,byId){
+    const n=ids.length; if(!n) return {commOf:new Map(),communities:[]};
+    const idx=new Map(); ids.forEach((id,i)=>idx.set(id,i));
+    const m=edges.reduce((s,e)=>s+e.weight,0)||1;
+    const deg=new Array(n).fill(0);
+    const W=Array.from({length:n},()=>new Array(n).fill(0));
+    edges.forEach(e=>{const i=idx.get(e.source),j=idx.get(e.target);if(i===undefined||j===undefined)return;W[i][j]+=e.weight;W[j][i]+=e.weight;deg[i]+=e.weight;deg[j]+=e.weight;});
+    const tot=deg.slice(), active=new Array(n).fill(true);
+    const members=ids.map((id,i)=>new Set([i]));
+    // greedy modularity (Clauset-Newman-Moore-style) merges
+    while(true){
+      let best=0,bi=-1,bj=-1;
+      for(let i=0;i<n;i++){ if(!active[i])continue; for(let j=i+1;j<n;j++){ if(!active[j])continue;
+        const gain=W[i][j]/m - (tot[i]*tot[j])/(2*m*m);
+        if(gain>best){best=gain;bi=i;bj=j;}
+      }}
+      if(bi<0) break;
+      active[bj]=false;
+      for(let k=0;k<n;k++){ if(k===bi||k===bj)continue; if(W[bj][k]){W[bi][k]+=W[bj][k];W[k][bi]=W[bi][k];} }
+      W[bi][bj]=0; W[bj][bi]=0;
+      tot[bi]+=tot[bj];
+      members[bj].forEach(x=>members[bi].add(x));
+    }
+    const remap={},mem=[],commOf=new Map();
+    for(let i=0;i<n;i++){ if(!active[i])continue; const key=i; if(!(key in remap)){remap[key]=mem.length;mem.push([]);} members[i].forEach(x=>{commOf.set(ids[x],remap[key]);mem[remap[key]].push(ids[x]);}); }
+    const communities=mem.map((idsIn,idxx)=>{const cnt={};idsIn.forEach(id=>{const r=byId[id];r.competences.forEach(c=>cnt[c]=(cnt[c]||0)+1);});const top=Object.entries(cnt).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0])).slice(0,3).map(x=>x[0]);return {id:idxx,label:top.join(' · ')||'Misc',size:idsIn.length};});
+    return {commOf,communities};
+  }
+
+  function buildNetwork(records,matches){
+    const nodes=new Map(); records.forEach(r=>nodes.set(r.id,{id:r.id,label:r.acronym,degree:0,community:0}));
+    const adj=new Map(); records.forEach(r=>adj.set(r.id,new Set()));
+    const edges=[], seen=new Set();
+    for(const a of records) for(const m of matches[a.id]) if(m.score>=EDGE_MIN){
+      const key=a.id<m.id? a.id+'|'+m.id : m.id+'|'+a.id;
+      if(seen.has(key))continue; seen.add(key);
+      const s=Object.values(m.shared).reduce((x,v)=>x+v.length,0);
+      edges.push({source:a.id,target:m.id,weight:m.score,shared:s});
+      adj.get(a.id).add(m.id); adj.get(m.id).add(a.id);
+    }
+    nodes.forEach(n=>n.degree=adj.get(n.id).size);
+    const byId={};records.forEach(r=>byId[r.id]=r);
+    const {commOf,communities}=detectCommunities(Array.from(nodes.keys()),edges,byId);
+    nodes.forEach(n=>{n.community=commOf.has(n.id)?commOf.get(n.id):0;});
+    return {nodes:Array.from(nodes.values()).map(n=>({id:n.id,label:n.label,community:n.community,degree:n.degree,betweenness:0,clustering:0})),edges,communities};
+  }
+
+  function buildComplementarity(records,matches){const byId={};records.forEach(r=>byId[r.id]=r);const reuse={},skills={};for(const a of records){const aUsed=new Set(a.usedResources.map(x=>x.toLowerCase()));const rl=[];for(const b of records){if(a.id===b.id)continue;const items=b.software.filter(x=>aUsed.has(x.toLowerCase()));if(items.length)rl.push({project:b.id,acronym:b.acronym,items:items.sort()});}reuse[a.id]=rl;const aComp=new Set(a.competences),counter={};for(const m of matches[a.id]){for(const c of byId[m.id].competences){if(aComp.has(c))continue;if(!counter[c])counter[c]={score:0,peers:[]};counter[c].score+=m.score;if(counter[c].peers.indexOf(m.acronym)<0)counter[c].peers.push(m.acronym);}}skills[a.id]=Object.entries(counter).sort((x,y)=>y[1].score-x[1].score).slice(0,8).map(([k,v])=>({skill:k,weight:Math.round(v.score*1000)/1000,peers:v.peers.slice(0,5)}));}return {reuse,skills};}
+
+  function buildExperts(store,records,wpToProject,projectUris){const prName=new Map();projectUris.forEach(pr=>prName.set(pr,labelOf(store,pr)));const recByAcr={};records.forEach(r=>recByAcr[r.acronym]=r);const people={};function prec(pid){if(!people[pid])people[pid]={id:pid,name:pretty(pid),roles:new Set(),projects:new Set(),competences:new Set(),direct:false};return people[pid];}
+    for(const pr of projectUris){objs(store,pr,P+'hasCoordinator').forEach(x=>{prec(localName(x)).roles.add('Coordinator');prec(localName(x)).projects.add(prName.get(pr));});objs(store,pr,P+'hasCoCoordinator').forEach(x=>{prec(localName(x)).roles.add('Co-coordinator');prec(localName(x)).projects.add(prName.get(pr));});}
+    store.getQuads(null,P+'worksOn',null,null).forEach(q=>{const obj=q.object.value;const pr=prName.has(obj)?obj:wpToProject.get(obj);if(pr&&prName.has(pr))prec(localName(q.subject.value)).projects.add(prName.get(pr));});
+    store.getQuads(null,P+'hasPersonnelType',null,null).forEach(q=>{const pid=localName(q.subject.value);if(people[pid])people[pid].roles.add(pretty(localName(q.object.value)));});
+    store.getQuads(null,P+'hasCompetence',null,null).forEach(q=>{const pid=localName(q.subject.value);if(people[pid]){people[pid].competences.add(pretty(localName(q.object.value)));people[pid].direct=true;}});
+    const experts=[],competencePeople={};Object.values(people).forEach(r=>{if(r.competences.size===0){r.projects.forEach(acr=>{const rec=recByAcr[acr];if(rec)rec.competences.forEach(c=>r.competences.add(c));});}r.roles=Array.from(r.roles).sort();r.projects=Array.from(r.projects).sort();r.competences=Array.from(r.competences).sort();experts.push(r);r.competences.forEach(c=>{if(!competencePeople[c])competencePeople[c]=[];competencePeople[c].push(r.name);});});experts.sort((a,b)=>a.name.localeCompare(b.name));return {experts,competencePeople};}
+
+  function buildPlatformIndex(store){const platforms=[];for(const plat of subjOfType(store,'Platform')){const techs=Array.from(new Set(objs(store,plat,P+'hasTechnique').map(t=>labelOf(store,t)))).sort();const mats=Array.from(new Set(objs(store,plat,P+'hasMaterialType').map(m=>labelOf(store,m)))).sort();const projs=Array.from(new Set(objs(store,plat,P+'hasPlatformAssociatedProject').map(x=>labelOf(store,x)))).sort();const types=Array.from(new Set(store.getQuads(plat,RDF+'type',null,null).map(x=>localName(x.object.value)).filter(t=>t.indexOf('Platform')>=0))).sort();platforms.push({id:localName(plat),label:labelOf(store,plat),url:firstLit(store,plat,P+'documentationURL',P+'hasURL'),techniques:techs,materials:mats,projects:projs,types});}platforms.sort((a,b)=>a.label.localeCompare(b.label));const idx={technique:{},material:{}};for(const p of platforms){for(const t of p.techniques){if(!idx.technique[t])idx.technique[t]={platforms:[],projects:[]};idx.technique[t].platforms.push(p.label);p.projects.forEach(x=>idx.technique[t].projects.push(x));}for(const m of p.materials){if(!idx.material[m])idx.material[m]={platforms:[],projects:[]};idx.material[m].platforms.push(p.label);p.projects.forEach(x=>idx.material[m].projects.push(x));}}for(const kind in idx){for(const k in idx[kind]){idx[kind][k].platforms=Array.from(new Set(idx[kind][k].platforms)).sort();idx[kind][k].projects=Array.from(new Set(idx[kind][k].projects)).sort();}}return {platforms,platformIndex:idx};}
+
+  function buildDashboard(records,experts){const cc={},oc={};for(const r of records){r.competences.forEach(c=>cc[c]=(cc[c]||0)+1);r.partners.forEach(o=>oc[o]=(oc[o]||0)+1);if(r.coordinatingOrg)oc[r.coordinatingOrg]=(oc[r.coordinatingOrg]||0)+1;}const tc=Object.entries(cc).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0])).slice(0,15);const to=Object.entries(oc).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0])).slice(0,12);const orphans=Object.entries(cc).filter(x=>x[1]===1).map(x=>x[0]).sort();const noPlat=records.filter(r=>!r.platforms.length).map(r=>r.acronym).sort();return {by_type:{Targeted:records.filter(r=>r.type==='TargetedProject').length,AAP:records.filter(r=>r.type==='AAPProject').length},people:experts.length,top_competences:tc,orphan_competences:orphans,top_organizations:to,projects_without_platform:noPlat,projects_with_platform:records.filter(r=>r.platforms.length).length};}
+
+  function computeCollabData(store){
+    const {records,wpToProject,projectUris}=extract(store);
+    const matches=buildMatches(records);
+    const network=buildNetwork(records,matches);
+    const comp=buildComplementarity(records,matches);
+    const {experts,competencePeople}=buildExperts(store,records,wpToProject,projectUris);
+    const {platforms,platformIndex}=buildPlatformIndex(store);
+    const dashboard=buildDashboard(records,experts);
+    const compSet=new Set();records.forEach(r=>r.competences.forEach(c=>compSet.add(c)));
+    const stats={projects:records.length,edges:network.edges.length,communities:network.communities.length,competences:compSet.size,platforms:platforms.length,people:experts.length};
+    return {generated:new Date().toISOString(),source:'(live graph)',weights:WEIGHTS,edge_min:EDGE_MIN,stats,dashboard,projects:records,matches,network:{nodes:network.nodes,edges:network.edges},communities:network.communities,complementarity:comp,experts,competencePeople,platforms,platformIndex};
+  }
+
+  // No precomputed/hardcoded data: everything is derived from the loaded graph.
+  const EMPTY_DATA = {projects:[],matches:{},competencePeople:{},experts:[],platforms:[],platformIndex:{technique:{},material:{}},dashboard:null,stats:{}};
+  let DATA = EMPTY_DATA;
+  let sel = (DATA.projects && DATA.projects[0]) ? DATA.projects[0].id : null;
+  let tab='peers';
+  let brokerKind='technique', brokerTerm=null;
+  let byId={}, matches={}, CP={}, EXP={};
+  function refreshGlobals(){ byId={}; (DATA.projects||[]).forEach(p=>byId[p.id]=p); matches=DATA.matches||{}; CP=DATA.competencePeople||{}; EXP={}; (DATA.experts||[]).forEach(e=>EXP[e.name]=e); if(DATA.projects && DATA.projects.length && !byId[sel]) sel=DATA.projects[0].id; }
+  refreshGlobals();
+  // If a graph is already in memory (e.g. it loaded before this panel initialised), compute now.
+  if (window.__DIADEM_STORE__) setTimeout(()=>recomputeFromStore(window.__DIADEM_STORE__), 0);
+  const $=id=>document.getElementById(id);
+  const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const chip=(t,c)=>`<span class="chip ${c||''}">${esc(t)}</span>`;
+  const SHARED={competences:['Competences','ck'],techniques:['Techniques','tech'],materials:['Materials','mat'],platformNames:['Platforms','tech'],software:['Software','ck'],partners:['Partners','org']};
+
+  function syncStandaloneLink(){
+    const link=$('collabStandalone'); if(!link) return;
+    const src=(document.getElementById('ttlUrl')?.value||'').trim();
+    link.href='collab-finder.html'+(src && !src.startsWith('file://')?'?ttl='+encodeURIComponent(src):'');
+  }
+  function openModal(){ syncStandaloneLink(); if(!DATA.dashboard && window.__DIADEM_STORE__) recomputeFromStore(window.__DIADEM_STORE__); $('collabModal').style.display='flex'; render(); }
+  function closeModal(){ $('collabModal').style.display='none'; }
+  $('btnCollab').addEventListener('click',openModal);
+  $('collabModalClose').addEventListener('click',closeModal);
+  $('collabModal').addEventListener('click',e=>{ if(e.target.id==='collabModal') closeModal(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
+  document.querySelectorAll('#collabModal .ctab').forEach(b=>b.onclick=()=>{
+    document.querySelectorAll('#collabModal .ctab').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active'); tab=b.dataset.c; render();
+  });
+
+  function flash(msg){ const el=$('collabLive'); if(!el) return; el.textContent=msg; clearTimeout(flash._t); flash._t=setTimeout(()=>{el.textContent='';},4500); }
+  function recomputeFromStore(store){
+    if(!store){ flash('No graph loaded yet — wait for the TTL to finish loading.'); return; }
+    try{
+      DATA = computeCollabData(store); refreshGlobals(); render();
+      flash('Live data recomputed from the loaded graph ('+DATA.stats.projects+' projects).');
+    }catch(e){ console.error('collab recompute failed', e); flash('Recompute failed: '+e.message); }
+  }
+  $('collabRecompute').addEventListener('click', ()=>recomputeFromStore(window.__DIADEM_STORE__));
+  document.addEventListener('diadem-store-ready', e=>{ window.__DIADEM_STORE__=e.detail.store; setTimeout(()=>recomputeFromStore(e.detail.store), 0); });
+
+  function render(){
+    const body=$('collabBody');
+    if(!DATA.dashboard){
+      body.innerHTML='<p class="muted">Waiting for the graph to load… the panel will compute automatically once the TTL is available.</p>';
+      return;
+    }
+    body.innerHTML = tab==='experts' ? expertsHTML()
+      : tab==='platforms' ? platformsHTML()
+      : tab==='matrix' ? matrixHTML()
+      : tab==='dashboard' ? dashboardHTML()
+      : peersHTML();
+    bind();
+  }
+
+  function peersHTML(){
+    const opts=DATA.projects.slice().sort((a,b)=>a.acronym.localeCompare(b.acronym))
+      .map(p=>`<option value="${p.id}" ${p.id===sel?'selected':''}>${esc(p.acronym)}</option>`).join('');
+    const p=byId[sel]||{};
+    const list=(matches[sel]||[]).slice(0,8);
+    const max=list[0]?list[0].score:1;
+    let h=`<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap">`+
+      `<select id="collabProjSel">${opts}</select>`+
+      `<span class="muted">Closest projects and the shared evidence.</span></div>`;
+    h+=`<div class="card"><b>${esc(p.acronym)}</b> — ${esc(p.title||'')}`+
+      `<div class="muted">${p.coordinatingOrg?esc(p.coordinatingOrg):''}${p.url?` · <a href="${p.url}" target="_blank">project page</a>`:''}</div>`+
+      `<div class="chips">${(p.competences||[]).slice(0,14).map(c=>chip(c,'ck')).join('')}</div></div>`;
+    if(!list.length) h+='<p class="muted">No overlap found for this project.</p>';
+    list.forEach(m=>{
+      let ev='';
+      Object.entries(m.shared).forEach(([k,v])=>{const lb=(SHARED[k]||[k,''])[0], cl=(SHARED[k]||['',''])[1];
+        ev+=`<div class="muted" style="margin-top:4px"><b>${lb}:</b> ${v.slice(0,10).map(x=>chip(x,cl)).join(' ')}</div>`;});
+      h+=`<div class="card"><div style="display:flex;align-items:center;gap:8px">`+
+        `<span class="who" data-go="${m.id}">${esc(m.acronym)}</span>`+
+        `<span class="score">affinity ${(m.score*100).toFixed(0)}%</span></div>`+
+        `<div class="bar"><div style="width:${(m.score/max*100).toFixed(0)}%"></div></div>${ev}</div>`;
+    });
+    return h;
+  }
+
+  function peopleHTML(c){
+    return (CP[c]||[]).map(name=>{
+      const x=EXP[name]||{name:name,roles:[],projects:[],direct:false};
+      return `<div class="card"><b>${esc(x.name)}</b> <span class="score">${x.direct?'direct':'inferred'}</span>`+
+        `<div class="muted">${(x.roles||[]).join(', ')}${x.projects&&x.projects.length?' · '+x.projects.join(', '):''}</div></div>`;
+    }).join('') || '<p class="muted">none</p>';
+  }
+  function expertsHTML(){
+    const comps=Object.keys(CP).sort((a,b)=>(CP[b].length-CP[a].length)||a.localeCompare(b));
+    const opts=comps.map(c=>`<option>${esc(c)}</option>`).join('');
+    const first=comps[0];
+    return `<p class="muted">Search a competence to find who to contact across the program.</p>`+
+      `<select id="collabExpSel">${opts}</select>`+
+      `<div id="collabExpPeople" style="margin-top:12px">${first?peopleHTML(first):''}</div>`;
+  }
+
+  function platformsHTML(){
+    const terms=Object.keys(DATA.platformIndex[brokerKind]).sort();
+    if(!brokerTerm && terms.length) brokerTerm=terms[0];
+    const opts=terms.map(t=>`<option ${t===brokerTerm?'selected':''}>${esc(t)}</option>`).join('');
+    const d=(brokerTerm?DATA.platformIndex[brokerKind][brokerTerm]:null)||{platforms:[],projects:[]};
+    const table=DATA.platforms.map(p=>`<tr><td>${p.url?`<a href="${p.url}" target="_blank">${esc(p.label)}</a>`:esc(p.label)}</td>`+
+      `<td>${esc(p.types.join(', '))}</td><td>${esc(p.techniques.join(', '))}</td>`+
+      `<td>${esc(p.materials.join(', '))}</td><td>${esc(p.projects.join(', '))}</td></tr>`).join('');
+    return `<p class="muted">Choose a technique or material type: which platforms offer it, and which projects use them.</p>`+
+      `<div class="chips" style="margin-bottom:8px">`+
+      `<button class="chip tech cbroker ${brokerKind==='technique'?'active':''}" data-kind="technique" style="cursor:pointer">By technique</button>`+
+      `<button class="chip mat cbroker ${brokerKind==='material'?'active':''}" data-kind="material" style="cursor:pointer">By material type</button></div>`+
+      `<select id="collabBrokerSel">${opts}</select>`+
+      `<div class="card" style="margin-top:12px"><b>${esc(brokerTerm||'')}</b>`+
+      `<div class="muted" style="margin-top:4px"><b>Platforms (${d.platforms.length}):</b> ${d.platforms.map(x=>chip(x,'tech')).join(' ')||'none'}</div>`+
+      `<div class="muted" style="margin-top:4px"><b>Projects (${d.projects.length}):</b> ${d.projects.map(x=>chip(x,'ck')).join(' ')||'none'}</div></div>`+
+      `<h4 style="color:#203070;margin:16px 0 6px">All platforms</h4>`+
+      `<div style="overflow:auto;max-height:34vh"><table><tr><th>Platform</th><th>Type</th><th>Techniques</th><th>Materials</th><th>Projects</th></tr>${table}</table></div>`;
+  }
+
+  function matrixHTML(){
+    const comps=DATA.dashboard.top_competences.map(x=>x[0]).slice(0,25);
+    const projs=DATA.projects.slice().sort((a,b)=>a.acronym.localeCompare(b.acronym));
+    let h='<p class="muted">Top competences × projects. Click a project header to open its peers.</p>'+
+      '<div style="overflow:auto;max-height:64vh"><table class="mtx"><tr><th>Competence</th>'+
+      projs.map(p=>`<th class="proj" data-go="${p.id}" title="${esc(p.title||p.acronym)}">${esc(p.acronym)}</th>`).join('')+'</tr>';
+    comps.forEach(c=>{h+='<tr><td>'+esc(c)+'</td>'+
+      projs.map(p=>`<td style="text-align:center">${p.competences.includes(c)?'●':''}</td>`).join('')+'</tr>';});
+    return h+'</table></div>';
+  }
+
+  function dashboardHTML(){
+    const s=DATA.stats, db=DATA.dashboard;
+    const kpi=(k,v)=>`<div class="card" style="text-align:center"><div style="font-size:1.5rem;font-weight:700;color:#203070">${v}</div><div class="muted">${k}</div></div>`;
+    let h='<div class="grid2" style="grid-template-columns:repeat(4,1fr)">'+
+      kpi('Projects',s.projects)+kpi('People',s.people)+kpi('Competences',s.competences)+kpi('Platforms',s.platforms)+
+      kpi('Inferred links',s.edges)+kpi('Communities',s.communities)+kpi('Targeted',db.by_type.Targeted)+kpi('AAP',db.by_type.AAP)+'</div>';
+    const maxC=db.top_competences[0]?db.top_competences[0][1]:1;
+    h+='<h4 style="color:#203070;margin:16px 0 6px">Top competences</h4>'+
+      db.top_competences.map(([c,n])=>`<div class="barrow"><span class="lbl">${esc(c)}</span><span class="b" style="width:${n/maxC*200}px"></span><span class="muted">${n}</span></div>`).join('');
+    const maxO=db.top_organizations[0]?db.top_organizations[0][1]:1;
+    h+='<h4 style="color:#203070;margin:16px 0 6px">Top organisations</h4>'+
+      db.top_organizations.map(([o,n])=>`<div class="barrow"><span class="lbl">${esc(o)}</span><span class="b" style="width:${n/maxO*200}px"></span><span class="muted">${n}</span></div>`).join('');
+    h+='<h4 style="color:#203070;margin:16px 0 6px">Under-covered competences (only 1 project)</h4><div class="chips">'+
+      (db.orphan_competences||[]).map(c=>chip(c)).join(' ')+'</div>';
+    h+='<h4 style="color:#203070;margin:16px 0 6px">Projects with no associated platform</h4><div class="chips">'+
+      (db.projects_without_platform||[]).map(a=>chip(a,'org')).join(' ')+'</div>';
+    return h;
+  }
+
+  function bind(){
+    const ps=$('collabProjSel'); if(ps) ps.onchange=e=>{sel=e.target.value; render();};
+    const es=$('collabExpSel'); if(es) es.onchange=e=>{ $('collabExpPeople').innerHTML=peopleHTML(e.target.value); };
+    document.querySelectorAll('#collabBody .cbroker').forEach(b=>b.onclick=()=>{brokerKind=b.dataset.kind; brokerTerm=null; render();});
+    const bs=$('collabBrokerSel'); if(bs) bs.onchange=e=>{brokerTerm=e.target.value; render();};
+    document.querySelectorAll('#collabBody [data-go]').forEach(el=>el.onclick=()=>{
+      sel=el.dataset.go; tab='peers';
+      document.querySelectorAll('#collabModal .ctab').forEach(x=>x.classList.toggle('active',x.dataset.c==='peers'));
+      render();
+    });
+  }
 })();
 </script>
 </body>
