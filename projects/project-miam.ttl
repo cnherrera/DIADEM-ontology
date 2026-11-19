@@ -1,3 +1,15 @@
+# === DIADEM MANAGED CHANGELOG - DO NOT EDIT ===
+# version: 1
+# generated-at: 2026-11-19T22:01:16+00:00
+# previous-version: -
+# previous-generated-at: -
+# source-yaml: yaml_templates_projects/project_MIAM.yaml
+# source-yaml-sha256: 03f30a620f9a519e877c4b6221a0e46a96c93180c55198d79c197f94e88835a5
+# status: created
+# changes:
+#   - initial generation
+# === END DIADEM MANAGED CHANGELOG ===
+
 @prefix : <https://cnherrera.github.io/DIADEM-ontology/projects/project-miam.ttl#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -22,7 +34,7 @@
 
 ## ------->> Project << --------------
 
-:Project_miam rdf:type proj:AAPProject ;
+:Project_miam rdf:type proj:TargetedProject ;
     rdfs:comment "Ontology representing all entities of the MIAM project" ;
     skos:prefLabel "MIAM" ;
     proj:fullName "Accelerating the discovery of innovative permanent magnets with reduced content of critical rare earths" ;
@@ -31,7 +43,7 @@
     proj:startDate "2024-10-01"^^xsd:date ;
     proj:endDate "2028-09-30"^^xsd:date ;
     proj:hasURL "https://www.pepr-diadem.fr/projet/miam/"^^xsd:anyURI ;
-    proj:hasCoordinator ppl:JULIE_MAISONNEUVE ;
+    proj:hasCoordinator ppl:SORANA_LUCA ;
     proj:hasCoordinatingOrganization org:CEA ;
     proj:hasPartner org:CEA-LMCM,
         org:CEA-LM2T,
@@ -48,7 +60,9 @@
         ckey:PermanentMagnets,
         ckey:Magnets,
         ckey:PhaseTransformations,
-        ckey:MachineLearning .
+        ckey:MachineLearning,
+        ckey:Metallurgy,
+        ckey:CombinatorialMetallurgy .
 
 
 ## ------->> Work Packages << --------------
